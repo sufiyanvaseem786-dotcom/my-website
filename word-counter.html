@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Word Counter - Nova Power Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .title h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .title span {
+      color: #2563eb;
+    }
+
+    .title p {
+      color: #667085;
+      font-size: 17px;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    textarea {
+      width: 100%;
+      height: 300px;
+      padding: 18px;
+      border: 1px solid #d0d5dd;
+      border-radius: 12px;
+      resize: vertical;
+      font-size: 17px;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: #f5f7fb;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      color: #2563eb;
+      margin-bottom: 5px;
+    }
+
+    .stat span {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .clear {
+      background: #ef4444;
+      color: white;
+    }
+
+    .home {
+      background: #2563eb;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      background: #111827;
+      color: white;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .title h1 {
+        font-size: 32px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      textarea {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">⚡ Nova Power Tools</div>
+    <a href="index.html">← Back to Home</a>
+  </header>
+
+  <main class="container">
+
+    <div class="title">
+      <h1>🔢 <span>Word Counter</span></h1>
+      <p>Count words, characters and lines instantly.</p>
+    </div>
+
+    <div class="box">
+
+      <textarea
+        id="textInput"
+        placeholder="Type or paste your text here..."
+        oninput="countText()"
+      ></textarea>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong id="words">0</strong>
+          <span>Words</span>
+        </div>
+
+        <div class="stat">
+          <strong id="characters">0</strong>
+          <span>Characters</span>
+        </div>
+
+        <div class="stat">
+          <strong id="noSpaces">0</strong>
+          <span>Without Spaces</span>
+        </div>
+
+        <div class="stat">
+          <strong id="lines">0</strong>
+          <span>Lines</span>
+        </div>
+
+      </div>
+
+      <div class="buttons">
+        <button class="clear" onclick="clearText()">Clear</button>
+        <button class="home" onclick="goHome()">Home</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Nova Power Tools</p>
+    <p>Free • Fast • Simple</p>
+  </footer>
+
+  <script>
+
+    function countText() {
+
+      const text = document.getElementById("textInput").value;
+
+      // Word count
+      const words = text.trim() === ""
+        ? 0
+        : text.trim().split(/\s+/).length;
+
+      // Character count
+      const characters = text.length;
+
+      // Characters without spaces
+      const noSpaces = text.replace(/\s/g, "").length;
+
+      // Line count
+      const lines = text === ""
+        ? 0
+        : text.split(/\n/).length;
+
+      document.getElementById("words").textContent = words;
+      document.getElementById("characters").textContent = characters;
+      document.getElementById("noSpaces").textContent = noSpaces;
+      document.getElementById("lines").textContent = lines;
+    }
+
+    function clearText() {
+
+      document.getElementById("textInput").value = "";
+
+      countText();
+    }
+
+    function goHome() {
+
+      window.location.href = "index.html";
+    }
+
+  </script>
+
+</body>
+</html>
