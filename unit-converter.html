@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit Converter - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:800px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.title span{
+  color:#2563eb;
+}
+
+.title p{
+  color:#667085;
+  font-size:17px;
+}
+
+.box{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+select,
+input{
+  width:100%;
+  padding:13px;
+  margin-bottom:18px;
+  border:1px solid #d0d5dd;
+  border-radius:9px;
+  font-size:16px;
+  background:white;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:9px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.convert{
+  background:#2563eb;
+  color:white;
+}
+
+.result{
+  margin-top:20px;
+  padding:20px;
+  background:#eff6ff;
+  border-radius:10px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  color:#2563eb;
+  min-height:30px;
+}
+
+.home{
+  margin-top:12px;
+  background:#e5e7eb;
+  color:#172033;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+  background:#111827;
+  color:white;
+}
+
+@media(max-width:600px){
+
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .title h1{
+    font-size:32px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚡ Nova Power Tools</div>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<main class="container">
+
+  <div class="title">
+    <h1>🔄 <span>Unit Converter</span></h1>
+    <p>Convert length, weight, temperature and speed easily.</p>
+  </div>
+
+  <div class="box">
+
+    <label for="category">Conversion Type</label>
+
+    <select id="category" onchange="loadUnits()">
+      <option value="length">Length</option>
+      <option value="weight">Weight</option>
+      <option value="temperature">Temperature</option>
+      <option value="speed">Speed</option>
+    </select>
+
+    <div class="grid">
+
+      <div>
+        <label for="fromUnit">From</label>
+        <select id="fromUnit"></select>
+      </div>
+
+      <div>
+        <label for="toUnit">To</label>
+        <select id="toUnit"></select>
+      </div>
+
+    </div>
+
+    <label for="value">Enter Value</label>
+
+    <input
+      type="number"
+      id="value"
+      placeholder="Enter a number"
+    >
+
+    <button class="convert" onclick="convertUnit()">
+      Convert
+    </button>
+
+    <div class="result" id="result">
+      Result will appear here
+    </div>
+
+    <button class="home" onclick="goHome()">
+      Home
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Nova Power Tools</p>
+  <p>Free • Fast • Simple</p>
+</footer>
+
+<script>
+
+const units = {
+
+  length: {
+    meter: 1,
+    kilometer: 1000,
+    centimeter: 0.01,
+    millimeter: 0.001,
+    mile: 1609.344,
+    yard: 0.9144,
+    foot: 0.3048,
+    inch: 0.0254
+  },
+
+  weight: {
+    kilogram: 1,
+    gram: 0.001,
+    milligram: 0.000001,
+    pound: 0.45359237,
+    ounce: 0.0283495231
+  },
+
+  speed: {
+    "km/h": 1,
+    "mph": 1.609344,
+    "m/s": 3.6,
+    "knot": 1.852
+  }
+
+};
+
+
+function loadUnits(){
+
+  const category =
+    document.getElementById("category").value;
+
+  const from =
+    document.getElementById("fromUnit");
+
+  const to =
+    document.getElementById("toUnit");
+
+  from.innerHTML = "";
+  to.innerHTML = "";
+
+  if(category === "temperature"){
+
+    const temperatureUnits = [
+      "Celsius",
+      "Fahrenheit"
+    ];
+
+    temperatureUnits.forEach(unit => {
+
+      from.innerHTML +=
+        `<option value="${unit}">${unit}</option>`;
+
+      to.innerHTML +=
+        `<option value="${unit}">${unit}</option>`;
+
+    });
+
+    return;
+  }
+
+  Object.keys(units[category]).forEach(unit => {
+
+    from.innerHTML +=
+      `<option value="${unit}">${unit}</option>`;
+
+    to.innerHTML +=
+      `<option value="${unit}">${unit}</option>`;
+
+  });
+
+}
+
+
+function convertUnit(){
+
+  const category =
+    document.getElementById("category").value;
+
+  const value =
+    Number(document.getElementById("value").value);
+
+  const from =
+    document.getElementById("fromUnit").value;
+
+  const to =
+    document.getElementById("toUnit").value;
+
+  const result =
+    document.getElementById("result");
+
+  if(isNaN(value)){
+
+    result.textContent =
+      "Please enter a value.";
+
+    return;
+  }
+
+
+  let converted;
+
+
+  if(category === "temperature"){
+
+    converted =
+      convertTemperature(value, from, to);
+
+  }else{
+
+    const baseValue =
+      value * units[category][from];
+
+    converted =
+      baseValue / units[category][to];
+
+  }
+
+
+  result.textContent =
+    `${value} ${from} = ${Number(converted.toFixed(6))} ${to}`;
+
+}
+
+
+function convertTemperature(value, from, to){
+
+  if(from === to){
+    return value;
+  }
+
+  if(from === "Celsius" && to === "Fahrenheit"){
+    return (value * 9/5) + 32;
+  }
+
+  if(from === "Fahrenheit" && to === "Celsius"){
+    return (value - 32) * 5/9;
+  }
+
+}
+
+
+function goHome(){
+
+  window.location.href = "index.html";
+
+}
+
+
+loadUnits();
+
+</script>
+
+</body>
+</html>
