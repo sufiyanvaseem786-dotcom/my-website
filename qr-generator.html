@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Code Generator - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:700px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.title span{
+  color:#2563eb;
+}
+
+.title p{
+  color:#667085;
+}
+
+.box{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+textarea{
+  width:100%;
+  height:130px;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+  resize:vertical;
+  font-size:16px;
+  outline:none;
+}
+
+textarea:focus{
+  border-color:#2563eb;
+}
+
+.generate{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:9px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.qr-area{
+  text-align:center;
+  margin-top:25px;
+  min-height:20px;
+}
+
+.qr-area img{
+  max-width:250px;
+  width:100%;
+  padding:10px;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+.download{
+  display:none;
+  margin:15px auto 0;
+  padding:12px 22px;
+  background:#16a34a;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  width:max-content;
+}
+
+.home{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  background:#e5e7eb;
+  color:#172033;
+  border:none;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+  background:#111827;
+  color:white;
+}
+
+@media(max-width:600px){
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .title h1{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚡ Nova Power Tools</div>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<main class="container">
+
+  <div class="title">
+    <h1>📱 <span>QR Code Generator</span></h1>
+    <p>Create a QR code from text, links or any information.</p>
+  </div>
+
+  <div class="box">
+
+    <textarea
+      id="qrText"
+      placeholder="Enter text or paste a URL here..."
+    ></textarea>
+
+    <button class="generate" onclick="generateQR()">
+      Generate QR Code
+    </button>
+
+    <div class="qr-area" id="qrArea"></div>
+
+    <a
+      id="download"
+      class="download"
+      href="#"
+      download="nova-power-tools-qr.png"
+    >
+      Download QR
+    </a>
+
+    <button class="home" onclick="goHome()">
+      Home
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Nova Power Tools</p>
+  <p>Free • Fast • Simple</p>
+</footer>
+
+<script>
+
+function generateQR(){
+
+  const text =
+    document.getElementById("qrText").value.trim();
+
+  if(text === ""){
+    alert("Please enter some text or a URL.");
+    return;
+  }
+
+  const qrArea =
+    document.getElementById("qrArea");
+
+  const download =
+    document.getElementById("download");
+
+  const encodedText =
+    encodeURIComponent(text);
+
+  const qrURL =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
+    + encodedText;
+
+  qrArea.innerHTML =
+    '<img id="qrImage" src="' + qrURL +
+    '" alt="Generated QR Code">';
+
+  download.href = qrURL;
+  download.style.display = "block";
+}
+
+function goHome(){
+
+  window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
