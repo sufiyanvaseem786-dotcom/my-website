@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>URL Encoder Decoder - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:800px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.title span{
+  color:#2563eb;
+}
+
+.title p{
+  color:#667085;
+  font-size:17px;
+}
+
+.box{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+textarea{
+  width:100%;
+  height:180px;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+  resize:vertical;
+  font-size:16px;
+  outline:none;
+  margin-bottom:15px;
+}
+
+textarea:focus{
+  border-color:#2563eb;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+button{
+  border:none;
+  padding:13px 22px;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.encode{
+  background:#2563eb;
+  color:white;
+}
+
+.decode{
+  background:#7c3aed;
+  color:white;
+}
+
+.copy{
+  background:#16a34a;
+  color:white;
+}
+
+.clear{
+  background:#ef4444;
+  color:white;
+}
+
+.home{
+  width:100%;
+  margin-top:15px;
+  background:#e5e7eb;
+  color:#172033;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+  background:#111827;
+  color:white;
+}
+
+@media(max-width:600px){
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .title h1{
+    font-size:32px;
+  }
+
+  .buttons button{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚡ Nova Power Tools</div>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<main class="container">
+
+  <div class="title">
+    <h1>🔗 <span>URL Encoder & Decoder</span></h1>
+    <p>Encode or decode URLs and text instantly.</p>
+  </div>
+
+  <div class="box">
+
+    <label for="inputText">Enter URL or Text</label>
+
+    <textarea
+      id="inputText"
+      placeholder="Enter your URL or text here..."
+    ></textarea>
+
+    <div class="buttons">
+
+      <button class="encode" onclick="encodeText()">
+        Encode
+      </button>
+
+      <button class="decode" onclick="decodeText()">
+        Decode
+      </button>
+
+      <button class="copy" onclick="copyText()">
+        Copy
+      </button>
+
+      <button class="clear" onclick="clearText()">
+        Clear
+      </button>
+
+    </div>
+
+    <button class="home" onclick="goHome()">
+      Home
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Nova Power Tools</p>
+  <p>Free • Fast • Simple</p>
+</footer>
+
+<script>
+
+function encodeText(){
+
+  const input =
+    document.getElementById("inputText");
+
+  if(input.value.trim() === ""){
+    alert("Please enter some text first.");
+    return;
+  }
+
+  input.value =
+    encodeURIComponent(input.value);
+}
+
+
+function decodeText(){
+
+  const input =
+    document.getElementById("inputText");
+
+  if(input.value.trim() === ""){
+    alert("Please enter encoded text first.");
+    return;
+  }
+
+  try{
+
+    input.value =
+      decodeURIComponent(input.value);
+
+  }catch(error){
+
+    alert("Invalid encoded text.");
+
+  }
+}
+
+
+function copyText(){
+
+  const input =
+    document.getElementById("inputText");
+
+  if(input.value.trim() === ""){
+    alert("Nothing to copy.");
+    return;
+  }
+
+  navigator.clipboard.writeText(input.value);
+
+  alert("Copied!");
+
+}
+
+
+function clearText(){
+
+  document.getElementById("inputText").value = "";
+
+}
+
+
+function goHome(){
+
+  window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
