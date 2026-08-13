@@ -1000,13 +1000,97 @@ function searchProducts(){
 
 function addToCart(productName){
 
+  const products = {
+
+    "Professional Drill Machine": {
+      price:1499,
+      icon:"🔩"
+    },
+
+    "Heavy Duty Grinder Machine": {
+      price:1899,
+      icon:"⚙️"
+    },
+
+    "Electric Hammer Machine": {
+      price:2499,
+      icon:"🔨"
+    },
+
+    "Power Cutter Machine": {
+      price:2199,
+      icon:"✂️"
+    },
+
+    "High Power Blower": {
+      price:999,
+      icon:"💨"
+    },
+
+    "Welding Machine": {
+      price:3499,
+      icon:"🔥"
+    }
+
+  };
+
+
+  let product = products[productName];
+
+  if(!product){
+    return;
+  }
+
+
+  let cart =
+    JSON.parse(localStorage.getItem("novaCart")) || [];
+
+
+  let existing =
+    cart.find(function(item){
+
+      return item.name === productName;
+
+    });
+
+
+  if(existing){
+
+    existing.quantity += 1;
+
+  }else{
+
+    cart.push({
+
+      name:productName,
+
+      price:product.price,
+
+      icon:product.icon,
+
+      quantity:1
+
+    });
+
+  }
+
+
+  localStorage.setItem(
+    "novaCart",
+    JSON.stringify(cart)
+  );
+
+
   let message =
     document.getElementById("cartMessage");
+
 
   message.innerText =
     productName + " added to cart! 🛒";
 
+
   message.style.display = "block";
+
 
   setTimeout(function(){
 
