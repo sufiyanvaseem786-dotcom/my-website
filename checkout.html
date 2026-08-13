@@ -406,12 +406,11 @@ function placeOrder(){
   let pincode =
     document.getElementById("pincode").value.trim();
 
+  let email =
+    document.getElementById("email").value.trim();
 
-  if(!name ||
-     !phone ||
-     !address ||
-     !city ||
-     !pincode){
+
+  if(!name || !phone || !address || !city || !pincode){
 
     alert("Please fill all required details.");
 
@@ -444,39 +443,57 @@ function placeOrder(){
     ).value;
 
 
-  let order = {
-
-    orderId:
-      "NPT" + Date.now(),
-
-    customerName:name,
-
-    phone:phone,
-
-    email:
-      document.getElementById("email").value,
-
-    address:address,
-
-    city:city,
-
-    pincode:pincode,
-
-    payment:payment,
-
-    items:cart,
-
-    total:
-      document.getElementById("total").innerText
-
-  };
+  let total =
+    document.getElementById("total").innerText;
 
 
-  console.log("ORDER:",order);
+  let items = "";
+
+  cart.forEach(function(item){
+
+    items +=
+      item.name +
+      " × " +
+      item.quantity +
+      " = ₹" +
+      (item.price * item.quantity).toLocaleString("en-IN") +
+      "\n";
+
+  });
 
 
-  document.getElementById("success")
-    .style.display = "block";
+  let message =
+`🛒 *NEW ORDER - NOVA POWER TOOLS*
+
+👤 Customer: ${name}
+📱 Mobile: ${phone}
+📧 Email: ${email || "Not provided"}
+
+📦 *Products:*
+${items}
+
+💰 *Total: ₹${total}*
+
+💳 Payment: ${payment}
+
+🏠 *Delivery Address:*
+${address}
+${city} - ${pincode}
+
+Please confirm this order.`;
+
+
+
+  let whatsappNumber = "917355521660";
+
+  let whatsappURL =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(whatsappURL, "_blank");
 
 
   localStorage.removeItem("novaCart");
