@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nova Power Tools</title>
+<title>Nova Power Tools | Power Tools & Free Online Tools</title>
 
 <style>
 *{
@@ -15,145 +15,393 @@
 
 body{
   font-family:Arial,sans-serif;
-  background:#f5f7fb;
+  background:#eaeded;
   color:#172033;
 }
 
+/* TOP HEADER */
 header{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  background:#131921;
   color:white;
-  padding:22px 7%;
+  padding:12px 4%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  gap:25px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
   font-size:24px;
   font-weight:bold;
+  white-space:nowrap;
+  color:#fff;
 }
 
-nav a{
+.logo span{
+  color:#ffb000;
+}
+
+.search-area{
+  flex:1;
+  display:flex;
+  max-width:750px;
+}
+
+.search-area input{
+  flex:1;
+  padding:13px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  border-radius:5px 0 0 5px;
+}
+
+.search-area button{
+  width:55px;
+  border:none;
+  background:#ffb000;
+  font-size:20px;
+  cursor:pointer;
+  border-radius:0 5px 5px 0;
+}
+
+.header-links{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.header-links a{
   color:white;
   text-decoration:none;
-  margin-left:20px;
+  font-size:14px;
 }
 
+.cart{
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* CATEGORY BAR */
+.category-bar{
+  background:#232f3e;
+  color:white;
+  padding:12px 4%;
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+}
+
+.category-bar a{
+  color:white;
+  text-decoration:none;
+  white-space:nowrap;
+  font-size:15px;
+}
+
+/* HERO */
 .hero{
+  margin:0;
+  min-height:330px;
+  background:linear-gradient(135deg,#172554,#2563eb,#7c3aed);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:75px 20px;
-  background:white;
+  padding:50px 20px;
+}
+
+.hero-content{
+  max-width:850px;
 }
 
 .hero h1{
-  font-size:45px;
+  font-size:48px;
   margin-bottom:15px;
 }
 
 .hero h1 span{
-  color:#2563eb;
+  color:#ffd166;
 }
 
 .hero p{
-  font-size:18px;
-  color:#667085;
-  margin-bottom:30px;
+  font-size:19px;
+  margin-bottom:25px;
 }
 
-.search{
-  width:90%;
-  max-width:600px;
-  padding:16px 20px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
+.shop-btn{
+  display:inline-block;
+  padding:14px 28px;
+  background:#ffb000;
+  color:#111;
+  text-decoration:none;
+  border-radius:7px;
+  font-weight:bold;
 }
 
+/* SECTIONS */
 .section{
-  padding:55px 7%;
+  padding:35px 4%;
 }
 
-.section h2{
+.section-title{
+  font-size:27px;
+  margin-bottom:22px;
+}
+
+/* CATEGORY CARDS */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.category-card{
+  background:white;
+  padding:25px 15px;
   text-align:center;
-  font-size:32px;
-  margin-bottom:35px;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.category-card:hover{
+  transform:translateY(-3px);
+}
+
+.category-icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.product{
+  background:white;
+  padding:18px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.product-image{
+  height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f3f4f6;
+  border-radius:6px;
+  font-size:75px;
+  margin-bottom:15px;
+}
+
+.product h3{
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+.rating{
+  color:#f59e0b;
+  margin-bottom:8px;
+}
+
+.price{
+  font-size:23px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.old-price{
+  color:#667085;
+  text-decoration:line-through;
+  font-size:14px;
+}
+
+.discount{
+  color:#15803d;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.product-buttons{
+  display:flex;
+  gap:8px;
+}
+
+.product-buttons button{
+  flex:1;
+  padding:10px 5px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.add-cart{
+  background:#ffd814;
+}
+
+.buy{
+  background:#ff9900;
+}
+
+/* ONLINE TOOLS */
+.tools-section{
+  background:#f5f7fb;
 }
 
 .tools{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
 }
 
 .tool{
   background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  transition:.2s;
+  padding:22px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
-.tool:hover{
-  transform:translateY(-5px);
-}
-
-.icon{
+.tool-icon{
   font-size:35px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .tool h3{
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .tool p{
   color:#667085;
   line-height:1.5;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .tool button{
   background:#2563eb;
-  border:none;
   color:white;
-  padding:10px 18px;
-  border-radius:8px;
+  border:none;
+  padding:10px 17px;
+  border-radius:6px;
   cursor:pointer;
 }
 
+/* ABOUT */
 .about{
   background:white;
   text-align:center;
 }
 
 .about p{
-  max-width:700px;
+  max-width:750px;
   margin:auto;
   color:#667085;
   line-height:1.7;
 }
 
+/* FOOTER */
 footer{
-  background:#111827;
+  background:#131921;
   color:white;
-  text-align:center;
-  padding:30px 15px;
-  margin-top:30px;
+  padding:40px 5%;
+  margin-top:0;
 }
 
-@media(max-width:600px){
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:30px;
+}
+
+footer h3{
+  margin-bottom:15px;
+}
+
+footer p,
+footer a{
+  color:#ddd;
+  text-decoration:none;
+  line-height:1.8;
+}
+
+.copyright{
+  text-align:center;
+  border-top:1px solid #374151;
+  margin-top:30px;
+  padding-top:20px;
+}
+
+/* CART */
+#cartMessage{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#16a34a;
+  color:white;
+  padding:14px 20px;
+  border-radius:8px;
+  display:none;
+  z-index:2000;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
   header{
-    flex-direction:column;
-    gap:15px;
+    flex-wrap:wrap;
+    gap:10px;
   }
 
-  nav a{
-    margin:0 7px;
+  .logo{
+    width:100%;
+    text-align:center;
+  }
+
+  .search-area{
+    order:2;
+    width:100%;
+    max-width:none;
+  }
+
+  .header-links{
+    display:none;
+  }
+
+  .category-bar{
+    gap:18px;
+  }
+
+  .hero{
+    min-height:300px;
   }
 
   .hero h1{
     font-size:34px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-image{
+    height:130px;
+    font-size:55px;
+  }
+
+  .product-buttons{
+    flex-direction:column;
   }
 }
 </style>
@@ -161,138 +409,619 @@ footer{
 
 <body>
 
-<header>
-  <div class="logo">⚡ Nova Power Tools</div>
+<!-- HEADER -->
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-  </nav>
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <div class="search-area">
+    <input
+      type="text"
+      id="searchBox"
+      placeholder="Search Power Tools..."
+      onkeyup="searchProducts()"
+    >
+
+    <button onclick="searchProducts()">🔍</button>
+  </div>
+
+  <div class="header-links">
+    <a href="#">👤 Account</a>
+    <a href="#">📦 Orders</a>
+    <div class="cart">🛒</div>
+  </div>
+
 </header>
 
-<section class="hero" id="home">
 
-  <h1>Powerful <span>Free Tools</span></h1>
+<!-- CATEGORY BAR -->
 
-  <p>
-    Simple, fast and useful online tools — all in one place.
-  </p>
+<nav class="category-bar">
 
-  <input
-    class="search"
-    type="text"
-    placeholder="🔍 Search tools..."
-    onkeyup="searchTools()"
-    id="searchBox"
-  >
+  <a href="#products">☰ All</a>
+  <a href="#categories">Drill Machines</a>
+  <a href="#categories">Grinders</a>
+  <a href="#categories">Hammer Machines</a>
+  <a href="#categories">Cutters</a>
+  <a href="#categories">Blowers</a>
+  <a href="#categories">Welding</a>
+  <a href="#products">Deals</a>
+  <a href="#tools">Free Tools</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>
+      Powerful Tools for <span>Powerful Work</span>
+    </h1>
+
+    <p>
+      Quality power tools, accessories and useful online tools —
+      all in one place.
+    </p>
+
+    <a href="#products" class="shop-btn">
+      🛒 Shop Now
+    </a>
+
+  </div>
 
 </section>
 
-<section class="section" id="tools">
 
-  <h2>🛠️ Popular Tools</h2>
+<!-- CATEGORIES -->
 
-  <div class="tools" id="toolList">
+<section class="section" id="categories">
 
-    <div class="tool">
-      <div class="icon">🔢</div>
-      <h3>Word Counter</h3>
-      <p>Count words and characters quickly.</p>
-      <button onclick="window.location.href='word-counter.html'">
-  Open Tool
-</button>
+  <h2 class="section-title">
+    🛠️ Shop by Category
+  </h2>
+
+  <div class="categories">
+
+    <div class="category-card">
+      <div class="category-icon">🔩</div>
+      <h3>Drill Machines</h3>
     </div>
 
-    <div class="tool">
-      <div class="icon">🔐</div>
-      <h3>Password Generator</h3>
-      <p>Create strong and secure passwords.</p>
-      <button onclick="window.location.href='password-generator.html'">
-  Open Tool
-</button>
+    <div class="category-card">
+      <div class="category-icon">🔨</div>
+      <h3>Hammer Machines</h3>
     </div>
 
-    <div class="tool">
-      <div class="icon">📱</div>
-      <h3>QR Code Generator</h3>
-      <p>Create QR codes easily from text or links.</p>
-      <button onclick="window.location.href='qr-generator.html'">
-  Open Tool
-</button>
+    <div class="category-card">
+      <div class="category-icon">⚙️</div>
+      <h3>Grinders</h3>
     </div>
 
-    <div class="tool">
-      <div class="icon">🔗</div>
-      <h3>URL Encoder</h3>
-      <p>Encode and decode URLs instantly.</p>
-      <button onclick="window.location.href='url-encoder.html'">
-  Open Tool
-</button>
+    <div class="category-card">
+      <div class="category-icon">✂️</div>
+      <h3>Cutter Machines</h3>
     </div>
 
-    <div class="tool">
-      <div class="icon">🔄</div>
-      <h3>Unit Converter</h3>
-      <p>Convert common units quickly and easily.</p>
-      <button onclick="window.location.href='unit-converter.html'">
-  Open Tool
-</button>
+    <div class="category-card">
+      <div class="category-icon">💨</div>
+      <h3>Blowers</h3>
     </div>
 
-    <div class="tool">
-      <div class="icon">📝</div>
-      <h3>Text Formatter</h3>
-      <p>Format and transform your text.</p>
-      <button onclick="window.location.href='text-formatter.html'">
-  Open Tool
-</button>
+    <div class="category-card">
+      <div class="category-icon">🔥</div>
+      <h3>Welding</h3>
     </div>
 
   </div>
 
 </section>
 
-<section class="section about" id="about">
 
-  <h2>About Nova Power Tools</h2>
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+  <h2 class="section-title">
+    🔥 Featured Power Tools
+  </h2>
+
+  <div class="products" id="productList">
+
+
+    <div class="product">
+
+      <div class="product-image">
+        🔩
+      </div>
+
+      <h3>Professional Drill Machine</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">₹1,499</div>
+
+      <div class="old-price">₹1,999</div>
+
+      <div class="discount">
+        25% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Professional Drill Machine')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Professional Drill Machine')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        ⚙️
+      </div>
+
+      <h3>Heavy Duty Grinder Machine</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐☆
+      </div>
+
+      <div class="price">₹1,899</div>
+
+      <div class="old-price">₹2,499</div>
+
+      <div class="discount">
+        24% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Heavy Duty Grinder Machine')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Heavy Duty Grinder Machine')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        🔨
+      </div>
+
+      <h3>Electric Hammer Machine</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">₹2,499</div>
+
+      <div class="old-price">₹3,199</div>
+
+      <div class="discount">
+        22% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Electric Hammer Machine')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Electric Hammer Machine')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        ✂️
+      </div>
+
+      <h3>Power Cutter Machine</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐☆
+      </div>
+
+      <div class="price">₹2,199</div>
+
+      <div class="old-price">₹2,799</div>
+
+      <div class="discount">
+        21% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Power Cutter Machine')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Power Cutter Machine')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        💨
+      </div>
+
+      <h3>High Power Blower</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">₹999</div>
+
+      <div class="old-price">₹1,299</div>
+
+      <div class="discount">
+        23% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('High Power Blower')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('High Power Blower')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        🔥
+      </div>
+
+      <h3>Welding Machine</h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐☆
+      </div>
+
+      <div class="price">₹3,499</div>
+
+      <div class="old-price">₹4,499</div>
+
+      <div class="discount">
+        22% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Welding Machine')">
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Welding Machine')">
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FREE ONLINE TOOLS -->
+
+<section class="section tools-section" id="tools">
+
+  <h2 class="section-title">
+    🛠️ Free Online Tools
+  </h2>
+
+  <div class="tools">
+
+
+    <div class="tool">
+
+      <div class="tool-icon">🔢</div>
+
+      <h3>Word Counter</h3>
+
+      <p>
+        Count words and characters quickly.
+      </p>
+
+      <button onclick="window.location.href='word-counter.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+    <div class="tool">
+
+      <div class="tool-icon">🔐</div>
+
+      <h3>Password Generator</h3>
+
+      <p>
+        Create strong and secure passwords.
+      </p>
+
+      <button onclick="window.location.href='password-generator.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+    <div class="tool">
+
+      <div class="tool-icon">📱</div>
+
+      <h3>QR Code Generator</h3>
+
+      <p>
+        Create QR codes from text or links.
+      </p>
+
+      <button onclick="window.location.href='qr-generator.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+    <div class="tool">
+
+      <div class="tool-icon">🔗</div>
+
+      <h3>URL Encoder</h3>
+
+      <p>
+        Encode and decode URLs instantly.
+      </p>
+
+      <button onclick="window.location.href='url-encoder.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+    <div class="tool">
+
+      <div class="tool-icon">🔄</div>
+
+      <h3>Unit Converter</h3>
+
+      <p>
+        Convert common units quickly.
+      </p>
+
+      <button onclick="window.location.href='unit-converter.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+    <div class="tool">
+
+      <div class="tool-icon">📝</div>
+
+      <h3>Text Formatter</h3>
+
+      <p>
+        Format and transform your text.
+      </p>
+
+      <button onclick="window.location.href='text-formatter.html'">
+        Open Tool
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about">
+
+  <h2 class="section-title">
+    About Nova Power Tools
+  </h2>
 
   <p>
-    Nova Power Tools is a collection of simple and useful online tools
-    designed to make everyday digital tasks faster and easier.
+    Nova Power Tools provides quality power tools, accessories
+    and useful free online tools in one convenient place.
   </p>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
-  <p>© 2026 Nova Power Tools</p>
-  <p>Free • Fast • Simple</p>
+
+  <div class="footer-grid">
+
+    <div>
+      <h3>Nova Power Tools</h3>
+      <p>Quality tools for professional work.</p>
+    </div>
+
+    <div>
+      <h3>Shop</h3>
+      <p>Drill Machines</p>
+      <p>Grinders</p>
+      <p>Hammer Machines</p>
+      <p>Welding Machines</p>
+    </div>
+
+    <div>
+      <h3>Online Tools</h3>
+      <p>Word Counter</p>
+      <p>QR Generator</p>
+      <p>Password Generator</p>
+    </div>
+
+    <div>
+      <h3>Help</h3>
+      <p>Contact Us</p>
+      <p>Delivery Information</p>
+      <p>Returns & Replacement</p>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+
+    <p>
+      © 2026 Nova Power Tools
+    </p>
+
+    <p>
+      Free • Fast • Simple
+    </p>
+
+  </div>
+
 </footer>
+
+
+<!-- CART MESSAGE -->
+
+<div id="cartMessage">
+  Added to cart! 🛒
+</div>
+
 
 <script>
 
-function searchTools(){
+function searchProducts(){
 
   let input =
     document.getElementById("searchBox")
     .value
-    .toLowerCase();
+    .toLowerCase()
+    .trim();
 
-  let tools =
-    document.querySelectorAll(".tool");
+  let products =
+    document.querySelectorAll(".product");
 
-  tools.forEach(function(tool){
+  products.forEach(function(product){
 
     let text =
-      tool.innerText.toLowerCase();
+      product.innerText.toLowerCase();
 
     if(text.includes(input)){
-      tool.style.display = "block";
+
+      product.style.display = "";
+
     }else{
-      tool.style.display = "none";
+
+      product.style.display = "none";
+
     }
 
   });
+
+}
+
+
+function addToCart(productName){
+
+  let message =
+    document.getElementById("cartMessage");
+
+  message.innerText =
+    productName + " added to cart! 🛒";
+
+  message.style.display = "block";
+
+  setTimeout(function(){
+
+    message.style.display = "none";
+
+  },2000);
+
+}
+
+
+function buyNow(productName){
+
+  alert(
+    "Buy Now selected for: " +
+    productName +
+    "\n\nCheckout system will be added next."
+  );
 
 }
 
