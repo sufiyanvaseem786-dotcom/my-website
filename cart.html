@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1100px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+h1{
+  margin-bottom:25px;
+}
+
+.cart-layout{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:20px;
+}
+
+.cart-box,
+.summary{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+}
+
+.cart-item{
+  display:flex;
+  gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid #ddd;
+  align-items:center;
+}
+
+.item-image{
+  width:100px;
+  height:100px;
+  background:#f3f4f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  border-radius:8px;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info h3{
+  margin-bottom:8px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.quantity button{
+  width:32px;
+  height:32px;
+  border:1px solid #bbb;
+  background:white;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.remove{
+  margin-top:10px;
+  border:none;
+  background:none;
+  color:#c00;
+  cursor:pointer;
+}
+
+.summary h2{
+  margin-bottom:20px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin:15px 0;
+}
+
+.total{
+  font-size:24px;
+  font-weight:bold;
+  border-top:1px solid #ddd;
+  padding-top:18px;
+}
+
+.checkout{
+  width:100%;
+  padding:14px;
+  border:none;
+  background:#ffb000;
+  border-radius:7px;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.empty{
+  text-align:center;
+  padding:50px 10px;
+  color:#667085;
+}
+
+.shop{
+  display:inline-block;
+  margin-top:20px;
+  background:#2563eb;
+  color:white;
+  padding:12px 20px;
+  text-decoration:none;
+  border-radius:7px;
+}
+
+@media(max-width:700px){
+
+  .cart-layout{
+    grid-template-columns:1fr;
+  }
+
+  .cart-item{
+    align-items:flex-start;
+  }
+
+  .item-image{
+    width:75px;
+    height:75px;
+    font-size:35px;
+  }
+
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="index.html">
+    ← Continue Shopping
+  </a>
+
+</header>
+
+<div class="container">
+
+  <h1>🛒 Shopping Cart</h1>
+
+  <div class="cart-layout">
+
+    <div class="cart-box" id="cartItems"></div>
+
+    <div class="summary">
+
+      <h2>Order Summary</h2>
+
+      <div class="summary-row">
+        <span>Items</span>
+        <span id="itemCount">0</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>₹<span id="subtotal">0</span></span>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery</span>
+        <span>FREE</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>Total</span>
+        <span>₹<span id="total">0</span></span>
+      </div>
+
+      <button class="checkout" onclick="checkout()">
+        Proceed to Checkout
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+let cart =
+  JSON.parse(localStorage.getItem("novaCart")) || [];
+
+
+function saveCart(){
+
+  localStorage.setItem(
+    "novaCart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+function displayCart(){
+
+  const box =
+    document.getElementById("cartItems");
+
+  if(cart.length === 0){
+
+    box.innerHTML = `
+      <div class="empty">
+        <h2>Your cart is empty 🛒</h2>
+        <p>Add some products to your cart.</p>
+
+        <a class="shop" href="index.html">
+          Start Shopping
+        </a>
+      </div>
+    `;
+
+    updateSummary();
+
+    return;
+  }
+
+
+  box.innerHTML = "";
+
+  cart.forEach(function(item,index){
+
+    box.innerHTML += `
+
+      <div class="cart-item">
+
+        <div class="item-image">
+          ${item.icon}
+        </div>
+
+        <div class="item-info">
+
+          <h3>${item.name}</h3>
+
+          <div class="price">
+            ₹${item.price}
+          </div>
+
+          <div class="quantity">
+
+            <button onclick="changeQuantity(${index},-1)">
+              −
+            </button>
+
+            <span>
+              ${item.quantity}
+            </span>
+
+            <button onclick="changeQuantity(${index},1)">
+              +
+            </button>
+
+          </div>
+
+          <button
+            class="remove"
+            onclick="removeItem(${index})">
+
+            Remove
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  updateSummary();
+
+}
+
+
+function changeQuantity(index,change){
+
+  cart[index].quantity += change;
+
+  if(cart[index].quantity <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+  saveCart();
+
+  displayCart();
+
+}
+
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  saveCart();
+
+  displayCart();
+
+}
+
+
+function updateSummary(){
+
+  let count = 0;
+  let total = 0;
+
+  cart.forEach(function(item){
+
+    count += item.quantity;
+
+    total +=
+      item.price * item.quantity;
+
+  });
+
+
+  document.getElementById("itemCount")
+    .innerText = count;
+
+  document.getElementById("subtotal")
+    .innerText = total.toLocaleString("en-IN");
+
+  document.getElementById("total")
+    .innerText = total.toLocaleString("en-IN");
+
+}
+
+
+function checkout(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+  alert(
+    "Checkout system next step mein banayenge.\n\n" +
+    "Items: " +
+    document.getElementById("itemCount").innerText +
+    "\nTotal: ₹" +
+    document.getElementById("total").innerText
+  );
+
+}
+
+
+displayCart();
+
+</script>
+
+</body>
+</html>
