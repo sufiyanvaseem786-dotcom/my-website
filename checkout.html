@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 350px;
+  gap:20px;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+  margin-bottom:20px;
+}
+
+.box h2{
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  border:1px solid #bbb;
+  border-radius:6px;
+  font-size:15px;
+}
+
+textarea{
+  height:90px;
+  resize:vertical;
+}
+
+.payment{
+  display:flex;
+  gap:10px;
+}
+
+.payment label{
+  flex:1;
+  border:1px solid #ccc;
+  padding:15px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.payment input{
+  width:auto;
+}
+
+.order-item{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:23px;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+.place-order{
+  width:100%;
+  margin-top:25px;
+  padding:14px;
+  border:none;
+  border-radius:7px;
+  background:#ffb000;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.success{
+  display:none;
+  background:#dcfce7;
+  color:#166534;
+  padding:20px;
+  border-radius:8px;
+  margin-top:20px;
+  text-align:center;
+}
+
+@media(max-width:700px){
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .payment{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="cart.html">
+    ← Back to Cart
+  </a>
+
+</header>
+
+<div class="container">
+
+  <h1 style="margin-bottom:25px;">
+    Checkout
+  </h1>
+
+  <div class="checkout-grid">
+
+    <!-- CUSTOMER DETAILS -->
+
+    <div>
+
+      <div class="box">
+
+        <h2>📍 Delivery Information</h2>
+
+        <label>Full Name</label>
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          required
+        >
+
+        <label>Mobile Number</label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter mobile number"
+          maxlength="10"
+          required
+        >
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter email address"
+        >
+
+        <label>Full Address</label>
+
+        <textarea
+          id="address"
+          placeholder="House No., Street, Area"
+          required
+        ></textarea>
+
+        <label>City</label>
+
+        <input
+          type="text"
+          id="city"
+          placeholder="Enter city"
+          required
+        >
+
+        <label>PIN Code</label>
+
+        <input
+          type="number"
+          id="pincode"
+          placeholder="Enter PIN code"
+          required
+        >
+
+      </div>
+
+
+      <!-- PAYMENT -->
+
+      <div class="box">
+
+        <h2>💳 Payment Method</h2>
+
+        <div class="payment">
+
+          <label>
+            <input
+              type="radio"
+              name="payment"
+              value="COD"
+              checked
+            >
+            💵 Cash on Delivery
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="payment"
+              value="UPI"
+            >
+            📱 UPI Payment
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ORDER SUMMARY -->
+
+    <div class="box">
+
+      <h2>📦 Your Order</h2>
+
+      <div id="orderItems"></div>
+
+      <div class="total">
+
+        <span>Total</span>
+
+        <span>
+          ₹<span id="total">0</span>
+        </span>
+
+      </div>
+
+      <button
+        class="place-order"
+        onclick="placeOrder()"
+      >
+        🛍️ Place Order
+      </button>
+
+      <div
+        class="success"
+        id="success"
+      >
+        <h2>🎉 Order Placed!</h2>
+
+        <p>
+          Thank you for shopping with
+          Nova Power Tools.
+        </p>
+
+        <p style="margin-top:10px;">
+          We will contact you shortly.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let cart =
+  JSON.parse(localStorage.getItem("novaCart")) || [];
+
+
+function showOrder(){
+
+  let box =
+    document.getElementById("orderItems");
+
+  let total = 0;
+
+  if(cart.length === 0){
+
+    box.innerHTML =
+      "<p>Your cart is empty.</p>";
+
+    return;
+
+  }
+
+
+  box.innerHTML = "";
+
+
+  cart.forEach(function(item){
+
+    let itemTotal =
+      item.price * item.quantity;
+
+    total += itemTotal;
+
+
+    box.innerHTML += `
+
+      <div class="order-item">
+
+        <span>
+          ${item.icon}
+          ${item.name}
+          × ${item.quantity}
+        </span>
+
+        <span>
+          ₹${itemTotal.toLocaleString("en-IN")}
+        </span>
+
+      </div>
+
+    `;
+
+  });
+
+
+  document.getElementById("total")
+    .innerText =
+    total.toLocaleString("en-IN");
+
+}
+
+
+function placeOrder(){
+
+  let name =
+    document.getElementById("name").value.trim();
+
+  let phone =
+    document.getElementById("phone").value.trim();
+
+  let address =
+    document.getElementById("address").value.trim();
+
+  let city =
+    document.getElementById("city").value.trim();
+
+  let pincode =
+    document.getElementById("pincode").value.trim();
+
+
+  if(!name ||
+     !phone ||
+     !address ||
+     !city ||
+     !pincode){
+
+    alert("Please fill all required details.");
+
+    return;
+
+  }
+
+
+  if(phone.length !== 10){
+
+    alert("Please enter a valid 10 digit mobile number.");
+
+    return;
+
+  }
+
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+
+  let payment =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+
+
+  let order = {
+
+    orderId:
+      "NPT" + Date.now(),
+
+    customerName:name,
+
+    phone:phone,
+
+    email:
+      document.getElementById("email").value,
+
+    address:address,
+
+    city:city,
+
+    pincode:pincode,
+
+    payment:payment,
+
+    items:cart,
+
+    total:
+      document.getElementById("total").innerText
+
+  };
+
+
+  console.log("ORDER:",order);
+
+
+  document.getElementById("success")
+    .style.display = "block";
+
+
+  localStorage.removeItem("novaCart");
+
+}
+
+showOrder();
+
+</script>
+
+</body>
+</html>
