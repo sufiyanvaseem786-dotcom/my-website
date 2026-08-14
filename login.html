@@ -5,9 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login - Nova Power Tools</title>
+<title>Nova Power Tools — Login</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -16,534 +17,663 @@
 
 body{
   min-height:100vh;
+  overflow:hidden;
   font-family:Arial,sans-serif;
   background:
-    radial-gradient(circle at 20% 20%,#263a59 0,#101827 35%,#050912 75%);
-  overflow:hidden;
+    radial-gradient(circle at 20% 20%,#172d59,#07101f 45%,#02050b);
   color:white;
 }
 
-/* Background */
+/* BACKGROUND */
 
-.bg-circle{
+.bg-glow{
   position:fixed;
+  width:450px;
+  height:450px;
   border-radius:50%;
-  filter:blur(2px);
-  opacity:.25;
+  filter:blur(100px);
+  opacity:.22;
+  pointer-events:none;
 }
 
-.bg1{
-  width:350px;
-  height:350px;
+.glow1{
   background:#ffb000;
-  top:-120px;
-  left:-100px;
+  left:-180px;
+  top:-180px;
 }
 
-.bg2{
-  width:300px;
-  height:300px;
-  background:#2563eb;
-  right:-100px;
-  bottom:-100px;
+.glow2{
+  background:#1769ff;
+  right:-180px;
+  bottom:-180px;
 }
 
-/* Main */
 
-.login-scene{
+/* MAIN SCENE */
+
+.scene{
+  width:100%;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  position:relative;
+  gap:20px;
+  perspective:1400px;
+  padding:20px;
 }
 
-/* Character area */
 
-.character-area{
-  width:330px;
-  height:500px;
+/* CHARACTER FRAME */
+
+.character-wrap{
+  width:390px;
+  height:560px;
   position:relative;
-  z-index:5;
-  animation:characterEnter 2.2s ease forwards;
+  flex-shrink:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateX(-500px) scale(.65);
+  animation:
+    characterWalk 2.4s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
-@keyframes characterEnter{
+
+/*
+  The uploaded storyboard is a 4 x 2 grid.
+  We use individual panels as animation frames.
+*/
+
+.character-frame{
+  position:absolute;
+  inset:0;
+
+  background-image:url("login-character.png");
+  background-repeat:no-repeat;
+
+  /*
+    Four panels across, two rows.
+  */
+  background-size:400% 200%;
+
+  background-position:
+    0% 0%;
+
+  animation:
+    storyboardWalk 5.2s steps(1,end) 1.1s forwards;
+}
+
+
+@keyframes characterWalk{
 
   0%{
-    transform:
-      translateX(-380px)
-      scale(.65);
     opacity:0;
+    transform:
+      translateX(-500px)
+      scale(.65)
+      rotateY(20deg);
   }
 
-  70%{
-    transform:
-      translateX(20px)
-      scale(1.02);
+  65%{
     opacity:1;
+    transform:
+      translateX(15px)
+      scale(1)
+      rotateY(0);
+  }
+
+  82%{
+    transform:
+      translateX(0)
+      scale(1.02);
   }
 
   100%{
+    opacity:1;
     transform:
       translateX(0)
       scale(1);
-    opacity:1;
   }
+
 }
 
-/* Stylish 3D-like character */
 
-.character{
-  position:absolute;
-  left:80px;
-  bottom:45px;
-  width:170px;
-  height:360px;
+/*
+  Frame sequence:
+  1 = boy walks
+  2 = bag
+  3 = steps back
+  8 = final pose
+*/
+
+@keyframes storyboardWalk{
+
+  0%{
+    background-position:0% 0%;
+  }
+
+  18%{
+    background-position:0% 0%;
+  }
+
+  32%{
+    background-position:33.33% 0%;
+  }
+
+  48%{
+    background-position:66.66% 0%;
+  }
+
+  65%{
+    background-position:100% 100%;
+  }
+
+  100%{
+    background-position:100% 100%;
+  }
+
 }
 
-/* Head */
 
-.head{
-  position:absolute;
-  top:10px;
-  left:48px;
-  width:82px;
-  height:92px;
-  border-radius:45% 45% 48% 48%;
-  background:linear-gradient(135deg,#f6c7a5,#b86f4d);
-  box-shadow:
-    inset -12px -8px 20px rgba(0,0,0,.25),
-    8px 10px 20px rgba(0,0,0,.3);
-  z-index:4;
-}
-
-/* Hair */
-
-.hair{
-  position:absolute;
-  top:3px;
-  left:43px;
-  width:92px;
-  height:42px;
-  border-radius:55px 55px 20px 20px;
-  background:linear-gradient(135deg,#151515,#000);
-  z-index:5;
-}
-
-/* Glasses */
-
-.glasses{
-  position:absolute;
-  top:43px;
-  left:43px;
-  z-index:8;
-  display:flex;
-  gap:3px;
-}
-
-.glass{
-  width:40px;
-  height:22px;
-  border:3px solid #111;
-  background:rgba(20,30,40,.8);
-  border-radius:7px;
-}
-
-.bridge{
-  width:10px;
-  height:3px;
-  background:#111;
-  margin-top:9px;
-}
-
-/* Body / Coat */
-
-.body{
-  position:absolute;
-  top:94px;
-  left:25px;
-  width:130px;
-  height:190px;
-  background:
-    linear-gradient(90deg,#0a0d14,#303746,#090b11);
-  clip-path:polygon(
-    30% 0,
-    70% 0,
-    92% 18%,
-    100% 100%,
-    0 100%,
-    8% 18%
-  );
-  box-shadow:
-    12px 15px 25px rgba(0,0,0,.5);
-}
-
-/* Shirt */
-
-.shirt{
-  position:absolute;
-  top:100px;
-  left:72px;
-  width:36px;
-  height:100px;
-  background:#f5f5f5;
-  clip-path:polygon(50% 0,100% 30%,75% 100%,25% 100%,0 30%);
-  z-index:3;
-}
-
-/* Tie */
-
-.tie{
-  position:absolute;
-  top:105px;
-  left:83px;
-  width:15px;
-  height:90px;
-  background:#ffb000;
-  clip-path:polygon(
-    50% 0,
-    100% 20%,
-    70% 65%,
-    100% 100%,
-    50% 90%,
-    0 100%,
-    30% 65%,
-    0 20%
-  );
-  z-index:5;
-}
-
-/* Arms */
-
-.arm{
-  position:absolute;
-  width:42px;
-  height:150px;
-  background:linear-gradient(90deg,#090c13,#363c49,#090b10);
-  border-radius:25px;
-  top:110px;
-  z-index:2;
-}
-
-.arm-left{
-  left:0;
-  transform:rotate(12deg);
-}
-
-.arm-right{
-  right:0;
-  transform:rotate(-14deg);
-}
-
-/* Legs */
-
-.leg{
-  position:absolute;
-  top:270px;
-  width:48px;
-  height:115px;
-  background:linear-gradient(90deg,#07090d,#303540,#050609);
-  border-radius:8px;
-}
-
-.leg-left{
-  left:42px;
-}
-
-.leg-right{
-  right:42px;
-}
-
-/* Shoes */
-
-.shoe{
-  position:absolute;
-  top:370px;
-  width:75px;
-  height:30px;
-  background:#050505;
-  border-radius:30px 10px 10px 10px;
-  box-shadow:8px 8px 15px rgba(0,0,0,.5);
-}
-
-.shoe-left{
-  left:18px;
-}
-
-.shoe-right{
-  right:18px;
-}
-
-/* Bag */
-
-.bag{
-  position:absolute;
-  right:-10px;
-  bottom:115px;
-  width:75px;
-  height:65px;
-  background:linear-gradient(135deg,#6d3b1e,#26150d);
-  border-radius:12px;
-  box-shadow:8px 12px 20px rgba(0,0,0,.5);
-  animation:bagMove 2s ease-in-out infinite;
-}
-
-.bag-handle{
-  position:absolute;
-  width:40px;
-  height:28px;
-  border:6px solid #6d3b1e;
-  border-bottom:none;
-  border-radius:30px 30px 0 0;
-  left:17px;
-  top:-24px;
-}
-
-@keyframes bagMove{
-  0%,100%{transform:rotate(0deg)}
-  50%{transform:rotate(4deg)}
-}
-
-/* Form */
+/* LOGIN CARD */
 
 .login-card{
-  width:390px;
-  min-height:500px;
-  padding:35px;
-  border-radius:25px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.22);
-  backdrop-filter:blur(22px);
+
+  width:410px;
+  min-height:520px;
+
+  padding:32px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.055)
+    );
+
+  border:1px solid rgba(255,255,255,.25);
+
+  backdrop-filter:blur(24px);
+
   box-shadow:
-    0 30px 70px rgba(0,0,0,.45),
+    0 35px 90px rgba(0,0,0,.6),
     inset 0 1px 1px rgba(255,255,255,.2);
 
   opacity:0;
-  transform:
-    translateX(180px)
-    scale(.7)
-    rotateY(-25deg);
 
-  animation:formEnter 1.2s ease 2.2s forwards;
+  transform:
+    translateX(280px)
+    scale(.65)
+    rotateY(-35deg);
+
+  animation:
+    formEmergence 1.35s cubic-bezier(.16,1,.3,1)
+    3.15s forwards;
+
   position:relative;
   z-index:10;
 }
 
-@keyframes formEnter{
+
+.login-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:-2px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(0,170,255,.7),
+      rgba(255,176,0,.8),
+      transparent
+    );
+
+  z-index:-1;
+
+  filter:blur(5px);
+
+  opacity:.75;
+
+}
+
+
+@keyframes formEmergence{
 
   0%{
     opacity:0;
+
     transform:
-      translateX(180px)
-      scale(.7)
-      rotateY(-25deg);
+      translateX(280px)
+      scale(.55)
+      rotateY(-35deg);
+  }
+
+  65%{
+    opacity:1;
+
+    transform:
+      translateX(-15px)
+      scale(1.03)
+      rotateY(5deg);
   }
 
   100%{
     opacity:1;
+
     transform:
       translateX(0)
       scale(1)
       rotateY(0);
   }
+
 }
 
-.login-card h1{
+
+/* LOGO */
+
+.logo{
+
   text-align:center;
-  margin-bottom:8px;
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:5px;
+
+}
+
+.logo span{
+  color:#ffb000;
 }
 
 .subtitle{
+
   text-align:center;
   color:#cbd5e1;
   margin-bottom:25px;
+
 }
 
+
+/* TABS */
+
 .tabs{
+
   display:flex;
   gap:8px;
+  padding:5px;
+
+  background:rgba(0,0,0,.2);
+
+  border-radius:13px;
+
   margin-bottom:20px;
+
 }
 
 .tabs button{
+
   flex:1;
-  padding:11px;
+
   border:none;
+
+  padding:12px;
+
   border-radius:10px;
-  cursor:pointer;
-  background:rgba(255,255,255,.10);
+
+  background:transparent;
+
   color:white;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
 }
 
 .tabs button.active{
+
   background:#ffb000;
   color:#111;
-  font-weight:bold;
+
+  box-shadow:
+    0 5px 18px rgba(255,176,0,.3);
+
 }
 
+
+/* INPUTS */
+
 .input{
+
   width:100%;
+
   padding:14px;
+
   margin-bottom:12px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(0,0,0,.25);
+
+  border-radius:11px;
+
+  border:1px solid rgba(255,255,255,.18);
+
+  background:rgba(0,0,0,.28);
+
   color:white;
+
   outline:none;
+
+  font-size:15px;
+
+  transition:.25s;
+
+}
+
+.input:focus{
+
+  border-color:#ffb000;
+
+  box-shadow:
+    0 0 0 3px rgba(255,176,0,.12);
+
 }
 
 .input::placeholder{
-  color:#b8c0cc;
+  color:#aeb8c7;
 }
+
+
+/* BUTTONS */
 
 .main-btn{
+
   width:100%;
+
   padding:14px;
+
   border:none;
-  border-radius:10px;
+
+  border-radius:11px;
+
   background:#ffb000;
+
   color:#111;
+
+  font-size:16px;
+
   font-weight:bold;
+
   cursor:pointer;
-  margin-top:5px;
+
+  transition:.2s;
+
 }
+
+.main-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(255,176,0,.25);
+
+}
+
 
 .google-btn{
+
   width:100%;
+
   padding:13px;
+
   border:none;
-  border-radius:10px;
+
+  border-radius:11px;
+
   background:white;
+
   color:#222;
+
   font-weight:bold;
+
   cursor:pointer;
-  margin-top:12px;
+
+  transition:.2s;
+
 }
 
+.google-btn:hover{
+  transform:translateY(-2px);
+}
+
+
+.phone-btn{
+
+  width:100%;
+
+  padding:12px;
+
+  margin-top:10px;
+
+  border-radius:11px;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  background:rgba(255,255,255,.08);
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+
+/* DIVIDER */
+
 .divider{
+
   display:flex;
+
   align-items:center;
+
   gap:10px;
+
   margin:18px 0;
-  color:#9ca3af;
+
+  color:#94a3b8;
+
+  font-size:13px;
+
 }
 
 .divider::before,
 .divider::after{
+
   content:"";
-  height:1px;
-  background:rgba(255,255,255,.2);
+
   flex:1;
+
+  height:1px;
+
+  background:rgba(255,255,255,.2);
+
 }
 
-.phone-btn{
-  width:100%;
-  padding:12px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:10px;
-  background:rgba(255,255,255,.08);
-  color:white;
+
+/* PHONE */
+
+.phone-area{
+
+  display:none;
+
+}
+
+.back-btn{
+
+  border:none;
+
+  background:none;
+
+  color:#ffb000;
+
   cursor:pointer;
-}
 
-.message{
-  min-height:22px;
-  text-align:center;
-  margin-top:12px;
+  margin-bottom:15px;
+
   font-size:14px;
-  color:#ffd166;
+
 }
 
 .otp-area{
   display:none;
 }
 
-.back-btn{
-  background:none;
-  border:none;
-  color:#ffb000;
-  cursor:pointer;
-  margin-bottom:15px;
+
+/* MESSAGE */
+
+.message{
+
+  min-height:22px;
+
+  margin-top:12px;
+
+  text-align:center;
+
+  color:#ffd166;
+
+  font-size:13px;
+
 }
 
-@media(max-width:800px){
+
+/* SMALL SECURITY TEXT */
+
+.security{
+
+  text-align:center;
+
+  color:#94a3b8;
+
+  font-size:11px;
+
+  margin-top:18px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
 
   body{
     overflow:auto;
   }
 
-  .login-scene{
-    padding:30px 15px;
+  .scene{
+
     flex-direction:column;
-    gap:10px;
+
+    padding:20px 12px;
+
+    gap:0;
+
   }
 
-  .character-area{
-    transform:scale(.65);
-    margin-bottom:-100px;
+  .character-wrap{
+
+    width:330px;
+    height:330px;
+
+    margin-bottom:-50px;
+
+    transform:
+      translateX(-400px)
+      scale(.55);
+
   }
 
   .login-card{
+
     width:100%;
-    max-width:390px;
+
+    max-width:400px;
+
+    min-height:auto;
+
+    animation:
+      formEmergenceMobile
+      1.2s ease
+      2.8s
+      forwards;
+
   }
+
 }
+
+
+@keyframes formEmergenceMobile{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(120px)
+      scale(.75);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="bg-circle bg1"></div>
-<div class="bg-circle bg2"></div>
+<div class="bg-glow glow1"></div>
+<div class="bg-glow glow2"></div>
 
-<div class="login-scene">
 
-  <div class="character-area">
+<div class="scene">
 
-    <div class="character">
 
-      <div class="hair"></div>
-      <div class="head"></div>
+  <!-- CHARACTER -->
 
-      <div class="glasses">
-        <div class="glass"></div>
-        <div class="bridge"></div>
-        <div class="glass"></div>
-      </div>
+  <div class="character-wrap">
 
-      <div class="body"></div>
-      <div class="shirt"></div>
-      <div class="tie"></div>
-
-      <div class="arm arm-left"></div>
-      <div class="arm arm-right"></div>
-
-      <div class="leg leg-left"></div>
-      <div class="leg leg-right"></div>
-
-      <div class="shoe shoe-left"></div>
-      <div class="shoe shoe-right"></div>
-
-      <div class="bag">
-        <div class="bag-handle"></div>
-      </div>
-
-    </div>
+    <div class="character-frame"></div>
 
   </div>
 
 
+  <!-- LOGIN -->
+
   <div class="login-card">
 
-    <h1 id="title">
-      Welcome Back
-    </h1>
+    <div class="logo">
+      ⚡ Nova <span>Power Tools</span>
+    </div>
 
-    <p class="subtitle">
-      Nova Power Tools
-    </p>
+    <div class="subtitle">
+      Welcome to Nova Power Tools
+    </div>
 
+
+    <!-- LOGIN / SIGNUP -->
 
     <div class="tabs">
 
@@ -551,13 +681,17 @@ body{
         id="loginTab"
         class="active"
         onclick="showLogin()">
+
         Login
+
       </button>
 
       <button
         id="signupTab"
         onclick="showSignup()">
+
         Sign Up
+
       </button>
 
     </div>
@@ -588,37 +722,53 @@ body{
 
       <button
         class="main-btn"
-        onclick="emailLogin()"
-        id="mainBtn">
+        id="mainBtn"
+        onclick="emailLogin()">
+
         Login
+
       </button>
+
 
       <div class="divider">
         OR
       </div>
 
+
       <button
         class="google-btn"
         onclick="googleLogin()">
+
         🔵 Continue with Google
+
       </button>
+
 
       <button
         class="phone-btn"
         onclick="showPhone()">
+
         📱 Login with Mobile OTP
+
       </button>
 
     </div>
 
 
-    <div id="phoneArea" style="display:none;">
+    <!-- PHONE OTP -->
+
+    <div
+      class="phone-area"
+      id="phoneArea">
 
       <button
         class="back-btn"
         onclick="backToEmail()">
-        ← Back
+
+        ← Back to Login
+
       </button>
+
 
       <input
         class="input"
@@ -626,27 +776,36 @@ body{
         placeholder="+91 9876543210"
       >
 
+
       <div id="recaptcha-container"></div>
+
 
       <button
         class="main-btn"
         onclick="sendOTP()">
+
         Send OTP
+
       </button>
 
-      <div id="otpArea" class="otp-area">
+
+      <div
+        class="otp-area"
+        id="otpArea">
 
         <input
           class="input"
           id="otp"
-          placeholder="Enter OTP"
           maxlength="6"
+          placeholder="Enter 6-digit OTP"
         >
 
         <button
           class="main-btn"
           onclick="verifyOTP()">
+
           Verify OTP
+
         </button>
 
       </div>
@@ -659,15 +818,20 @@ body{
       id="message">
     </div>
 
+
+    <div class="security">
+
+      🔒 Your account is secured by Firebase Authentication
+
+    </div>
+
   </div>
 
 </div>
 
 
 <script type="module">
-const returnUrl =
-  new URLSearchParams(window.location.search)
-    .get("returnUrl") || "account.html";
+
 import {
   initializeApp
 }
@@ -708,14 +872,41 @@ const firebaseConfig = {
 
   measurementId:
     "G-PF74PNJQ89"
+
 };
 
 
 const app =
   initializeApp(firebaseConfig);
 
+
 const auth =
   getAuth(app);
+
+
+/*
+  If checkout sent the customer here,
+  return to checkout after login.
+
+  Otherwise go to account.
+*/
+
+const requestedReturn =
+  new URLSearchParams(
+    window.location.search
+  ).get("returnUrl");
+
+
+const allowedReturnPages = [
+  "checkout.html",
+  "account.html"
+];
+
+
+const returnUrl =
+  allowedReturnPages.includes(requestedReturn)
+    ? requestedReturn
+    : "account.html";
 
 
 let isSignup = false;
@@ -727,7 +918,8 @@ let recaptchaVerifier = null;
 
 function showMessage(text){
 
-  document.getElementById("message")
+  document
+    .getElementById("message")
     .textContent = text;
 
 }
@@ -737,19 +929,20 @@ window.showLogin = function(){
 
   isSignup = false;
 
-  document.getElementById("title")
-    .textContent = "Welcome Back";
-
-  document.getElementById("name")
+  document
+    .getElementById("name")
     .style.display = "none";
 
-  document.getElementById("mainBtn")
+  document
+    .getElementById("mainBtn")
     .textContent = "Login";
 
-  document.getElementById("loginTab")
+  document
+    .getElementById("loginTab")
     .classList.add("active");
 
-  document.getElementById("signupTab")
+  document
+    .getElementById("signupTab")
     .classList.remove("active");
 
   showMessage("");
@@ -761,19 +954,20 @@ window.showSignup = function(){
 
   isSignup = true;
 
-  document.getElementById("title")
-    .textContent = "Create Account";
-
-  document.getElementById("name")
+  document
+    .getElementById("name")
     .style.display = "block";
 
-  document.getElementById("mainBtn")
+  document
+    .getElementById("mainBtn")
     .textContent = "Create Account";
 
-  document.getElementById("signupTab")
+  document
+    .getElementById("signupTab")
     .classList.add("active");
 
-  document.getElementById("loginTab")
+  document
+    .getElementById("loginTab")
     .classList.remove("active");
 
   showMessage("");
@@ -781,23 +975,63 @@ window.showSignup = function(){
 };
 
 
+function goAfterLogin(){
+
+  showMessage(
+    "✅ Login successful!"
+  );
+
+  setTimeout(function(){
+
+    window.location.href =
+      returnUrl;
+
+  },700);
+
+}
+
+
 window.emailLogin = async function(){
 
   const name =
-    document.getElementById("name").value.trim();
+    document
+      .getElementById("name")
+      .value
+      .trim();
+
 
   const email =
-    document.getElementById("email").value.trim();
+    document
+      .getElementById("email")
+      .value
+      .trim();
+
 
   const password =
-    document.getElementById("password").value;
+    document
+      .getElementById("password")
+      .value;
 
 
   if(!email || !password){
 
-    showMessage("Please enter email and password.");
+    showMessage(
+      "Please enter email and password."
+    );
 
     return;
+
+  }
+
+
+  if(isSignup && !name){
+
+    showMessage(
+      "Please enter your full name."
+    );
+
+    return;
+
   }
 
 
@@ -805,21 +1039,11 @@ window.emailLogin = async function(){
 
     if(isSignup){
 
-      if(!name){
-
-        showMessage("Please enter your name.");
-
-        return;
-      }
-
-
       await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-
-      showMessage("Account created successfully!");
 
     }else{
 
@@ -829,15 +1053,10 @@ window.emailLogin = async function(){
         password
       );
 
-      showMessage("Login successful!");
-
     }
 
 
-    setTimeout(function(){
-
-      window.location.href = returnUrl;
-    },800);
+    goAfterLogin();
 
 
   }catch(error){
@@ -861,18 +1080,15 @@ window.googleLogin = async function(){
     const provider =
       new GoogleAuthProvider();
 
+
     await signInWithPopup(
       auth,
       provider
     );
 
-    showMessage("Google login successful!");
 
-    setTimeout(function(){
+    goAfterLogin();
 
-    window.location.href = returnUrl;
-
-    },800);
 
   }catch(error){
 
@@ -890,11 +1106,15 @@ window.googleLogin = async function(){
 
 window.showPhone = function(){
 
-  document.getElementById("emailArea")
+  document
+    .getElementById("emailArea")
     .style.display = "none";
 
-  document.getElementById("phoneArea")
+
+  document
+    .getElementById("phoneArea")
     .style.display = "block";
+
 
   showMessage("");
 
@@ -903,11 +1123,15 @@ window.showPhone = function(){
 
 window.backToEmail = function(){
 
-  document.getElementById("phoneArea")
+  document
+    .getElementById("phoneArea")
     .style.display = "none";
 
-  document.getElementById("emailArea")
+
+  document
+    .getElementById("emailArea")
     .style.display = "block";
+
 
   showMessage("");
 
@@ -917,8 +1141,10 @@ window.backToEmail = function(){
 window.sendOTP = async function(){
 
   const phone =
-    document.getElementById("phone")
-      .value.trim();
+    document
+      .getElementById("phone")
+      .value
+      .trim();
 
 
   if(!phone){
@@ -928,6 +1154,7 @@ window.sendOTP = async function(){
     );
 
     return;
+
   }
 
 
@@ -955,12 +1182,15 @@ window.sendOTP = async function(){
       );
 
 
-    document.getElementById("otpArea")
+    document
+      .getElementById("otpArea")
       .style.display = "block";
 
+
     showMessage(
-      "OTP sent successfully."
+      "📱 OTP sent successfully."
     );
+
 
   }catch(error){
 
@@ -979,15 +1209,31 @@ window.sendOTP = async function(){
 window.verifyOTP = async function(){
 
   const otp =
-    document.getElementById("otp")
-      .value.trim();
+    document
+      .getElementById("otp")
+      .value
+      .trim();
+
+
+  if(!confirmationResult){
+
+    showMessage(
+      "Please request an OTP first."
+    );
+
+    return;
+
+  }
 
 
   if(!otp){
 
-    showMessage("Enter the OTP.");
+    showMessage(
+      "Enter the OTP."
+    );
 
     return;
+
   }
 
 
@@ -997,22 +1243,16 @@ window.verifyOTP = async function(){
       otp
     );
 
-    showMessage(
-      "Login successful!"
-    );
 
-    setTimeout(function(){
+    goAfterLogin();
 
-      window.location.href = returnUrl;
-
-    },800);
 
   }catch(error){
 
     console.error(error);
 
     showMessage(
-      "Invalid OTP. Please try again."
+      "❌ Invalid OTP. Please try again."
     );
 
   }
