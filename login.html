@@ -1,0 +1,1233 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,#334155,transparent 35%),
+    linear-gradient(135deg,#0f172a,#111827,#020617);
+  color:white;
+}
+
+/* MAIN */
+
+.login-scene{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* LIGHT */
+
+.light{
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(255,176,0,.08);
+  filter:blur(60px);
+}
+
+/* CHARACTER */
+
+.character{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:180px;
+  height:430px;
+  z-index:5;
+  animation:
+    walkIn 3s ease forwards,
+    stylishPose 1s ease 3s forwards;
+}
+
+/* HEAD */
+
+.head{
+  position:absolute;
+  top:20px;
+  left:60px;
+  width:65px;
+  height:75px;
+  background:linear-gradient(135deg,#f6c49a,#d99568);
+  border-radius:48% 48% 45% 45%;
+  z-index:4;
+  box-shadow:inset -8px -8px 10px rgba(0,0,0,.12);
+}
+
+/* HAIR */
+
+.hair{
+  position:absolute;
+  top:-4px;
+  left:5px;
+  width:58px;
+  height:30px;
+  background:#171717;
+  border-radius:50% 55% 15% 15%;
+}
+
+/* GLASSES */
+
+.glasses{
+  position:absolute;
+  top:31px;
+  left:4px;
+  display:flex;
+  gap:2px;
+}
+
+.glass{
+  width:28px;
+  height:17px;
+  border:3px solid #111;
+  background:rgba(255,255,255,.12);
+}
+
+.bridge{
+  width:7px;
+  height:3px;
+  background:#111;
+  margin-top:7px;
+}
+
+/* BODY */
+
+.body{
+  position:absolute;
+  top:95px;
+  left:42px;
+  width:95px;
+  height:155px;
+  background:linear-gradient(90deg,#111827,#374151,#111827);
+  clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);
+}
+
+/* SHIRT */
+
+.shirt{
+  position:absolute;
+  top:98px;
+  left:78px;
+  width:30px;
+  height:100px;
+  background:#f8fafc;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+/* TIE */
+
+.tie{
+  position:absolute;
+  top:105px;
+  left:89px;
+  width:10px;
+  height:75px;
+  background:#ffb000;
+  clip-path:polygon(50% 0,100% 18%,65% 100%,35% 100%,0 18%);
+}
+
+/* LEGS */
+
+.leg{
+  position:absolute;
+  top:245px;
+  width:38px;
+  height:145px;
+  background:#111827;
+  border-radius:8px;
+}
+
+.leg.left{
+  left:50px;
+}
+
+.leg.right{
+  left:96px;
+}
+
+/* SHOES */
+
+.shoe{
+  position:absolute;
+  top:380px;
+  width:55px;
+  height:22px;
+  background:#050505;
+  border-radius:20px 10px 8px 8px;
+}
+
+.shoe.left{
+  left:32px;
+}
+
+.shoe.right{
+  left:94px;
+}
+
+/* BAG */
+
+.bag{
+  position:absolute;
+  left:8px;
+  top:215px;
+  width:70px;
+  height:52px;
+  background:linear-gradient(135deg,#713f12,#a16207,#451a03);
+  border-radius:8px;
+  z-index:6;
+  transform:rotate(-8deg);
+  box-shadow:0 12px 20px rgba(0,0,0,.4);
+  animation:bagMove 3s ease forwards;
+}
+
+.bag:before{
+  content:"";
+  position:absolute;
+  width:35px;
+  height:22px;
+  border:5px solid #a16207;
+  border-bottom:none;
+  border-radius:20px 20px 0 0;
+  left:17px;
+  top:-17px;
+}
+
+/* LOGIN PANEL */
+
+.login-panel{
+  position:absolute;
+  left:calc(50% + 70px);
+  top:50%;
+  transform:translateY(-50%) scale(.7);
+  width:390px;
+  background:rgba(255,255,255,.97);
+  color:#172033;
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  opacity:0;
+  z-index:10;
+  animation:panelReveal 1.2s ease 3.7s forwards;
+}
+
+.logo{
+  text-align:center;
+  font-size:25px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+.subtitle{
+  text-align:center;
+  color:#667085;
+  margin-bottom:22px;
+}
+
+/* TABS */
+
+.tabs{
+  display:flex;
+  background:#f1f5f9;
+  border-radius:10px;
+  padding:4px;
+  margin-bottom:20px;
+}
+
+.tabs button{
+  flex:1;
+  border:none;
+  padding:11px;
+  border-radius:8px;
+  cursor:pointer;
+  background:transparent;
+  font-weight:bold;
+}
+
+.tabs button.active{
+  background:#ffb000;
+}
+
+/* INPUT */
+
+.input-group{
+  margin-bottom:14px;
+}
+
+.input-group label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.input-group input{
+  width:100%;
+  padding:13px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  outline:none;
+  font-size:15px;
+}
+
+.input-group input:focus{
+  border-color:#ffb000;
+  box-shadow:0 0 0 3px rgba(255,176,0,.15);
+}
+
+/* BUTTON */
+
+.main-btn{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:9px;
+  background:#ffb000;
+  color:#111827;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.main-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* GOOGLE */
+
+.google-btn{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:9px;
+  background:white;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:15px;
+}
+
+/* DIVIDER */
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:18px 0;
+  color:#94a3b8;
+  font-size:13px;
+}
+
+.divider:before,
+.divider:after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#e2e8f0;
+}
+
+/* PHONE */
+
+.phone-btn{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:none;
+  border-radius:9px;
+  background:#172033;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hidden{
+  display:none;
+}
+
+.back-btn{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  color:#475569;
+}
+
+/* MESSAGE */
+
+.message{
+  margin-top:12px;
+  padding:10px;
+  border-radius:8px;
+  display:none;
+  font-size:14px;
+  text-align:center;
+}
+
+.message.show{
+  display:block;
+}
+
+/* ANIMATIONS */
+
+@keyframes walkIn{
+  0%{
+    left:-20%;
+    transform:translate(-50%,-50%);
+  }
+
+  70%{
+    left:50%;
+  }
+
+  100%{
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+}
+
+@keyframes bagMove{
+  0%{
+    transform:translateX(-100px) rotate(-20deg);
+  }
+
+  70%{
+    transform:translateX(0) rotate(-8deg);
+  }
+
+  100%{
+    transform:translateX(-5px) rotate(-8deg);
+  }
+}
+
+@keyframes stylishPose{
+  0%{
+    transform:translate(-50%,-50%);
+  }
+
+  100%{
+    transform:translate(calc(-50% - 230px),-50%) rotateY(-8deg);
+  }
+}
+
+@keyframes panelReveal{
+  0%{
+    opacity:0;
+    transform:translate(100px,-50%) scale(.7);
+  }
+
+  70%{
+    opacity:1;
+    transform:translate(0,-50%) scale(1.03);
+  }
+
+  100%{
+    opacity:1;
+    transform:translate(0,-50%) scale(1);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  body{
+    overflow:auto;
+  }
+
+  .login-scene{
+    min-height:100vh;
+    padding:30px 15px;
+    align-items:flex-end;
+  }
+
+  .character{
+    top:90px;
+    transform:translateX(-50%) scale(.55);
+    animation:none;
+    left:22%;
+  }
+
+  .login-panel{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:100%;
+    max-width:420px;
+    margin-top:230px;
+    opacity:1;
+    animation:none;
+  }
+
+}
+
+/* OTP ANIMATION */
+
+.otp-animation{
+  text-align:center;
+  padding:10px 0 20px;
+}
+
+.otp-circle{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:50%;
+  border:5px solid #ffb000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,176,0,.5);
+  }
+
+  70%{
+    transform:scale(1.08);
+    box-shadow:0 0 0 15px rgba(255,176,0,0);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-scene">
+
+  <div class="light"></div>
+
+  <!-- 3D STYLE CHARACTER -->
+
+  <div class="character">
+
+    <div class="head">
+      <div class="hair"></div>
+
+      <div class="glasses">
+        <div class="glass"></div>
+        <div class="bridge"></div>
+        <div class="glass"></div>
+      </div>
+    </div>
+
+    <div class="body"></div>
+    <div class="shirt"></div>
+    <div class="tie"></div>
+
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+
+    <div class="shoe left"></div>
+    <div class="shoe right"></div>
+
+    <div class="bag"></div>
+
+  </div>
+
+
+  <!-- LOGIN PANEL -->
+
+  <div class="login-panel">
+
+    <div class="logo">
+      ⚡ Nova <span>Power Tools</span>
+    </div>
+
+    <div class="subtitle">
+      Welcome back
+    </div>
+
+
+    <!-- LOGIN / SIGNUP -->
+
+    <div id="authSection">
+
+      <div class="tabs">
+
+        <button
+          id="loginTab"
+          class="active"
+          onclick="showLogin()">
+          Login
+        </button>
+
+        <button
+          id="signupTab"
+          onclick="showSignup()">
+          Sign Up
+        </button>
+
+      </div>
+
+
+      <!-- LOGIN -->
+
+      <div id="loginForm">
+
+        <div class="input-group">
+          <label>Email</label>
+
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email">
+        </div>
+
+
+        <div class="input-group">
+          <label>Password</label>
+
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter password">
+        </div>
+
+
+        <button
+          class="main-btn"
+          onclick="emailLogin()">
+          🔐 Login
+        </button>
+
+
+        <div class="divider">
+          OR
+        </div>
+
+
+        <button
+          class="google-btn"
+          onclick="googleLogin()">
+          🔵 Continue with Google
+        </button>
+
+
+        <button
+          class="phone-btn"
+          onclick="showPhoneLogin()">
+          📱 Login with Mobile OTP
+        </button>
+
+      </div>
+
+
+      <!-- SIGN UP -->
+
+      <div id="signupForm" class="hidden">
+
+        <div class="input-group">
+
+          <label>Name</label>
+
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Your name">
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label>Email</label>
+
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Your email">
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label>Password</label>
+
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create password">
+
+        </div>
+
+
+        <button
+          class="main-btn"
+          onclick="emailSignup()">
+          ✨ Create Account
+        </button>
+
+
+        <div class="divider">
+          OR
+        </div>
+
+
+        <button
+          class="google-btn"
+          onclick="googleLogin()">
+          🔵 Sign up with Google
+        </button>
+
+
+        <button
+          class="phone-btn"
+          onclick="showPhoneLogin()">
+          📱 Sign up with Mobile OTP
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PHONE OTP -->
+
+    <div id="phoneSection" class="hidden">
+
+      <div class="otp-animation">
+
+        <div class="otp-circle">
+          📱
+        </div>
+
+      </div>
+
+      <div class="input-group">
+
+        <label>Mobile Number</label>
+
+        <input
+          type="tel"
+          id="phoneNumber"
+          placeholder="+91 9876543210">
+
+      </div>
+
+      <div id="recaptcha-container"></div>
+
+      <button
+        class="main-btn"
+        onclick="sendOTP()">
+        📲 Send OTP
+      </button>
+
+
+      <div
+        id="otpBox"
+        class="hidden"
+        style="margin-top:15px;">
+
+        <div class="input-group">
+
+          <label>Enter OTP</label>
+
+          <input
+            type="text"
+            id="otp"
+            maxlength="6"
+            placeholder="6 digit OTP">
+
+        </div>
+
+        <button
+          class="main-btn"
+          onclick="verifyOTP()">
+          ✅ Verify OTP
+        </button>
+
+      </div>
+
+
+      <button
+        class="back-btn"
+        onclick="backToLogin()">
+        ← Back to Login
+      </button>
+
+    </div>
+
+
+    <div
+      id="message"
+      class="message">
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
+
+  authDomain:
+    "nova-power-tools.firebaseapp.com",
+
+  projectId:
+    "nova-power-tools",
+
+  storageBucket:
+    "nova-power-tools.firebasestorage.app",
+
+  messagingSenderId:
+    "265235157417",
+
+  appId:
+    "1:265235157417:web:60d630ee374f21b05234b8",
+
+  measurementId:
+    "G-PF74PNJQ89"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+
+/* MESSAGE */
+
+function showMessage(text){
+
+  const message =
+    document.getElementById("message");
+
+  message.innerText = text;
+
+  message.classList.add("show");
+
+}
+
+
+/* TABS */
+
+window.showLogin = function(){
+
+  document
+    .getElementById("loginForm")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("signupForm")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginTab")
+    .classList.add("active");
+
+  document
+    .getElementById("signupTab")
+    .classList.remove("active");
+
+};
+
+
+window.showSignup = function(){
+
+  document
+    .getElementById("loginForm")
+    .classList.add("hidden");
+
+  document
+    .getElementById("signupForm")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("signupTab")
+    .classList.add("active");
+
+  document
+    .getElementById("loginTab")
+    .classList.remove("active");
+
+};
+
+
+/* EMAIL LOGIN */
+
+window.emailLogin = async function(){
+
+  const email =
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById("loginPassword")
+      .value;
+
+
+  if(!email || !password){
+
+    showMessage(
+      "Please enter email and password."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    showMessage(
+      "✅ Login successful!"
+    );
+
+    setTimeout(function(){
+
+      window.location.href =
+        "index.html";
+
+    },1000);
+
+  }catch(error){
+
+    showMessage(
+      "❌ " + error.message
+    );
+
+  }
+
+};
+
+
+/* SIGN UP */
+
+window.emailSignup = async function(){
+
+  const name =
+    document
+      .getElementById("signupName")
+      .value
+      .trim();
+
+  const email =
+    document
+      .getElementById("signupEmail")
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById("signupPassword")
+      .value;
+
+
+  if(!name || !email || !password){
+
+    showMessage(
+      "Please fill all details."
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 6){
+
+    showMessage(
+      "Password must be at least 6 characters."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    showMessage(
+      "🎉 Account created successfully!"
+    );
+
+    setTimeout(function(){
+
+      window.location.href =
+        "index.html";
+
+    },1000);
+
+  }catch(error){
+
+    showMessage(
+      "❌ " + error.message
+    );
+
+  }
+
+};
+
+
+/* GOOGLE */
+
+window.googleLogin = async function(){
+
+  const provider =
+    new GoogleAuthProvider();
+
+  try{
+
+    await signInWithPopup(
+      auth,
+      provider
+    );
+
+    showMessage(
+      "🎉 Google login successful!"
+    );
+
+    setTimeout(function(){
+
+      window.location.href =
+        "index.html";
+
+    },1000);
+
+  }catch(error){
+
+    showMessage(
+      "❌ " + error.message
+    );
+
+  }
+
+};
+
+
+/* PHONE LOGIN */
+
+window.showPhoneLogin = function(){
+
+  document
+    .getElementById("authSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("phoneSection")
+    .classList.remove("hidden");
+
+  setupRecaptcha();
+
+};
+
+
+window.backToLogin = function(){
+
+  document
+    .getElementById("phoneSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("authSection")
+    .classList.remove("hidden");
+
+};
+
+
+let confirmationResult;
+
+
+/* RECAPTCHA */
+
+function setupRecaptcha(){
+
+  if(window.recaptchaVerifier){
+
+    return;
+
+  }
+
+  window.recaptchaVerifier =
+    new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+        size:"normal"
+      }
+    );
+
+}
+
+
+/* SEND OTP */
+
+window.sendOTP = async function(){
+
+  const phone =
+    document
+      .getElementById("phoneNumber")
+      .value
+      .trim();
+
+
+  if(!phone){
+
+    showMessage(
+      "Please enter your mobile number."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    setupRecaptcha();
+
+    confirmationResult =
+      await signInWithPhoneNumber(
+        auth,
+        phone,
+        window.recaptchaVerifier
+      );
+
+    document
+      .getElementById("otpBox")
+      .classList.remove("hidden");
+
+    showMessage(
+      "📲 OTP sent successfully."
+    );
+
+  }catch(error){
+
+    showMessage(
+      "❌ " + error.message
+    );
+
+  }
+
+};
+
+
+/* VERIFY OTP */
+
+window.verifyOTP = async function(){
+
+  const otp =
+    document
+      .getElementById("otp")
+      .value
+      .trim();
+
+
+  if(!otp){
+
+    showMessage(
+      "Please enter OTP."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await confirmationResult.confirm(
+      otp
+    );
+
+    showMessage(
+      "🎉 Mobile login successful!"
+    );
+
+    setTimeout(function(){
+
+      window.location.href =
+        "index.html";
+
+    },1000);
+
+  }catch(error){
+
+    showMessage(
+      "❌ Invalid OTP."
+    );
+
+  }
+
+};
+
+</script>
+
+</body>
+</html>
+```
