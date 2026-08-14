@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Orders - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.email-box{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.email-box input{
+  flex:1;
+  padding:13px;
+  border:1px solid #bbb;
+  border-radius:6px;
+  font-size:16px;
+}
+
+.email-box button{
+  padding:13px 22px;
+  border:none;
+  border-radius:6px;
+  background:#ffb000;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.order{
+  border:1px solid #ddd;
+  border-radius:8px;
+  margin-top:20px;
+  overflow:hidden;
+}
+
+.order-header{
+  background:#f3f4f6;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.order-body{
+  padding:20px;
+}
+
+.order-body p{
+  margin:8px 0;
+}
+
+.status{
+  display:inline-block;
+  margin-top:15px;
+  padding:8px 14px;
+  border-radius:20px;
+  background:#dcfce7;
+  color:#166534;
+  font-weight:bold;
+}
+
+.loading{
+  text-align:center;
+  padding:25px;
+  color:#667085;
+}
+
+.error{
+  color:#b91c1c;
+  background:#fee2e2;
+  padding:15px;
+  border-radius:8px;
+  margin-top:15px;
+}
+
+.empty{
+  text-align:center;
+  padding:30px;
+  color:#667085;
+}
+
+@media(max-width:600px){
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .email-box{
+    flex-direction:column;
+  }
+
+  .order-header{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="index.html">
+    ← Home
+  </a>
+
+</header>
+
+
+<div class="container">
+
+  <div class="box">
+
+    <h1>📦 My Orders</h1>
+
+    <p style="margin-top:10px;color:#667085;">
+      Enter the email address used while placing your order.
+    </p>
+
+    <div class="email-box">
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+      >
+
+      <button onclick="loadOrders()">
+        View Orders
+      </button>
+
+    </div>
+
+    <div id="message"></div>
+
+  </div>
+
+
+  <div id="orders"></div>
+
+</div>
+
+
+<script>
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbzGOsBQqe6s-veSIG7C9fWdqK_W3bwRjpcteRurbG-egZDBa7-FKVwmqzHkZHQs3LRv/exec";
+
+
+function loadOrders(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const ordersBox =
+    document.getElementById("orders");
+
+  const message =
+    document.getElementById("message");
+
+
+  if(!email){
+
+    message.innerHTML =
+      '<div class="error">Please enter your email.</div>';
+
+    return;
+
+  }
+
+
+  ordersBox.innerHTML =
+    '<div class="box loading">Loading your orders...</div>';
+
+  message.innerHTML = "";
+
+
+  fetch(
+    scriptURL +
+    "?email=" +
+    encodeURIComponent(email)
+  )
+
+  .then(function(response){
+
+    return response.json();
+
+  })
+
+  .then(function(result){
+
+    if(!result.success){
+
+      ordersBox.innerHTML =
+        '<div class="box error">' +
+        'Unable to load orders.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    if(!result.orders || result.orders.length === 0){
+
+      ordersBox.innerHTML =
+        '<div class="box empty">' +
+        '<h2>No orders found</h2>' +
+        '<p>We could not find any order for this email.</p>' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    ordersBox.innerHTML = "";
+
+
+    result.orders.reverse().forEach(function(order){
+
+      ordersBox.innerHTML += `
+
+        <div class="order">
+
+          <div class="order-header">
+
+            <strong>
+              Order ID: ${order.orderId}
+            </strong>
+
+            <span>
+              Payment: ${order.payment}
+            </span>
+
+          </div>
+
+
+          <div class="order-body">
+
+            <p>
+              <strong>Products:</strong><br>
+              ${order.products.replace(/\n/g,"<br>")}
+            </p>
+
+            <p>
+              <strong>Total:</strong>
+              ₹${order.total}
+            </p>
+
+            <p>
+              <strong>Delivery Address:</strong><br>
+              ${order.address}
+            </p>
+
+            <span class="status">
+              📦 Order Received
+            </span>
+
+          </div>
+
+        </div>
+
+      `;
+
+    });
+
+  })
+
+  .catch(function(error){
+
+    console.error(error);
+
+    ordersBox.innerHTML =
+      '<div class="box error">' +
+      'Connection error. Please try again.' +
+      '</div>';
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
