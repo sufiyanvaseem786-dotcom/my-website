@@ -1048,25 +1048,19 @@ function addToCart(productName){
 
   };
 
-
   let product = products[productName];
 
   if(!product){
     return;
   }
 
-
   let cart =
     JSON.parse(localStorage.getItem("novaCart")) || [];
 
-
   let existing =
     cart.find(function(item){
-
       return item.name === productName;
-
     });
-
 
   if(existing){
 
@@ -1077,46 +1071,47 @@ function addToCart(productName){
     cart.push({
 
       name:productName,
-
       price:product.price,
-
       icon:product.icon,
-
       quantity:1
 
     });
 
   }
 
-
   localStorage.setItem(
     "novaCart",
     JSON.stringify(cart)
   );
 
-
   let message =
     document.getElementById("cartMessage");
 
+  if(message){
 
-  message.innerText =
-    productName + " added to cart! 🛒";
+    message.innerText =
+      productName + " added to cart! 🛒";
 
+    message.style.display = "block";
 
-  message.style.display = "block";
+    setTimeout(function(){
 
+      message.style.display = "none";
 
-  setTimeout(function(){
+    },2000);
 
-    message.style.display = "none";
-
-  },2000);
+  }
 
 }
 
 
 function buyNow(productName){
 
+  window.location.href =
+    "checkout.html?product=" +
+    encodeURIComponent(productName);
+
+}
 window.location.href = "checkout.html?product=" + encodeURIComponent(productName);
 
 </script>
