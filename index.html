@@ -403,13 +403,21 @@ footer a{
   .product-buttons{
     flex-direction:column;
   }
-  .product-link{
-  color:#172033;
-  text-decoration:none;
+ .product-image{
+  width:100%;
+  height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#f5f7fb;
 }
 
-.product-link:hover{
-  color:#2563eb;
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
 }
 </style>
 </head>
