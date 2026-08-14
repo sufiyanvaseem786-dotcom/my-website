@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Account - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+h1{
+  margin-bottom:25px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.avatar{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#2563eb;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.info h2{
+  margin-bottom:8px;
+}
+
+.info p{
+  color:#667085;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#172033;
+  background:#f8fafc;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.menu a:hover{
+  background:#f1f5f9;
+}
+
+@media(max-width:600px){
+  .menu{
+    grid-template-columns:1fr;
+  }
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="index.html">
+    ← Home
+  </a>
+
+</header>
+
+<div class="container">
+
+  <h1>👤 My Account</h1>
+
+  <div class="card">
+
+    <div class="profile">
+
+      <div class="avatar">
+        👤
+      </div>
+
+      <div class="info">
+
+        <h2>Welcome to Nova Power Tools</h2>
+
+        <p>
+          Manage your orders and account information.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2 style="margin-bottom:20px;">
+      Quick Access
+    </h2>
+
+    <div class="menu">
+
+      <a href="orders.html">
+        📦<br>
+        <strong>My Orders</strong>
+        <br>
+        View your orders
+      </a>
+
+      <a href="cart.html">
+        🛒<br>
+        <strong>My Cart</strong>
+        <br>
+        View items in cart
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
