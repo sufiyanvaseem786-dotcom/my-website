@@ -315,9 +315,42 @@ function loadOrders(){
               ${order.address}
             </p>
 
-            <span class="status">
-              📦 Order Received
-            </span>
+           <div class="tracking">
+
+  <div class="track-step active">
+    <div class="track-icon">📦</div>
+    <span>Order Received</span>
+  </div>
+
+  <div class="track-line"></div>
+
+  <div class="track-step">
+    <div class="track-icon">✅</div>
+    <span>Confirmed</span>
+  </div>
+
+  <div class="track-line"></div>
+
+  <div class="track-step">
+    <div class="track-icon">🚚</div>
+    <span>Shipped</span>
+  </div>
+
+  <div class="track-line"></div>
+
+  <div class="track-step">
+    <div class="track-icon">🛵</div>
+    <span>Out for Delivery</span>
+  </div>
+
+  <div class="track-line"></div>
+
+  <div class="track-step">
+    <div class="track-icon">🎉</div>
+    <span>Delivered</span>
+  </div>
+
+</div>
 
           </div>
 
