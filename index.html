@@ -1117,13 +1117,7 @@ function addToCart(productName){
 
 function buyNow(productName){
 
-  alert(
-    "Buy Now selected for: " +
-    productName +
-    "\n\nCheckout system will be added next."
-  );
-
-}
+window.location.href = "checkout.html?product=" + encodeURIComponent(productName);
 
 </script>
 
