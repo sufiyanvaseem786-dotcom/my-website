@@ -79,8 +79,9 @@ header a{
 }
 
 .order{
+  background:white;
   border:1px solid #ddd;
-  border-radius:8px;
+  border-radius:10px;
   margin-top:20px;
   overflow:hidden;
 }
@@ -100,6 +101,7 @@ header a{
 
 .order-body p{
   margin:8px 0;
+  line-height:1.5;
 }
 
 .status{
@@ -164,7 +166,6 @@ header a{
 
 </header>
 
-
 <div class="container">
 
   <div class="box">
@@ -193,11 +194,9 @@ header a{
 
   </div>
 
-
   <div id="orders"></div>
 
 </div>
-
 
 <script>
 
@@ -277,6 +276,11 @@ function loadOrders(){
 
     result.orders.reverse().forEach(function(order){
 
+      const products =
+        String(order.products || "")
+          .replace(/\n/g,"<br>");
+
+
       ordersBox.innerHTML += `
 
         <div class="order">
@@ -288,7 +292,7 @@ function loadOrders(){
             </strong>
 
             <span>
-              Payment: ${order.payment}
+              💳 Payment: ${order.payment}
             </span>
 
           </div>
@@ -297,17 +301,17 @@ function loadOrders(){
           <div class="order-body">
 
             <p>
-              <strong>Products:</strong><br>
-              ${order.products.replace(/\n/g,"<br>")}
+              <strong>🛠️ Products:</strong><br>
+              ${products}
             </p>
 
             <p>
-              <strong>Total:</strong>
-              ₹${order.total}
+              <strong>💰 Total:</strong>
+              ₹${Number(order.total).toLocaleString("en-IN")}
             </p>
 
             <p>
-              <strong>Delivery Address:</strong><br>
+              <strong>📍 Delivery Address:</strong><br>
               ${order.address}
             </p>
 
