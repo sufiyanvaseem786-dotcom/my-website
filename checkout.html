@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,6 +142,17 @@ textarea{
   text-align:center;
 }
 
+#pageLoading{
+  text-align:center;
+  padding:60px 20px;
+  font-size:20px;
+  color:#667085;
+}
+
+#checkoutContent{
+  display:none;
+}
+
 @media(max-width:700px){
 
   .checkout-grid{
@@ -161,6 +173,12 @@ textarea{
 
 <body>
 
+<div id="pageLoading">
+  🔐 Checking your login...
+</div>
+
+<div id="checkoutContent">
+
 <header>
 
   <div class="logo">
@@ -180,8 +198,6 @@ textarea{
   </h1>
 
   <div class="checkout-grid">
-
-    <!-- CUSTOMER DETAILS -->
 
     <div>
 
@@ -244,9 +260,6 @@ textarea{
 
       </div>
 
-
-      <!-- PAYMENT -->
-
       <div class="box">
 
         <h2>💳 Payment Method</h2>
@@ -277,9 +290,6 @@ textarea{
       </div>
 
     </div>
-
-
-    <!-- ORDER SUMMARY -->
 
     <div class="box">
 
@@ -326,8 +336,103 @@ textarea{
 
 </div>
 
+</div>
 
-<script>
+
+<script type="module">
+
+import {
+  initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
+
+  authDomain:
+    "nova-power-tools.firebaseapp.com",
+
+  projectId:
+    "nova-power-tools",
+
+  storageBucket:
+    "nova-power-tools.firebasestorage.app",
+
+  messagingSenderId:
+    "265235157417",
+
+  appId:
+    "1:265235157417:web:60d630ee374f21b05234b8",
+
+  measurementId:
+    "G-PF74PNJQ89"
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+
+/*
+  LOGIN CHECK
+*/
+
+onAuthStateChanged(auth,function(user){
+
+  if(!user){
+
+    /*
+      User login nahi hai.
+      Login page par bhejo aur
+      checkout par wapas aane ka
+      address save karo.
+    */
+
+    window.location.href =
+      "login.html?returnUrl=checkout.html";
+
+    return;
+  }
+
+
+  /*
+    User logged in hai.
+    Checkout dikhao.
+  */
+
+  document.getElementById("pageLoading")
+    .style.display = "none";
+
+  document.getElementById("checkoutContent")
+    .style.display = "block";
+
+
+  /*
+    Firebase account ka email
+    checkout email mein automatically.
+  */
+
+  if(user.email){
+
+    document.getElementById("email")
+      .value = user.email;
+
+  }
+
+});
+
 
 let cart =
   JSON.parse(localStorage.getItem("novaCart")) || [];
@@ -388,30 +493,39 @@ function showOrder(){
 
 }
 
-function placeOrder(){
+
+window.placeOrder = function(){
 
   let name =
-    document.getElementById("name").value.trim();
+    document.getElementById("name")
+      .value.trim();
 
   let phone =
-    document.getElementById("phone").value.trim();
+    document.getElementById("phone")
+      .value.trim();
 
   let address =
-    document.getElementById("address").value.trim();
+    document.getElementById("address")
+      .value.trim();
 
   let city =
-    document.getElementById("city").value.trim();
+    document.getElementById("city")
+      .value.trim();
 
   let pincode =
-    document.getElementById("pincode").value.trim();
+    document.getElementById("pincode")
+      .value.trim();
 
   let email =
-    document.getElementById("email").value.trim();
+    document.getElementById("email")
+      .value.trim();
 
 
   if(!name || !phone || !address || !city || !pincode){
 
-    alert("Please fill all required details.");
+    alert(
+      "Please fill all required details."
+    );
 
     return;
 
@@ -420,7 +534,9 @@ function placeOrder(){
 
   if(phone.length !== 10){
 
-    alert("Please enter a valid 10 digit mobile number.");
+    alert(
+      "Please enter a valid 10 digit mobile number."
+    );
 
     return;
 
@@ -443,7 +559,8 @@ function placeOrder(){
 
 
   let total =
-    document.getElementById("total").innerText;
+    document.getElementById("total")
+      .innerText;
 
 
   let products = "";
@@ -464,11 +581,11 @@ function placeOrder(){
 
   const orderData = {
 
-    name: name,
+    name:name,
 
-    phone: phone,
+    phone:phone,
 
-    email: email,
+    email:email,
 
     address:
       address +
@@ -477,11 +594,11 @@ function placeOrder(){
       " - " +
       pincode,
 
-    products: products,
+    products:products,
 
-    total: total,
+    total:total,
 
-    payment: payment
+    payment:payment
 
   };
 
@@ -490,11 +607,11 @@ function placeOrder(){
     "https://script.google.com/macros/s/AKfycbw1cUlqklcnweOY8vpxNJWOZNsunqgrB41xjbn_D2TN5w2pN9rurfgh55APTRLR5DVa/exec";
 
 
-  fetch(scriptURL, {
+  fetch(scriptURL,{
 
-    method: "POST",
+    method:"POST",
 
-    body: JSON.stringify(orderData)
+    body:JSON.stringify(orderData)
 
   })
 
@@ -535,9 +652,11 @@ function placeOrder(){
 
 }
 
+
 showOrder();
 
 </script>
 
 </body>
 </html>
+```
