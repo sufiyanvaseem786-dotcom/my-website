@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Details - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+.product-page{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  display:grid;
+  grid-template-columns:45% 55%;
+  gap:35px;
+}
+
+.product-image{
+  width:100%;
+  height:450px;
+  background:#f8f9fa;
+  border:1px solid #ddd;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.product-info h1{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.rating{
+  color:#f59e0b;
+  font-size:18px;
+  margin-bottom:15px;
+}
+
+.rating span{
+  color:#555;
+  font-size:14px;
+}
+
+.price{
+  font-size:32px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.old-price{
+  color:#777;
+  text-decoration:line-through;
+  font-size:16px;
+  margin-left:10px;
+}
+
+.discount{
+  color:#15803d;
+  font-weight:bold;
+  margin-left:10px;
+}
+
+.delivery{
+  background:#f8fafc;
+  padding:18px;
+  border-radius:8px;
+  margin:20px 0;
+}
+
+.delivery p{
+  margin:8px 0;
+}
+
+.description{
+  margin-top:25px;
+  line-height:1.7;
+  color:#4b5563;
+}
+
+.description h2,
+.specifications h2{
+  color:#172033;
+  margin-bottom:12px;
+}
+
+.specifications{
+  margin-top:25px;
+}
+
+.specifications table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.specifications td{
+  padding:12px;
+  border:1px solid #ddd;
+}
+
+.specifications td:first-child{
+  font-weight:bold;
+  width:40%;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  margin-top:25px;
+}
+
+.buttons button{
+  flex:1;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.cart-btn{
+  background:#ffd814;
+}
+
+.buy-btn{
+  background:#ff9900;
+}
+
+.buttons button:hover{
+  opacity:.9;
+}
+
+@media(max-width:800px){
+
+  .product-page{
+    grid-template-columns:1fr;
+  }
+
+  .product-image{
+    height:330px;
+  }
+
+  .product-info h1{
+    font-size:25px;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="index.html">
+    ← Continue Shopping
+  </a>
+
+</header>
+
+
+<div class="container">
+
+  <div class="product-page">
+
+    <!-- PRODUCT IMAGE -->
+
+    <div class="product-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=80"
+        alt="Heavy Duty Grinder Machine"
+      >
+
+    </div>
+
+
+    <!-- PRODUCT INFORMATION -->
+
+    <div class="product-info">
+
+      <h1>
+        Heavy Duty Grinder Machine
+      </h1>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+        <span>4.5/5 (128 ratings)</span>
+      </div>
+
+      <hr>
+
+      <div class="price">
+        ₹1,899
+
+        <span class="old-price">
+          ₹2,299
+        </span>
+
+        <span class="discount">
+          17% OFF
+        </span>
+      </div>
+
+
+      <!-- DELIVERY -->
+
+      <div class="delivery">
+
+        <p>
+          🚚 <strong>Delivery:</strong>
+          Usually delivered within 1 day
+        </p>
+
+        <p>
+          📍 Delivery available in
+          Prayagraj and Banaras
+        </p>
+
+        <p>
+          🔄 <strong>Replacement:</strong>
+          Replacement available for eligible products
+        </p>
+
+      </div>
+
+
+      <!-- DESCRIPTION -->
+
+      <div class="description">
+
+        <h2>
+          About this product
+        </h2>
+
+        <p>
+          Heavy Duty Grinder Machine is designed for
+          grinding, cutting, polishing and finishing
+          different types of metal and other suitable
+          materials.
+        </p>
+
+        <p>
+          Its powerful motor provides reliable
+          performance for regular workshop,
+          construction and repair work. The compact
+          design makes the machine easy to handle
+          while working for longer periods.
+        </p>
+
+        <p>
+          This machine is suitable for electricians,
+          fabricators, mechanics, workshops,
+          construction workers and DIY users who
+          need a dependable grinding and cutting tool.
+        </p>
+
+      </div>
+
+
+      <!-- SPECIFICATIONS -->
+
+      <div class="specifications">
+
+        <h2>
+          Specifications
+        </h2>
+
+        <table>
+
+          <tr>
+            <td>Product Type</td>
+            <td>Heavy Duty Grinder Machine</td>
+          </tr>
+
+          <tr>
+            <td>Power</td>
+            <td>850W</td>
+          </tr>
+
+          <tr>
+            <td>Disc Size</td>
+            <td>4 Inch</td>
+          </tr>
+
+          <tr>
+            <td>Application</td>
+            <td>Grinding, Cutting & Polishing</td>
+          </tr>
+
+          <tr>
+            <td>Suitable For</td>
+            <td>Workshop, Construction & Repair Work</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="buttons">
+
+        <button
+          class="cart-btn"
+          onclick="addToCart()"
+        >
+          🛒 Add to Cart
+        </button>
+
+        <button
+          class="buy-btn"
+          onclick="buyNow()"
+        >
+          ⚡ Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function addToCart(){
+
+  let cart =
+    JSON.parse(localStorage.getItem("novaCart")) || [];
+
+  let existing =
+    cart.find(function(item){
+
+      return item.name ===
+        "Heavy Duty Grinder Machine";
+
+    });
+
+  if(existing){
+
+    existing.quantity += 1;
+
+  }else{
+
+    cart.push({
+
+      name:"Heavy Duty Grinder Machine",
+
+      price:1899,
+
+      icon:"⚙️",
+
+      quantity:1
+
+    });
+
+  }
+
+  localStorage.setItem(
+    "novaCart",
+    JSON.stringify(cart)
+  );
+
+  alert(
+    "Heavy Duty Grinder Machine added to cart! 🛒"
+  );
+
+}
+
+
+function buyNow(){
+
+  addToCart();
+
+  window.location.href =
+    "checkout.html";
+
+}
+
+</script>
+
+</body>
+</html>
