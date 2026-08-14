@@ -149,6 +149,70 @@ header a{
     flex-direction:column;
   }
 }
+  .tracking{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:25px;
+  gap:5px;
+  overflow-x:auto;
+  padding:10px 0;
+}
+
+.track-step{
+  min-width:100px;
+  text-align:center;
+  color:#999;
+  font-size:13px;
+}
+
+.track-icon{
+  width:45px;
+  height:45px;
+  margin:0 auto 8px;
+  border-radius:50%;
+  background:#e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.track-step.active{
+  color:#166534;
+  font-weight:bold;
+}
+
+.track-step.active .track-icon{
+  background:#dcfce7;
+}
+
+.track-line{
+  height:4px;
+  min-width:35px;
+  background:#ddd;
+  border-radius:5px;
+}
+
+.track-line.active{
+  background:#22c55e;
+}
+
+@media(max-width:600px){
+
+  .tracking{
+    justify-content:flex-start;
+    padding-bottom:15px;
+  }
+
+  .track-step{
+    min-width:90px;
+  }
+
+  .track-line{
+    min-width:20px;
+  }
+}
 </style>
 </head>
 
@@ -275,6 +339,16 @@ function loadOrders(){
 
 
     result.orders.reverse().forEach(function(order){
+      const statusSteps = {
+  "Order Received": 0,
+  "Confirmed": 1,
+  "Shipped": 2,
+  "Out for Delivery": 3,
+  "Delivered": 4
+};
+
+const currentStep =
+  statusSteps[order.status] ?? 0;
 
       const products =
         String(order.products || "")
@@ -315,37 +389,37 @@ function loadOrders(){
               ${order.address}
             </p>
 
-           <div class="tracking">
+<div class="tracking">
 
-  <div class="track-step active">
+  <div class="track-step ${currentStep >= 0 ? "active" : ""}">
     <div class="track-icon">📦</div>
     <span>Order Received</span>
   </div>
 
-  <div class="track-line"></div>
+  <div class="track-line ${currentStep >= 1 ? "active" : ""}"></div>
 
-  <div class="track-step">
+  <div class="track-step ${currentStep >= 1 ? "active" : ""}">
     <div class="track-icon">✅</div>
     <span>Confirmed</span>
   </div>
 
-  <div class="track-line"></div>
+  <div class="track-line ${currentStep >= 2 ? "active" : ""}"></div>
 
-  <div class="track-step">
+  <div class="track-step ${currentStep >= 2 ? "active" : ""}">
     <div class="track-icon">🚚</div>
     <span>Shipped</span>
   </div>
 
-  <div class="track-line"></div>
+  <div class="track-line ${currentStep >= 3 ? "active" : ""}"></div>
 
-  <div class="track-step">
+  <div class="track-step ${currentStep >= 3 ? "active" : ""}">
     <div class="track-icon">🛵</div>
     <span>Out for Delivery</span>
   </div>
 
-  <div class="track-line"></div>
+  <div class="track-line ${currentStep >= 4 ? "active" : ""}"></div>
 
-  <div class="track-step">
+  <div class="track-step ${currentStep >= 4 ? "active" : ""}">
     <div class="track-icon">🎉</div>
     <span>Delivered</span>
   </div>
