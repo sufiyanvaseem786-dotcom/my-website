@@ -665,7 +665,9 @@ body{
 
 
 <script type="module">
-
+const returnUrl =
+  new URLSearchParams(window.location.search)
+    .get("returnUrl") || "account.html";
 import {
   initializeApp
 }
@@ -834,9 +836,7 @@ window.emailLogin = async function(){
 
     setTimeout(function(){
 
-      window.location.href =
-        "account.html";
-
+      window.location.href = returnUrl;
     },800);
 
 
@@ -870,8 +870,7 @@ window.googleLogin = async function(){
 
     setTimeout(function(){
 
-      window.location.href =
-        "account.html";
+    window.location.href = returnUrl;
 
     },800);
 
@@ -1004,8 +1003,7 @@ window.verifyOTP = async function(){
 
     setTimeout(function(){
 
-      window.location.href =
-        "account.html";
+      window.location.href = returnUrl;
 
     },800);
 
