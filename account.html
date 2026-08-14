@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +58,7 @@ h1{
   padding:25px;
   border-radius:10px;
   margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
 .profile{
@@ -66,8 +68,8 @@ h1{
 }
 
 .avatar{
-  width:70px;
-  height:70px;
+  width:75px;
+  height:75px;
   border-radius:50%;
   background:#2563eb;
   color:white;
@@ -75,6 +77,14 @@ h1{
   align-items:center;
   justify-content:center;
   font-size:30px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .info h2{
@@ -83,6 +93,7 @@ h1{
 
 .info p{
   color:#667085;
+  margin:5px 0;
 }
 
 .menu{
@@ -98,13 +109,34 @@ h1{
   padding:20px;
   border-radius:8px;
   border:1px solid #ddd;
+  transition:0.2s;
 }
 
 .menu a:hover{
   background:#f1f5f9;
+  transform:translateY(-2px);
+}
+
+.logout{
+  margin-top:20px;
+  padding:13px 22px;
+  border:none;
+  border-radius:7px;
+  background:#dc2626;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.loading{
+  text-align:center;
+  padding:50px;
+  font-size:18px;
+  color:#667085;
 }
 
 @media(max-width:600px){
+
   .menu{
     grid-template-columns:1fr;
   }
@@ -112,6 +144,10 @@ h1{
   header{
     flex-direction:column;
     gap:10px;
+  }
+
+  .profile{
+    align-items:flex-start;
   }
 }
 </style>
@@ -131,7 +167,11 @@ h1{
 
 </header>
 
-<div class="container">
+<div id="loading" class="loading">
+  Checking your account...
+</div>
+
+<div id="accountPage" class="container" style="display:none;">
 
   <h1>👤 My Account</h1>
 
@@ -139,21 +179,27 @@ h1{
 
     <div class="profile">
 
-      <div class="avatar">
+      <div class="avatar" id="avatar">
         👤
       </div>
 
       <div class="info">
 
-        <h2>Welcome to Nova Power Tools</h2>
+        <h2 id="userName">
+          Welcome
+        </h2>
 
-        <p>
-          Manage your orders and account information.
-        </p>
+        <p id="userEmail"></p>
+
+        <p id="userPhone"></p>
 
       </div>
 
     </div>
+
+    <button class="logout" id="logoutBtn">
+      Logout
+    </button>
 
   </div>
 
@@ -186,5 +232,137 @@ h1{
 
 </div>
 
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
+
+  authDomain:
+    "nova-power-tools.firebaseapp.com",
+
+  projectId:
+    "nova-power-tools",
+
+  storageBucket:
+    "nova-power-tools.firebasestorage.app",
+
+  messagingSenderId:
+    "265235157417",
+
+  appId:
+    "1:265235157417:web:60d630ee374f21b05234b8",
+
+  measurementId:
+    "G-PF74PNJQ89"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+const loading =
+  document.getElementById("loading");
+
+const accountPage =
+  document.getElementById("accountPage");
+
+const userName =
+  document.getElementById("userName");
+
+const userEmail =
+  document.getElementById("userEmail");
+
+const userPhone =
+  document.getElementById("userPhone");
+
+const avatar =
+  document.getElementById("avatar");
+
+
+onAuthStateChanged(auth, function(user){
+
+  if(!user){
+
+    window.location.href = "login.html";
+
+    return;
+  }
+
+
+  loading.style.display = "none";
+
+  accountPage.style.display = "block";
+
+
+  userName.textContent =
+    user.displayName ||
+    "Nova Power Tools Customer";
+
+
+  userEmail.textContent =
+    user.email
+      ? "📧 " + user.email
+      : "";
+
+
+  userPhone.textContent =
+    user.phoneNumber
+      ? "📱 " + user.phoneNumber
+      : "";
+
+
+  if(user.photoURL){
+
+    avatar.innerHTML =
+      '<img src="' +
+      user.photoURL +
+      '" alt="Profile">';
+
+  }
+
+});
+
+
+document
+  .getElementById("logoutBtn")
+  .addEventListener("click", async function(){
+
+    try{
+
+      await signOut(auth);
+
+      window.location.href =
+        "login.html";
+
+    }catch(error){
+
+      alert(
+        "Logout failed. Please try again."
+      );
+
+      console.error(error);
+
+    }
+
+  });
+
+</script>
+
 </body>
 </html>
+```
