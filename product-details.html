@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Details - Nova Power Tools</title>
+<title>Product Details | Nova Power Tools</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -22,14 +23,14 @@ body{
 header{
   background:#131921;
   color:white;
-  padding:15px 5%;
+  padding:12px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .logo{
-  font-size:23px;
+  font-size:20px;
   font-weight:bold;
 }
 
@@ -40,133 +41,141 @@ header{
 header a{
   color:white;
   text-decoration:none;
+  font-size:13px;
 }
 
 .container{
-  max-width:1200px;
-  margin:30px auto;
-  padding:0 20px;
+  max-width:1000px;
+  margin:25px auto;
+  padding:0 15px;
 }
 
-.product-page{
+.product-box{
   background:white;
-  padding:30px;
-  border-radius:10px;
+  border-radius:8px;
+  padding:15px;
   display:grid;
-  grid-template-columns:45% 55%;
-  gap:35px;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-.product-image{
-  width:100%;
-  height:450px;
-  background:#f8f9fa;
+.product-image-box{
   border:1px solid #ddd;
-  border-radius:10px;
+  border-radius:6px;
+  min-height:420px;
   display:flex;
   align-items:center;
   justify-content:center;
+  background:#fafafa;
   overflow:hidden;
 }
 
-.product-image img{
+.product-image-box img{
   width:100%;
-  max-width:450px;
   height:400px;
   object-fit:contain;
-  display:block;
-  margin:auto;
+}
+
+.product-image-box .emoji{
+  font-size:150px;
 }
 
 .product-info h1{
-  font-size:32px;
-  margin-bottom:12px;
+  font-size:28px;
+  margin-bottom:10px;
 }
 
 .rating{
   color:#f59e0b;
-  font-size:18px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
-.rating span{
-  color:#555;
-  font-size:14px;
+.line{
+  border-top:1px solid #aaa;
+  margin:10px 0;
 }
 
 .price{
-  font-size:32px;
+  font-size:27px;
   font-weight:bold;
-  margin:15px 0;
+  display:inline-block;
+  margin-right:10px;
 }
 
 .old-price{
-  color:#777;
+  color:#667085;
   text-decoration:line-through;
-  font-size:16px;
-  margin-left:10px;
+  font-size:14px;
 }
 
 .discount{
   color:#15803d;
   font-weight:bold;
-  margin-left:10px;
+  font-size:17px;
+  margin-left:5px;
 }
 
 .delivery{
-  background:#f8fafc;
-  padding:18px;
-  border-radius:8px;
-  margin:20px 0;
+  background:#f5f7fa;
+  padding:15px;
+  border-radius:6px;
+  margin:15px 0;
+  line-height:1.8;
+  font-size:13px;
 }
 
-.delivery p{
-  margin:8px 0;
-}
-
-.description{
-  margin-top:25px;
-  line-height:1.7;
-  color:#4b5563;
-}
-
-.description h2,
-.specifications h2{
+.delivery strong{
   color:#172033;
-  margin-bottom:12px;
+}
+
+.about{
+  margin-top:15px;
+}
+
+.about h2,
+.specifications h2{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.about p{
+  color:#555;
+  line-height:1.6;
+  font-size:14px;
 }
 
 .specifications{
-  margin-top:25px;
+  margin-top:18px;
 }
 
-.specifications table{
+table{
   width:100%;
   border-collapse:collapse;
+  font-size:13px;
 }
 
-.specifications td{
-  padding:12px;
+td{
   border:1px solid #ddd;
+  padding:9px;
 }
 
-.specifications td:first-child{
+td:first-child{
   font-weight:bold;
-  width:40%;
+  width:35%;
 }
 
 .buttons{
   display:flex;
-  gap:15px;
-  margin-top:25px;
+  gap:8px;
+  margin-top:18px;
 }
 
 .buttons button{
   flex:1;
-  padding:15px;
+  padding:13px;
   border:none;
-  border-radius:8px;
-  font-size:17px;
+  border-radius:6px;
   font-weight:bold;
   cursor:pointer;
 }
@@ -179,33 +188,37 @@ header a{
   background:#ff9900;
 }
 
-.buttons button:hover{
-  opacity:.9;
+.message{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#16a34a;
+  color:white;
+  padding:13px 18px;
+  border-radius:7px;
+  display:none;
 }
 
-@media(max-width:800px){
+@media(max-width:700px){
 
-  .product-page{
+  .product-box{
     grid-template-columns:1fr;
   }
 
-  .product-image{
-    height:330px;
+  .product-image-box{
+    min-height:300px;
+  }
+
+  .product-image-box img{
+    height:280px;
   }
 
   .product-info h1{
-    font-size:25px;
+    font-size:22px;
   }
 
-  .buttons{
-    flex-direction:column;
-  }
-
-  header{
-    flex-direction:column;
-    gap:10px;
-  }
 }
+
 </style>
 </head>
 
@@ -226,103 +239,62 @@ header a{
 
 <div class="container">
 
-  <div class="product-page">
+  <div class="product-box">
 
-    <!-- PRODUCT IMAGE -->
-<div class="product-image">
+    <div class="product-image-box" id="imageBox">
+    </div>
 
- <img
-  src="https://raw.githubusercontent.com/sufiyanvaseem786-dotcom/my-website/main/grinder-machine-clean.png"
-  alt="Heavy Duty Grinder Machine"
->
-
-</div>
-
-
-    <!-- PRODUCT INFORMATION -->
 
     <div class="product-info">
 
-      <h1>
-        Heavy Duty Grinder Machine
+      <h1 id="productName">
+        Product
       </h1>
 
-      <div class="rating">
+      <div class="rating" id="rating">
         ⭐⭐⭐⭐⭐
-        <span>4.5/5 (128 ratings)</span>
       </div>
 
-      <hr>
+      <div class="line"></div>
 
-      <div class="price">
-        ₹1,899
+      <span class="price" id="price">
+        ₹0
+      </span>
 
-        <span class="old-price">
-          ₹2,299
-        </span>
+      <span class="old-price" id="oldPrice">
+      </span>
 
-        <span class="discount">
-          17% OFF
-        </span>
-      </div>
+      <span class="discount" id="discount">
+      </span>
 
-
-      <!-- DELIVERY -->
 
       <div class="delivery">
 
-        <p>
-          🚚 <strong>Delivery:</strong>
-          Usually delivered within 1 day
-        </p>
+        🚚 <strong>Delivery:</strong>
+        Usually delivered within 1 day
+        <br>
 
-        <p>
-          📍 Delivery available in
-          Prayagraj and Banaras
-        </p>
+        📍 <strong>Delivery available:</strong>
+        Prayagraj and Banaras
+        <br>
 
-        <p>
-          🔄 <strong>Replacement:</strong>
-          Replacement available for eligible products
-        </p>
+        🔄 <strong>Replacement:</strong>
+        Replacement available for eligible products
 
       </div>
 
 
-      <!-- DESCRIPTION -->
-
-      <div class="description">
+      <div class="about">
 
         <h2>
           About this product
         </h2>
 
-        <p>
-          Heavy Duty Grinder Machine is designed for
-          grinding, cutting, polishing and finishing
-          different types of metal and other suitable
-          materials.
-        </p>
-
-        <p>
-          Its powerful motor provides reliable
-          performance for regular workshop,
-          construction and repair work. The compact
-          design makes the machine easy to handle
-          while working for longer periods.
-        </p>
-
-        <p>
-          This machine is suitable for electricians,
-          fabricators, mechanics, workshops,
-          construction workers and DIY users who
-          need a dependable grinding and cutting tool.
+        <p id="description">
         </p>
 
       </div>
 
-
-      <!-- SPECIFICATIONS -->
 
       <div class="specifications">
 
@@ -330,39 +302,11 @@ header a{
           Specifications
         </h2>
 
-        <table>
-
-          <tr>
-            <td>Product Type</td>
-            <td>Heavy Duty Grinder Machine</td>
-          </tr>
-
-          <tr>
-            <td>Power</td>
-            <td>850W</td>
-          </tr>
-
-          <tr>
-            <td>Disc Size</td>
-            <td>4 Inch</td>
-          </tr>
-
-          <tr>
-            <td>Application</td>
-            <td>Grinding, Cutting & Polishing</td>
-          </tr>
-
-          <tr>
-            <td>Suitable For</td>
-            <td>Workshop, Construction & Repair Work</td>
-          </tr>
-
+        <table id="specTable">
         </table>
 
       </div>
 
-
-      <!-- BUTTONS -->
 
       <div class="buttons">
 
@@ -389,20 +333,560 @@ header a{
 </div>
 
 
+<div
+  class="message"
+  id="message"
+>
+  Added to cart! 🛒
+</div>
+
+
 <script>
+
+const products = {
+
+  "AARK AK-10C": {
+
+    image:"aark-ak10c.jpg",
+
+    price:1299,
+
+    oldPrice:1599,
+
+    discount:"19% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "AARK AK-10C electric drill designed for drilling and general workshop work. Suitable for home, repair and professional use.",
+
+    specs:{
+      "Brand":"AARK",
+      "Model":"AK-10C",
+      "Type":"Electric Drill",
+      "Power":"600W",
+      "Voltage":"220-240V",
+      "Application":"Drilling & Repair Work"
+    }
+
+  },
+
+
+  "Matrix MTX-DU10": {
+
+    image:"matrix-mtx-du10.jpg",
+
+    price:1499,
+
+    oldPrice:1899,
+
+    discount:"21% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "Matrix MTX-DU10 electric drill with powerful motor and side handle. Suitable for drilling and workshop applications.",
+
+    specs:{
+      "Brand":"Matrix",
+      "Model":"MTX-DU10",
+      "Type":"Electric Drill",
+      "Drilling Capacity":"10 mm",
+      "Power":"800W",
+      "Voltage":"220-230V",
+      "Speed":"2800 RPM"
+    }
+
+  },
+
+
+  "METRO MID13C": {
+
+    image:"metro-mid13c.jpg",
+
+    price:1599,
+
+    oldPrice:1999,
+
+    discount:"20% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "METRO MID13C impact drill designed for drilling applications with a powerful motor and 13mm chuck.",
+
+    specs:{
+      "Brand":"METRO",
+      "Model":"MID13C",
+      "Type":"Impact Drill",
+      "Power":"550W",
+      "Voltage":"220V",
+      "Speed":"0-2800 RPM",
+      "Chuck Diameter":"13 mm"
+    }
+
+  },
+
+
+  "Auto Power": {
+
+    image:"auto-power-drill.jpg",
+
+    price:1399,
+
+    oldPrice:1699,
+
+    discount:"18% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "Auto Power electric drill suitable for regular drilling, repair and workshop work.",
+
+    specs:{
+      "Brand":"Auto Power",
+      "Type":"Electric Drill",
+      "Application":"Drilling",
+      "Voltage":"220-240V",
+      "Use":"Home & Workshop"
+    }
+
+  },
+
+
+  "VIVO Drill": {
+
+    image:"vivo-drill.jpg",
+
+    price:1499,
+
+    oldPrice:1799,
+
+    discount:"17% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "VIVO electric drill designed for reliable drilling performance and everyday repair work.",
+
+    specs:{
+      "Brand":"VIVO",
+      "Type":"Electric Drill",
+      "Application":"Drilling & Repair",
+      "Voltage":"220-240V",
+      "Use":"Home & Workshop"
+    }
+
+  },
+
+
+  "Heavy Duty Grinder Machine": {
+
+    image:"grinder-machine-clean.png",
+
+    price:1899,
+
+    oldPrice:2299,
+
+    discount:"17% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    description:
+    "Heavy Duty Grinder Machine is designed for grinding, cutting, polishing and finishing different types of metal and other suitable materials.",
+
+    specs:{
+      "Product Type":"Heavy Duty Grinder Machine",
+      "Power":"850W",
+      "Disc Size":"4 Inch",
+      "Application":"Grinding, Cutting & Polishing",
+      "Suitable For":"Workshop, Construction & Repair Work"
+    }
+
+  },
+
+
+  "Electric Hammer Machine": {
+
+    image:"",
+
+    price:2499,
+
+    oldPrice:3199,
+
+    discount:"22% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🔨",
+
+    description:
+    "Powerful electric hammer machine suitable for drilling, hammering and construction work.",
+
+    specs:{
+      "Type":"Electric Hammer Machine",
+      "Power":"800W",
+      "Voltage":"220-240V",
+      "Application":"Construction & Repair Work"
+    }
+
+  },
+
+
+  "Power Cutter Machine": {
+
+    image:"",
+
+    price:2199,
+
+    oldPrice:2799,
+
+    discount:"21% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"✂️",
+
+    description:
+    "Power cutter machine suitable for cutting various materials in workshop and construction applications.",
+
+    specs:{
+      "Type":"Power Cutter Machine",
+      "Application":"Cutting",
+      "Voltage":"220-240V",
+      "Use":"Workshop & Construction"
+    }
+
+  },
+
+
+  "High Power Blower": {
+
+    image:"",
+
+    price:1200,
+
+    oldPrice:1499,
+
+    discount:"20% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"💨",
+
+    description:
+    "METRO blower suitable for dust cleaning, workshop cleaning and general blowing applications.",
+
+    specs:{
+      "Brand":"METRO",
+      "Type":"Electric Blower",
+      "Price":"₹1,200",
+      "Application":"Dust & Cleaning",
+      "Use":"Workshop & Home"
+    }
+
+  },
+
+
+  "Welding Machine": {
+
+    image:"",
+
+    price:3499,
+
+    oldPrice:4299,
+
+    discount:"19% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🔥",
+
+    description:
+    "Reliable welding machine suitable for metal welding, repair work and workshop applications.",
+
+    specs:{
+      "Type":"Welding Machine",
+      "Application":"Metal Welding",
+      "Use":"Workshop & Repair",
+      "Voltage":"220-240V"
+    }
+
+  },
+
+
+  "Jig Saw": {
+
+    image:"",
+
+    price:2299,
+
+    oldPrice:2799,
+
+    discount:"18% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🪚",
+
+    description:
+    "Jig saw designed for accurate cutting work on suitable materials.",
+
+    specs:{
+      "Type":"Jig Saw",
+      "Application":"Cutting",
+      "Use":"Workshop & DIY",
+      "Voltage":"220-240V"
+    }
+
+  },
+
+
+  "Mixing Drill": {
+
+    image:"",
+
+    price:2799,
+
+    oldPrice:3399,
+
+    discount:"18% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🔩",
+
+    description:
+    "Mixing drill suitable for mixing construction materials and other workshop applications.",
+
+    specs:{
+      "Type":"Mixing Drill",
+      "Application":"Material Mixing",
+      "Use":"Construction & Workshop",
+      "Voltage":"220-240V"
+    }
+
+  },
+
+
+  "Demolition Hammer": {
+
+    image:"",
+
+    price:4999,
+
+    oldPrice:5999,
+
+    discount:"17% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🛠️",
+
+    description:
+    "Heavy-duty demolition hammer suitable for breaking concrete, masonry and construction materials.",
+
+    specs:{
+      "Type":"Demolition Hammer",
+      "Application":"Demolition",
+      "Use":"Construction Work",
+      "Voltage":"220-240V"
+    }
+
+  },
+
+
+  "Gasoline Chain Saw": {
+
+    image:"",
+
+    price:7499,
+
+    oldPrice:8999,
+
+    discount:"17% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"⛓️",
+
+    description:
+    "Gasoline chain saw suitable for cutting wood and outdoor cutting applications.",
+
+    specs:{
+      "Type":"Gasoline Chain Saw",
+      "Fuel":"Petrol",
+      "Application":"Wood Cutting",
+      "Use":"Outdoor Work"
+    }
+
+  },
+
+
+  "Metal Cut Off Saw": {
+
+    image:"",
+
+    price:5499,
+
+    oldPrice:6499,
+
+    discount:"15% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"⚙️",
+
+    description:
+    "Metal cut off saw designed for cutting metal sections, pipes and other suitable metal materials.",
+
+    specs:{
+      "Type":"Metal Cut Off Saw",
+      "Application":"Metal Cutting",
+      "Use":"Workshop & Fabrication",
+      "Voltage":"220-240V"
+    }
+
+  },
+
+
+  "Electric Trimmer": {
+
+    image:"",
+
+    price:2499,
+
+    oldPrice:2999,
+
+    discount:"17% OFF",
+
+    rating:"⭐⭐⭐⭐⭐",
+
+    emoji:"🌿",
+
+    description:
+    "Electric trimmer suitable for trimming grass, plants and garden areas.",
+
+    specs:{
+      "Type":"Electric Trimmer",
+      "Application":"Garden & Grass Trimming",
+      "Use":"Outdoor Work",
+      "Voltage":"220-240V"
+    }
+
+  }
+
+};
+
+
+const params =
+new URLSearchParams(
+  window.location.search
+);
+
+const productName =
+params.get("product");
+
+
+const product =
+products[productName];
+
+
+if(!product){
+
+  document.getElementById("productName").innerText =
+  "Product Not Found";
+
+}else{
+
+  document.getElementById("productName").innerText =
+  productName;
+
+  document.getElementById("rating").innerText =
+  product.rating;
+
+  document.getElementById("price").innerText =
+  "₹" + product.price.toLocaleString("en-IN");
+
+  document.getElementById("oldPrice").innerText =
+  "₹" + product.oldPrice.toLocaleString("en-IN");
+
+  document.getElementById("discount").innerText =
+  product.discount;
+
+  document.getElementById("description").innerText =
+  product.description;
+
+
+  const imageBox =
+  document.getElementById("imageBox");
+
+
+  if(product.image){
+
+    imageBox.innerHTML =
+    '<img src="' +
+    product.image +
+    '" alt="' +
+    productName +
+    '">';
+
+  }else{
+
+    imageBox.innerHTML =
+    '<div class="emoji">' +
+    product.emoji +
+    '</div>';
+
+  }
+
+
+  const table =
+  document.getElementById("specTable");
+
+
+  table.innerHTML = "";
+
+
+  for(
+    const key in product.specs
+  ){
+
+    table.innerHTML +=
+    "<tr>" +
+    "<td>" + key + "</td>" +
+    "<td>" +
+    product.specs[key] +
+    "</td>" +
+    "</tr>";
+
+  }
+
+}
+
 
 function addToCart(){
 
+  if(!product){
+
+    return;
+
+  }
+
+
   let cart =
-    JSON.parse(localStorage.getItem("novaCart")) || [];
+  JSON.parse(
+    localStorage.getItem("novaCart")
+  ) || [];
+
 
   let existing =
-    cart.find(function(item){
+  cart.find(function(item){
 
-      return item.name ===
-        "Heavy Duty Grinder Machine";
+    return item.name === productName;
 
-    });
+  });
+
 
   if(existing){
 
@@ -412,11 +896,11 @@ function addToCart(){
 
     cart.push({
 
-      name:"Heavy Duty Grinder Machine",
+      name:productName,
 
-      price:1899,
+      price:product.price,
 
-      icon:"⚙️",
+      icon:product.emoji || "🛠️",
 
       quantity:1
 
@@ -424,24 +908,48 @@ function addToCart(){
 
   }
 
+
   localStorage.setItem(
     "novaCart",
     JSON.stringify(cart)
   );
 
-  alert(
-    "Heavy Duty Grinder Machine added to cart! 🛒"
-  );
+
+  const message =
+  document.getElementById("message");
+
+
+  message.innerText =
+  productName +
+  " added to cart! 🛒";
+
+
+  message.style.display =
+  "block";
+
+
+  setTimeout(function(){
+
+    message.style.display =
+    "none";
+
+  },2000);
 
 }
 
 
 function buyNow(){
 
-  addToCart();
+  if(!product){
+
+    return;
+
+  }
+
 
   window.location.href =
-    "checkout.html";
+  "checkout.html?product=" +
+  encodeURIComponent(productName);
 
 }
 
