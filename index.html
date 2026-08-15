@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,15 @@
 <title>Nova Power Tools | Power Tools & Free Online Tools</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -19,7 +25,8 @@ body{
   color:#172033;
 }
 
-/* TOP HEADER */
+/* HEADER */
+
 header{
   background:#131921;
   color:white;
@@ -85,6 +92,7 @@ header{
 }
 
 /* CATEGORY BAR */
+
 .category-bar{
   background:#232f3e;
   color:white;
@@ -94,16 +102,23 @@ header{
   overflow-x:auto;
 }
 
-.category-bar a{
+.category-bar button{
+  background:none;
+  border:none;
   color:white;
-  text-decoration:none;
   white-space:nowrap;
   font-size:15px;
+  cursor:pointer;
+  padding:3px 0;
+}
+
+.category-bar button:hover{
+  color:#ffb000;
 }
 
 /* HERO */
+
 .hero{
-  margin:0;
   min-height:330px;
   background:linear-gradient(135deg,#172554,#2563eb,#7c3aed);
   color:white;
@@ -143,6 +158,7 @@ header{
 }
 
 /* SECTIONS */
+
 .section{
   padding:35px 4%;
 }
@@ -153,6 +169,7 @@ header{
 }
 
 /* CATEGORY CARDS */
+
 .categories{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -163,13 +180,23 @@ header{
   background:white;
   padding:25px 15px;
   text-align:center;
-  border-radius:8px;
+  border-radius:10px;
   cursor:pointer;
   box-shadow:0 2px 8px rgba(0,0,0,.08);
+  border:2px solid transparent;
+  transition:.25s;
+  user-select:none;
 }
 
 .category-card:hover{
-  transform:translateY(-3px);
+  transform:translateY(-5px);
+  border-color:#ffb000;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.category-card.active{
+  border-color:#2563eb;
+  background:#eff6ff;
 }
 
 .category-icon{
@@ -177,7 +204,28 @@ header{
   margin-bottom:10px;
 }
 
+.category-card h3{
+  font-size:16px;
+}
+
+/* CATEGORY FILTER MESSAGE */
+
+.category-result{
+  display:none;
+  background:#fff;
+  margin:0 4%;
+  padding:15px 20px;
+  border-left:5px solid #ffb000;
+  border-radius:7px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.category-result strong{
+  color:#2563eb;
+}
+
 /* PRODUCTS */
+
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
@@ -189,22 +237,43 @@ header{
   padding:18px;
   border-radius:8px;
   box-shadow:0 2px 8px rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.product:hover{
+  transform:translateY(-3px);
 }
 
 .product-image{
-  height:170px;
+  height:190px;
   display:flex;
   align-items:center;
   justify-content:center;
   background:#f3f4f6;
-  border-radius:6px;
+  border-radius:8px;
   font-size:75px;
   margin-bottom:15px;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 .product h3{
   font-size:17px;
   margin-bottom:8px;
+}
+
+.product-link{
+  color:#172033;
+  text-decoration:none;
+}
+
+.product-link:hover{
+  color:#2563eb;
 }
 
 .rating{
@@ -253,6 +322,7 @@ header{
 }
 
 /* ONLINE TOOLS */
+
 .tools-section{
   background:#f5f7fb;
 }
@@ -295,6 +365,7 @@ header{
 }
 
 /* ABOUT */
+
 .about{
   background:white;
   text-align:center;
@@ -308,11 +379,11 @@ header{
 }
 
 /* FOOTER */
+
 footer{
   background:#131921;
   color:white;
   padding:40px 5%;
-  margin-top:0;
 }
 
 .footer-grid{
@@ -325,10 +396,8 @@ footer h3{
   margin-bottom:15px;
 }
 
-footer p,
-footer a{
+footer p{
   color:#ddd;
-  text-decoration:none;
   line-height:1.8;
 }
 
@@ -339,7 +408,8 @@ footer a{
   padding-top:20px;
 }
 
-/* CART */
+/* CART MESSAGE */
+
 #cartMessage{
   position:fixed;
   bottom:20px;
@@ -353,6 +423,7 @@ footer a{
 }
 
 /* MOBILE */
+
 @media(max-width:700px){
 
   header{
@@ -395,108 +466,28 @@ footer a{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .product-image{
-    height:130px;
-    font-size:55px;
-  }
-
   .product-buttons{
     flex-direction:column;
   }
-.product-image{
-  width:100%;
-  height:180px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:#f5f7fb;
-  border-radius:8px;
+
+  .product-image{
+    height:150px;
+  }
+
 }
 
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-  /* Product card layout fix */
-.product-card{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  background:#fff;
-  border-radius:10px;
-  padding:15px;
-  overflow:hidden;
+@media(max-width:450px){
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
 }
 
-.product-card .product-image{
-  width:100%;
-  height:260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f8f9fa;
-  overflow:hidden;
-}
-
-.product-card .product-image img{
-  width:100%;
-  height:100%;
-  max-width:380px;
-  object-fit:contain;
-  display:block;
-}
-
-.product-card .product-info{
-  width:100%;
-  padding:15px;
-  text-align:center;
-}
-
-.product-card .product-info h3{
-  margin:8px 0;
-  font-size:20px;
-}
-
-.product-card .rating{
-  margin:8px 0;
-}
-
-.product-card .price{
-  font-size:22px;
-  font-weight:bold;
-  margin:8px 0;
-}
-
-.product-card .old-price{
-  text-decoration:line-through;
-  color:#777;
-  margin:5px;
-}
-
-.product-card .discount{
-  color:green;
-  font-weight:bold;
-  margin:5px;
-}
-
-.product-card .product-buttons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:12px;
-}
-
-.product-card .product-buttons button{
-  padding:12px 25px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
-}
 </style>
 </head>
 
@@ -511,6 +502,7 @@ footer a{
   </div>
 
   <div class="search-area">
+
     <input
       type="text"
       id="searchBox"
@@ -518,15 +510,29 @@ footer a{
       onkeyup="searchProducts()"
     >
 
-    <button onclick="searchProducts()">🔍</button>
+    <button onclick="searchProducts()">
+      🔍
+    </button>
+
   </div>
 
   <div class="header-links">
-    <a href="account.html">👤 Account</a>
-    <a href="orders.html">📦 Orders</a>
-    <div class="cart" onclick="window.location.href='cart.html'">
-  🛒
-</div>
+
+    <a href="account.html">
+      👤 Account
+    </a>
+
+    <a href="orders.html">
+      📦 Orders
+    </a>
+
+    <div
+      class="cart"
+      onclick="window.location.href='cart.html'"
+    >
+      🛒
+    </div>
+
   </div>
 
 </header>
@@ -536,15 +542,57 @@ footer a{
 
 <nav class="category-bar">
 
-  <a href="#products">☰ All</a>
-  <a href="#categories">Drill Machines</a>
-  <a href="#categories">Grinders</a>
-  <a href="#categories">Hammer Machines</a>
-  <a href="#categories">Cutters</a>
-  <a href="#categories">Blowers</a>
-  <a href="#categories">Welding</a>
-  <a href="#products">Deals</a>
-  <a href="#tools">Free Tools</a>
+  <button onclick="showAllProducts()">
+    ☰ All
+  </button>
+
+  <button onclick="filterCategory('Drill')">
+    Drill Machines
+  </button>
+
+  <button onclick="filterCategory('Grinder')">
+    Grinders
+  </button>
+
+  <button onclick="filterCategory('Hammer')">
+    Hammer Machines
+  </button>
+
+  <button onclick="filterCategory('Cutter')">
+    Cutters
+  </button>
+
+  <button onclick="filterCategory('Blower')">
+    Blowers
+  </button>
+
+  <button onclick="filterCategory('Welding')">
+    Welding
+  </button>
+
+  <button onclick="filterCategory('Jig Saw')">
+    Jig Saw
+  </button>
+
+  <button onclick="filterCategory('Mixing Drill')">
+    Mixing Drill
+  </button>
+
+  <button onclick="filterCategory('Demolition Hammer')">
+    Demolition Hammer
+  </button>
+
+  <button onclick="filterCategory('Gasoline Chain Saw')">
+    Gasoline Chain Saw
+  </button>
+
+  <button onclick="filterCategory('Metal Cut Off Saw')">
+    Metal Cut Off Saw
+  </button>
+
+  <button onclick="filterCategory('Electric Trimmer')">
+    Electric Trimmer
+  </button>
 
 </nav>
 
@@ -556,7 +604,8 @@ footer a{
   <div class="hero-content">
 
     <h1>
-      Powerful Tools for <span>Powerful Work</span>
+      Powerful Tools for
+      <span>Powerful Work</span>
     </h1>
 
     <p>
@@ -564,8 +613,8 @@ footer a{
       all in one place.
     </p>
 
-    <a href="#products" class="shop-btn">
-      🛒 Shop Now
+    <a href="#categories" class="shop-btn">
+      🛒 Shop by Category
     </a>
 
   </div>
@@ -575,7 +624,10 @@ footer a{
 
 <!-- CATEGORIES -->
 
-<section class="section" id="categories">
+<section
+  class="section"
+  id="categories"
+>
 
   <h2 class="section-title">
     🛠️ Shop by Category
@@ -583,134 +635,348 @@ footer a{
 
   <div class="categories">
 
-    <div class="category-card">
-      <div class="category-icon">🔩</div>
-      <h3>Drill Machines</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Drill')"
+    >
+
+      <div class="category-icon">
+        🔩
+      </div>
+
+      <h3>
+        Drill Machines
+      </h3>
+
     </div>
 
-    <div class="category-card">
-      <div class="category-icon">🔨</div>
-      <h3>Hammer Machines</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Hammer')"
+    >
+
+      <div class="category-icon">
+        🔨
+      </div>
+
+      <h3>
+        Hammer Machines
+      </h3>
+
     </div>
 
-    <div class="category-card">
-      <div class="category-icon">⚙️</div>
-      <h3>Grinders</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Grinder')"
+    >
+
+      <div class="category-icon">
+        ⚙️
+      </div>
+
+      <h3>
+        Grinders
+      </h3>
+
     </div>
 
-    <div class="category-card">
-      <div class="category-icon">✂️</div>
-      <h3>Cutter Machines</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Cutter')"
+    >
+
+      <div class="category-icon">
+        ✂️
+      </div>
+
+      <h3>
+        Cutter Machines
+      </h3>
+
     </div>
 
-    <div class="category-card">
-      <div class="category-icon">💨</div>
-      <h3>Blowers</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Blower')"
+    >
+
+      <div class="category-icon">
+        💨
+      </div>
+
+      <h3>
+        Blowers
+      </h3>
+
     </div>
 
-    <div class="category-card">
-      <div class="category-icon">🔥</div>
-      <h3>Welding</h3>
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Welding')"
+    >
+
+      <div class="category-icon">
+        🔥
+      </div>
+
+      <h3>
+        Welding Machines
+      </h3>
+
     </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Jig Saw')"
+    >
+
+      <div class="category-icon">
+        🪚
+      </div>
+
+      <h3>
+        Jig Saw
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Mixing Drill')"
+    >
+
+      <div class="category-icon">
+        🔩
+      </div>
+
+      <h3>
+        Mixing Drill
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Demolition Hammer')"
+    >
+
+      <div class="category-icon">
+        🛠️
+      </div>
+
+      <h3>
+        Demolition Hammer
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Gasoline Chain Saw')"
+    >
+
+      <div class="category-icon">
+        ⛓️
+      </div>
+
+      <h3>
+        Gasoline Chain Saw
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Metal Cut Off Saw')"
+    >
+
+      <div class="category-icon">
+        ⚙️
+      </div>
+
+      <h3>
+        Metal Cut Off Saw
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Electric Trimmer')"
+    >
+
+      <div class="category-icon">
+        🌿
+      </div>
+
+      <h3>
+        Electric Trimmer
+      </h3>
+
+    </div>
+
+
+    <div
+      class="category-card"
+      onclick="filterCategory('Parts')"
+    >
+
+      <div class="category-icon">
+        🔩
+      </div>
+
+      <h3>
+        Parts & Accessories
+      </h3>
+
+    </div>
+
 
   </div>
 
 </section>
 
 
+<!-- CATEGORY RESULT -->
+
+<div
+  class="category-result"
+  id="categoryResult"
+>
+  Showing products in:
+  <strong id="selectedCategory"></strong>
+</div>
+
+
 <!-- PRODUCTS -->
 
-<section class="section" id="products">
+<section
+  class="section"
+  id="products"
+>
 
   <h2 class="section-title">
     🔥 Featured Power Tools
   </h2>
 
-  <div class="products" id="productList">
+
+  <div
+    class="products"
+    id="productList"
+  >
 
 
-  <div class="product-card">
+    <!-- DRILL -->
 
-  <div class="product-image">
-
-    <img
-      src="https://raw.githubusercontent.com/sufiyanvaseem786-dotcom/my-website/main/your-drill-image.png"
-      alt="Professional Drill Machine"
+    <div
+      class="product"
+      data-category="Drill"
     >
 
-  </div>
+      <div class="product-image">
 
-  <div class="product-info">
-
-    <h3>Professional Drill Machine</h3>
-
-    <div class="rating">
-      ⭐⭐⭐⭐⭐
-    </div>
-
-    <div class="price">
-      ₹1,499
-    </div>
-
-    <div class="old-price">
-      ₹1,999
-    </div>
-
-    <div class="discount">
-      25% off
-    </div>
-
-    <div class="product-buttons">
-
-      <button
-        class="add-cart"
-        onclick="addToCart('Professional Drill Machine')">
-        Add to Cart
-      </button>
-
-      <button
-        class="buy"
-        onclick="buyNow('Professional Drill Machine')">
-        Buy Now
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-    </div>
-
-
-    <div class="product">
-
-    <div class="product-gallery">
-
-<div class="product-image">
-  <a href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine">
-   <img
-  src="grinder-machine-clean.png"
-  alt="Heavy Duty Grinder Machine">
-  </a>
-</div>
+        <img
+          src="https://raw.githubusercontent.com/sufiyanvaseem786-dotcom/my-website/main/your-drill-image.png"
+          alt="Professional Drill Machine"
+        >
 
       </div>
 
       <h3>
-  <a
-    href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine"
-    class="product-link">
-    Heavy Duty Grinder Machine
-  </a>
-</h3>
+        Professional Drill Machine
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹1,499
+      </div>
+
+      <div class="old-price">
+        ₹1,999
+      </div>
+
+      <div class="discount">
+        25% off
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Professional Drill Machine')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Professional Drill Machine')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- GRINDER -->
+
+    <div
+      class="product"
+      data-category="Grinder"
+    >
+
+      <div class="product-image">
+
+        <a href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine">
+
+          <img
+            src="grinder-machine-clean.png"
+            alt="Heavy Duty Grinder Machine"
+          >
+
+        </a>
+
+      </div>
+
+      <h3>
+
+        <a
+          href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine"
+          class="product-link"
+        >
+          Heavy Duty Grinder Machine
+        </a>
+
+      </h3>
 
       <div class="rating">
         ⭐⭐⭐⭐☆
       </div>
 
-      <div class="price">₹1,899</div>
+      <div class="price">
+        ₹1,899
+      </div>
 
-      <div class="old-price">₹2,499</div>
+      <div class="old-price">
+        ₹2,499
+      </div>
 
       <div class="discount">
         24% off
@@ -720,13 +986,15 @@ footer a{
 
         <button
           class="add-cart"
-          onclick="addToCart('Heavy Duty Grinder Machine')">
+          onclick="addToCart('Heavy Duty Grinder Machine')"
+        >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Heavy Duty Grinder Machine')">
+          onclick="buyNow('Heavy Duty Grinder Machine')"
+        >
           Buy Now
         </button>
 
@@ -735,21 +1003,32 @@ footer a{
     </div>
 
 
-    <div class="product">
+    <!-- HAMMER -->
+
+    <div
+      class="product"
+      data-category="Hammer"
+    >
 
       <div class="product-image">
         🔨
       </div>
 
-      <h3>Electric Hammer Machine</h3>
+      <h3>
+        Electric Hammer Machine
+      </h3>
 
       <div class="rating">
         ⭐⭐⭐⭐⭐
       </div>
 
-      <div class="price">₹2,499</div>
+      <div class="price">
+        ₹2,499
+      </div>
 
-      <div class="old-price">₹3,199</div>
+      <div class="old-price">
+        ₹3,199
+      </div>
 
       <div class="discount">
         22% off
@@ -759,13 +1038,15 @@ footer a{
 
         <button
           class="add-cart"
-          onclick="addToCart('Electric Hammer Machine')">
+          onclick="addToCart('Electric Hammer Machine')"
+        >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Electric Hammer Machine')">
+          onclick="buyNow('Electric Hammer Machine')"
+        >
           Buy Now
         </button>
 
@@ -774,21 +1055,32 @@ footer a{
     </div>
 
 
-    <div class="product">
+    <!-- CUTTER -->
+
+    <div
+      class="product"
+      data-category="Cutter"
+    >
 
       <div class="product-image">
         ✂️
       </div>
 
-      <h3>Power Cutter Machine</h3>
+      <h3>
+        Power Cutter Machine
+      </h3>
 
       <div class="rating">
         ⭐⭐⭐⭐☆
       </div>
 
-      <div class="price">₹2,199</div>
+      <div class="price">
+        ₹2,199
+      </div>
 
-      <div class="old-price">₹2,799</div>
+      <div class="old-price">
+        ₹2,799
+      </div>
 
       <div class="discount">
         21% off
@@ -798,13 +1090,15 @@ footer a{
 
         <button
           class="add-cart"
-          onclick="addToCart('Power Cutter Machine')">
+          onclick="addToCart('Power Cutter Machine')"
+        >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Power Cutter Machine')">
+          onclick="buyNow('Power Cutter Machine')"
+        >
           Buy Now
         </button>
 
@@ -813,21 +1107,32 @@ footer a{
     </div>
 
 
-    <div class="product">
+    <!-- BLOWER -->
+
+    <div
+      class="product"
+      data-category="Blower"
+    >
 
       <div class="product-image">
         💨
       </div>
 
-      <h3>High Power Blower</h3>
+      <h3>
+        High Power Blower
+      </h3>
 
       <div class="rating">
         ⭐⭐⭐⭐⭐
       </div>
 
-      <div class="price">₹999</div>
+      <div class="price">
+        ₹999
+      </div>
 
-      <div class="old-price">₹1,299</div>
+      <div class="old-price">
+        ₹1,299
+      </div>
 
       <div class="discount">
         23% off
@@ -837,13 +1142,15 @@ footer a{
 
         <button
           class="add-cart"
-          onclick="addToCart('High Power Blower')">
+          onclick="addToCart('High Power Blower')"
+        >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('High Power Blower')">
+          onclick="buyNow('High Power Blower')"
+        >
           Buy Now
         </button>
 
@@ -852,21 +1159,32 @@ footer a{
     </div>
 
 
-    <div class="product">
+    <!-- WELDING -->
+
+    <div
+      class="product"
+      data-category="Welding"
+    >
 
       <div class="product-image">
         🔥
       </div>
 
-      <h3>Welding Machine</h3>
+      <h3>
+        Welding Machine
+      </h3>
 
       <div class="rating">
         ⭐⭐⭐⭐☆
       </div>
 
-      <div class="price">₹3,499</div>
+      <div class="price">
+        ₹3,499
+      </div>
 
-      <div class="old-price">₹4,499</div>
+      <div class="old-price">
+        ₹4,499
+      </div>
 
       <div class="discount">
         22% off
@@ -876,19 +1194,300 @@ footer a{
 
         <button
           class="add-cart"
-          onclick="addToCart('Welding Machine')">
+          onclick="addToCart('Welding Machine')"
+        >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Welding Machine')">
+          onclick="buyNow('Welding Machine')"
+        >
           Buy Now
         </button>
 
       </div>
 
     </div>
+
+
+    <!-- NEW CATEGORY PRODUCTS -->
+
+    <div
+      class="product"
+      data-category="Jig Saw"
+    >
+
+      <div class="product-image">
+        🪚
+      </div>
+
+      <h3>
+        Jig Saw
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹2,299
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Jig Saw')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Jig Saw')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product"
+      data-category="Mixing Drill"
+    >
+
+      <div class="product-image">
+        🔩
+      </div>
+
+      <h3>
+        Mixing Drill
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹2,799
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Mixing Drill')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Mixing Drill')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product"
+      data-category="Demolition Hammer"
+    >
+
+      <div class="product-image">
+        🛠️
+      </div>
+
+      <h3>
+        Demolition Hammer
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹4,999
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Demolition Hammer')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Demolition Hammer')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product"
+      data-category="Gasoline Chain Saw"
+    >
+
+      <div class="product-image">
+        ⛓️
+      </div>
+
+      <h3>
+        Gasoline Chain Saw
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹7,499
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Gasoline Chain Saw')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Gasoline Chain Saw')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product"
+      data-category="Metal Cut Off Saw"
+    >
+
+      <div class="product-image">
+        ⚙️
+      </div>
+
+      <h3>
+        Metal Cut Off Saw
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹5,499
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Metal Cut Off Saw')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Metal Cut Off Saw')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="product"
+      data-category="Electric Trimmer"
+    >
+
+      <div class="product-image">
+        🌿
+      </div>
+
+      <h3>
+        Electric Trimmer
+      </h3>
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="price">
+        ₹2,499
+      </div>
+
+      <div class="discount">
+        New
+      </div>
+
+      <div class="product-buttons">
+
+        <button
+          class="add-cart"
+          onclick="addToCart('Electric Trimmer')"
+        >
+          Add to Cart
+        </button>
+
+        <button
+          class="buy"
+          onclick="buyNow('Electric Trimmer')"
+        >
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
 
   </div>
 
@@ -897,7 +1496,10 @@ footer a{
 
 <!-- FREE ONLINE TOOLS -->
 
-<section class="section tools-section" id="tools">
+<section
+  class="section tools-section"
+  id="tools"
+>
 
   <h2 class="section-title">
     🛠️ Free Online Tools
@@ -908,15 +1510,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">🔢</div>
+      <div class="tool-icon">
+        🔢
+      </div>
 
-      <h3>Word Counter</h3>
+      <h3>
+        Word Counter
+      </h3>
 
       <p>
         Count words and characters quickly.
       </p>
 
-      <button onclick="window.location.href='word-counter.html'">
+      <button
+        onclick="window.location.href='word-counter.html'"
+      >
         Open Tool
       </button>
 
@@ -925,15 +1533,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">🔐</div>
+      <div class="tool-icon">
+        🔐
+      </div>
 
-      <h3>Password Generator</h3>
+      <h3>
+        Password Generator
+      </h3>
 
       <p>
         Create strong and secure passwords.
       </p>
 
-      <button onclick="window.location.href='password-generator.html'">
+      <button
+        onclick="window.location.href='password-generator.html'"
+      >
         Open Tool
       </button>
 
@@ -942,15 +1556,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">📱</div>
+      <div class="tool-icon">
+        📱
+      </div>
 
-      <h3>QR Code Generator</h3>
+      <h3>
+        QR Code Generator
+      </h3>
 
       <p>
         Create QR codes from text or links.
       </p>
 
-      <button onclick="window.location.href='qr-generator.html'">
+      <button
+        onclick="window.location.href='qr-generator.html'"
+      >
         Open Tool
       </button>
 
@@ -959,15 +1579,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">🔗</div>
+      <div class="tool-icon">
+        🔗
+      </div>
 
-      <h3>URL Encoder</h3>
+      <h3>
+        URL Encoder
+      </h3>
 
       <p>
         Encode and decode URLs instantly.
       </p>
 
-      <button onclick="window.location.href='url-encoder.html'">
+      <button
+        onclick="window.location.href='url-encoder.html'"
+      >
         Open Tool
       </button>
 
@@ -976,15 +1602,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">🔄</div>
+      <div class="tool-icon">
+        🔄
+      </div>
 
-      <h3>Unit Converter</h3>
+      <h3>
+        Unit Converter
+      </h3>
 
       <p>
         Convert common units quickly.
       </p>
 
-      <button onclick="window.location.href='unit-converter.html'">
+      <button
+        onclick="window.location.href='unit-converter.html'"
+      >
         Open Tool
       </button>
 
@@ -993,15 +1625,21 @@ footer a{
 
     <div class="tool">
 
-      <div class="tool-icon">📝</div>
+      <div class="tool-icon">
+        📝
+      </div>
 
-      <h3>Text Formatter</h3>
+      <h3>
+        Text Formatter
+      </h3>
 
       <p>
         Format and transform your text.
       </p>
 
-      <button onclick="window.location.href='text-formatter.html'">
+      <button
+        onclick="window.location.href='text-formatter.html'"
+      >
         Open Tool
       </button>
 
@@ -1022,8 +1660,9 @@ footer a{
   </h2>
 
   <p>
-    Nova Power Tools provides quality power tools, accessories
-    and useful free online tools in one convenient place.
+    Nova Power Tools provides quality power tools,
+    accessories and useful free online tools in one
+    convenient place.
   </p>
 
 </section>
@@ -1036,33 +1675,86 @@ footer a{
   <div class="footer-grid">
 
     <div>
-      <h3>Nova Power Tools</h3>
-      <p>Quality tools for professional work.</p>
+
+      <h3>
+        Nova Power Tools
+      </h3>
+
+      <p>
+        Quality tools for professional work.
+      </p>
+
     </div>
 
-    <div>
-      <h3>Shop</h3>
-      <p>Drill Machines</p>
-      <p>Grinders</p>
-      <p>Hammer Machines</p>
-      <p>Welding Machines</p>
-    </div>
 
     <div>
-      <h3>Online Tools</h3>
-      <p>Word Counter</p>
-      <p>QR Generator</p>
-      <p>Password Generator</p>
+
+      <h3>
+        Shop
+      </h3>
+
+      <p>
+        Drill Machines
+      </p>
+
+      <p>
+        Grinders
+      </p>
+
+      <p>
+        Hammer Machines
+      </p>
+
+      <p>
+        Welding Machines
+      </p>
+
     </div>
 
+
     <div>
-      <h3>Help</h3>
-      <p>Contact Us</p>
-      <p>Delivery Information</p>
-      <p>Returns & Replacement</p>
+
+      <h3>
+        Online Tools
+      </h3>
+
+      <p>
+        Word Counter
+      </p>
+
+      <p>
+        QR Generator
+      </p>
+
+      <p>
+        Password Generator
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Help
+      </h3>
+
+      <p>
+        Contact Us
+      </p>
+
+      <p>
+        Delivery Information
+      </p>
+
+      <p>
+        Returns & Replacement
+      </p>
+
     </div>
 
   </div>
+
 
   <div class="copyright">
 
@@ -1088,13 +1780,18 @@ footer a{
 
 <script>
 
+/* =========================
+   SEARCH
+========================= */
+
 function searchProducts(){
 
   let input =
-    document.getElementById("searchBox")
-    .value
-    .toLowerCase()
-    .trim();
+    document
+      .getElementById("searchBox")
+      .value
+      .toLowerCase()
+      .trim();
 
   let products =
     document.querySelectorAll(".product");
@@ -1119,55 +1816,205 @@ function searchProducts(){
 }
 
 
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterCategory(category){
+
+  let products =
+    document.querySelectorAll(".product");
+
+  let cards =
+    document.querySelectorAll(".category-card");
+
+  let result =
+    document.getElementById("categoryResult");
+
+  let selected =
+    document.getElementById("selectedCategory");
+
+
+  /* remove active */
+
+  cards.forEach(function(card){
+
+    card.classList.remove("active");
+
+  });
+
+
+  /* filter */
+
+  let found = 0;
+
+  products.forEach(function(product){
+
+    let productCategory =
+      product.dataset.category;
+
+
+    if(productCategory === category){
+
+      product.style.display = "";
+
+      found++;
+
+    }else{
+
+      product.style.display = "none";
+
+    }
+
+  });
+
+
+  selected.innerText =
+    category +
+    " (" +
+    found +
+    " product" +
+    (found === 1 ? "" : "s") +
+    ")";
+
+
+  result.style.display = "block";
+
+
+  document
+    .getElementById("products")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   SHOW ALL
+========================= */
+
+function showAllProducts(){
+
+  let products =
+    document.querySelectorAll(".product");
+
+  products.forEach(function(product){
+
+    product.style.display = "";
+
+  });
+
+
+  document
+    .getElementById("categoryResult")
+    .style.display = "none";
+
+
+  document
+    .getElementById("products")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
 function addToCart(productName){
 
   const products = {
 
-    "Professional Drill Machine": {
+    "Professional Drill Machine":{
       price:1499,
       icon:"🔩"
     },
 
-    "Heavy Duty Grinder Machine": {
+    "Heavy Duty Grinder Machine":{
       price:1899,
       icon:"⚙️"
     },
 
-    "Electric Hammer Machine": {
+    "Electric Hammer Machine":{
       price:2499,
       icon:"🔨"
     },
 
-    "Power Cutter Machine": {
+    "Power Cutter Machine":{
       price:2199,
       icon:"✂️"
     },
 
-    "High Power Blower": {
+    "High Power Blower":{
       price:999,
       icon:"💨"
     },
 
-    "Welding Machine": {
+    "Welding Machine":{
       price:3499,
       icon:"🔥"
+    },
+
+    "Jig Saw":{
+      price:2299,
+      icon:"🪚"
+    },
+
+    "Mixing Drill":{
+      price:2799,
+      icon:"🔩"
+    },
+
+    "Demolition Hammer":{
+      price:4999,
+      icon:"🛠️"
+    },
+
+    "Gasoline Chain Saw":{
+      price:7499,
+      icon:"⛓️"
+    },
+
+    "Metal Cut Off Saw":{
+      price:5499,
+      icon:"⚙️"
+    },
+
+    "Electric Trimmer":{
+      price:2499,
+      icon:"🌿"
     }
 
   };
 
-  let product = products[productName];
+
+  let product =
+    products[productName];
+
 
   if(!product){
+
     return;
+
   }
 
+
   let cart =
-    JSON.parse(localStorage.getItem("novaCart")) || [];
+    JSON.parse(
+      localStorage.getItem("novaCart")
+    ) || [];
+
 
   let existing =
     cart.find(function(item){
+
       return item.name === productName;
+
     });
+
 
   if(existing){
 
@@ -1178,39 +2025,50 @@ function addToCart(productName){
     cart.push({
 
       name:productName,
+
       price:product.price,
+
       icon:product.icon,
+
       quantity:1
 
     });
 
   }
 
+
   localStorage.setItem(
     "novaCart",
     JSON.stringify(cart)
   );
 
+
   let message =
     document.getElementById("cartMessage");
 
-  if(message){
 
-    message.innerText =
-      productName + " added to cart! 🛒";
+  message.innerText =
+    productName +
+    " added to cart! 🛒";
 
-    message.style.display = "block";
 
-    setTimeout(function(){
+  message.style.display =
+    "block";
 
-      message.style.display = "none";
 
-    },2000);
+  setTimeout(function(){
 
-  }
+    message.style.display =
+      "none";
+
+  },2000);
 
 }
 
+
+/* =========================
+   BUY NOW
+========================= */
 
 function buyNow(productName){
 
@@ -1219,9 +2077,9 @@ function buyNow(productName){
     encodeURIComponent(productName);
 
 }
-window.location.href = "checkout.html?product=" + encodeURIComponent(productName);
 
 </script>
 
 </body>
 </html>
+```
