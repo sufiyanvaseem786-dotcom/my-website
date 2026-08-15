@@ -40,6 +40,7 @@ header{
 header a{
   color:white;
   text-decoration:none;
+  font-size:16px;
 }
 
 .container{
@@ -48,8 +49,9 @@ header a{
   padding:0 20px;
 }
 
-h1{
+.page-title{
   margin-bottom:25px;
+  font-size:30px;
 }
 
 .products{
@@ -67,8 +69,8 @@ h1{
 }
 
 .product:hover{
-  transform:translateY(-7px);
-  box-shadow:0 10px 25px rgba(0,0,0,.18);
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,.20);
 }
 
 .product-image{
@@ -90,6 +92,7 @@ h1{
   padding:18px;
   font-size:20px;
   font-weight:bold;
+  border-top:1px solid #eee;
 }
 
 @media(max-width:900px){
@@ -106,6 +109,10 @@ h1{
   header{
     flex-direction:column;
     gap:10px;
+  }
+
+  .page-title{
+    font-size:25px;
   }
 }
 </style>
@@ -128,20 +135,21 @@ h1{
 
 <div class="container">
 
-  <h1>🔧 Drill Machines</h1>
-
+  <h1 class="page-title">
+    🔧 Drill Machines
+  </h1>
 
   <div class="products">
 
 
-    <!-- 1. AARK -->
+    <!-- AARK AK-10C -->
 
     <div class="product">
 
       <div class="product-image">
 
         <img
-          src="images/aark-ak10c.jpg"
+          src="aark-ak10c.jpg"
           alt="AARK AK-10C"
         >
 
@@ -154,14 +162,14 @@ h1{
     </div>
 
 
-    <!-- 2. MATRIX -->
+    <!-- MATRIX MTX-DU10 -->
 
     <div class="product">
 
       <div class="product-image">
 
         <img
-          src="images/matrix-mtx-du10.jpg"
+          src="matrix-mtx-du10.jpg"
           alt="Matrix MTX-DU10"
         >
 
@@ -174,14 +182,14 @@ h1{
     </div>
 
 
-    <!-- 3. METRO -->
+    <!-- METRO MID13C -->
 
     <div class="product">
 
       <div class="product-image">
 
         <img
-          src="images/metro-mid13c.jpg"
+          src="metro-mid13c.jpg"
           alt="METRO MID13C"
         >
 
@@ -194,15 +202,15 @@ h1{
     </div>
 
 
-    <!-- 4. AUTO POWER -->
+    <!-- AUTO POWER -->
 
     <div class="product">
 
       <div class="product-image">
 
         <img
-          src="images/auto-power-drill.jpg"
-          alt="Auto Power Drill"
+          src="auto-power-drill.jpg"
+          alt="Auto Power"
         >
 
       </div>
@@ -214,14 +222,14 @@ h1{
     </div>
 
 
-    <!-- 5. VIVO -->
+    <!-- VIVO DRILL -->
 
     <div class="product">
 
       <div class="product-image">
 
         <img
-          src="images/vivo-drill.jpg"
+          src="vivo-drill.jpg"
           alt="VIVO Drill"
         >
 
