@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Drill Machines - Nova Power Tools</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#eaeded;
+  color:#172033;
+}
+
+header{
+  background:#131921;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+.container{
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+h1{
+  margin-bottom:25px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product{
+  background:white;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,.12);
+  transition:.3s;
+}
+
+.product:hover{
+  transform:translateY(-7px);
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.product-image{
+  height:250px;
+  background:#f7f7f7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.product-name{
+  padding:18px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </div>
+
+  <a href="index.html">
+    ← Back to Home
+  </a>
+
+</header>
+
+
+<div class="container">
+
+  <h1>🔧 Drill Machines</h1>
+
+
+  <div class="products">
+
+
+    <!-- 1. AARK -->
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img
+          src="images/aark-ak10c.jpg"
+          alt="AARK AK-10C"
+        >
+
+      </div>
+
+      <div class="product-name">
+        AARK AK-10C
+      </div>
+
+    </div>
+
+
+    <!-- 2. MATRIX -->
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img
+          src="images/matrix-mtx-du10.jpg"
+          alt="Matrix MTX-DU10"
+        >
+
+      </div>
+
+      <div class="product-name">
+        Matrix MTX-DU10
+      </div>
+
+    </div>
+
+
+    <!-- 3. METRO -->
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img
+          src="images/metro-mid13c.jpg"
+          alt="METRO MID13C"
+        >
+
+      </div>
+
+      <div class="product-name">
+        METRO MID13C
+      </div>
+
+    </div>
+
+
+    <!-- 4. AUTO POWER -->
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img
+          src="images/auto-power-drill.jpg"
+          alt="Auto Power Drill"
+        >
+
+      </div>
+
+      <div class="product-name">
+        Auto Power
+      </div>
+
+    </div>
+
+
+    <!-- 5. VIVO -->
+
+    <div class="product">
+
+      <div class="product-image">
+
+        <img
+          src="images/vivo-drill.jpg"
+          alt="VIVO Drill"
+        >
+
+      </div>
+
+      <div class="product-name">
+        VIVO Drill
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</body>
+</html>
