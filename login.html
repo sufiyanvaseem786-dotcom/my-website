@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nova Power Tools — Login</title>
+<title>Nova Power Tools - Login</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
   margin:0;
@@ -14,118 +19,118 @@
   box-sizing:border-box;
 }
 
+html,
 body{
-  min-height:100vh;
-  overflow:hidden;
-  font-family:Arial,sans-serif;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at 20% 20%,#172d59,#07101f 45%,#02050b);
+    radial-gradient(circle at 10% 20%, #263d6a 0%, transparent 30%),
+    radial-gradient(circle at 85% 80%, #102a5c 0%, transparent 30%),
+    linear-gradient(135deg,#07101f,#020611 70%);
   color:white;
-}
-
-/* BACKGROUND */
-
-.bg-glow{
-  position:fixed;
-  width:450px;
-  height:450px;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.22;
-  pointer-events:none;
-}
-
-.glow1{
-  background:#ffb000;
-  left:-180px;
-  top:-180px;
-}
-
-.glow2{
-  background:#1769ff;
-  right:-180px;
-  bottom:-180px;
+  overflow:hidden;
 }
 
 
-/* MAIN SCENE */
+/* =========================
+   MAIN SCENE
+========================= */
 
 .scene{
-  width:100%;
   min-height:100vh;
+  width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:20px;
-  perspective:1400px;
-  padding:20px;
+  gap:30px;
+  padding:30px;
 }
-/* CHARACTER FRAME */
-/* ===== CINEMATIC CHARACTER ENTRANCE ===== */
+
+
+/* =========================
+   CHARACTER
+========================= */
+
 .character-wrap{
-  width:390px;
-  height:560px;
-  position:relative;
-  flex-shrink:0;
+  width:430px;
+  height:620px;
 
   display:flex;
   align-items:center;
   justify-content:center;
+
+  position:relative;
 
   opacity:0;
 
-  transform:translateX(-500px) scale(.75);
+  transform:
+    translateX(-350px)
+    scale(.82);
 
   animation:
     boyEnter
-    2.5s
-    cubic-bezier(.16,1,.3,1)
+    1.4s
+    cubic-bezier(.18,.89,.32,1.28)
+    .2s
     forwards;
 }
 
+.character-wrap::before{
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:70px;
+
+  bottom:65px;
+
+  background:rgba(0,0,0,.45);
+
+  filter:blur(25px);
+
+  border-radius:50%;
+}
+
 .character-image{
+  position:relative;
+  z-index:2;
+
   width:100%;
   height:100%;
 
   object-fit:contain;
 
-  display:block;
-
-  position:relative;
-  z-index:5;
-
   filter:
-    drop-shadow(0 25px 25px rgba(0,0,0,.55));
+    drop-shadow(0 25px 25px rgba(0,0,0,.45))
+    drop-shadow(0 0 18px rgba(255,176,0,.12));
 
   animation:
-    boyPose
-    5s
+    characterFloat
+    4s
     ease-in-out
-    2.3s
-    forwards;
+    1.7s
+    infinite;
 }
 
+
+/* BOY ENTERS FROM LEFT */
 
 @keyframes boyEnter{
 
   0%{
     opacity:0;
     transform:
-      translateX(-500px)
-      scale(.7);
+      translateX(-350px)
+      scale(.82);
   }
 
   60%{
     opacity:1;
-    transform:
-      translateX(-80px)
-      scale(.9);
-  }
-
-  85%{
-    transform:
-      translateX(15px)
-      scale(1.02);
   }
 
   100%{
@@ -134,240 +139,74 @@ body{
       translateX(0)
       scale(1);
   }
+
 }
 
 
-@keyframes boyPose{
+/* SMALL FLOATING EFFECT */
 
-  0%{
-    transform:translateX(0);
-  }
+@keyframes characterFloat{
 
-  20%{
-    transform:translateX(15px);
-  }
-
-  40%{
-    transform:translateX(-12px);
-  }
-
-  60%{
-    transform:translateX(0);
-  }
-
-  72%{
-    transform:translateX(-18px) scale(.98);
-  }
-
-  82%{
-    transform:translateX(-30px) scale(.95);
-  }
-
+  0%,
   100%{
-    transform:translateX(-25px) scale(.96);
-  }
-}
-/* ===== FORM ENTERS AFTER CHARACTER ===== */
-.login-card{
-
-  animation:
-    formCinematicEntrance
-    1.5s
-    cubic-bezier(.16,1,.3,1)
-    3.1s
-    forwards;
-
-}
-
-
-@keyframes formCinematicEntrance{
-
-  0%{
-
-    opacity:0;
-
-    transform:
-      translateX(300px)
-      scale(.55)
-      rotateY(-38deg);
-
-    filter:
-      blur(12px);
+    transform:translateY(0);
   }
 
-  45%{
-
-    opacity:1;
-
-    transform:
-      translateX(-20px)
-      scale(1.04)
-      rotateY(6deg);
-
-    filter:
-      blur(0);
-  }
-
-  70%{
-
-    transform:
-      translateX(8px)
-      scale(.98)
-      rotateY(-2deg);
-  }
-
-  100%{
-
-    opacity:1;
-
-    transform:
-      translateX(0)
-      scale(1)
-      rotateY(0);
-
-    filter:
-      blur(0);
+  50%{
+    transform:translateY(-10px);
   }
 
 }
 
 
-/* GOLD LIGHT WHEN FORM APPEARS */
-
-.login-card::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  background:#ffb000;
-
-  filter:blur(90px);
-
-  opacity:0;
-
-  left:-80px;
-  top:50%;
-
-  pointer-events:none;
-
-  animation:
-    formLight
-    1.2s
-    ease
-    3.2s
-    forwards;
-
-}
-
-
-@keyframes formLight{
-
-  0%{
-    opacity:0;
-    transform:scale(.5);
-  }
-
-  40%{
-    opacity:.25;
-    transform:scale(1.2);
-  }
-
-  100%{
-    opacity:0;
-    transform:scale(1.5);
-  }
-
-}
-
-
-/* MOBILE */
-{
-  
-  .character-wrap{
-
-    width:320px;
-    height:330px;
-
-    margin-bottom:-35px;
-
-    transform:
-      translateX(-450px)
-      scale(.65);
-
-  }
-
-  @keyframes characterEntrance{
-
-    0%{
-      opacity:0;
-      transform:
-        translateX(-450px)
-        scale(.65);
-    }
-
-    70%{
-      opacity:1;
-      transform:
-        translateX(10px)
-        scale(.9);
-    }
-
-    100%{
-      opacity:1;
-      transform:
-        translateX(0)
-        scale(.9);
-    }
-
-  }
-
-}
-/* LOGIN CARD */
+/* =========================
+   LOGIN CARD
+========================= */
 
 .login-card{
 
-  width:410px;
-  min-height:520px;
-  padding:32px;
+  width:430px;
+  min-height:550px;
 
-  border-radius:28px;
+  padding:30px;
+
+  border-radius:24px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.16),
-      rgba(255,255,255,.055)
+      rgba(18,43,83,.92),
+      rgba(10,18,36,.94)
     );
 
-  border:1px solid rgba(255,255,255,.25);
-
-  backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.18);
 
   box-shadow:
-    0 35px 90px rgba(0,0,0,.6),
-    inset 0 1px 1px rgba(255,255,255,.2);
+    0 25px 70px rgba(0,0,0,.55),
+    0 0 35px rgba(255,176,0,.10);
+
+  backdrop-filter:blur(18px);
 
   opacity:0;
 
   transform:
-    translateX(280px)
-    scale(.65)
-    rotateY(-35deg);
+    translateX(120px)
+    scale(.92);
 
   animation:
-    formEmergence 1.35s cubic-bezier(.16,1,.3,1)
-    3.15s forwards;
+    formEnter
+    1.1s
+    cubic-bezier(.18,.89,.32,1.28)
+    .7s
+    forwards;
 
   position:relative;
-  z-index:10;
+
+  overflow:hidden;
 }
 
+
+/* glowing border */
 
 .login-card::before{
 
@@ -377,67 +216,65 @@ body{
 
   inset:-2px;
 
-  border-radius:30px;
+  border-radius:24px;
 
   background:
     linear-gradient(
       120deg,
       transparent,
-      rgba(0,170,255,.7),
-      rgba(255,176,0,.8),
+      rgba(0,174,255,.45),
+      rgba(255,176,0,.55),
       transparent
     );
 
   z-index:-1;
 
-  filter:blur(5px);
+  filter:blur(12px);
 
-  opacity:.75;
-
+  opacity:.6;
 }
 
 
-@keyframes formEmergence{
+/* FORM ENTER */
+
+@keyframes formEnter{
 
   0%{
     opacity:0;
-
     transform:
-      translateX(280px)
-      scale(.55)
-      rotateY(-35deg);
-  }
-
-  65%{
-    opacity:1;
-
-    transform:
-      translateX(-15px)
-      scale(1.03)
-      rotateY(5deg);
+      translateX(120px)
+      scale(.92);
   }
 
   100%{
     opacity:1;
-
     transform:
       translateX(0)
-      scale(1)
-      rotateY(0);
+      scale(1);
   }
 
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo{
 
   text-align:center;
-  font-size:30px;
-  font-weight:bold;
-  margin-bottom:5px;
 
+  font-size:28px;
+
+  font-weight:800;
+
+  margin-bottom:7px;
+
+  letter-spacing:.3px;
+}
+
+.logo:first-letter{
+  color:#ffb000;
 }
 
 .logo span{
@@ -447,37 +284,43 @@ body{
 .subtitle{
 
   text-align:center;
-  color:#cbd5e1;
-  margin-bottom:25px;
 
+  color:#b8c4d8;
+
+  font-size:14px;
+
+  margin-bottom:24px;
 }
 
 
-/* TABS */
+/* =========================
+   TABS
+========================= */
 
 .tabs{
 
   display:flex;
-  gap:8px;
-  padding:5px;
 
-  background:rgba(0,0,0,.2);
+  background:rgba(0,0,0,.28);
 
-  border-radius:13px;
+  border:1px solid rgba(255,255,255,.12);
 
-  margin-bottom:20px;
+  border-radius:12px;
 
+  padding:4px;
+
+  margin-bottom:18px;
 }
 
 .tabs button{
 
   flex:1;
 
-  border:none;
+  border:0;
 
   padding:12px;
 
-  border-radius:10px;
+  border-radius:9px;
 
   background:transparent;
 
@@ -487,43 +330,53 @@ body{
 
   font-weight:bold;
 
+  transition:.25s;
 }
 
 .tabs button.active{
 
   background:#ffb000;
+
   color:#111;
 
   box-shadow:
-    0 5px 18px rgba(255,176,0,.3);
+    0 0 18px rgba(255,176,0,.3);
+}
 
+.tabs button:hover{
+  background:rgba(255,176,0,.2);
 }
 
 
-/* INPUTS */
+/* =========================
+   INPUT
+========================= */
 
 .input{
 
   width:100%;
 
-  padding:14px;
+  padding:14px 15px;
 
   margin-bottom:12px;
 
-  border-radius:11px;
+  border-radius:10px;
 
-  border:1px solid rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.2);
 
-  background:rgba(0,0,0,.28);
+  background:rgba(4,10,20,.55);
 
   color:white;
 
   outline:none;
 
-  font-size:15px;
+  font-size:14px;
 
   transition:.25s;
+}
 
+.input::placeholder{
+  color:#9ca9bc;
 }
 
 .input:focus{
@@ -531,39 +384,38 @@ body{
   border-color:#ffb000;
 
   box-shadow:
-    0 0 0 3px rgba(255,176,0,.12);
-
-}
-
-.input::placeholder{
-  color:#aeb8c7;
+    0 0 0 2px rgba(255,176,0,.12),
+    0 0 18px rgba(255,176,0,.08);
 }
 
 
-/* BUTTONS */
+/* =========================
+   MAIN BUTTON
+========================= */
 
 .main-btn{
 
   width:100%;
 
+  border:0;
+
+  border-radius:10px;
+
   padding:14px;
-
-  border:none;
-
-  border-radius:11px;
 
   background:#ffb000;
 
   color:#111;
 
-  font-size:16px;
+  font-size:15px;
 
-  font-weight:bold;
+  font-weight:800;
 
   cursor:pointer;
 
-  transition:.2s;
+  transition:.25s;
 
+  margin-top:3px;
 }
 
 .main-btn:hover{
@@ -571,60 +423,13 @@ body{
   transform:translateY(-2px);
 
   box-shadow:
-    0 10px 25px rgba(255,176,0,.25);
-
+    0 8px 22px rgba(255,176,0,.28);
 }
 
 
-.google-btn{
-
-  width:100%;
-
-  padding:13px;
-
-  border:none;
-
-  border-radius:11px;
-
-  background:white;
-
-  color:#222;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-  transition:.2s;
-
-}
-
-.google-btn:hover{
-  transform:translateY(-2px);
-}
-
-
-.phone-btn{
-
-  width:100%;
-
-  padding:12px;
-
-  margin-top:10px;
-
-  border-radius:11px;
-
-  border:1px solid rgba(255,255,255,.2);
-
-  background:rgba(255,255,255,.08);
-
-  color:white;
-
-  cursor:pointer;
-
-}
-
-
-/* DIVIDER */
+/* =========================
+   DIVIDER
+========================= */
 
 .divider{
 
@@ -632,14 +437,13 @@ body{
 
   align-items:center;
 
-  gap:10px;
+  gap:12px;
 
   margin:18px 0;
 
-  color:#94a3b8;
+  color:#8e9aae;
 
-  font-size:13px;
-
+  font-size:12px;
 }
 
 .divider::before,
@@ -651,24 +455,100 @@ body{
 
   height:1px;
 
-  background:rgba(255,255,255,.2);
-
+  background:rgba(255,255,255,.16);
 }
 
 
-/* PHONE */
+/* =========================
+   GOOGLE
+========================= */
+
+.google-btn{
+
+  width:100%;
+
+  padding:13px;
+
+  border:0;
+
+  border-radius:10px;
+
+  background:white;
+
+  color:#222;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.google-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   PHONE
+========================= */
+
+.phone-btn{
+
+  width:100%;
+
+  margin-top:10px;
+
+  padding:13px;
+
+  border-radius:10px;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  background:rgba(255,255,255,.07);
+
+  color:white;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+  transition:.25s;
+}
+
+.phone-btn:hover{
+
+  background:rgba(255,176,0,.15);
+
+  border-color:#ffb000;
+}
+
+
+/* =========================
+   PHONE AREA
+========================= */
 
 .phone-area{
 
   display:none;
+}
 
+.otp-area{
+
+  display:none;
+
+  margin-top:10px;
 }
 
 .back-btn{
 
-  border:none;
+  background:transparent;
 
-  background:none;
+  border:0;
 
   color:#ffb000;
 
@@ -676,179 +556,301 @@ body{
 
   margin-bottom:15px;
 
-  font-size:14px;
-
-}
-
-.otp-area{
-  display:none;
+  font-size:13px;
 }
 
 
-/* MESSAGE */
+/* =========================
+   MESSAGE
+========================= */
 
 .message{
 
   min-height:22px;
 
-  margin-top:12px;
+  margin-top:15px;
 
   text-align:center;
 
-  color:#ffd166;
+  color:#ffcf55;
 
   font-size:13px;
 
+  line-height:1.4;
 }
 
 
-/* SMALL SECURITY TEXT */
+/* =========================
+   SECURITY
+========================= */
 
 .security{
 
   text-align:center;
 
-  color:#94a3b8;
+  color:#7f8da3;
 
   font-size:11px;
 
-  margin-top:18px;
-
+  margin-top:20px;
 }
 
 
-/* MOBILE */
+/* =========================
+   DECORATION
+========================= */
+
+.scene::before{
+
+  content:"";
+
+  position:fixed;
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  background:rgba(255,176,0,.16);
+
+  top:-70px;
+  left:-70px;
+
+  filter:blur(5px);
+}
+
+.scene::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:150px;
+  height:150px;
+
+  border-radius:50%;
+
+  background:rgba(30,90,255,.18);
+
+  bottom:-70px;
+  right:-50px;
+
+  filter:blur(5px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
   body{
     overflow:auto;
   }
 
   .scene{
 
+    min-height:100vh;
+
     flex-direction:column;
 
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
     padding:20px 12px;
-
-    gap:0;
-
   }
 
   .character-wrap{
 
-    width:330px;
-    height:330px;
+    width:280px;
 
-    margin-bottom:-50px;
+    height:320px;
+
+    margin-bottom:-15px;
 
     transform:
-      translateX(-400px)
-      scale(.55);
+      translateX(-180px)
+      scale(.85);
 
+    animation:
+      boyEnterMobile
+      1.2s
+      cubic-bezier(.18,.89,.32,1.28)
+      .1s
+      forwards;
+  }
+
+  @keyframes boyEnterMobile{
+
+    0%{
+      opacity:0;
+      transform:
+        translateX(-180px)
+        scale(.75);
+    }
+
+    60%{
+      opacity:1;
+    }
+
+    100%{
+      opacity:1;
+      transform:
+        translateX(0)
+        scale(.85);
+    }
   }
 
   .login-card{
 
     width:100%;
 
-    max-width:400px;
+    max-width:420px;
 
     min-height:auto;
 
-    animation:
-      formEmergenceMobile
-      1.2s ease
-      2.8s
-      forwards;
+    padding:24px 20px;
 
+    transform:
+      translateY(80px)
+      scale(.95);
+
+    animation:
+      formEnterMobile
+      1s
+      ease
+      .6s
+      forwards;
+  }
+
+  @keyframes formEnterMobile{
+
+    0%{
+      opacity:0;
+      transform:
+        translateY(80px)
+        scale(.95);
+    }
+
+    100%{
+      opacity:1;
+      transform:
+        translateY(0)
+        scale(1);
+    }
+  }
+
+  .logo{
+    font-size:24px;
   }
 
 }
 
 
-@keyframes formEmergenceMobile{
+/* SMALL PHONE */
 
-  from{
+@media(max-width:450px){
 
-    opacity:0;
+  .character-wrap{
 
-    transform:
-      translateY(120px)
-      scale(.75);
+    width:230px;
 
+    height:260px;
+
+    margin-bottom:-5px;
   }
 
-  to{
+  .login-card{
 
-    opacity:1;
+    padding:20px 16px;
 
-    transform:
-      translateY(0)
-      scale(1);
+    border-radius:18px;
+  }
 
+  .logo{
+    font-size:22px;
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<div class="bg-glow glow1"></div>
-<div class="bg-glow glow2"></div>
-
 
 <div class="scene">
 
 
-  <!-- CHARACTER -->
-<!-- CHARACTER -->
-<div class="character-wrap">
-  <img
-    src="login-character.png"
-    class="character-image"
-    alt="Nova Power Tools Character">
-</div>
+  <!-- =========================
+       3D BOY
+  ========================== -->
+
+  <div class="character-wrap">
+
+    <img
+      src="login-character.png"
+      class="character-image"
+      alt="Nova Power Tools Character"
+    >
+
+  </div>
 
 
-  <!-- LOGIN -->
+  <!-- =========================
+       LOGIN CARD
+  ========================== -->
 
   <div class="login-card">
 
+
     <div class="logo">
+
       ⚡ Nova <span>Power Tools</span>
+
     </div>
+
 
     <div class="subtitle">
+
       Welcome to Nova Power Tools
+
     </div>
 
 
-    <!-- LOGIN / SIGNUP -->
+    <!-- LOGIN / SIGN UP -->
 
     <div class="tabs">
 
       <button
         id="loginTab"
         class="active"
-        onclick="showLogin()">
-
+        onclick="showLogin()"
+      >
         Login
-
       </button>
+
 
       <button
         id="signupTab"
-        onclick="showSignup()">
-
+        onclick="showSignup()"
+      >
         Sign Up
-
       </button>
 
     </div>
 
 
+    <!-- EMAIL AREA -->
+
     <div id="emailArea">
+
 
       <input
         class="input"
@@ -857,12 +859,14 @@ body{
         style="display:none;"
       >
 
+
       <input
         class="input"
         id="email"
         type="email"
         placeholder="Email Address"
       >
+
 
       <input
         class="input"
@@ -871,13 +875,13 @@ body{
         placeholder="Password"
       >
 
+
       <button
         class="main-btn"
         id="mainBtn"
-        onclick="emailLogin()">
-
+        onclick="emailLogin()"
+      >
         Login
-
       </button>
 
 
@@ -888,36 +892,36 @@ body{
 
       <button
         class="google-btn"
-        onclick="googleLogin()">
-
+        onclick="googleLogin()"
+      >
         🔵 Continue with Google
-
       </button>
 
 
       <button
         class="phone-btn"
-        onclick="showPhone()">
-
+        onclick="showPhone()"
+      >
         📱 Login with Mobile OTP
-
       </button>
+
 
     </div>
 
 
-    <!-- PHONE OTP -->
+    <!-- PHONE OTP AREA -->
 
     <div
       class="phone-area"
-      id="phoneArea">
+      id="phoneArea"
+    >
+
 
       <button
         class="back-btn"
-        onclick="backToEmail()">
-
+        onclick="backToEmail()"
+      >
         ← Back to Login
-
       </button>
 
 
@@ -933,41 +937,47 @@ body{
 
       <button
         class="main-btn"
-        onclick="sendOTP()">
-
+        onclick="sendOTP()"
+      >
         Send OTP
-
       </button>
 
 
       <div
         class="otp-area"
-        id="otpArea">
+        id="otpArea"
+      >
+
 
         <input
           class="input"
           id="otp"
           maxlength="6"
+          inputmode="numeric"
           placeholder="Enter 6-digit OTP"
         >
 
+
         <button
           class="main-btn"
-          onclick="verifyOTP()">
-
+          onclick="verifyOTP()"
+        >
           Verify OTP
-
         </button>
+
 
       </div>
 
+
     </div>
 
+
+    <!-- MESSAGE -->
 
     <div
       class="message"
-      id="message">
-    </div>
+      id="message"
+    ></div>
 
 
     <div class="security">
@@ -976,17 +986,24 @@ body{
 
     </div>
 
+
   </div>
 
 </div>
 
+
+
+<!-- =========================
+     FIREBASE
+========================== -->
 
 <script type="module">
 
 import {
   initializeApp
 }
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
 
 import {
@@ -998,8 +1015,12 @@ import {
   RecaptchaVerifier,
   signInWithPhoneNumber
 }
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
+
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
@@ -1027,6 +1048,9 @@ const firebaseConfig = {
 };
 
 
+
+/* INITIALIZE */
+
 const app =
   initializeApp(firebaseConfig);
 
@@ -1035,12 +1059,10 @@ const auth =
   getAuth(app);
 
 
-/*
-  If checkout sent the customer here,
-  return to checkout after login.
 
-  Otherwise go to account.
-*/
+/* =========================
+   RETURN PAGE
+========================= */
 
 const requestedReturn =
   new URLSearchParams(
@@ -1049,8 +1071,11 @@ const requestedReturn =
 
 
 const allowedReturnPages = [
+
   "checkout.html",
+
   "account.html"
+
 ];
 
 
@@ -1060,12 +1085,22 @@ const returnUrl =
     : "account.html";
 
 
+
+/* =========================
+   VARIABLES
+========================= */
+
 let isSignup = false;
 
 let confirmationResult = null;
 
 let recaptchaVerifier = null;
 
+
+
+/* =========================
+   MESSAGE
+========================= */
 
 function showMessage(text){
 
@@ -1076,73 +1111,105 @@ function showMessage(text){
 }
 
 
+
+/* =========================
+   LOGIN TAB
+========================= */
+
 window.showLogin = function(){
 
   isSignup = false;
+
 
   document
     .getElementById("name")
     .style.display = "none";
 
+
   document
     .getElementById("mainBtn")
     .textContent = "Login";
+
 
   document
     .getElementById("loginTab")
     .classList.add("active");
 
+
   document
     .getElementById("signupTab")
     .classList.remove("active");
+
 
   showMessage("");
 
 };
 
+
+
+/* =========================
+   SIGNUP TAB
+========================= */
 
 window.showSignup = function(){
 
   isSignup = true;
 
+
   document
     .getElementById("name")
     .style.display = "block";
+
 
   document
     .getElementById("mainBtn")
     .textContent = "Create Account";
 
+
   document
     .getElementById("signupTab")
     .classList.add("active");
 
+
   document
     .getElementById("loginTab")
     .classList.remove("active");
+
 
   showMessage("");
 
 };
 
 
+
+/* =========================
+   AFTER LOGIN
+========================= */
+
 function goAfterLogin(){
 
   showMessage(
-    "✅ Login successful!"
+    "✅ Login successful! Redirecting..."
   );
+
 
   setTimeout(function(){
 
     window.location.href =
       returnUrl;
 
-  },700);
+  },800);
 
 }
 
 
+
+/* =========================
+   EMAIL LOGIN / SIGNUP
+========================= */
+
 window.emailLogin = async function(){
+
 
   const name =
     document
@@ -1186,7 +1253,19 @@ window.emailLogin = async function(){
   }
 
 
+  if(isSignup && password.length < 6){
+
+    showMessage(
+      "Password must contain at least 6 characters."
+    );
+
+    return;
+
+  }
+
+
   try{
+
 
     if(isSignup){
 
@@ -1214,6 +1293,7 @@ window.emailLogin = async function(){
 
     console.error(error);
 
+
     showMessage(
       error.message
         .replace("Firebase: ","")
@@ -1223,6 +1303,11 @@ window.emailLogin = async function(){
 
 };
 
+
+
+/* =========================
+   GOOGLE LOGIN
+========================= */
 
 window.googleLogin = async function(){
 
@@ -1245,6 +1330,7 @@ window.googleLogin = async function(){
 
     console.error(error);
 
+
     showMessage(
       error.message
         .replace("Firebase: ","")
@@ -1254,6 +1340,11 @@ window.googleLogin = async function(){
 
 };
 
+
+
+/* =========================
+   SHOW PHONE LOGIN
+========================= */
 
 window.showPhone = function(){
 
@@ -1272,6 +1363,11 @@ window.showPhone = function(){
 };
 
 
+
+/* =========================
+   BACK TO EMAIL
+========================= */
+
 window.backToEmail = function(){
 
   document
@@ -1284,12 +1380,23 @@ window.backToEmail = function(){
     .style.display = "block";
 
 
+  document
+    .getElementById("otpArea")
+    .style.display = "none";
+
+
   showMessage("");
 
 };
 
 
+
+/* =========================
+   SEND OTP
+========================= */
+
 window.sendOTP = async function(){
+
 
   const phone =
     document
@@ -1310,6 +1417,7 @@ window.sendOTP = async function(){
 
 
   try{
+
 
     if(!recaptchaVerifier){
 
@@ -1347,6 +1455,7 @@ window.sendOTP = async function(){
 
     console.error(error);
 
+
     showMessage(
       error.message
         .replace("Firebase: ","")
@@ -1357,7 +1466,13 @@ window.sendOTP = async function(){
 };
 
 
+
+/* =========================
+   VERIFY OTP
+========================= */
+
 window.verifyOTP = async function(){
+
 
   const otp =
     document
@@ -1390,6 +1505,7 @@ window.verifyOTP = async function(){
 
   try{
 
+
     await confirmationResult.confirm(
       otp
     );
@@ -1402,6 +1518,7 @@ window.verifyOTP = async function(){
 
     console.error(error);
 
+
     showMessage(
       "❌ Invalid OTP. Please try again."
     );
@@ -1410,8 +1527,15 @@ window.verifyOTP = async function(){
 
 };
 
+
+
+/* =========================
+   DEFAULT LOGIN
+========================= */
+
+showLogin();
+
 </script>
 
 </body>
 </html>
-```
