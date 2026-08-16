@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nova Power Tools | Power Tools & Free Online Tools</title>
+<title>Nova Power Tools | Power Tools</title>
 
 <style>
 
@@ -42,7 +42,6 @@ header{
   font-size:24px;
   font-weight:bold;
   white-space:nowrap;
-  color:#fff;
 }
 
 .logo span{
@@ -108,7 +107,6 @@ header{
   white-space:nowrap;
   font-size:15px;
   cursor:pointer;
-  padding:3px 0;
 }
 
 .category-bar button:hover{
@@ -167,7 +165,7 @@ header{
   margin-bottom:22px;
 }
 
-/* CATEGORY CARDS */
+/* CATEGORIES */
 
 .categories{
   display:grid;
@@ -190,7 +188,6 @@ header{
 .category-card:hover{
   transform:translateY(-5px);
   border-color:#ffb000;
-  box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
 .category-card.active{
@@ -207,20 +204,15 @@ header{
   font-size:16px;
 }
 
-/* CATEGORY RESULT */
+/* RESULT */
 
 .category-result{
   display:none;
-  background:#fff;
+  background:white;
   margin:0 4%;
   padding:15px 20px;
   border-left:5px solid #ffb000;
   border-radius:7px;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
-}
-
-.category-result strong{
-  color:#2563eb;
 }
 
 /* PRODUCTS */
@@ -444,7 +436,6 @@ footer p{
   }
 
   .search-area{
-    order:2;
     width:100%;
     max-width:none;
   }
@@ -453,20 +444,8 @@ footer p{
     display:none;
   }
 
-  .category-bar{
-    gap:18px;
-  }
-
-  .hero{
-    min-height:300px;
-  }
-
   .hero h1{
     font-size:34px;
-  }
-
-  .hero p{
-    font-size:16px;
   }
 
   .products{
@@ -517,21 +496,15 @@ footer p{
       onkeyup="searchProducts()"
     >
 
-    <button onclick="searchProducts()">
-      🔍
-    </button>
+    <button onclick="searchProducts()">🔍</button>
 
   </div>
 
   <div class="header-links">
 
-    <a href="account.html">
-      👤 Account
-    </a>
+    <a href="account.html">👤 Account</a>
 
-    <a href="orders.html">
-      📦 Orders
-    </a>
+    <a href="orders.html">📦 Orders</a>
 
     <div
       class="cart"
@@ -551,29 +524,53 @@ footer p{
 
   <button onclick="showAllProducts()">☰ All</button>
 
-  <button onclick="filterCategory('Drill')">Drill Machines</button>
+  <button onclick="filterCategory('Drill')">
+    Drill Machines
+  </button>
 
-  <button onclick="filterCategory('Grinder')">Grinders</button>
+  <button onclick="filterCategory('Grinder')">
+    Grinders
+  </button>
 
-  <button onclick="filterCategory('Hammer')">Hammer Machines</button>
+  <button onclick="filterCategory('Hammer')">
+    Hammer Machines
+  </button>
 
-  <button onclick="filterCategory('Cutter')">Cutters</button>
+  <button onclick="filterCategory('Cutter')">
+    Cutters
+  </button>
 
-  <button onclick="filterCategory('Blower')">Blowers</button>
+  <button onclick="filterCategory('Blower')">
+    Blowers
+  </button>
 
-  <button onclick="filterCategory('Welding')">Welding</button>
+  <button onclick="filterCategory('Welding')">
+    Welding
+  </button>
 
-  <button onclick="filterCategory('Jig Saw')">Jig Saw</button>
+  <button onclick="filterCategory('Jig Saw')">
+    Jig Saw
+  </button>
 
-  <button onclick="filterCategory('Mixing Drill')">Mixing Drill</button>
+  <button onclick="filterCategory('Mixing Drill')">
+    Mixing Drill
+  </button>
 
-  <button onclick="filterCategory('Demolition Hammer')">Demolition Hammer</button>
+  <button onclick="filterCategory('Demolition Hammer')">
+    Demolition Hammer
+  </button>
 
-  <button onclick="filterCategory('Gasoline Chain Saw')">Gasoline Chain Saw</button>
+  <button onclick="filterCategory('Gasoline Chain Saw')">
+    Gasoline Chain Saw
+  </button>
 
-  <button onclick="filterCategory('Metal Cut Off Saw')">Metal Cut Off Saw</button>
+  <button onclick="filterCategory('Metal Cut Off Saw')">
+    Metal Cut Off Saw
+  </button>
 
-  <button onclick="filterCategory('Electric Trimmer')">Electric Trimmer</button>
+  <button onclick="filterCategory('Electric Trimmer')">
+    Electric Trimmer
+  </button>
 
 </nav>
 
@@ -683,7 +680,7 @@ footer p{
 </section>
 
 
-<!-- CATEGORY RESULT -->
+<!-- RESULT -->
 
 <div class="category-result" id="categoryResult">
 
@@ -704,7 +701,7 @@ footer p{
   <div class="products" id="productList">
 
 
-    <!-- AARK DRILL -->
+    <!-- ================= DRILL 1 ================= -->
 
     <div class="product" data-category="Drill">
 
@@ -734,17 +731,17 @@ footer p{
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹1,299</div>
+      <div class="price">₹1,499</div>
 
-      <div class="old-price">₹1,599</div>
+      <div class="old-price">₹1,999</div>
 
-      <div class="discount">19% off</div>
+      <div class="discount">25% off</div>
 
       <div class="product-buttons">
 
         <button
           class="add-cart"
-          onclick="addToCart('AARK AK-10C',1299,'🔩')"
+          onclick="addToCart('AARK AK-10C',1499)"
         >
           Add to Cart
         </button>
@@ -761,7 +758,7 @@ footer p{
     </div>
 
 
-    <!-- MATRIX DRILL -->
+    <!-- ================= DRILL 2 ================= -->
 
     <div class="product" data-category="Drill">
 
@@ -791,17 +788,17 @@ footer p{
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹1,499</div>
+      <div class="price">₹1,799</div>
 
-      <div class="old-price">₹1,899</div>
+      <div class="old-price">₹2,299</div>
 
-      <div class="discount">21% off</div>
+      <div class="discount">22% off</div>
 
       <div class="product-buttons">
 
         <button
           class="add-cart"
-          onclick="addToCart('Matrix MTX-DU10',1499,'🔩')"
+          onclick="addToCart('Matrix MTX-DU10',1799)"
         >
           Add to Cart
         </button>
@@ -818,7 +815,7 @@ footer p{
     </div>
 
 
-    <!-- METRO DRILL -->
+    <!-- ================= DRILL 3 ================= -->
 
     <div class="product" data-category="Drill">
 
@@ -848,17 +845,17 @@ footer p{
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹1,599</div>
+      <div class="price">₹1,999</div>
 
-      <div class="old-price">₹1,999</div>
+      <div class="old-price">₹2,599</div>
 
-      <div class="discount">20% off</div>
+      <div class="discount">23% off</div>
 
       <div class="product-buttons">
 
         <button
           class="add-cart"
-          onclick="addToCart('METRO MID13C',1599,'🔩')"
+          onclick="addToCart('METRO MID13C',1999)"
         >
           Add to Cart
         </button>
@@ -875,13 +872,13 @@ footer p{
     </div>
 
 
-    <!-- AUTO POWER -->
+    <!-- ================= DRILL 4 ================= -->
 
     <div class="product" data-category="Drill">
 
       <div class="product-image">
 
-        <a href="product-details.html?product=Auto%20Power">
+        <a href="product-details.html?product=Auto%20Power%20Pro%20APP1112">
 
           <img
             src="auto-power-drill.jpg"
@@ -895,34 +892,34 @@ footer p{
       <h3>
 
         <a
-          href="product-details.html?product=Auto%20Power"
+          href="product-details.html?product=Auto%20Power%20Pro%20APP1112"
           class="product-link"
         >
-          Auto Power
+          Auto Power Drill
         </a>
 
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹1,399</div>
+      <div class="price">₹1,699</div>
 
-      <div class="old-price">₹1,699</div>
+      <div class="old-price">₹2,199</div>
 
-      <div class="discount">18% off</div>
+      <div class="discount">23% off</div>
 
       <div class="product-buttons">
 
         <button
           class="add-cart"
-          onclick="addToCart('Auto Power',1399,'🔩')"
+          onclick="addToCart('Auto Power Pro APP1112',1699)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Auto Power')"
+          onclick="buyNow('Auto Power Pro APP1112')"
         >
           Buy Now
         </button>
@@ -932,7 +929,7 @@ footer p{
     </div>
 
 
-    <!-- VIVO DRILL -->
+    <!-- ================= DRILL 5 ================= -->
 
     <div class="product" data-category="Drill">
 
@@ -962,17 +959,17 @@ footer p{
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹1,499</div>
+      <div class="price">₹1,599</div>
 
-      <div class="old-price">₹1,799</div>
+      <div class="old-price">₹2,099</div>
 
-      <div class="discount">17% off</div>
+      <div class="discount">24% off</div>
 
       <div class="product-buttons">
 
         <button
           class="add-cart"
-          onclick="addToCart('VIVO Drill',1499,'🔩')"
+          onclick="addToCart('VIVO Drill',1599)"
         >
           Add to Cart
         </button>
@@ -989,7 +986,7 @@ footer p{
     </div>
 
 
-    <!-- GRINDER -->
+    <!-- ================= GRINDER ================= -->
 
     <div class="product" data-category="Grinder">
 
@@ -1017,7 +1014,7 @@ footer p{
 
       </h3>
 
-      <div class="rating">⭐⭐⭐⭐☆</div>
+      <div class="rating">⭐⭐⭐⭐⭐</div>
 
       <div class="price">₹1,899</div>
 
@@ -1029,7 +1026,7 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Heavy Duty Grinder Machine',1899,'⚙️')"
+          onclick="addToCart('Heavy Duty Grinder Machine',1899)"
         >
           Add to Cart
         </button>
@@ -1046,25 +1043,15 @@ footer p{
     </div>
 
 
-    <!-- HAMMER -->
+    <!-- ================= HAMMER ================= -->
 
     <div class="product" data-category="Hammer">
 
-      <div
-        class="product-image clickable-product"
-        onclick="openProduct('Electric Hammer Machine')"
-      >
+      <div class="product-image">
         🔨
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Electric%20Hammer%20Machine"
-          class="product-link"
-        >
-          Electric Hammer Machine
-        </a>
-      </h3>
+      <h3>Electric Hammer Machine</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1078,7 +1065,7 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Electric Hammer Machine',2499,'🔨')"
+          onclick="addToCart('Electric Hammer Machine',2499)"
         >
           Add to Cart
         </button>
@@ -1095,28 +1082,17 @@ footer p{
     </div>
 
 
-    <!-- CUTTER -->
+    <!-- ================= CUTTER ================= -->
 
     <div class="product" data-category="Cutter">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Power Cutter Machine')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         ✂️
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Power%20Cutter%20Machine"
-          class="product-link"
-        >
-          Power Cutter Machine
-        </a>
-      </h3>
+      <h3>Power Cutter Machine</h3>
 
-      <div class="rating">⭐⭐⭐⭐☆</div>
+      <div class="rating">⭐⭐⭐⭐⭐</div>
 
       <div class="price">₹2,199</div>
 
@@ -1128,7 +1104,7 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Power Cutter Machine',2199,'✂️')"
+          onclick="addToCart('Power Cutter Machine',2199)"
         >
           Add to Cart
         </button>
@@ -1145,32 +1121,21 @@ footer p{
     </div>
 
 
-    <!-- BLOWER -->
+    <!-- ================= BLOWER ================= -->
 
     <div class="product" data-category="Blower">
 
-      <div
-        class="product-image"
-        onclick="openProduct('High Power Blower')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         💨
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=High%20Power%20Blower"
-          class="product-link"
-        >
-          METRO Blower
-        </a>
-      </h3>
+      <h3>METRO Blower</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
       <div class="price">₹1,200</div>
 
-      <div class="old-price">₹1,499</div>
+      <div class="old-price">₹1,500</div>
 
       <div class="discount">20% off</div>
 
@@ -1178,14 +1143,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('High Power Blower',1200,'💨')"
+          onclick="addToCart('METRO Blower',1200)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('High Power Blower')"
+          onclick="buyNow('METRO Blower')"
         >
           Buy Now
         </button>
@@ -1195,28 +1160,17 @@ footer p{
     </div>
 
 
-    <!-- WELDING -->
+    <!-- ================= WELDING ================= -->
 
     <div class="product" data-category="Welding">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Welding Machine')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         🔥
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Welding%20Machine"
-          class="product-link"
-        >
-          Welding Machine
-        </a>
-      </h3>
+      <h3>Welding Machine</h3>
 
-      <div class="rating">⭐⭐⭐⭐☆</div>
+      <div class="rating">⭐⭐⭐⭐⭐</div>
 
       <div class="price">₹3,499</div>
 
@@ -1228,7 +1182,7 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Welding Machine',3499,'🔥')"
+          onclick="addToCart('Welding Machine',3499)"
         >
           Add to Cart
         </button>
@@ -1245,26 +1199,15 @@ footer p{
     </div>
 
 
-    <!-- JIG SAW -->
+    <!-- ================= JIG SAW ================= -->
 
     <div class="product" data-category="Jig Saw">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Jig Saw')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         🪚
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Jig%20Saw"
-          class="product-link"
-        >
-          Jig Saw
-        </a>
-      </h3>
+      <h3>Auto Power Pro APP1170 Jig Saw</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1276,14 +1219,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Jig Saw',2299,'🪚')"
+          onclick="addToCart('Auto Power Pro APP1170',2299)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Jig Saw')"
+          onclick="buyNow('Auto Power Pro APP1170')"
         >
           Buy Now
         </button>
@@ -1293,26 +1236,15 @@ footer p{
     </div>
 
 
-    <!-- MIXING DRILL -->
+    <!-- ================= MIXING DRILL ================= -->
 
     <div class="product" data-category="Mixing Drill">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Mixing Drill')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         🔩
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Mixing%20Drill"
-          class="product-link"
-        >
-          Mixing Drill
-        </a>
-      </h3>
+      <h3>METRO M-EM16B Mixing Drill</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1324,14 +1256,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Mixing Drill',2799,'🔩')"
+          onclick="addToCart('METRO M-EM16B',2799)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Mixing Drill')"
+          onclick="buyNow('METRO M-EM16B')"
         >
           Buy Now
         </button>
@@ -1341,26 +1273,15 @@ footer p{
     </div>
 
 
-    <!-- DEMOLITION HAMMER -->
+    <!-- ================= DEMOLITION HAMMER ================= -->
 
     <div class="product" data-category="Demolition Hammer">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Demolition Hammer')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         🛠️
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Demolition%20Hammer"
-          class="product-link"
-        >
-          Demolition Hammer
-        </a>
-      </h3>
+      <h3>METRO Rotary Hammer</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1372,14 +1293,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Demolition Hammer',4999,'🛠️')"
+          onclick="addToCart('METRO 20MM Rotary Hammer',4999)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Demolition Hammer')"
+          onclick="buyNow('METRO 20MM Rotary Hammer')"
         >
           Buy Now
         </button>
@@ -1389,26 +1310,15 @@ footer p{
     </div>
 
 
-    <!-- CHAIN SAW -->
+    <!-- ================= CHAIN SAW ================= -->
 
     <div class="product" data-category="Gasoline Chain Saw">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Gasoline Chain Saw')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         ⛓️
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Gasoline%20Chain%20Saw"
-          class="product-link"
-        >
-          Gasoline Chain Saw
-        </a>
-      </h3>
+      <h3>METRO M-3106 Gasoline Chain Saw</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1420,14 +1330,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Gasoline Chain Saw',7499,'⛓️')"
+          onclick="addToCart('METRO M-3106',7499)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Gasoline Chain Saw')"
+          onclick="buyNow('METRO M-3106')"
         >
           Buy Now
         </button>
@@ -1437,30 +1347,19 @@ footer p{
     </div>
 
 
-    <!-- METAL CUT OFF -->
+    <!-- ================= METAL CUT OFF ================= -->
 
     <div class="product" data-category="Metal Cut Off Saw">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Metal Cut Off Saw')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         ⚙️
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Metal%20Cut%20Off%20Saw"
-          class="product-link"
-        >
-          Metal Cut Off Saw
-        </a>
-      </h3>
+      <h3>BOSCH GCO 2000</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
-      <div class="price">₹5,499</div>
+      <div class="price">₹8,999</div>
 
       <div class="discount">New</div>
 
@@ -1468,14 +1367,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Metal Cut Off Saw',5499,'⚙️')"
+          onclick="addToCart('BOSCH GCO 2000',8999)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Metal Cut Off Saw')"
+          onclick="buyNow('BOSCH GCO 2000')"
         >
           Buy Now
         </button>
@@ -1485,26 +1384,15 @@ footer p{
     </div>
 
 
-    <!-- ELECTRIC TRIMMER -->
+    <!-- ================= TRIMMER ================= -->
 
     <div class="product" data-category="Electric Trimmer">
 
-      <div
-        class="product-image"
-        onclick="openProduct('Electric Trimmer')"
-        style="cursor:pointer"
-      >
+      <div class="product-image">
         🌿
       </div>
 
-      <h3>
-        <a
-          href="product-details.html?product=Electric%20Trimmer"
-          class="product-link"
-        >
-          Electric Trimmer
-        </a>
-      </h3>
+      <h3>METRO ME-11071ET</h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
 
@@ -1516,14 +1404,14 @@ footer p{
 
         <button
           class="add-cart"
-          onclick="addToCart('Electric Trimmer',2499,'🌿')"
+          onclick="addToCart('METRO ME-11071ET',2499)"
         >
           Add to Cart
         </button>
 
         <button
           class="buy"
-          onclick="buyNow('Electric Trimmer')"
+          onclick="buyNow('METRO ME-11071ET')"
         >
           Buy Now
         </button>
@@ -1532,14 +1420,15 @@ footer p{
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- FREE ONLINE TOOLS -->
+<!-- ONLINE TOOLS -->
 
-<section class="section tools-section" id="tools">
+<section class="section tools-section">
 
   <h2 class="section-title">
     🛠️ Free Online Tools
@@ -1548,92 +1437,57 @@ footer p{
   <div class="tools">
 
     <div class="tool">
-
       <div class="tool-icon">🔢</div>
-
       <h3>Word Counter</h3>
-
       <p>Count words and characters quickly.</p>
-
-      <button onclick="window.location.href='word-counter.html'">
+      <button onclick="location.href='word-counter.html'">
         Open Tool
       </button>
-
     </div>
 
-
     <div class="tool">
-
       <div class="tool-icon">🔐</div>
-
       <h3>Password Generator</h3>
-
       <p>Create strong and secure passwords.</p>
-
-      <button onclick="window.location.href='password-generator.html'">
+      <button onclick="location.href='password-generator.html'">
         Open Tool
       </button>
-
     </div>
 
-
     <div class="tool">
-
       <div class="tool-icon">📱</div>
-
       <h3>QR Code Generator</h3>
-
       <p>Create QR codes from text or links.</p>
-
-      <button onclick="window.location.href='qr-generator.html'">
+      <button onclick="location.href='qr-generator.html'">
         Open Tool
       </button>
-
     </div>
 
-
     <div class="tool">
-
       <div class="tool-icon">🔗</div>
-
       <h3>URL Encoder</h3>
-
       <p>Encode and decode URLs instantly.</p>
-
-      <button onclick="window.location.href='url-encoder.html'">
+      <button onclick="location.href='url-encoder.html'">
         Open Tool
       </button>
-
     </div>
 
-
     <div class="tool">
-
       <div class="tool-icon">🔄</div>
-
       <h3>Unit Converter</h3>
-
       <p>Convert common units quickly.</p>
-
-      <button onclick="window.location.href='unit-converter.html'">
+      <button onclick="location.href='unit-converter.html'">
         Open Tool
       </button>
-
     </div>
 
-
     <div class="tool">
-
       <div class="tool-icon">📝</div>
-
       <h3>Text Formatter</h3>
-
       <p>Format and transform your text.</p>
-
-      <button onclick="window.location.href='text-formatter.html'">
+      <button onclick="location.href='text-formatter.html'">
         Open Tool
       </button>
-
     </div>
 
   </div>
@@ -1665,73 +1519,46 @@ footer p{
   <div class="footer-grid">
 
     <div>
-
       <h3>Nova Power Tools</h3>
-
-      <p>
-        Quality tools for professional work.
-      </p>
-
+      <p>Quality tools for professional work.</p>
     </div>
 
-
     <div>
-
       <h3>Shop</h3>
-
       <p>Drill Machines</p>
-
       <p>Grinders</p>
-
       <p>Hammer Machines</p>
-
       <p>Welding Machines</p>
-
     </div>
 
-
     <div>
-
       <h3>Online Tools</h3>
-
       <p>Word Counter</p>
-
       <p>QR Generator</p>
-
       <p>Password Generator</p>
-
     </div>
 
-
     <div>
-
       <h3>Help</h3>
-
       <p>Contact Us</p>
-
       <p>Delivery Information</p>
-
       <p>Returns & Replacement</p>
-
     </div>
 
   </div>
 
-
   <div class="copyright">
 
-    <p>
-      © 2026 Nova Power Tools
-    </p>
+    <p>© 2026 Nova Power Tools</p>
 
-    <p>
-      Free • Fast • Simple
-    </p>
+    <p>Free • Fast • Simple</p>
 
   </div>
 
 </footer>
 
+
+<!-- CART MESSAGE -->
 
 <div id="cartMessage">
   Added to cart! 🛒
@@ -1740,7 +1567,9 @@ footer p{
 
 <script>
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 function searchProducts(){
 
@@ -1760,13 +1589,9 @@ function searchProducts(){
       product.innerText.toLowerCase();
 
     if(text.includes(input)){
-
       product.style.display="";
-
     }else{
-
       product.style.display="none";
-
     }
 
   });
@@ -1774,7 +1599,9 @@ function searchProducts(){
 }
 
 
-/* CATEGORY FILTER */
+/* =========================
+   CATEGORY FILTER
+========================= */
 
 function filterCategory(category){
 
@@ -1790,10 +1617,9 @@ function filterCategory(category){
   let selected =
     document.getElementById("selectedCategory");
 
+
   cards.forEach(function(card){
-
     card.classList.remove("active");
-
   });
 
 
@@ -1802,10 +1628,9 @@ function filterCategory(category){
 
   products.forEach(function(product){
 
-    if(product.dataset.category === category){
+    if(product.dataset.category===category){
 
       product.style.display="";
-
       found++;
 
     }else{
@@ -1838,7 +1663,9 @@ function filterCategory(category){
 }
 
 
-/* SHOW ALL */
+/* =========================
+   SHOW ALL
+========================= */
 
 function showAllProducts(){
 
@@ -1865,20 +1692,11 @@ function showAllProducts(){
 }
 
 
-/* OPEN PRODUCT */
+/* =========================
+   ADD TO CART
+========================= */
 
-function openProduct(productName){
-
-  window.location.href =
-    "product-details.html?product=" +
-    encodeURIComponent(productName);
-
-}
-
-
-/* ADD TO CART */
-
-function addToCart(productName,price,icon){
+function addToCart(productName,price){
 
   let cart =
     JSON.parse(
@@ -1888,9 +1706,7 @@ function addToCart(productName,price,icon){
 
   let existing =
     cart.find(function(item){
-
-      return item.name === productName;
-
+      return item.name===productName;
     });
 
 
@@ -1906,7 +1722,7 @@ function addToCart(productName,price,icon){
 
       price:price,
 
-      icon:icon,
+      icon:"🛠️",
 
       quantity:1
 
@@ -1942,7 +1758,9 @@ function addToCart(productName,price,icon){
 }
 
 
-/* BUY NOW */
+/* =========================
+   BUY NOW
+========================= */
 
 function buyNow(productName){
 
