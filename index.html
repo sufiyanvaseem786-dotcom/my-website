@@ -751,7 +751,367 @@ footer p{
   }
 
 }
+/* =====================================================
+   NOVA POWER TOOLS - BRAND COLOR THEME
+   Dark Navy + Electric Blue + Yellow
+===================================================== */
 
+/* MAIN WEBSITE BACKGROUND */
+body{
+  background:
+    radial-gradient(circle at 20% 10%, rgba(37,99,235,.18), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255,176,0,.12), transparent 28%),
+    linear-gradient(135deg,#0b1220 0%,#111827 45%,#172033 100%);
+  color:#ffffff;
+}
+
+/* PRODUCT SECTION */
+.products-section,
+.products-container{
+  background:transparent !important;
+}
+
+/* PRODUCT CARDS */
+.product,
+.product-card{
+  background:linear-gradient(
+    145deg,
+    #172033 0%,
+    #1e293b 55%,
+    #111827 100%
+  ) !important;
+
+  border:1px solid rgba(255,255,255,.12) !important;
+  border-radius:16px;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  color:white;
+  transition:all .3s ease;
+}
+
+/* CARD HOVER */
+.product:hover,
+.product-card:hover{
+  transform:translateY(-7px);
+  border-color:#2563eb !important;
+
+  box-shadow:
+    0 15px 35px rgba(37,99,235,.28),
+    0 5px 15px rgba(0,0,0,.4);
+}
+
+/* PRODUCT IMAGE BACKGROUND */
+.product .product-image,
+.product-card .product-image{
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafc,
+      #e2e8f0
+    ) !important;
+
+  border-radius:12px;
+  border:2px solid rgba(255,176,0,.25);
+}
+
+/* PRODUCT NAME */
+.product h3,
+.product-card h3{
+  color:#ffffff !important;
+}
+
+/* PRODUCT LINK */
+.product-link{
+  color:#ffffff !important;
+}
+
+.product-link:hover{
+  color:#ffb000 !important;
+}
+
+/* RATING */
+.product .rating,
+.product-card .rating{
+  color:#ffb000 !important;
+}
+
+/* PRICE */
+.product .price,
+.product-card .price{
+  color:#ffb000 !important;
+  font-weight:800;
+}
+
+/* OLD PRICE */
+.product .old-price,
+.product-card .old-price{
+  color:#94a3b8 !important;
+}
+
+/* DISCOUNT */
+.product .discount,
+.product-card .discount{
+  background:#14532d !important;
+  color:#86efac !important;
+  border:1px solid #22c55e;
+}
+
+/* BUTTON AREA */
+.product-buttons button{
+  border-radius:8px;
+  font-weight:bold;
+}
+
+/* ADD TO CART */
+.product-buttons .add-cart{
+  background:#ffb000 !important;
+  color:#111827 !important;
+}
+
+.product-buttons .add-cart:hover{
+  background:#ffc233 !important;
+}
+
+/* BUY NOW */
+.product-buttons .buy{
+  background:#2563eb !important;
+  color:white !important;
+}
+
+.product-buttons .buy:hover{
+  background:#3b82f6 !important;
+}
+
+
+/* =====================================================
+   PRODUCT DETAILS PAGE
+===================================================== */
+
+.container{
+  background:transparent !important;
+}
+
+/* MAIN DETAILS BOX */
+.product-box{
+  background:
+    linear-gradient(
+      145deg,
+      #172033,
+      #1e293b
+    ) !important;
+
+  border:1px solid rgba(255,255,255,.12) !important;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.4),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  color:white;
+}
+
+/* PRODUCT DETAILS IMAGE */
+.product-box .product-image{
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafc,
+      #dbe4ee
+    ) !important;
+
+  border:2px solid rgba(255,176,0,.3);
+}
+
+/* DETAILS TITLE */
+.product-info h1{
+  color:white !important;
+}
+
+/* BRAND */
+.product-info .brand{
+  background:#172554 !important;
+  color:#60a5fa !important;
+  border:1px solid #2563eb;
+}
+
+/* RATING */
+.product-info .rating{
+  color:#ffb000 !important;
+}
+
+/* PRICE */
+.product-info .price{
+  color:#ffb000 !important;
+}
+
+/* PRICE NOTE */
+.price-note{
+  color:#cbd5e1 !important;
+}
+
+/* DELIVERY */
+.delivery{
+  background:
+    linear-gradient(
+      135deg,
+      #172554,
+      #1e293b
+    ) !important;
+
+  border-left:4px solid #2563eb;
+  color:#e2e8f0;
+}
+
+/* ABOUT */
+.about-title,
+.spec-title{
+  color:#ffffff !important;
+}
+
+/* DESCRIPTION */
+.description{
+  color:#cbd5e1 !important;
+}
+
+/* SPEC TABLE */
+.spec-table{
+  border-color:#334155;
+}
+
+.spec-table td{
+  border-color:#334155 !important;
+  color:#e2e8f0;
+}
+
+.spec-table td:first-child{
+  background:#111827 !important;
+  color:#ffb000 !important;
+}
+
+/* ADD CART */
+.cart-btn{
+  background:#ffb000 !important;
+  color:#111827 !important;
+}
+
+.cart-btn:hover{
+  background:#ffc233 !important;
+}
+
+/* BUY NOW */
+.buy-btn{
+  background:#2563eb !important;
+  color:white !important;
+}
+
+.buy-btn:hover{
+  background:#3b82f6 !important;
+}
+
+/* CONTINUE SHOPPING */
+.back-btn{
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  ) !important;
+
+  color:white !important;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+section h2,
+.products-title,
+.section-title{
+  color:#ffffff !important;
+}
+
+section h2::after,
+.section-title::after{
+  background:#ffb000 !important;
+}
+
+
+/* =====================================================
+   SEARCH AREA
+===================================================== */
+
+.search-area input{
+  background:#1e293b !important;
+  color:white !important;
+  border:1px solid #475569 !important;
+}
+
+.search-area input::placeholder{
+  color:#94a3b8 !important;
+}
+
+
+/* =====================================================
+   CATEGORY BAR
+===================================================== */
+
+.category-bar{
+  background:#111827 !important;
+  border-top:1px solid #263244;
+  border-bottom:1px solid #263244;
+}
+
+.category-bar a{
+  color:#e2e8f0 !important;
+}
+
+.category-bar a:hover{
+  color:#ffb000 !important;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  background:#070b12 !important;
+  border-top:2px solid #2563eb;
+}
+
+footer h3{
+  color:#ffb000 !important;
+}
+
+footer p,
+footer a{
+  color:#cbd5e1 !important;
+}
+
+footer a:hover{
+  color:#ffb000 !important;
+}
+
+
+/* MOBILE */
+@media(max-width:700px){
+
+  body{
+    background:
+      linear-gradient(
+        160deg,
+        #0b1220,
+        #172033
+      );
+  }
+
+  .product,
+  .product-card{
+    border-radius:13px;
+  }
+
+}
 </style>
 </head>
 
