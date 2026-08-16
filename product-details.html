@@ -937,6 +937,60 @@ const params =
 
 const productName =
   params.get("product");
+  /* =========================
+   PRODUCT NAME MATCHING
+========================= */
+
+const productAliases = {
+
+  "Auto Power Pro APP1112":
+    "Auto Power AP1112",
+
+  "Auto Power Pro APP1170 Jig Saw":
+    "Auto Power APP1170",
+
+  "METRO Rotary Hammer":
+    "METRO Rotary Hammer 20MM",
+
+  "METRO 20MM Rotary Hammer":
+    "METRO Rotary Hammer 20MM",
+
+  "METRO M-3106 Gasoline Chain Saw":
+    "METRO M-3106",
+
+  "Heavy Duty Grinder Machine":
+    "Heavy Duty Grinder Machine",
+
+  "AARK AK-10C":
+    "AARK AK-10C",
+
+  "Matrix MTX-DU10":
+    "Matrix MTX-DU10",
+
+  "METRO MID13C":
+    "METRO MID13C",
+
+  "VIVO Drill":
+    "VIVO Drill",
+
+  "METRO M-EM16B Mixing Drill":
+    "METRO M-EM16B",
+
+  "Auto Power Pro APP1170":
+    "Auto Power APP1170",
+
+  "METRO Blower":
+    "METRO Blower",
+
+  "METRO Two Claw Glass Sucker":
+    "METRO Two Claw Glass Sucker"
+};
+
+
+/* Actual database key */
+
+const actualProductName =
+  productAliases[productName] || productName;
 
 
 /* =====================================================
