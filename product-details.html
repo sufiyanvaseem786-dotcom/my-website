@@ -16,8 +16,12 @@
 
 body{
   font-family:Arial, sans-serif;
-  background:linear-gradient(135deg,#eef2f7,#f8fafc);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(37,99,235,.18), transparent 30%),
+    radial-gradient(circle at 90% 90%, rgba(255,176,0,.10), transparent 30%),
+    linear-gradient(135deg,#dbeafe 0%,#eef4ff 45%,#d9e7ff 100%);
   color:#172033;
+  min-height:100vh;
 }
 
 /* HEADER */
@@ -61,20 +65,26 @@ header a:hover{
 }
 
 /* PRODUCT CARD */
-
+  
 .product-box{
-  background:#fff;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.98),
+    rgba(239,246,255,.98)
+  );
+
   border-radius:18px;
   padding:22px;
+
   display:grid;
   grid-template-columns:48% 52%;
   gap:30px;
 
   box-shadow:
-    0 8px 30px rgba(15,23,42,.10),
-    0 2px 6px rgba(15,23,42,.05);
+    0 15px 40px rgba(15,23,42,.14),
+    0 3px 10px rgba(37,99,235,.08);
 
-  border:1px solid #e5e7eb;
+  border:1px solid rgba(37,99,235,.15);
 }
 
 /* PRODUCT IMAGE AREA */
@@ -83,10 +93,12 @@ header a:hover{
   min-height:520px;
 
   background:
-    radial-gradient(circle at 50% 40%,
-    #ffffff 0%,
-    #f4f7fb 45%,
-    #e8edf5 100%);
+    radial-gradient(
+      circle at 50% 35%,
+      #ffffff 0%,
+      #eaf2ff 42%,
+      #cbdcf7 100%
+    );
 
   border-radius:14px;
 
@@ -96,27 +108,38 @@ header a:hover{
 
   overflow:hidden;
 
-  border:1px solid #e1e7ef;
+  border:1px solid #93b4e8;
 
   position:relative;
+
+  box-shadow:
+    inset 0 0 35px rgba(37,99,235,.10),
+    0 4px 15px rgba(15,23,42,.08);
 }
 
-/* subtle label */
+
+/* NOVA POWER TOOLS LABEL */
 
 .product-image::after{
   content:"NOVA POWER TOOLS";
+
   position:absolute;
   bottom:15px;
   left:0;
   right:0;
+
   text-align:center;
 
   font-size:11px;
   font-weight:bold;
-  letter-spacing:1.5px;
+  letter-spacing:2px;
 
-  color:#9aa4b2;
+  color:#2563eb;
+  opacity:.65;
+
+  z-index:3;
 }
+
 
 /* PRODUCT IMAGE */
 
@@ -132,15 +155,25 @@ header a:hover{
 
   position:relative;
   z-index:2;
+
+  filter:drop-shadow(0 12px 12px rgba(15,23,42,.18));
 }
+
+
+/* IMAGE HOVER */
 
 .product-image img:hover{
   transform:scale(1.04);
 }
 
+
+/* PRODUCT PLACEHOLDER */
+
 .product-placeholder{
   font-size:90px;
   opacity:.65;
+  position:relative;
+  z-index:2;
 }
 
 /* DETAILS */
