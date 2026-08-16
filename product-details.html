@@ -192,6 +192,11 @@ header a{
   color:white;
   margin-top:10px;
   width:100%;
+  padding:14px;
+  border:none;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* ERROR */
@@ -272,87 +277,15 @@ header a{
 
 /* =====================================================
    NOVA POWER TOOLS PRODUCT DATABASE
-   Price intentionally left for later update
+   PRICE CAN BE UPDATED LATER
 ===================================================== */
 
 const products = {
-  "Electric Hammer Machine":{
-  name:"Electric Hammer Machine",
-  brand:"Nova Power Tools",
-  category:"Hammer Machine",
-  model:"Electric Hammer",
-  image:"",
-  description:
-    "Electric hammer machine suitable for drilling, hammering and general construction work.",
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Electric Hammer Machine",
-    "Application":"Drilling & Hammering",
-    "Voltage":"220V",
-    "Power":"To be updated",
-    "Speed":"To be updated"
-  }
-},
 
 
-"Power Cutter Machine":{
-  name:"Power Cutter Machine",
-  brand:"Nova Power Tools",
-  category:"Cutter",
-  model:"Power Cutter",
-  image:"",
-  description:
-    "Power cutter machine suitable for cutting applications in workshop and construction work.",
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Power Cutter Machine",
-    "Application":"Cutting",
-    "Voltage":"220V",
-    "Power":"To be updated",
-    "Blade Size":"To be updated"
-  }
-},
-
-
-"Welding Machine":{
-  name:"Welding Machine",
-  brand:"Nova Power Tools",
-  category:"Welding",
-  model:"Welding Machine",
-  image:"",
-  description:
-    "Electric welding machine suitable for general welding and fabrication work.",
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Welding Machine",
-    "Application":"Welding & Fabrication",
-    "Voltage":"220V",
-    "Current":"To be updated",
-    "Power":"To be updated"
-  }
-},
-
-
-"METRO ME-11071ET":{
-  name:"METRO ME-11071ET Electric Trimmer",
-  brand:"METRO",
-  category:"Electric Trimmer",
-  model:"ME-11071ET",
-  image:"",
-  description:
-    "METRO electric trimmer suitable for trimming and cutting applications.",
-  specs:{
-    "Brand":"METRO",
-    "Model":"ME-11071ET",
-    "Type":"Electric Trimmer",
-    "Voltage":"To be updated",
-    "Power":"To be updated",
-    "Speed":"To be updated",
-    "Application":"Trimming & Cutting"
-  }
-},
-
-  /* ================= DRILLS ================= */
+  /* =====================================================
+     DRILL MACHINES
+  ===================================================== */
 
   "AARK AK-10C":{
     name:"AARK AK-10C 600W Electric Drill",
@@ -361,7 +294,7 @@ const products = {
     model:"AK-10C",
     image:"aark-ak10c.jpg",
     description:
-      "A compact electric drill suitable for general drilling work. The box specifies a 600W electric drill with a 10mm chuck.",
+      "A compact electric drill suitable for general drilling work. The product specification shows a 600W electric drill with a 10mm chuck.",
     specs:{
       "Brand":"AARK",
       "Model":"AK-10C",
@@ -381,7 +314,7 @@ const products = {
     model:"MTX-DU10",
     image:"matrix-mtx-du10.jpg",
     description:
-      "Electric drill suitable for drilling applications. The product box shows a 10mm drilling capacity and 800W rated power input.",
+      "Electric drill suitable for drilling applications.",
     specs:{
       "Brand":"Matrix",
       "Model":"MTX-DU10",
@@ -402,7 +335,7 @@ const products = {
     model:"MID13C",
     image:"metro-mid13c.jpg",
     description:
-      "Professional impact drill with a 13mm chuck. The box shows 550W input power and a no-load speed range of 0–2800 rpm.",
+      "Professional impact drill with a 13mm chuck.",
     specs:{
       "Brand":"METRO",
       "Model":"MID13C",
@@ -416,16 +349,17 @@ const products = {
   },
 
 
-  "Auto Power Drill":{
-    name:"Auto Power Electric Drill",
-    brand:"Auto Power",
+  "Auto Power Pro APP1112":{
+    name:"Auto Power Pro APP1112 Electric Drill",
+    brand:"Auto Power Pro",
     category:"Drill Machine",
-    model:"Auto Power",
+    model:"APP1112",
     image:"auto-power-drill.jpg",
     description:
-      "Electric drill from Auto Power. Product specifications can be updated later according to the exact model available in stock.",
+      "Electric drill from Auto Power Pro suitable for general drilling applications.",
     specs:{
-      "Brand":"Auto Power",
+      "Brand":"Auto Power Pro",
+      "Model":"APP1112",
       "Type":"Electric Drill",
       "Voltage":"220V",
       "Frequency":"50Hz",
@@ -442,7 +376,7 @@ const products = {
     model:"VIVO Drill",
     image:"vivo-drill.jpg",
     description:
-      "Electric drill suitable for general drilling work. Exact model specifications can be updated according to the stock item.",
+      "Electric drill suitable for general drilling work.",
     specs:{
       "Brand":"VIVO",
       "Type":"Electric Drill",
@@ -461,7 +395,7 @@ const products = {
     model:"Professional 350W",
     image:"",
     description:
-      "Bosch professional electric drill. The supplied product photo clearly shows a 350W specification.",
+      "Bosch professional electric drill.",
     specs:{
       "Brand":"Bosch",
       "Type":"Professional Electric Drill",
@@ -471,7 +405,9 @@ const products = {
   },
 
 
-  /* ================= GRINDERS ================= */
+  /* =====================================================
+     GRINDERS
+  ===================================================== */
 
   "Heavy Duty Grinder Machine":{
     name:"Heavy Duty Grinder Machine",
@@ -510,15 +446,16 @@ const products = {
 
 
   "METRO ME-1107AG":{
-    name:"METRO Angle Grinder 1000W",
+    name:"METRO ME-1107AG Angle Grinder",
     brand:"METRO",
     category:"Grinder",
     model:"ME-1107AG",
     image:"",
     description:
-      "Professional angle grinder with 1000W power and 11000 rpm speed as visible on the product box.",
+      "Professional angle grinder with 1000W power.",
     specs:{
       "Brand":"METRO",
+      "Model":"ME-1107AG",
       "Type":"Angle Grinder",
       "Power":"1000W",
       "Speed":"11000 rpm",
@@ -553,7 +490,7 @@ const products = {
     model:"DSM08-100",
     image:"",
     description:
-      "Compact professional angle grinder with 800W rated input and 13000 rpm rated speed.",
+      "Compact professional angle grinder.",
     specs:{
       "Brand":"DongCheng",
       "Model":"DSM08-100",
@@ -590,7 +527,7 @@ const products = {
     model:"MT-801",
     image:"",
     description:
-      "Professional angle grinder from M&T suitable for workshop and general grinding applications.",
+      "Professional angle grinder suitable for workshop applications.",
     specs:{
       "Brand":"M&T",
       "Type":"Angle Grinder",
@@ -618,7 +555,28 @@ const products = {
   },
 
 
-  /* ================= CUTTERS ================= */
+  "HitMan Grinder":{
+    name:"HitMan Professional Power Tool",
+    brand:"HitMan",
+    category:"Grinder",
+    model:"To be updated",
+    image:"",
+    description:
+      "Professional power tool from HitMan.",
+    specs:{
+      "Brand":"HitMan",
+      "Type":"Power Tool",
+      "Rated Voltage":"220V",
+      "Frequency":"50Hz",
+      "Input Power":"500W",
+      "No-load Speed":"0–10000 rpm"
+    }
+  },
+
+
+  /* =====================================================
+     CUTTERS
+  ===================================================== */
 
   "Bosch GCO 2000":{
     name:"Bosch GCO 2000 Metal Cut-Off Saw",
@@ -627,7 +585,7 @@ const products = {
     model:"GCO 2000",
     image:"",
     description:
-      "Professional metal cut-off saw from Bosch. The supplied box clearly shows 2000W power.",
+      "Professional metal cut-off saw from Bosch.",
     specs:{
       "Brand":"Bosch",
       "Model":"GCO 2000",
@@ -662,7 +620,7 @@ const products = {
     model:"MK-4SA",
     image:"",
     description:
-      "Professional marble cutter suitable for cutting marble and construction materials.",
+      "Professional marble cutter.",
     specs:{
       "Brand":"Imark Pro",
       "Model":"MK-4SA",
@@ -714,7 +672,7 @@ const products = {
     model:"ME-1109CM",
     image:"",
     description:
-      "Professional marble cutter. Product box shows 220V, 50Hz and approximately 11000 rpm.",
+      "Professional marble cutter.",
     specs:{
       "Brand":"METRO",
       "Model":"ME-1109CM",
@@ -798,12 +756,33 @@ const products = {
   },
 
 
-  /* ================= HAMMERS ================= */
+  /* =====================================================
+     HAMMER MACHINES
+  ===================================================== */
+
+  "Electric Hammer Machine":{
+    name:"Electric Hammer Machine",
+    brand:"Nova Power Tools",
+    category:"Hammer Machine",
+    model:"Electric Hammer",
+    image:"",
+    description:
+      "Electric hammer machine suitable for drilling, hammering and general construction work.",
+    specs:{
+      "Brand":"Nova Power Tools",
+      "Type":"Electric Hammer Machine",
+      "Application":"Drilling & Hammering",
+      "Voltage":"220V",
+      "Power":"To be updated",
+      "Speed":"To be updated"
+    }
+  },
+
 
   "METRO Rotary Hammer 20MM":{
     name:"METRO 20MM Rotary Hammer",
     brand:"METRO",
-    category:"Hammer",
+    category:"Hammer Machine",
     model:"20MM Rotary Hammer",
     image:"",
     description:
@@ -824,7 +803,7 @@ const products = {
   "Yato PT-RH26":{
     name:"Professional Rotary Hammer PT-RH26",
     brand:"Yato",
-    category:"Hammer",
+    category:"Hammer Machine",
     model:"PT-RH26",
     image:"",
     description:
@@ -842,7 +821,7 @@ const products = {
   "METRO ME-11042RH20":{
     name:"METRO ME-11042RH20 Rotary Hammer",
     brand:"METRO",
-    category:"Hammer",
+    category:"Hammer Machine",
     model:"ME-11042RH20",
     image:"",
     description:
@@ -862,7 +841,7 @@ const products = {
   "Impact Pro Rotary Hammer":{
     name:"Impact Pro Rotary Hammer",
     brand:"Impact Pro",
-    category:"Hammer",
+    category:"Hammer Machine",
     model:"Rotary Hammer",
     image:"",
     description:
@@ -875,7 +854,34 @@ const products = {
   },
 
 
-  /* ================= MIXING DRILL ================= */
+  /* =====================================================
+     JIG SAW
+  ===================================================== */
+
+  "Auto Power Pro APP1170":{
+    name:"Auto Power Pro APP1170 Jig Saw",
+    brand:"Auto Power Pro",
+    category:"Jig Saw",
+    model:"APP1170",
+    image:"",
+    description:
+      "Electric jig saw suitable for cutting wood and similar materials.",
+    specs:{
+      "Brand":"Auto Power Pro",
+      "Model":"APP1170",
+      "Type":"Jig Saw",
+      "Voltage":"230V",
+      "Frequency":"50Hz",
+      "Input Power":"750W",
+      "Speed":"3000 rpm",
+      "Cutting Capacity":"70mm"
+    }
+  },
+
+
+  /* =====================================================
+     MIXING DRILL
+  ===================================================== */
 
   "METRO M-EM16B":{
     name:"METRO M-EM16B Mixing Drill",
@@ -898,39 +904,18 @@ const products = {
   },
 
 
-  /* ================= JIG SAW ================= */
-
-  "Auto Power APP1170":{
-    name:"Auto Power Pro APP1170 Jig Saw",
-    brand:"Auto Power Pro",
-    category:"Jig Saw",
-    model:"APP1170",
-    image:"",
-    description:
-      "Electric jig saw suitable for cutting wood and similar materials.",
-    specs:{
-      "Brand":"Auto Power Pro",
-      "Model":"APP1170",
-      "Type":"Jig Saw",
-      "Voltage":"230V",
-      "Frequency":"50Hz",
-      "Input Power":"750W",
-      "Speed":"3000 rpm",
-      "Cutting Capacity":"70mm"
-    }
-  },
-
-
-  /* ================= CHAIN SAW ================= */
+  /* =====================================================
+     CHAIN SAW
+  ===================================================== */
 
   "METRO M-3106":{
-    name:"METRO Gasoline Chain Saw",
+    name:"METRO M-3106 Gasoline Chain Saw",
     brand:"METRO",
     category:"Gasoline Chain Saw",
     model:"M-3106",
     image:"",
     description:
-      "Professional gasoline chain saw designed for garden and cutting applications.",
+      "Professional gasoline chain saw designed for garden and wood cutting applications.",
     specs:{
       "Brand":"METRO",
       "Model":"M-3106",
@@ -941,7 +926,9 @@ const products = {
   },
 
 
-  /* ================= BLOWER ================= */
+  /* =====================================================
+     BLOWER
+  ===================================================== */
 
   "METRO Blower":{
     name:"METRO Electric Blower",
@@ -960,7 +947,9 @@ const products = {
   },
 
 
-  /* ================= GLASS SUCKER ================= */
+  /* =====================================================
+     GLASS SUCKER
+  ===================================================== */
 
   "METRO Two Claw Glass Sucker":{
     name:"METRO Two Claw Glass Sucker",
@@ -980,23 +969,64 @@ const products = {
   },
 
 
-  /* ================= OTHER GRINDER ================= */
+  /* =====================================================
+     EXTRA PRODUCTS FROM INDEX
+  ===================================================== */
 
-  "HitMan Grinder":{
-    name:"HitMan Professional Power Tool",
-    brand:"HitMan",
-    category:"Grinder",
-    model:"To be updated",
+  "Power Cutter Machine":{
+    name:"Power Cutter Machine",
+    brand:"Nova Power Tools",
+    category:"Cutter",
+    model:"Power Cutter",
     image:"",
     description:
-      "Professional power tool from HitMan. Exact product type and model can be updated from the complete box label.",
+      "Power cutter machine suitable for cutting applications in workshop and construction work.",
     specs:{
-      "Brand":"HitMan",
-      "Type":"Power Tool",
-      "Rated Voltage":"220V",
-      "Frequency":"50Hz",
-      "Input Power":"500W",
-      "No-load Speed":"0–10000 rpm"
+      "Brand":"Nova Power Tools",
+      "Type":"Power Cutter Machine",
+      "Application":"Cutting",
+      "Voltage":"220V",
+      "Power":"To be updated",
+      "Blade Size":"To be updated"
+    }
+  },
+
+
+  "Welding Machine":{
+    name:"Welding Machine",
+    brand:"Nova Power Tools",
+    category:"Welding",
+    model:"Welding Machine",
+    image:"",
+    description:
+      "Electric welding machine suitable for general welding and fabrication work.",
+    specs:{
+      "Brand":"Nova Power Tools",
+      "Type":"Welding Machine",
+      "Application":"Welding & Fabrication",
+      "Voltage":"220V",
+      "Current":"To be updated",
+      "Power":"To be updated"
+    }
+  },
+
+
+  "METRO ME-11071ET":{
+    name:"METRO ME-11071ET Electric Trimmer",
+    brand:"METRO",
+    category:"Electric Trimmer",
+    model:"ME-11071ET",
+    image:"",
+    description:
+      "METRO electric trimmer suitable for trimming and cutting applications.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"ME-11071ET",
+      "Type":"Electric Trimmer",
+      "Voltage":"To be updated",
+      "Power":"To be updated",
+      "Speed":"To be updated",
+      "Application":"Trimming & Cutting"
     }
   }
 
@@ -1004,25 +1034,33 @@ const products = {
 
 
 /* =====================================================
-   GET PRODUCT FROM URL
+   URL PRODUCT NAME
 ===================================================== */
 
 const params =
   new URLSearchParams(window.location.search);
 
-const productName =
+const requestedProduct =
   params.get("product");
-  /* =========================
-   PRODUCT NAME MATCHING
-========================= */
 
-const productAliases = {
 
-  "Auto Power Pro APP1112":
+/* =====================================================
+   OLD NAME → NEW NAME MATCHING
+===================================================== */
+
+const aliases = {
+
+  "Auto Power AP1112":
     "Auto Power AP1112",
 
-  "Auto Power Pro APP1170 Jig Saw":
-    "Auto Power APP1170",
+  "Auto Power Pro APP1112":
+    "Auto Power Pro APP1112",
+
+  "Auto Power Pro APP1170":
+    "Auto Power Pro APP1170",
+
+  "Auto Power APP1170":
+    "Auto Power Pro APP1170",
 
   "METRO Rotary Hammer":
     "METRO Rotary Hammer 20MM",
@@ -1033,8 +1071,23 @@ const productAliases = {
   "METRO M-3106 Gasoline Chain Saw":
     "METRO M-3106",
 
-  "Heavy Duty Grinder Machine":
-    "Heavy Duty Grinder Machine",
+  "METRO ME-11071ET":
+    "METRO ME-11071ET",
+
+  "Electric Hammer Machine":
+    "Electric Hammer Machine",
+
+  "Power Cutter Machine":
+    "Power Cutter Machine",
+
+  "Welding Machine":
+    "Welding Machine",
+
+  "METRO Blower":
+    "METRO Blower",
+
+  "VIVO Drill":
+    "VIVO Drill",
 
   "AARK AK-10C":
     "AARK AK-10C",
@@ -1045,27 +1098,14 @@ const productAliases = {
   "METRO MID13C":
     "METRO MID13C",
 
-  "VIVO Drill":
-    "VIVO Drill",
+  "Heavy Duty Grinder Machine":
+    "Heavy Duty Grinder Machine"
 
-  "METRO M-EM16B Mixing Drill":
-    "METRO M-EM16B",
-
-  "Auto Power Pro APP1170":
-    "Auto Power APP1170",
-
-  "METRO Blower":
-    "METRO Blower",
-
-  "METRO Two Claw Glass Sucker":
-    "METRO Two Claw Glass Sucker"
 };
 
 
-/* Actual database key */
-
-const actualProductName =
-  productAliases[productName] || productName;
+const productKey =
+  aliases[requestedProduct] || requestedProduct;
 
 
 /* =====================================================
@@ -1077,7 +1117,11 @@ function showProduct(){
   const area =
     document.getElementById("productArea");
 
-  if(!productName || !products[productName]){
+
+  if(
+    !productKey ||
+    !products[productKey]
+  ){
 
     area.innerHTML = `
 
@@ -1086,8 +1130,8 @@ function showProduct(){
         <h2>Product Not Found</h2>
 
         <p>
-          Ye product abhi product-details system
-          mein add nahi hai.
+          Ye product abhi product-details
+          system mein available nahi hai.
         </p>
 
         <br>
@@ -1106,18 +1150,25 @@ function showProduct(){
 
 
   const p =
-    products[productName];
+    products[productKey];
 
+
+  /* IMAGE */
 
   let imageHTML = "";
+
 
   if(p.image){
 
     imageHTML = `
+
       <img
         src="${p.image}"
         alt="${p.name}"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+        onerror="
+          this.style.display='none';
+          this.nextElementSibling.style.display='block';
+        "
       >
 
       <div
@@ -1126,20 +1177,26 @@ function showProduct(){
       >
         🛠️
       </div>
+
     `;
 
   }else{
 
     imageHTML = `
+
       <div class="product-placeholder">
         🛠️
       </div>
+
     `;
 
   }
 
 
+  /* SPECIFICATIONS */
+
   let specifications = "";
+
 
   for(const key in p.specs){
 
@@ -1158,10 +1215,14 @@ function showProduct(){
   }
 
 
+  /* PAGE */
+
   area.innerHTML = `
 
     <div class="product-box">
 
+
+      <!-- PRODUCT IMAGE -->
 
       <div class="product-image">
 
@@ -1169,6 +1230,8 @@ function showProduct(){
 
       </div>
 
+
+      <!-- PRODUCT INFORMATION -->
 
       <div class="product-info">
 
@@ -1201,12 +1264,16 @@ function showProduct(){
 
           🚚 <b>Delivery:</b>
           Usually delivered within 1 day
+
           <br>
 
-          📍 Delivery available in Prayagraj and Banaras
+          📍 Delivery available in
+          Prayagraj and Banaras
+
           <br>
 
-          🔄 Replacement available for eligible products
+          🔄 Replacement available for
+          eligible products
 
         </div>
 
@@ -1277,7 +1344,8 @@ function showProduct(){
 function addToCart(){
 
   const p =
-    products[productName];
+    products[productKey];
+
 
   if(!p){
     return;
@@ -1327,7 +1395,7 @@ function addToCart(){
 
   alert(
     p.name +
-    " cart mein add ho gaya! 🛒\n\nPrice baad mein update kar dena."
+    " cart mein add ho gaya! 🛒"
   );
 
 }
@@ -1340,7 +1408,8 @@ function addToCart(){
 function buyNow(){
 
   const p =
-    products[productName];
+    products[productKey];
+
 
   if(!p){
     return;
@@ -1354,7 +1423,9 @@ function buyNow(){
 }
 
 
-/* START */
+/* =====================================================
+   START
+===================================================== */
 
 showProduct();
 
