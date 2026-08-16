@@ -1791,6 +1791,40 @@ function buyNow(productName){
     encodeURIComponent(productName);
 
 }
+  /* =========================
+   MAKE ALL PRODUCTS CLICKABLE
+========================= */
+
+document.querySelectorAll(".product").forEach(function(product){
+
+  product.style.cursor = "pointer";
+
+  product.addEventListener("click", function(event){
+
+    /* Buttons par card click nahi chalega */
+    if(
+      event.target.closest("button") ||
+      event.target.closest("a")
+    ){
+      return;
+    }
+
+    let nameElement = product.querySelector("h3");
+
+    if(!nameElement){
+      return;
+    }
+
+    let productName =
+      nameElement.innerText.trim();
+
+    window.location.href =
+      "product-details.html?product=" +
+      encodeURIComponent(productName);
+
+  });
+
+});
 
 </script>
 
