@@ -1566,14 +1566,21 @@ function showProduct(){
         </div>
 
 
-        <div class="price">
-          Price to be updated
-        </div>
+       <div class="price">
+  ₹${p.price.toLocaleString("en-IN")}
+</div>
 
+<div class="old-price">
+  ₹${p.oldPrice.toLocaleString("en-IN")}
+</div>
 
-        <div class="price-note">
-          💰 Final price will be added later.
-        </div>
+<div class="discount">
+  ${p.discount}
+</div>
+
+<div class="price-note">
+  💰 Special online price
+</div>
 
 
         <div class="delivery">
