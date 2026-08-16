@@ -1565,21 +1565,34 @@ function showProduct(){
           ⭐⭐⭐⭐⭐
         </div>
 
-
-       <div class="price">
-  ₹${p.price.toLocaleString("en-IN")}
+<div class="price">
+  ${
+    p.price !== undefined
+      ? "₹" + p.price.toLocaleString("en-IN")
+      : "Price to be updated"
+  }
 </div>
 
-<div class="old-price">
-  ₹${p.oldPrice.toLocaleString("en-IN")}
-</div>
+${
+  p.oldPrice !== undefined
+    ? `
+      <div class="old-price">
+        ₹${p.oldPrice.toLocaleString("en-IN")}
+      </div>
 
-<div class="discount">
-  ${p.discount}
-</div>
+      <div class="discount">
+        ${p.discount || "20% off"}
+      </div>
+    `
+    : ""
+}
 
 <div class="price-note">
-  💰 Special online price
+  ${
+    p.price !== undefined
+      ? "💰 Special online price"
+      : "💰 Final price will be added later."
+  }
 </div>
 
 
