@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,129 +41,125 @@ header{
   color:#ffb000;
 }
 
-.back{
+header a{
   color:white;
   text-decoration:none;
-  font-size:14px;
+  font-size:13px;
 }
 
-/* PRODUCT AREA */
+/* MAIN */
 
-.product-container{
+.container{
   max-width:1100px;
   margin:30px auto;
+  padding:0 15px;
+}
+
+.product-box{
   background:white;
-  border-radius:8px;
-  padding:20px;
+  border-radius:10px;
+  padding:18px;
   display:grid;
-  grid-template-columns:42% 58%;
+  grid-template-columns:45% 55%;
   gap:25px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 /* IMAGE */
 
-.image-box{
-  border:1px solid #ddd;
-  border-radius:8px;
+.product-image{
   min-height:430px;
+  background:#f5f7fb;
+  border-radius:8px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f8f8f8;
-  padding:20px;
+  overflow:hidden;
 }
 
-.image-box img{
-  max-width:100%;
-  max-height:390px;
+.product-image img{
+  width:100%;
+  height:100%;
+  max-height:430px;
   object-fit:contain;
 }
 
-.image-placeholder{
-  text-align:center;
+.product-placeholder{
   font-size:100px;
 }
 
 /* DETAILS */
 
-.details h1{
+.product-info h1{
   font-size:28px;
   margin-bottom:10px;
 }
 
 .brand{
-  color:#667085;
+  color:#2563eb;
+  font-weight:bold;
   margin-bottom:10px;
 }
 
 .rating{
-  color:#f5b000;
-  margin:10px 0;
+  color:#f59e0b;
+  margin-bottom:12px;
 }
 
 .price{
-  font-size:28px;
+  font-size:30px;
   font-weight:bold;
-  margin-top:12px;
+  margin:12px 0;
 }
 
-.old-price{
-  color:#777;
-  text-decoration:line-through;
-  font-size:15px;
-  margin-top:5px;
+.price-note{
+  color:#667085;
+  font-size:14px;
+  margin-bottom:18px;
 }
 
-.discount{
-  color:#15803d;
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.info-box{
-  background:#f5f7fa;
+.delivery{
+  background:#f5f7fb;
   padding:15px;
-  border-radius:7px;
-  margin:20px 0;
+  border-radius:8px;
   line-height:1.8;
+  margin-bottom:20px;
 }
 
-.about{
-  margin-top:20px;
-}
-
-.about h2,
-.specifications h2{
-  font-size:19px;
+.about-title{
+  font-size:20px;
   margin-bottom:10px;
 }
 
-.about p{
-  color:#555;
+.description{
+  color:#667085;
   line-height:1.6;
+  margin-bottom:20px;
 }
 
-/* TABLE */
+/* SPECIFICATIONS */
 
-.specifications{
-  margin-top:22px;
+.spec-title{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-table{
+.spec-table{
   width:100%;
   border-collapse:collapse;
+  margin-bottom:20px;
 }
 
-td{
+.spec-table td{
   border:1px solid #ddd;
   padding:10px;
   font-size:14px;
 }
 
-td:first-child{
+.spec-table td:first-child{
   font-weight:bold;
-  width:35%;
-  background:#f8f8f8;
+  background:#f8f9fa;
+  width:40%;
 }
 
 /* BUTTONS */
@@ -170,76 +167,83 @@ td:first-child{
 .buttons{
   display:flex;
   gap:10px;
-  margin-top:20px;
 }
 
 .buttons button{
   flex:1;
-  border:none;
   padding:14px;
-  border-radius:6px;
+  border:none;
+  border-radius:7px;
   font-weight:bold;
   cursor:pointer;
   font-size:15px;
 }
 
-.add-cart{
+.cart-btn{
   background:#ffd814;
 }
 
-.buy-now{
+.buy-btn{
   background:#ff9900;
 }
 
-.buttons button:hover{
-  opacity:.9;
-}
-
-/* DELIVERY */
-
-.delivery{
-  margin-top:18px;
-  background:#f8fafc;
-  padding:14px;
-  border-radius:7px;
-  line-height:1.8;
-  font-size:14px;
-}
-
-/* MESSAGE */
-
-#message{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#16a34a;
+.back-btn{
+  background:#2563eb;
   color:white;
-  padding:14px 20px;
-  border-radius:8px;
-  display:none;
-  z-index:9999;
+  margin-top:10px;
+  width:100%;
+}
+
+/* ERROR */
+
+.error{
+  background:white;
+  padding:40px;
+  text-align:center;
+  border-radius:10px;
+}
+
+.error h2{
+  margin-bottom:15px;
+}
+
+.error button{
+  padding:12px 20px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 /* MOBILE */
 
-@media(max-width:750px){
+@media(max-width:700px){
 
-  .product-container{
+  .product-box{
     grid-template-columns:1fr;
-    margin:15px;
   }
 
-  .image-box{
+  .product-image{
     min-height:300px;
   }
 
-  .details h1{
+  .product-info h1{
     font-size:23px;
+  }
+
+  .price{
+    font-size:26px;
+  }
+
+  .buttons{
+    flex-direction:column;
   }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -250,891 +254,903 @@ td:first-child{
     ⚡ Nova <span>Power Tools</span>
   </div>
 
-  <a href="index.html" class="back">
+  <a href="index.html">
     ← Continue Shopping
   </a>
 
 </header>
 
 
-<div class="product-container">
+<div class="container">
 
-  <!-- IMAGE -->
+  <div id="productArea"></div>
 
-  <div class="image-box" id="imageBox">
-  </div>
-
-
-  <!-- DETAILS -->
-
-  <div class="details">
-
-    <h1 id="productName">
-      Loading...
-    </h1>
-
-    <div class="brand" id="brand"></div>
-
-    <div class="rating">
-      ⭐⭐⭐⭐⭐
-      <small>4.5/5</small>
-    </div>
-
-    <hr>
-
-    <div class="price" id="price">
-      Price to be updated
-    </div>
-
-    <div class="old-price">
-      <!-- Price will be added later -->
-    </div>
-
-    <div class="discount">
-      <!-- Discount will be added later -->
-    </div>
-
-
-    <div class="info-box">
-
-      🚚 Delivery: Usually within 1 day
-
-      <br>
-
-      📍 Delivery available in Prayagraj and Banaras
-
-      <br>
-
-      🔄 Replacement available for eligible products
-
-    </div>
-
-
-    <div class="about">
-
-      <h2>
-        About this product
-      </h2>
-
-      <p id="description">
-      </p>
-
-    </div>
-
-
-    <div class="specifications">
-
-      <h2>
-        Specifications
-      </h2>
-
-      <table id="specTable">
-      </table>
-
-    </div>
-
-
-    <div class="buttons">
-
-      <button
-        class="add-cart"
-        onclick="addToCart()"
-      >
-        🛒 Add to Cart
-      </button>
-
-      <button
-        class="buy-now"
-        onclick="buyNow()"
-      >
-        ⚡ Buy Now
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<div id="message">
-  Added to cart! 🛒
 </div>
 
 
 <script>
 
-/* =========================================
-   PRODUCT DATABASE
-========================================= */
+/* =====================================================
+   NOVA POWER TOOLS PRODUCT DATABASE
+   Price intentionally left for later update
+===================================================== */
 
 const products = {
 
+  /* ================= DRILLS ================= */
 
-/* ================= DRILLS ================= */
+  "AARK AK-10C":{
+    name:"AARK AK-10C 600W Electric Drill",
+    brand:"AARK",
+    category:"Drill Machine",
+    model:"AK-10C",
+    image:"aark-ak10c.jpg",
+    description:
+      "A compact electric drill suitable for general drilling work. The box specifies a 600W electric drill with a 10mm chuck.",
+    specs:{
+      "Brand":"AARK",
+      "Model":"AK-10C",
+      "Type":"Electric Drill",
+      "Power":"600W",
+      "Chuck":"10mm",
+      "Voltage":"220V",
+      "Use":"General drilling work"
+    }
+  },
 
-"AARK AK-10C":{
 
-  category:"Drill Machines",
-  brand:"AARK",
+  "Matrix MTX-DU10":{
+    name:"Matrix MTX-DU10 Electric Drill",
+    brand:"Matrix",
+    category:"Drill Machine",
+    model:"MTX-DU10",
+    image:"matrix-mtx-du10.jpg",
+    description:
+      "Electric drill suitable for drilling applications. The product box shows a 10mm drilling capacity and 800W rated power input.",
+    specs:{
+      "Brand":"Matrix",
+      "Model":"MTX-DU10",
+      "Type":"Electric Drill",
+      "Drilling Capacity":"10mm",
+      "Rated Voltage":"220/230V",
+      "Frequency":"50/60Hz",
+      "Power":"800W",
+      "No-load Speed":"2800 rpm"
+    }
+  },
 
-  image:"aark-ak10c.jpg",
 
-  description:
-  "A professional electric drill designed for drilling applications. The product specifications are based on the information visible in the provided product packaging.",
+  "METRO MID13C":{
+    name:"METRO MID13C Impact Drill",
+    brand:"METRO",
+    category:"Drill Machine",
+    model:"MID13C",
+    image:"metro-mid13c.jpg",
+    description:
+      "Professional impact drill with a 13mm chuck. The box shows 550W input power and a no-load speed range of 0–2800 rpm.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"MID13C",
+      "Type":"Impact Drill",
+      "Power":"550W",
+      "Voltage":"220V",
+      "Frequency":"50/60Hz",
+      "No-load Speed":"0–2800 rpm",
+      "Chuck Diameter":"13mm"
+    }
+  },
 
-  specs:{
-    "Product Type":"Electric Drill",
-    "Model":"AK-10C",
-    "Power":"600W",
-    "Rated Voltage":"220–240V",
-    "Frequency":"50/60Hz",
-    "Drilling Capacity":"10mm"
+
+  "Auto Power Drill":{
+    name:"Auto Power Electric Drill",
+    brand:"Auto Power",
+    category:"Drill Machine",
+    model:"Auto Power",
+    image:"auto-power-drill.jpg",
+    description:
+      "Electric drill from Auto Power. Product specifications can be updated later according to the exact model available in stock.",
+    specs:{
+      "Brand":"Auto Power",
+      "Type":"Electric Drill",
+      "Voltage":"220V",
+      "Frequency":"50Hz",
+      "Power":"To be updated",
+      "Chuck":"To be updated"
+    }
+  },
+
+
+  "VIVO Drill":{
+    name:"VIVO Electric Drill",
+    brand:"VIVO",
+    category:"Drill Machine",
+    model:"VIVO Drill",
+    image:"vivo-drill.jpg",
+    description:
+      "Electric drill suitable for general drilling work. Exact model specifications can be updated according to the stock item.",
+    specs:{
+      "Brand":"VIVO",
+      "Type":"Electric Drill",
+      "Voltage":"To be updated",
+      "Power":"To be updated",
+      "Chuck":"To be updated",
+      "Speed":"To be updated"
+    }
+  },
+
+
+  "Bosch 350W Drill":{
+    name:"Bosch Professional Electric Drill 350W",
+    brand:"Bosch",
+    category:"Drill Machine",
+    model:"Professional 350W",
+    image:"",
+    description:
+      "Bosch professional electric drill. The supplied product photo clearly shows a 350W specification.",
+    specs:{
+      "Brand":"Bosch",
+      "Type":"Professional Electric Drill",
+      "Power":"350W",
+      "Other Specifications":"To be updated"
+    }
+  },
+
+
+  /* ================= GRINDERS ================= */
+
+  "Heavy Duty Grinder Machine":{
+    name:"Heavy Duty Grinder Machine",
+    brand:"Nova / Assorted",
+    category:"Grinder",
+    model:"Heavy Duty",
+    image:"grinder-machine-clean.png",
+    description:
+      "Heavy duty angle grinder suitable for grinding, cutting and polishing work.",
+    specs:{
+      "Product Type":"Heavy Duty Grinder Machine",
+      "Power":"850W",
+      "Disc Size":"4 Inch",
+      "Application":"Grinding, Cutting & Polishing",
+      "Suitable For":"Workshop, Construction & Repair Work"
+    }
+  },
+
+
+  "Silverblaze AG-G15SA2":{
+    name:"Silverblaze AG-G15SA2 Angle Grinder",
+    brand:"Silverblaze",
+    category:"Grinder",
+    model:"AG-G15SA2",
+    image:"",
+    description:
+      "125mm angle grinder suitable for grinding and cutting applications.",
+    specs:{
+      "Brand":"Silverblaze",
+      "Model":"AG-G15SA2",
+      "Type":"Angle Grinder",
+      "Disc Size":"125mm",
+      "Application":"Grinding & Cutting"
+    }
+  },
+
+
+  "METRO ME-1107AG":{
+    name:"METRO Angle Grinder 1000W",
+    brand:"METRO",
+    category:"Grinder",
+    model:"ME-1107AG",
+    image:"",
+    description:
+      "Professional angle grinder with 1000W power and 11000 rpm speed as visible on the product box.",
+    specs:{
+      "Brand":"METRO",
+      "Type":"Angle Grinder",
+      "Power":"1000W",
+      "Speed":"11000 rpm",
+      "Voltage":"220V",
+      "Frequency":"50Hz"
+    }
+  },
+
+
+  "Crown CT13570-100":{
+    name:"CROWN CT13570-100 Professional Angle Grinder",
+    brand:"CROWN",
+    category:"Grinder",
+    model:"CT13570-100",
+    image:"",
+    description:
+      "Professional angle grinder suitable for grinding and cutting applications.",
+    specs:{
+      "Brand":"CROWN",
+      "Model":"CT13570-100",
+      "Type":"Angle Grinder",
+      "Power":"900W",
+      "Disc Size":"100mm"
+    }
+  },
+
+
+  "DongCheng DSM08-100":{
+    name:"DongCheng DSM08-100 Angle Grinder",
+    brand:"DongCheng",
+    category:"Grinder",
+    model:"DSM08-100",
+    image:"",
+    description:
+      "Compact professional angle grinder with 800W rated input and 13000 rpm rated speed.",
+    specs:{
+      "Brand":"DongCheng",
+      "Model":"DSM08-100",
+      "Type":"Angle Grinder",
+      "Power":"800W",
+      "Speed":"13000/min",
+      "Max Wheel Diameter":"100mm",
+      "Machine Weight":"1.6kg"
+    }
+  },
+
+
+  "Elephant ECO DW801":{
+    name:"Elephant ECO DW801 Angle Grinder",
+    brand:"Elephant ECO",
+    category:"Grinder",
+    model:"DW801",
+    image:"",
+    description:
+      "Professional angle grinder suitable for general grinding and cutting applications.",
+    specs:{
+      "Brand":"Elephant ECO",
+      "Model":"DW801",
+      "Type":"Angle Grinder",
+      "Application":"Grinding & Cutting"
+    }
+  },
+
+
+  "M&T Angle Grinder":{
+    name:"M&T Angle Grinder",
+    brand:"M&T",
+    category:"Grinder",
+    model:"MT-801",
+    image:"",
+    description:
+      "Professional angle grinder from M&T suitable for workshop and general grinding applications.",
+    specs:{
+      "Brand":"M&T",
+      "Type":"Angle Grinder",
+      "Power":"1100W",
+      "Application":"Grinding & Cutting"
+    }
+  },
+
+
+  "Camron Pro Grinder":{
+    name:"Camron Pro Angle Grinder",
+    brand:"Camron Pro",
+    category:"Grinder",
+    model:"CPDS-AG-100A",
+    image:"",
+    description:
+      "Heavy duty angle grinder from Camron Pro Dragon Series.",
+    specs:{
+      "Brand":"Camron Pro",
+      "Series":"Dragon Series",
+      "Model":"CPDS-AG-100A",
+      "Type":"Heavy Duty Angle Grinder",
+      "Application":"Grinding & Cutting"
+    }
+  },
+
+
+  /* ================= CUTTERS ================= */
+
+  "Bosch GCO 2000":{
+    name:"Bosch GCO 2000 Metal Cut-Off Saw",
+    brand:"Bosch",
+    category:"Metal Cut Off Saw",
+    model:"GCO 2000",
+    image:"",
+    description:
+      "Professional metal cut-off saw from Bosch. The supplied box clearly shows 2000W power.",
+    specs:{
+      "Brand":"Bosch",
+      "Model":"GCO 2000",
+      "Type":"Metal Cut-Off Saw",
+      "Power":"2000W",
+      "Application":"Metal Cutting"
+    }
+  },
+
+
+  "Power Touch PTCM4SB":{
+    name:"Power Touch PTCM4SB Marble Cutter",
+    brand:"Power Touch",
+    category:"Cutter",
+    model:"PTCM4SB",
+    image:"",
+    description:
+      "Marble cutter suitable for cutting marble and similar materials.",
+    specs:{
+      "Brand":"Power Touch",
+      "Model":"PTCM4SB",
+      "Type":"Marble Cutter",
+      "Motor":"100% Copper Motor"
+    }
+  },
+
+
+  "Imark Pro MK-4SA":{
+    name:"Imark Pro MK-4SA Marble Cutter",
+    brand:"Imark Pro",
+    category:"Cutter",
+    model:"MK-4SA",
+    image:"",
+    description:
+      "Professional marble cutter suitable for cutting marble and construction materials.",
+    specs:{
+      "Brand":"Imark Pro",
+      "Model":"MK-4SA",
+      "Type":"Marble Cutter",
+      "Power":"1600W",
+      "Blade":"110mm"
+    }
+  },
+
+
+  "METRO 11001":{
+    name:"METRO 11001 Marble Cutter",
+    brand:"METRO",
+    category:"Cutter",
+    model:"11001",
+    image:"",
+    description:
+      "Professional marble cutter from METRO.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"11001",
+      "Type":"Marble Cutter",
+      "Application":"Marble & Construction Cutting"
+    }
+  },
+
+
+  "Tanger TG-CM4SA":{
+    name:"Tanger TG-CM4SA Marble Cutter",
+    brand:"Tanger",
+    category:"Cutter",
+    model:"TG-CM4SA",
+    image:"",
+    description:
+      "1050W marble cutter suitable for cutting applications.",
+    specs:{
+      "Brand":"Tanger",
+      "Model":"TG-CM4SA",
+      "Type":"Marble Cutter",
+      "Power":"1050W"
+    }
+  },
+
+
+  "METRO ME-1109CM":{
+    name:"METRO ME-1109CM Marble Cutter",
+    brand:"METRO",
+    category:"Cutter",
+    model:"ME-1109CM",
+    image:"",
+    description:
+      "Professional marble cutter. Product box shows 220V, 50Hz and approximately 11000 rpm.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"ME-1109CM",
+      "Type":"Marble Cutter",
+      "Voltage":"220V",
+      "Frequency":"50Hz",
+      "Speed":"11000 rpm"
+    }
+  },
+
+
+  "METRO ME-11013":{
+    name:"METRO ME-11013 Marble Cutter",
+    brand:"METRO",
+    category:"Cutter",
+    model:"ME-11013",
+    image:"",
+    description:
+      "High-power marble cutter suitable for heavy cutting applications.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"ME-11013",
+      "Type":"Marble Cutter",
+      "Power":"2000W",
+      "Speed":"11000 rpm",
+      "Voltage":"220V",
+      "Frequency":"50Hz"
+    }
+  },
+
+
+  "Seven Star ST-110SB":{
+    name:"Seven Star ST-110SB Marble Cutter",
+    brand:"Seven Star",
+    category:"Cutter",
+    model:"ST-110SB",
+    image:"",
+    description:
+      "Professional marble cutter with 1350W power.",
+    specs:{
+      "Brand":"Seven Star",
+      "Model":"ST-110SB",
+      "Type":"Marble Cutter",
+      "Power":"1350W"
+    }
+  },
+
+
+  "Morris M-4SB":{
+    name:"Morris M-4SB Marble Cutter",
+    brand:"Morris",
+    category:"Cutter",
+    model:"M-4SB",
+    image:"",
+    description:
+      "Professional marble cutter with 1300W power.",
+    specs:{
+      "Brand":"Morris",
+      "Model":"M-4SB",
+      "Type":"Marble Cutter",
+      "Power":"1300W"
+    }
+  },
+
+
+  "Auto Power AP1112":{
+    name:"Auto Power Pro AP1112 Marble Cutter",
+    brand:"Auto Power Pro",
+    category:"Cutter",
+    model:"AP1112",
+    image:"",
+    description:
+      "Marble cutter from Auto Power Pro with copper motor.",
+    specs:{
+      "Brand":"Auto Power Pro",
+      "Model":"AP1112",
+      "Type":"Marble Cutter",
+      "Motor":"100% Copper",
+      "Application":"Marble Cutting"
+    }
+  },
+
+
+  /* ================= HAMMERS ================= */
+
+  "METRO Rotary Hammer 20MM":{
+    name:"METRO 20MM Rotary Hammer",
+    brand:"METRO",
+    category:"Hammer",
+    model:"20MM Rotary Hammer",
+    image:"",
+    description:
+      "Professional rotary hammer suitable for drilling and hammering work.",
+    specs:{
+      "Brand":"METRO",
+      "Type":"Rotary Hammer",
+      "Drill Capacity":"20mm",
+      "Power":"800W",
+      "Voltage":"220V",
+      "Frequency":"50/60Hz",
+      "No-load Speed":"0–850 rpm",
+      "Impact Rate":"0–3900/min"
+    }
+  },
+
+
+  "Yato PT-RH26":{
+    name:"Professional Rotary Hammer PT-RH26",
+    brand:"Yato",
+    category:"Hammer",
+    model:"PT-RH26",
+    image:"",
+    description:
+      "Professional rotary hammer suitable for heavy drilling and hammering work.",
+    specs:{
+      "Model":"PT-RH26",
+      "Type":"Rotary Hammer",
+      "Power":"2000W",
+      "Voltage":"220V",
+      "Frequency":"50/60Hz"
+    }
+  },
+
+
+  "METRO ME-11042RH20":{
+    name:"METRO ME-11042RH20 Rotary Hammer",
+    brand:"METRO",
+    category:"Hammer",
+    model:"ME-11042RH20",
+    image:"",
+    description:
+      "Variable-speed rotary hammer suitable for drilling and hammering applications.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"ME-11042RH20",
+      "Type":"Rotary Hammer",
+      "Power":"800W",
+      "Voltage":"220V",
+      "Frequency":"50Hz",
+      "Speed":"0–850 rpm"
+    }
+  },
+
+
+  "Impact Pro Rotary Hammer":{
+    name:"Impact Pro Rotary Hammer",
+    brand:"Impact Pro",
+    category:"Hammer",
+    model:"Rotary Hammer",
+    image:"",
+    description:
+      "Professional rotary hammer for drilling and hammering applications.",
+    specs:{
+      "Brand":"Impact Pro",
+      "Type":"Rotary Hammer",
+      "Specifications":"To be updated"
+    }
+  },
+
+
+  /* ================= MIXING DRILL ================= */
+
+  "METRO M-EM16B":{
+    name:"METRO M-EM16B Mixing Drill",
+    brand:"METRO",
+    category:"Mixing Drill",
+    model:"M-EM16B",
+    image:"",
+    description:
+      "Professional mixing drill suitable for mixing construction materials.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"M-EM16B",
+      "Type":"Mixing Drill",
+      "Input Power":"1050W",
+      "No-load Speed":"0–850 rpm",
+      "Chuck Size":"16mm",
+      "Voltage":"220V",
+      "Frequency":"50Hz"
+    }
+  },
+
+
+  /* ================= JIG SAW ================= */
+
+  "Auto Power APP1170":{
+    name:"Auto Power Pro APP1170 Jig Saw",
+    brand:"Auto Power Pro",
+    category:"Jig Saw",
+    model:"APP1170",
+    image:"",
+    description:
+      "Electric jig saw suitable for cutting wood and similar materials.",
+    specs:{
+      "Brand":"Auto Power Pro",
+      "Model":"APP1170",
+      "Type":"Jig Saw",
+      "Voltage":"230V",
+      "Frequency":"50Hz",
+      "Input Power":"750W",
+      "Speed":"3000 rpm",
+      "Cutting Capacity":"70mm"
+    }
+  },
+
+
+  /* ================= CHAIN SAW ================= */
+
+  "METRO M-3106":{
+    name:"METRO Gasoline Chain Saw",
+    brand:"METRO",
+    category:"Gasoline Chain Saw",
+    model:"M-3106",
+    image:"",
+    description:
+      "Professional gasoline chain saw designed for garden and cutting applications.",
+    specs:{
+      "Brand":"METRO",
+      "Model":"M-3106",
+      "Type":"Gasoline Chain Saw",
+      "Engine":"2 Stroke",
+      "Application":"Garden & Wood Cutting"
+    }
+  },
+
+
+  /* ================= BLOWER ================= */
+
+  "METRO Blower":{
+    name:"METRO Electric Blower",
+    brand:"METRO",
+    category:"Blower",
+    model:"To be updated",
+    image:"",
+    description:
+      "Electric blower suitable for cleaning dust, debris and workshop areas.",
+    specs:{
+      "Brand":"METRO",
+      "Type":"Electric Blower",
+      "Power":"To be updated",
+      "Speed":"To be updated"
+    }
+  },
+
+
+  /* ================= GLASS SUCKER ================= */
+
+  "METRO Two Claw Glass Sucker":{
+    name:"METRO Two Claw Glass Sucker",
+    brand:"METRO Pro",
+    category:"Glass Sucker",
+    model:"Two Claw",
+    image:"",
+    description:
+      "Two-claw industrial glass sucker designed for handling smooth glass and similar flat surfaces.",
+    specs:{
+      "Brand":"METRO Pro",
+      "Type":"Two Claw Glass Sucker",
+      "Application":"Glass Handling",
+      "Design":"Two Claw",
+      "Use":"Industrial / Professional"
+    }
+  },
+
+
+  /* ================= OTHER GRINDER ================= */
+
+  "HitMan Grinder":{
+    name:"HitMan Professional Power Tool",
+    brand:"HitMan",
+    category:"Grinder",
+    model:"To be updated",
+    image:"",
+    description:
+      "Professional power tool from HitMan. Exact product type and model can be updated from the complete box label.",
+    specs:{
+      "Brand":"HitMan",
+      "Type":"Power Tool",
+      "Rated Voltage":"220V",
+      "Frequency":"50Hz",
+      "Input Power":"500W",
+      "No-load Speed":"0–10000 rpm"
+    }
   }
-
-},
-
-
-"Matrix MTX-DU10":{
-
-  category:"Drill Machines",
-  brand:"Matrix",
-
-  image:"matrix-mtx-du10.jpg",
-
-  description:
-  "Electric drill suitable for regular drilling work. The specifications below are taken from the product packaging.",
-
-  specs:{
-    "Product Type":"Electric Drill",
-    "Model":"MTX-DU10",
-    "Drilling Capacity":"10mm",
-    "Rated Voltage":"220/230V",
-    "Rated Frequency":"50/60Hz",
-    "Rated Power Input":"800W",
-    "No-Load Speed":"2800 rpm"
-  }
-
-},
-
-
-"METRO MID13C":{
-
-  category:"Drill Machines",
-  brand:"METRO",
-
-  image:"metro-mid13c.jpg",
-
-  description:
-  "Professional impact drill suitable for drilling applications. Specifications are taken from the product packaging.",
-
-  specs:{
-    "Product Type":"Impact Drill",
-    "Model":"MID13C",
-    "Chuck Diameter":"13mm",
-    "Rated Voltage":"220V",
-    "Rated Frequency":"50/60Hz",
-    "Input Power":"550W",
-    "No-Load Speed":"0–2800 rpm"
-  }
-
-},
-
-
-"Red Impact Drill":{
-
-  category:"Drill Machines",
-  brand:"Not specified",
-
-  image:"",
-
-  description:
-  "Impact drill suitable for general drilling applications.",
-
-  specs:{
-    "Product Type":"Impact Drill",
-    "Rated Voltage":"220V",
-    "Rated Frequency":"50Hz",
-    "Input Power":"700W",
-    "No-Load Speed":"0–3000 rpm",
-    "Chuck Size":"13mm"
-  }
-
-},
-
-
-/* ================= TRIMMERS ================= */
-
-"METRO ME-11071ET":{
-
-  category:"Electric Trimmer",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional electric trimmer designed for trimming applications.",
-
-  specs:{
-    "Product Type":"Electric Trimmer",
-    "Model":"ME-11071ET",
-    "Voltage":"220V",
-    "Frequency":"50Hz",
-    "Power":"600W",
-    "No-Load Speed":"11000 rpm"
-  }
-
-},
-
-
-"Ralli Wolf RT6":{
-
-  category:"Electric Trimmer",
-  brand:"Ralli Wolf",
-
-  image:"",
-
-  description:
-  "Professional trimmer from Ralli Wolf. Product information is based on the supplied packaging.",
-
-  specs:{
-    "Product Type":"Professional Trimmer",
-    "Model":"RT6",
-    "Size":"6/35/8 mm",
-    "Accessories":"Free carbon brush / accessories as shown on box"
-  }
-
-},
-
-
-/* ================= PLANER ================= */
-
-"HT-82":{
-
-  category:"Electric Planer",
-  brand:"HT",
-
-  image:"",
-
-  description:
-  "Electric planer for woodworking applications. Exact technical specifications were not clearly readable in the supplied image.",
-
-  specs:{
-    "Product Type":"Electric Planer",
-    "Model":"HT-82",
-    "Power":"Not specified",
-    "Voltage":"Not specified",
-    "Speed":"Not specified"
-  }
-
-},
-
-
-/* ================= METAL CUT OFF ================= */
-
-"BOSCH GCO 2000":{
-
-  category:"Metal Cut Off Saw",
-  brand:"BOSCH",
-
-  image:"",
-
-  description:
-  "Professional metal cut-off saw designed for cutting metal materials.",
-
-  specs:{
-    "Product Type":"Metal Cut-Off Saw",
-    "Model":"GCO 2000",
-    "Power":"2000W"
-  }
-
-},
-
-
-/* ================= CHAIN SAW ================= */
-
-"METRO M-3106":{
-
-  category:"Gasoline Chain Saw",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional gasoline chain saw designed for cutting applications. The packaging highlights easy handling, light operation, safety and economical operation.",
-
-  specs:{
-    "Product Type":"Gasoline Chain Saw",
-    "Model":"M-3106",
-    "Features":"Easy handling",
-    "Operation":"Light operation",
-    "Safety":"Safety-focused design",
-    "Economy":"Economical operation"
-  }
-
-},
-
-
-/* ================= MARBLE CUTTERS ================= */
-
-"METRO ME-1109CSM":{
-
-  category:"Marble Cutter",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional marble cutter designed for cutting marble and similar materials.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"ME-1109CSM",
-    "Voltage":"220V–50Hz",
-    "Power":"1600W",
-    "Speed":"11000 rpm"
-  }
-
-},
-
-
-"METRO ME-11013":{
-
-  category:"Marble Cutter",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional marble cutter suitable for cutting applications.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"ME-11013",
-    "Voltage":"220V–50Hz",
-    "Power":"2000W",
-    "Speed":"11000 rpm"
-  }
-
-},
-
-
-"Seven Star ST-110SB":{
-
-  category:"Marble Cutter",
-  brand:"Seven Star",
-
-  image:"",
-
-  description:
-  "Marble cutter designed for cutting applications.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"ST-110SB",
-    "Power":"1350W"
-  }
-
-},
-
-
-"MORRIS M-4SB":{
-
-  category:"Marble Cutter",
-  brand:"MORRIS",
-
-  image:"",
-
-  description:
-  "Professional marble cutter for cutting applications.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"M-4SB",
-    "Power":"1300W"
-  }
-
-},
-
-
-"Auto Power Pro APP1112":{
-
-  category:"Marble Cutter",
-  brand:"Auto Power Pro",
-
-  image:"",
-
-  description:
-  "Professional marble cutter with a 100% copper motor as shown on the product packaging.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"APP1112",
-    "Motor":"100% Copper Motor"
-  }
-
-},
-
-
-"Power Touch PTCM4SB":{
-
-  category:"Marble Cutter",
-  brand:"Power Touch",
-
-  image:"",
-
-  description:
-  "Professional marble cutter with 100% copper motor as shown on the packaging.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"PTCM4SB",
-    "Motor":"100% Copper Motor"
-  }
-
-},
-
-
-"METRO ME 1001":{
-
-  category:"Marble Cutter",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional marble cutter from METRO Professional Power Tools.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"ME 1001"
-  }
-
-},
-
-
-"Janger TG-CM4SA":{
-
-  category:"Marble Cutter",
-  brand:"Janger",
-
-  image:"",
-
-  description:
-  "Marble cutter designed for cutting applications.",
-
-  specs:{
-    "Product Type":"Marble Cutter",
-    "Model":"TG-CM4SA",
-    "Power":"1050W"
-  }
-
-},
-
-
-/* ================= ANGLE GRINDERS ================= */
-
-"METRO ME-1107SRG":{
-
-  category:"Grinder",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional angle grinder suitable for grinding and cutting applications.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"ME-1107SRG",
-    "Voltage":"220V–50Hz",
-    "Power":"1000W",
-    "Speed":"11000 rpm"
-  }
-
-},
-
-
-"Silverblaze Angle Grinder":{
-
-  category:"Grinder",
-  brand:"Silverblaze",
-
-  image:"",
-
-  description:
-  "Angle grinder with a 125mm disc size.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Disc Size":"125mm"
-  }
-
-},
-
-
-"METRO AG-G15SA2":{
-
-  category:"Grinder",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "High power professional angle grinder designed for durable and reliable performance.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"AG-G15SA2",
-    "Features":"High Power, Durable, Reliable"
-  }
-
-},
-
-
-"CROWN CT13570-100":{
-
-  category:"Grinder",
-  brand:"CROWN",
-
-  image:"",
-
-  description:
-  "Professional angle grinder suitable for grinding and cutting applications.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"CT13570-100",
-    "Power":"900W",
-    "Disc Size":"100mm"
-  }
-
-},
-
-
-"DongCheng DSM08-100":{
-
-  category:"Grinder",
-  brand:"DongCheng",
-
-  image:"",
-
-  description:
-  "Professional angle grinder with 100mm maximum wheel diameter.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"DSM08-100",
-    "Rated Power Input":"800W",
-    "Rated Speed":"13000/min",
-    "Maximum Wheel Diameter":"100mm (4 inch)",
-    "Net Weight":"1.6kg"
-  }
-
-},
-
-
-"Elephant ECO DW801":{
-
-  category:"Grinder",
-  brand:"Elephant",
-
-  image:"",
-
-  description:
-  "Professional angle grinder from Elephant.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"DW801"
-  }
-
-},
-
-
-"M&T MT-801-Y":{
-
-  category:"Grinder",
-  brand:"M&T",
-
-  image:"",
-
-  description:
-  "Professional angle grinder suitable for grinding applications.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"MT-801-Y",
-    "Power":"1100W"
-  }
-
-},
-
-
-"Cameron Pro CPDS-AG-100A":{
-
-  category:"Grinder",
-  brand:"Cameron Pro",
-
-  image:"",
-
-  description:
-  "Heavy duty angle grinder from the Cameron Pro Dragon Series.",
-
-  specs:{
-    "Product Type":"Angle Grinder",
-    "Model":"CPDS-AG-100A",
-    "Series":"Dragon Series",
-    "Type":"Heavy Duty"
-  }
-
-},
-
-
-/* ================= ROTARY HAMMERS ================= */
-
-"METRO 20MM Rotary Hammer":{
-
-  category:"Demolition Hammer",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "20mm rotary hammer designed for drilling and hammering applications.",
-
-  specs:{
-    "Product Type":"Rotary Hammer",
-    "Capacity":"20mm",
-    "Rated Voltage":"220V",
-    "Frequency":"50/60Hz",
-    "Rated Power":"800W",
-    "No-Load Speed":"0–850 rpm",
-    "Impact Rate":"0–3900/min"
-  }
-
-},
-
-
-"METRO ME-11042RH20":{
-
-  category:"Demolition Hammer",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional rotary hammer suitable for drilling and hammering applications.",
-
-  specs:{
-    "Product Type":"Rotary Hammer",
-    "Model":"ME-11042RH20",
-    "Voltage":"220V–50Hz",
-    "Power":"800W",
-    "No-Load Speed":"0–850 rpm",
-    "Speed Control":"Variable Speed"
-  }
-
-},
-
-
-"Power Touch PT-RH26":{
-
-  category:"Demolition Hammer",
-  brand:"Power Touch",
-
-  image:"",
-
-  description:
-  "Professional rotary hammer from Power Touch. Some technical specifications were not clearly readable in the supplied image.",
-
-  specs:{
-    "Product Type":"Rotary Hammer",
-    "Model":"PT-RH26",
-    "Voltage":"Not specified",
-    "Power":"Not specified",
-    "Speed":"Not specified"
-  }
-
-},
-
-
-/* ================= MIXING DRILL ================= */
-
-"METRO M-EM16B":{
-
-  category:"Mixing Drill",
-  brand:"METRO",
-
-  image:"",
-
-  description:
-  "Professional mixing drill designed for mixing applications.",
-
-  specs:{
-    "Product Type":"Mixing Drill",
-    "Model":"M-EM16B",
-    "Rated Voltage":"220V",
-    "Rated Frequency":"50Hz",
-    "Input Power":"1050W",
-    "No-Load Speed":"0–1100 rpm",
-    "Chuck Diameter":"16mm"
-  }
-
-},
-
-
-/* ================= JIG SAW ================= */
-
-"Auto Power Pro APP1170":{
-
-  category:"Jig Saw",
-  brand:"Auto Power Pro",
-
-  image:"",
-
-  description:
-  "Professional jig saw suitable for cutting applications.",
-
-  specs:{
-    "Product Type":"Jig Saw",
-    "Model":"APP1170",
-    "Voltage":"230V",
-    "Frequency":"50Hz",
-    "Input Power":"750W",
-    "Speed":"3000 rpm",
-    "Cutting Capacity":"70mm"
-  }
-
-},
-
-
-/* ================= GLASS SUCKER ================= */
-
-"METRO PRO Two Claw Glass Sucker":{
-
-  category:"Glass Sucker",
-  brand:"METRO PRO",
-
-  image:"",
-
-  description:
-  "Professional industrial two-claw glass sucker designed for handling glass. TÜV / GS markings are visible on the packaging.",
-
-  specs:{
-    "Product Type":"Glass Sucker",
-    "Type":"Two Claw",
-    "Application":"Industrial",
-    "Quality":"Professional",
-    "Markings":"TÜV / GS"
-  }
-
-}
 
 };
 
 
-/* =========================================
+/* =====================================================
    GET PRODUCT FROM URL
-========================================= */
+===================================================== */
 
 const params =
-  new URLSearchParams(
-    window.location.search
-  );
+  new URLSearchParams(window.location.search);
 
 const productName =
   params.get("product");
 
 
-const product =
-  products[productName];
-
-
-/* =========================================
+/* =====================================================
    DISPLAY PRODUCT
-========================================= */
+===================================================== */
 
-if(product){
+function showProduct(){
 
-  document.getElementById("productName").innerText =
-    productName;
+  const area =
+    document.getElementById("productArea");
 
-  document.getElementById("brand").innerText =
-    "Brand: " + product.brand +
-    " | Category: " + product.category;
+  if(!productName || !products[productName]){
+
+    area.innerHTML = `
+
+      <div class="error">
+
+        <h2>Product Not Found</h2>
+
+        <p>
+          Ye product abhi product-details system
+          mein add nahi hai.
+        </p>
+
+        <br>
+
+        <button onclick="window.location.href='index.html'">
+          ← Back to Shop
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
 
 
-  document.getElementById("description").innerText =
-    product.description;
+  const p =
+    products[productName];
 
 
-  /* IMAGE */
+  let imageHTML = "";
 
-  const imageBox =
-    document.getElementById("imageBox");
+  if(p.image){
 
+    imageHTML = `
+      <img
+        src="${p.image}"
+        alt="${p.name}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+      >
 
-  if(product.image){
-
-    imageBox.innerHTML =
-      '<img src="' +
-      product.image +
-      '" alt="' +
-      productName +
-      '">';
+      <div
+        class="product-placeholder"
+        style="display:none"
+      >
+        🛠️
+      </div>
+    `;
 
   }else{
 
-    imageBox.innerHTML =
-      '<div class="image-placeholder">🛠️</div>';
+    imageHTML = `
+      <div class="product-placeholder">
+        🛠️
+      </div>
+    `;
 
   }
 
 
-  /* SPECIFICATIONS */
+  let specifications = "";
 
-  const table =
-    document.getElementById("specTable");
+  for(const key in p.specs){
 
+    specifications += `
 
-  for(const key in product.specs){
+      <tr>
 
-    const row =
-      document.createElement("tr");
+        <td>${key}</td>
 
+        <td>${p.specs[key]}</td>
 
-    row.innerHTML =
-      "<td>" +
-      key +
-      "</td>" +
-      "<td>" +
-      product.specs[key] +
-      "</td>";
+      </tr>
 
-
-    table.appendChild(row);
+    `;
 
   }
 
-}else{
 
-  document.getElementById("productName").innerText =
-    "Product Not Found";
+  area.innerHTML = `
 
-  document.getElementById("description").innerText =
-    "This product could not be found.";
+    <div class="product-box">
+
+
+      <div class="product-image">
+
+        ${imageHTML}
+
+      </div>
+
+
+      <div class="product-info">
+
+        <h1>
+          ${p.name}
+        </h1>
+
+
+        <div class="brand">
+          ${p.brand}
+        </div>
+
+
+        <div class="rating">
+          ⭐⭐⭐⭐⭐
+        </div>
+
+
+        <div class="price">
+          Price to be updated
+        </div>
+
+
+        <div class="price-note">
+          💰 Final price will be added later.
+        </div>
+
+
+        <div class="delivery">
+
+          🚚 <b>Delivery:</b>
+          Usually delivered within 1 day
+          <br>
+
+          📍 Delivery available in Prayagraj and Banaras
+          <br>
+
+          🔄 Replacement available for eligible products
+
+        </div>
+
+
+        <h2 class="about-title">
+          About this product
+        </h2>
+
+
+        <p class="description">
+          ${p.description}
+        </p>
+
+
+        <h2 class="spec-title">
+          Specifications
+        </h2>
+
+
+        <table class="spec-table">
+
+          ${specifications}
+
+        </table>
+
+
+        <div class="buttons">
+
+          <button
+            class="cart-btn"
+            onclick="addToCart()"
+          >
+            🛒 Add to Cart
+          </button>
+
+
+          <button
+            class="buy-btn"
+            onclick="buyNow()"
+          >
+            ⚡ Buy Now
+          </button>
+
+        </div>
+
+
+        <button
+          class="back-btn"
+          onclick="window.location.href='index.html'"
+        >
+          ← Continue Shopping
+        </button>
+
+
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
-/* =========================================
+/* =====================================================
    ADD TO CART
-========================================= */
+===================================================== */
 
 function addToCart(){
 
-  if(!product){
+  const p =
+    products[productName];
+
+  if(!p){
     return;
   }
 
@@ -1148,7 +1164,7 @@ function addToCart(){
   let existing =
     cart.find(function(item){
 
-      return item.name === productName;
+      return item.name === p.name;
 
     });
 
@@ -1161,7 +1177,7 @@ function addToCart(){
 
     cart.push({
 
-      name:productName,
+      name:p.name,
 
       price:0,
 
@@ -1180,45 +1196,38 @@ function addToCart(){
   );
 
 
-  const message =
-    document.getElementById("message");
-
-
-  message.innerText =
-    productName +
-    " added to cart! 🛒";
-
-
-  message.style.display =
-    "block";
-
-
-  setTimeout(function(){
-
-    message.style.display =
-      "none";
-
-  },2000);
+  alert(
+    p.name +
+    " cart mein add ho gaya! 🛒\n\nPrice baad mein update kar dena."
+  );
 
 }
 
 
-/* =========================================
+/* =====================================================
    BUY NOW
-========================================= */
+===================================================== */
 
 function buyNow(){
 
-  if(!product){
+  const p =
+    products[productName];
+
+  if(!p){
     return;
   }
 
 
   window.location.href =
     "checkout.html?product=" +
-    encodeURIComponent(productName);
+    encodeURIComponent(p.name);
 
 }
+
+
+/* START */
+
+showProduct();
 
 </script>
 
