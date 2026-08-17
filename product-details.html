@@ -535,24 +535,7 @@ const products = {
   },
   description:"Bosch professional electric drill."
 },
-
 /* ================= GRINDERS ================= */
-
-"Heavy Duty Grinder Machine":{
-  name:"Heavy Duty Grinder Machine",
-  brand:"Nova / Assorted",
-  category:"Grinder",
-  model:"Heavy Duty",
-  image:"grinder-machine-clean.png",
-  price:2400,
-  specs:{
-    "Product Type":"Heavy Duty Grinder Machine",
-    "Power":"850W",
-    "Disc Size":"4 Inch",
-    "Application":"Grinding, Cutting & Polishing"
-  },
-  description:"Heavy duty angle grinder suitable for grinding, cutting and polishing."
-},
 
 "Silverblaze AG-G15SA2":{
   name:"Silverblaze AG-G15SA2 Angle Grinder",
@@ -561,32 +544,39 @@ const products = {
   model:"AG-G15SA2",
   image:"",
   price:null,
+  originalPrice:null,
+  discount:null,
+  description:
+    "125mm angle grinder suitable for grinding and cutting applications.",
   specs:{
     "Brand":"Silverblaze",
     "Model":"AG-G15SA2",
     "Type":"Angle Grinder",
     "Disc Size":"125mm",
     "Application":"Grinding & Cutting"
-  },
-  description:"125mm angle grinder suitable for grinding and cutting."
+  }
 },
 
 "METRO ME-1107AG":{
-  name:"METRO ME-1107AG Angle Grinder",
+  name:"METRO Angle Grinder 1000W",
   brand:"METRO",
   category:"Grinder",
   model:"ME-1107AG",
   image:"",
   price:2000,
+  originalPrice:2500,
+  discount:20,
+  description:
+    "Professional angle grinder with 1000W power and 11000 rpm speed.",
   specs:{
     "Brand":"METRO",
     "Model":"ME-1107AG",
     "Type":"Angle Grinder",
     "Power":"1000W",
     "Speed":"11000 rpm",
-    "Voltage":"220V"
-  },
-  description:"Professional angle grinder with 1000W power."
+    "Voltage":"220V",
+    "Frequency":"50Hz"
+  }
 },
 
 "Crown CT13570-100":{
@@ -596,14 +586,17 @@ const products = {
   model:"CT13570-100",
   image:"",
   price:3200,
+  originalPrice:4000,
+  discount:20,
+  description:
+    "Professional angle grinder suitable for grinding and cutting applications.",
   specs:{
     "Brand":"CROWN",
     "Model":"CT13570-100",
     "Type":"Angle Grinder",
     "Power":"900W",
     "Disc Size":"100mm"
-  },
-  description:"Professional angle grinder suitable for grinding and cutting."
+  }
 },
 
 "DongCheng DSM08-100":{
@@ -613,6 +606,10 @@ const products = {
   model:"DSM08-100",
   image:"",
   price:2500,
+  originalPrice:3125,
+  discount:20,
+  description:
+    "Compact professional angle grinder with 800W rated input and 13000 rpm rated speed.",
   specs:{
     "Brand":"DongCheng",
     "Model":"DSM08-100",
@@ -621,8 +618,7 @@ const products = {
     "Speed":"13000/min",
     "Max Wheel Diameter":"100mm",
     "Machine Weight":"1.6kg"
-  },
-  description:"Compact professional angle grinder."
+  }
 },
 
 "Elephant ECO DW801":{
@@ -632,13 +628,16 @@ const products = {
   model:"DW801",
   image:"",
   price:2100,
+  originalPrice:2625,
+  discount:20,
+  description:
+    "Professional angle grinder suitable for general grinding and cutting applications.",
   specs:{
     "Brand":"Elephant ECO",
     "Model":"DW801",
     "Type":"Angle Grinder",
     "Application":"Grinding & Cutting"
-  },
-  description:"Professional angle grinder suitable for general grinding."
+  }
 },
 
 "M&T Angle Grinder":{
@@ -648,13 +647,16 @@ const products = {
   model:"MT-801",
   image:"",
   price:1300,
+  originalPrice:1625,
+  discount:20,
+  description:
+    "Professional angle grinder from M&T suitable for workshop and general grinding applications.",
   specs:{
     "Brand":"M&T",
     "Type":"Angle Grinder",
     "Power":"1100W",
     "Application":"Grinding & Cutting"
-  },
-  description:"Professional angle grinder suitable for workshop applications."
+  }
 },
 
 "Camron Pro Grinder":{
@@ -664,13 +666,37 @@ const products = {
   model:"CPDS-AG-100A",
   image:"",
   price:2700,
+  originalPrice:3375,
+  discount:20,
+  description:
+    "Heavy duty angle grinder from Camron Pro Dragon Series.",
   specs:{
     "Brand":"Camron Pro",
     "Series":"Dragon Series",
     "Model":"CPDS-AG-100A",
-    "Type":"Heavy Duty Angle Grinder"
-  },
-  description:"Heavy duty angle grinder from Camron Pro Dragon Series."
+    "Type":"Heavy Duty Angle Grinder",
+    "Application":"Grinding & Cutting"
+  }
+},
+
+"Heavy Duty Grinder Machine":{
+  name:"Heavy Duty Grinder Machine",
+  brand:"Nova / Assorted",
+  category:"Grinder",
+  model:"Heavy Duty",
+  image:"grinder-machine-clean.png",
+  price:2400,
+  originalPrice:3000,
+  discount:20,
+  description:
+    "Heavy duty angle grinder suitable for grinding, cutting and polishing work.",
+  specs:{
+    "Product Type":"Heavy Duty Grinder Machine",
+    "Power":"850W",
+    "Disc Size":"4 Inch",
+    "Application":"Grinding, Cutting & Polishing",
+    "Suitable For":"Workshop, Construction & Repair Work"
+  }
 },
 
 "HitMan Grinder":{
@@ -680,6 +706,10 @@ const products = {
   model:"To be updated",
   image:"",
   price:1200,
+  originalPrice:1500,
+  discount:20,
+  description:
+    "Professional power tool from HitMan suitable for workshop and general applications.",
   specs:{
     "Brand":"HitMan",
     "Type":"Power Tool",
@@ -687,10 +717,8 @@ const products = {
     "Frequency":"50Hz",
     "Input Power":"500W",
     "No-load Speed":"0–10000 rpm"
-  },
-  description:"Professional power tool from HitMan."
+  }
 },
-
 /* ================= CUTTERS ================= */
 
 "Bosch GCO 2000":{
