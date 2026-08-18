@@ -1,1458 +1,905 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Product Details | Nova Power Tools</title>
 
 <style>
+
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  color:#172033;
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(37,99,235,.20),transparent 30%),
-    radial-gradient(circle at 90% 90%,rgba(255,176,0,.12),transparent 30%),
-    linear-gradient(135deg,#dbeafe,#eef4ff,#d9e7ff);
+  font-family:Arial,Helvetica,sans-serif;
+  background:#eef3fb;
+  color:#111827;
 }
 
-/* HEADER */
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-header{
-  background:linear-gradient(90deg,#111827,#1f2937);
+.header{
+  background:#111827;
   color:white;
-  padding:14px 5%;
+  min-height:65px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 3px 15px rgba(0,0,0,.18);
+  padding:0 25px;
+  box-shadow:0 3px 15px rgba(0,0,0,.2);
 }
 
 .logo{
-  font-size:20px;
-  font-weight:bold;
+  font-size:22px;
+  font-weight:800;
 }
 
 .logo span{
-  color:#ffb000;
+  color:#ffb400;
 }
 
-header a{
+.continue{
   color:white;
-  text-decoration:none;
-  font-size:13px;
+  font-size:14px;
 }
 
-header a:hover{
-  color:#ffb000;
-}
-
-/* MAIN */
-
-.container{
-  max-width:1200px;
+.page{
+  max-width:1180px;
   margin:35px auto;
   padding:0 18px;
 }
 
-/* PRODUCT CARD */
-
 .product-box{
-  background:linear-gradient(135deg,#ffffff,#eff6ff);
+  background:white;
   border-radius:18px;
-  padding:22px;
+  padding:24px;
   display:grid;
-  grid-template-columns:48% 52%;
-  gap:30px;
-  box-shadow:
-    0 15px 40px rgba(15,23,42,.14),
-    0 3px 10px rgba(37,99,235,.08);
-  border:1px solid rgba(37,99,235,.15);
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  box-shadow:0 8px 30px rgba(0,0,0,.1);
 }
 
-/* IMAGE */
-
 .product-image{
-  min-height:520px;
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      #ffffff 0%,
-      #eaf2ff 42%,
-      #cbdcf7 100%
-    );
-  border-radius:14px;
+  height:470px;
+  min-height:470px;
+  border:1px solid #dbe3ef;
+  border-radius:15px;
+  background:linear-gradient(145deg,#f8fafc,#e8eef8);
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  border:1px solid #93b4e8;
-  position:relative;
-  box-shadow:
-    inset 0 0 35px rgba(37,99,235,.10),
-    0 4px 15px rgba(15,23,42,.08);
-}
-
-.product-image::after{
-  content:"NOVA POWER TOOLS";
-  position:absolute;
-  bottom:15px;
-  left:0;
-  right:0;
-  text-align:center;
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:2px;
-  color:#2563eb;
-  opacity:.65;
 }
 
 .product-image img{
-  width:92%;
-  height:92%;
-  max-height:500px;
+  width:100%;
+  height:100%;
   object-fit:contain;
-  transition:.3s ease;
-  position:relative;
-  z-index:2;
-  filter:drop-shadow(0 12px 12px rgba(15,23,42,.18));
+  padding:20px;
+  display:block;
 }
-
-.product-image img:hover{
-  transform:scale(1.04);
-}
-
-.product-placeholder{
-  font-size:90px;
-  opacity:.65;
-  position:relative;
-  z-index:2;
-}
-
-/* DETAILS */
 
 .product-info{
-  padding:8px 4px;
+  padding:5px;
 }
 
 .product-info h1{
-  font-size:30px;
-  line-height:1.25;
-  margin-bottom:8px;
-  color:#111827;
+  font-size:34px;
+  line-height:1.2;
+  margin-bottom:12px;
 }
 
 .brand{
   display:inline-block;
+  background:#eff6ff;
   color:#2563eb;
   font-weight:bold;
-  font-size:14px;
-  background:#eff6ff;
-  padding:5px 10px;
+  padding:6px 12px;
   border-radius:20px;
-  margin-bottom:10px;
-}
-
-.rating{
-  color:#f59e0b;
-  font-size:15px;
   margin-bottom:12px;
 }
 
-/* PRICE */
+.rating{
+  color:#fbbf24;
+  font-size:20px;
+  margin:8px 0;
+}
 
 .price{
-  font-size:30px;
+  font-size:34px;
   font-weight:800;
-  color:#111827;
-  margin:14px 0 3px;
+  margin-top:10px;
 }
 
 .old-price{
   color:#777;
   text-decoration:line-through;
-  font-size:16px;
-  margin-bottom:4px;
+  margin-top:4px;
 }
 
 .discount{
   display:inline-block;
-  color:#15803d;
   background:#dcfce7;
-  padding:4px 8px;
-  border-radius:6px;
-  font-size:13px;
+  color:#15803d;
   font-weight:bold;
-  margin-bottom:12px;
+  padding:6px 10px;
+  border-radius:7px;
+  margin-top:8px;
 }
-
-.price-note{
-  color:#667085;
-  font-size:13px;
-  margin-bottom:18px;
-}
-
-/* DELIVERY */
 
 .delivery{
-  background:linear-gradient(135deg,#f0f7ff,#f8fbff);
-  border:1px solid #dbeafe;
-  padding:15px 17px;
+  background:#f5f8fd;
+  border:1px solid #dbe5f2;
   border-radius:12px;
+  padding:16px;
+  margin:20px 0;
   line-height:1.9;
-  margin-bottom:22px;
-  color:#334155;
-  font-size:13px;
 }
 
-/* TITLES */
+.about{
+  margin-top:20px;
+}
 
-.about-title,
-.spec-title{
-  font-size:18px;
-  font-weight:700;
-  color:#111827;
+.about h2,
+.specifications h2{
+  font-size:20px;
   margin-bottom:10px;
-  padding-bottom:7px;
-  border-bottom:2px solid #eef2f7;
 }
 
-/* DESCRIPTION */
-
-.description{
-  color:#667085;
+.about p{
+  color:#475569;
   line-height:1.7;
-  font-size:14px;
-  margin-bottom:22px;
 }
 
-/* TABLE */
+.specifications{
+  margin-top:25px;
+}
 
 .spec-table{
   width:100%;
-  border-collapse:separate;
-  border-spacing:0;
-  overflow:hidden;
-  border-radius:10px;
-  border:1px solid #e2e8f0;
-  margin-bottom:22px;
+  border-collapse:collapse;
 }
 
 .spec-table td{
+  padding:10px;
   border-bottom:1px solid #e5e7eb;
-  padding:11px 12px;
-  font-size:13px;
-}
-
-.spec-table tr:last-child td{
-  border-bottom:none;
 }
 
 .spec-table td:first-child{
   font-weight:bold;
-  background:#f8fafc;
-  color:#334155;
   width:40%;
+  color:#334155;
 }
-
-.spec-table td:last-child{
-  background:#fff;
-  color:#475569;
-}
-
-/* BUTTONS */
 
 .buttons{
   display:flex;
-  gap:12px;
+  gap:10px;
+  margin-top:25px;
 }
 
 .buttons button{
   flex:1;
   padding:14px;
-  border:none;
-  border-radius:9px;
-  font-weight:bold;
+  border:0;
+  border-radius:8px;
   cursor:pointer;
+  font-weight:bold;
   font-size:15px;
-  transition:.2s;
-  box-shadow:0 3px 8px rgba(0,0,0,.08);
-}
-
-.buttons button:hover{
-  transform:translateY(-2px);
 }
 
 .cart-btn{
-  background:#ffd814;
-  color:#111827;
+  background:#ffb400;
+  color:#111;
 }
 
 .buy-btn{
-  background:#ff9900;
-  color:#111827;
-}
-
-.back-btn{
   background:#2563eb;
   color:white;
-  margin-top:11px;
-  width:100%;
-  padding:13px;
-  border:none;
-  border-radius:9px;
-  font-weight:bold;
-  cursor:pointer;
 }
-
-.back-btn:hover{
-  background:#1d4ed8;
-}
-
-/* ERROR */
 
 .error{
+  max-width:700px;
+  margin:70px auto;
   background:white;
-  padding:50px 30px;
-  text-align:center;
+  padding:35px;
   border-radius:15px;
-  box-shadow:0 5px 25px rgba(0,0,0,.08);
+  text-align:center;
+  box-shadow:0 5px 25px rgba(0,0,0,.1);
 }
 
-.error h2{
-  margin-bottom:15px;
+.error h1{
+  margin-bottom:12px;
 }
 
 .error p{
-  color:#667085;
+  color:#64748b;
   margin-bottom:20px;
 }
 
-.error button{
-  padding:12px 22px;
+.error a{
+  display:inline-block;
   background:#2563eb;
   color:white;
-  border:none;
-  border-radius:7px;
-  cursor:pointer;
+  padding:12px 20px;
+  border-radius:8px;
 }
-
-/* MOBILE */
 
 @media(max-width:800px){
 
-  .container{
-    margin:20px auto;
-    padding:0 12px;
-  }
-
   .product-box{
     grid-template-columns:1fr;
-    gap:20px;
-    padding:15px;
   }
 
   .product-image{
-    min-height:350px;
+    height:320px;
+    min-height:320px;
   }
 
   .product-info h1{
-    font-size:24px;
+    font-size:27px;
   }
 
   .price{
-    font-size:27px;
+    font-size:28px;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .header{
+    padding:0 14px;
+  }
+
+  .continue{
+    font-size:12px;
+  }
+
+  .product-box{
+    padding:14px;
   }
 
   .buttons{
     flex-direction:column;
   }
+
 }
 
-@media(max-width:480px){
-
-  header{
-    padding:12px 15px;
-  }
-
-  .logo{
-    font-size:17px;
-  }
-
-  header a{
-    font-size:11px;
-  }
-
-  .product-image{
-    min-height:280px;
-  }
-
-  .product-box{
-    border-radius:12px;
-  }
-}
 </style>
+
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    ⚡ Nova <span>Power Tools</span>
-  </div>
 
-  <a href="index.html">
+<header class="header">
+
+  <a href="index.html" class="logo">
+    ⚡ Nova <span>Power Tools</span>
+  </a>
+
+  <a href="index.html#products" class="continue">
     ← Continue Shopping
   </a>
+
 </header>
 
-<div class="container">
-  <div id="productArea"></div>
-</div>
+
+<main class="page">
+
+  <div id="productContainer"></div>
+
+</main>
+
 
 <script>
 
-/* =====================================================
-   NOVA POWER TOOLS
+/* =========================================================
    PRODUCT DATABASE
-===================================================== */
+   IMPORTANT:
+   The keys here MUST match the names used in index.html.
+========================================================= */
 
 const products = {
-/* ================= DRILLS ================= */
 
-"AARK AK-10C":{
-  name:"AARK AK-10C 600W Electric Drill",
-  brand:"AARK",
-  category:"Drill Machine",
-  model:"AK-10C",
-  image:"aark-ak-10c.png",
-  price:1200,
-  oldPrice:1500,
-  discount:"20% OFF",
 
-  specs:{
-    "Brand":"AARK",
-    "Model":"AK-10C",
-    "Type":"Electric Drill",
-    "Power":"600W",
-    "Chuck":"10mm",
-    "Voltage":"220V",
-    "Use":"General drilling work"
+  "AARK AK-10C":{
+    name:"AARK AK-10C 600W Electric Drill",
+    brand:"AARK",
+    category:"Drill Machine",
+    model:"AK-10C",
+    image:"aark-ak10c.jpg",
+    price:1200,
+    oldPrice:1500,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"AARK",
+      "Model":"AK-10C",
+      "Type":"Electric Drill",
+      "Power":"600W",
+      "Chuck":"10mm",
+      "Voltage":"220V"
+    },
+
+    description:
+      "A compact electric drill suitable for general drilling work."
   },
 
-  description:"AARK AK-10C 600W electric drill suitable for general drilling work."
-},
 
+  "Matrix MTX-DU10":{
+    name:"Matrix MTX-DU10 Electric Drill",
+    brand:"Matrix",
+    category:"Drill Machine",
+    model:"MTX-DU10",
+    image:"matrix-mtx-du10.jpg",
+    price:2100,
+    oldPrice:2625,
+    discount:"20% off",
 
-"Matrix MTX-DU10":{
-  name:"Matrix MTX-DU10 Electric Drill",
-  brand:"Matrix",
-  category:"Drill Machine",
-  model:"MTX-DU10",
-  image:"matrix-mtx-du10.png",
-  price:2100,
-  oldPrice:2625,
-  discount:"20% OFF",
+    specs:{
+      "Brand":"Matrix",
+      "Model":"MTX-DU10",
+      "Type":"Electric Drill",
+      "Drilling Capacity":"10mm",
+      "Rated Voltage":"220/230V",
+      "Frequency":"50/60Hz",
+      "Power":"800W",
+      "No-load Speed":"2800 rpm"
+    },
 
-  specs:{
-    "Brand":"Matrix",
-    "Model":"MTX-DU10",
-    "Type":"Electric Drill",
-    "Drilling Capacity":"10mm",
-    "Rated Voltage":"220/230V",
-    "Frequency":"50/60Hz",
-    "Power":"800W",
-    "No-load Speed":"2800 rpm"
+    description:
+      "Electric drill suitable for drilling applications."
   },
 
-  description:"Matrix MTX-DU10 electric drill suitable for drilling applications and general workshop use."
-},
 
+  "METRO MID13C":{
+    name:"METRO MID13C Impact Drill",
+    brand:"METRO",
+    category:"Drill Machine",
+    model:"MID13C",
+    image:"metro-mid13c.jpg",
+    price:1500,
+    oldPrice:1875,
+    discount:"20% off",
 
-"METRO MID13C":{
-  name:"METRO MID13C Impact Drill",
-  brand:"METRO",
-  category:"Drill Machine",
-  model:"MID13C",
-  image:"metro-mid13c.png",
-  price:1500,
-  oldPrice:1875,
-  discount:"20% OFF",
+    specs:{
+      "Brand":"METRO",
+      "Model":"MID13C",
+      "Type":"Impact Drill",
+      "Power":"550W",
+      "Voltage":"220V",
+      "Frequency":"50/60Hz",
+      "No-load Speed":"0–2800 rpm",
+      "Chuck Diameter":"13mm"
+    },
 
-  specs:{
-    "Brand":"METRO",
-    "Model":"MID13C",
-    "Type":"Impact Drill",
-    "Power":"550W",
-    "Voltage":"220V",
-    "Frequency":"50/60Hz",
-    "No-load Speed":"0–2800 rpm",
-    "Chuck Diameter":"13mm"
+    description:
+      "Professional impact drill with a 13mm chuck."
   },
 
-  description:"METRO MID13C professional impact drill with a 13mm chuck, suitable for drilling applications."
-},
 
+  "Auto Power Pro APP1112":{
+    name:"Auto Power Pro APP1112 Electric Drill",
+    brand:"Auto Power Pro",
+    category:"Drill Machine",
+    model:"APP1112",
+    image:"auto-power-drill.jpg",
+    price:1600,
+    oldPrice:2000,
+    discount:"20% off",
 
-"Auto Power Pro APP1112":{
-  name:"Auto Power Pro APP1112 Electric Drill",
-  brand:"Auto Power Pro",
-  category:"Drill Machine",
-  model:"APP1112",
-  image:"auto-power-pro-app1112.png",
-  price:1600,
-  oldPrice:2000,
-  discount:"20% OFF",
+    specs:{
+      "Brand":"Auto Power Pro",
+      "Model":"APP1112",
+      "Type":"Electric Drill",
+      "Voltage":"220V",
+      "Frequency":"50Hz"
+    },
 
-  specs:{
-    "Brand":"Auto Power Pro",
-    "Model":"APP1112",
-    "Type":"Electric Drill",
-    "Voltage":"220V",
-    "Frequency":"50Hz"
+    description:
+      "Electric drill from Auto Power Pro suitable for general drilling."
   },
 
-  description:"Auto Power Pro APP1112 electric drill suitable for general drilling work."
-},
 
+  "VIVO Drill":{
+    name:"VIVO Electric Drill",
+    brand:"VIVO",
+    category:"Drill Machine",
+    model:"VIVO Drill",
+    image:"vivo-drill.jpg",
+    price:1400,
+    oldPrice:1750,
+    discount:"20% off",
 
-"VIVO Drill":{
-  name:"VIVO Electric Drill",
-  brand:"VIVO",
-  category:"Drill Machine",
-  model:"VIVO Drill",
-  image:"vivo-drill.png",
-  price:1400,
-  oldPrice:1750,
-  discount:"20% OFF",
+    specs:{
+      "Brand":"VIVO",
+      "Type":"Electric Drill",
+      "Voltage":"To be updated",
+      "Power":"To be updated",
+      "Chuck":"To be updated"
+    },
 
-  specs:{
-    "Brand":"VIVO",
-    "Type":"Electric Drill",
-    "Voltage":"To be updated",
-    "Power":"To be updated",
-    "Chuck":"To be updated"
+    description:
+      "Electric drill suitable for general drilling work."
   },
 
-  description:"VIVO electric drill suitable for general drilling work."
-},
 
+  "Bosch 350W Drill":{
+    name:"Bosch Professional Electric Drill 350W",
+    brand:"Bosch",
+    category:"Drill Machine",
+    model:"Professional 350W",
+    image:"bosch-drill.jpg",
+    price:2500,
+    oldPrice:3125,
+    discount:"20% off",
 
-"Bosch 350W Drill":{
-  name:"Bosch Professional Electric Drill 350W",
-  brand:"Bosch",
-  category:"Drill Machine",
-  model:"Professional 350W",
-  image:"bosch-professional-350w-drill.png",
-  price:2500,
-  oldPrice:3125,
-  discount:"20% OFF",
+    specs:{
+      "Brand":"Bosch",
+      "Type":"Professional Electric Drill",
+      "Power":"350W"
+    },
 
-  specs:{
-    "Brand":"Bosch",
-    "Model":"Professional 350W",
-    "Type":"Professional Electric Drill",
-    "Power":"350W"
+    description:
+      "Bosch professional electric drill."
   },
 
-  description:"Bosch Professional 350W electric drill suitable for drilling work."
-},
-/* ================= GRINDERS ================= */
 
-"Silverblaze AG-G15SA2":{
-  name:"Silverblaze AG-G15SA2 Angle Grinder",
-  brand:"Silverblaze",
-  category:"Grinder",
-  model:"AG-G15SA2",
-  image:"silverblaze-ag-g15sa2.png.png",
-  price:2500,
-  originalPrice:3125,
-  discount:20,
-  description:
-    "125mm angle grinder suitable for grinding and cutting applications.",
-  specs:{
-    "Brand":"Silverblaze",
-    "Model":"AG-G15SA2",
-    "Type":"Angle Grinder",
-    "Disc Size":"125mm",
-    "Application":"Grinding & Cutting"
+  /* ================= GRINDERS ================= */
+
+
+  "Heavy Duty Grinder Machine":{
+    name:"Heavy Duty Grinder Machine",
+    brand:"Nova",
+    category:"Grinder",
+    model:"Heavy Duty",
+    image:"grinder-machine-clean.png",
+    price:2399,
+    oldPrice:2999,
+    discount:"20% off",
+
+    specs:{
+      "Category":"Grinder Machine",
+      "Type":"Heavy Duty Grinder"
+    },
+
+    description:
+      "Professional heavy duty grinder machine suitable for grinding and cutting applications."
+  },
+
+
+  "Silverblaze AG-G15SA2":{
+    name:"Silverblaze AG-G15SA2 Angle Grinder",
+    brand:"Silverblaze",
+    category:"Grinder",
+    model:"AG-G15SA2",
+    image:"silverblaze-ag-g15sa2.png",
+    price:2499,
+    oldPrice:3125,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"Silverblaze",
+      "Model":"AG-G15SA2",
+      "Type":"Angle Grinder"
+    },
+
+    description:
+      "Professional angle grinder suitable for grinding and cutting applications."
+  },
+
+
+  "METRO ME-1107AG":{
+    name:"METRO ME-1107AG Angle Grinder",
+    brand:"METRO",
+    category:"Grinder",
+    model:"ME-1107AG",
+    image:"metro-me-1107ag.png",
+    price:1999,
+    oldPrice:2499,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"METRO",
+      "Model":"ME-1107AG",
+      "Type":"Angle Grinder"
+    },
+
+    description:
+      "METRO angle grinder suitable for professional grinding and cutting work."
+  },
+
+
+  "Crown CT13570-100":{
+    name:"CROWN CT13570-100 Professional Angle Grinder",
+    brand:"CROWN",
+    category:"Grinder",
+    model:"CT13570-100",
+    image:"crown-ct13570-100.png",
+    price:3199,
+    oldPrice:3999,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"CROWN",
+      "Model":"CT13570-100",
+      "Type":"Professional Angle Grinder"
+    },
+
+    description:
+      "Professional angle grinder suitable for grinding and cutting applications."
+  },
+
+
+  "DongCheng DSM08-100":{
+    name:"DongCheng DSM08-100 Angle Grinder",
+    brand:"DongCheng",
+    category:"Grinder",
+    model:"DSM08-100",
+    image:"dongcheng-dsm08-100.png",
+    price:2499,
+    oldPrice:3124,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"DongCheng",
+      "Model":"DSM08-100",
+      "Type":"Angle Grinder"
+    },
+
+    description:
+      "Professional angle grinder for grinding and cutting applications."
+  },
+
+
+  "Elephant ECO DW801":{
+    name:"Elephant ECO DW801 Angle Grinder",
+    brand:"Elephant",
+    category:"Grinder",
+    model:"ECO DW801",
+    image:"elephant-eco-dw801.png",
+    price:2099,
+    oldPrice:2624,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"Elephant",
+      "Model":"ECO DW801",
+      "Type":"Angle Grinder"
+    },
+
+    description:
+      "Angle grinder suitable for general grinding and cutting work."
+  },
+
+
+  "M&T Angle Grinder":{
+    name:"M&T Angle Grinder",
+    brand:"M&T",
+    category:"Grinder",
+    model:"M&T Angle Grinder",
+    image:"mt-angle-grinder.png",
+    price:1299,
+    oldPrice:1624,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"M&T",
+      "Type":"Angle Grinder"
+    },
+
+    description:
+      "Compact angle grinder suitable for general power-tool work."
+  },
+
+
+  "Camron Pro Grinder":{
+    name:"Camron Pro Angle Grinder",
+    brand:"Camron",
+    category:"Grinder",
+    model:"Camron Pro",
+    image:"camron-pro-grinder.png",
+    price:2699,
+    oldPrice:3374,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"Camron",
+      "Type":"Professional Angle Grinder"
+    },
+
+    description:
+      "Professional Camron angle grinder suitable for grinding and cutting applications."
+  },
+
+
+  "HitMan Grinder":{
+    name:"HitMan Professional Power Tool",
+    brand:"HitMan",
+    category:"Grinder",
+    model:"HitMan Grinder",
+    image:"hitman-grinder.png",
+    price:1199,
+    oldPrice:1499,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"HitMan",
+      "Type":"Professional Power Tool"
+    },
+
+    description:
+      "HitMan professional power tool suitable for general grinding work."
+  },
+
+
+  /* ================= PLANNER ================= */
+
+
+  "HitMan Planer":{
+    name:"HitMan Planer",
+    brand:"HITMAN",
+    category:"Planner",
+    model:"HitMan Planer",
+    image:"03_planner.jpg",
+    price:1999,
+    oldPrice:2499,
+    discount:"20% off",
+
+    specs:{
+      "Brand":"HITMAN",
+      "Type":"Electric Planer",
+      "Application":"Wood Planing"
+    },
+
+    description:
+      "Professional HitMan electric planer suitable for smooth and accurate wood planing work."
+  },
+
+
+  /* ================= ACCESSORIES ================= */
+
+
+  "Two Claw Glass Sucker":{
+    name:"Two Claw Glass Sucker",
+    brand:"Nova",
+    category:"Accessory",
+    model:"Two Claw",
+    image:"glass sucker.png",
+    price:499,
+    oldPrice:699,
+    discount:"28% off",
+
+    specs:{
+      "Type":"Glass Sucker",
+      "Design":"Two Claw"
+    },
+
+    description:
+      "Two claw glass sucker suitable for handling and lifting glass."
+  },
+
+
+  "Chain Saw":{
+    name:"Chain Saw",
+    brand:"Nova",
+    category:"Accessory",
+    model:"Chain Saw",
+    image:"chain saw.png",
+    price:2999,
+    oldPrice:3749,
+    discount:"20% off",
+
+    specs:{
+      "Type":"Chain Saw"
+    },
+
+    description:
+      "Professional power tool suitable for cutting applications."
   }
-},
-
-"METRO ME-1107AG":{
-  name:"METRO Angle Grinder 1000W",
-  brand:"METRO",
-  category:"Grinder",
-  model:"ME-1107AG",
-  image:"metro-me-1107ag.png",
-  price:2000,
-  originalPrice:2500,
-  discount:20,
-  description:
-    "Professional angle grinder with 1000W power and 11000 rpm speed.",
-  specs:{
-    "Brand":"METRO",
-    "Model":"ME-1107AG",
-    "Type":"Angle Grinder",
-    "Power":"1000W",
-    "Speed":"11000 rpm",
-    "Voltage":"220V",
-    "Frequency":"50Hz"
-  }
-},
-
-"Crown CT13570-100":{
-  name:"CROWN CT13570-100 Professional Angle Grinder",
-  brand:"CROWN",
-  category:"Grinder",
-  model:"CT13570-100",
-  image:"crown-ct13570-100.png",
-  price:3200,
-  originalPrice:4000,
-  discount:20,
-  description:
-    "Professional angle grinder suitable for grinding and cutting applications.",
-  specs:{
-    "Brand":"CROWN",
-    "Model":"CT13570-100",
-    "Type":"Angle Grinder",
-    "Power":"900W",
-    "Disc Size":"100mm"
-  }
-},
-
-"DongCheng DSM08-100":{
-  name:"DongCheng DSM08-100 Angle Grinder",
-  brand:"DongCheng",
-  category:"Grinder",
-  model:"DSM08-100",
-  image:"dongcheng-dsm08-100.png",
-  price:2500,
-  originalPrice:3125,
-  discount:20,
-  description:
-    "Compact professional angle grinder with 800W rated input and 13000 rpm rated speed.",
-  specs:{
-    "Brand":"DongCheng",
-    "Model":"DSM08-100",
-    "Type":"Angle Grinder",
-    "Power":"800W",
-    "Speed":"13000/min",
-    "Max Wheel Diameter":"100mm",
-    "Machine Weight":"1.6kg"
-  }
-},
-
-"Elephant ECO DW801":{
-  name:"Elephant ECO DW801 Angle Grinder",
-  brand:"Elephant ECO",
-  category:"Grinder",
-  model:"DW801",
-  image:"elephant-eco-dw801.png",
-  price:2100,
-  originalPrice:2625,
-  discount:20,
-  description:
-    "Professional angle grinder suitable for general grinding and cutting applications.",
-  specs:{
-    "Brand":"Elephant ECO",
-    "Model":"DW801",
-    "Type":"Angle Grinder",
-    "Application":"Grinding & Cutting"
-  }
-},
-
-"M&T Angle Grinder":{
-  name:"M&T Angle Grinder",
-  brand:"M&T",
-  category:"Grinder",
-  model:"MT-801",
-  image:"mt-angle-grinder.png",
-  price:1300,
-  originalPrice:1625,
-  discount:20,
-  description:
-    "Professional angle grinder from M&T suitable for workshop and general grinding applications.",
-  specs:{
-    "Brand":"M&T",
-    "Type":"Angle Grinder",
-    "Power":"1100W",
-    "Application":"Grinding & Cutting"
-  }
-},
-
-"Camron Pro Grinder":{
-  name:"Camron Pro Angle Grinder",
-  brand:"Camron Pro",
-  category:"Grinder",
-  model:"CPDS-AG-100A",
-  image:"camron-pro-grinder.png",
-  price:2700,
-  originalPrice:3375,
-  discount:20,
-  description:
-    "Bosch angle grinder from Camron Pro Dragon Series.",
-  specs:{
-    "Brand":"Camron Pro",
-    "Series":"Dragon Series",
-    "Model":"CPDS-AG-100A",
-    "Type":"Bosch Angle Grinder",
-    "Application":"Grinding & Cutting"
-  }
-},
-
-"Bosch Grinder Machine":{
-  name:"Bosch Grinder Machine",
-  brand:"Nova / Assorted",
-  category:"Grinder",
-  model:"Bosch",
-  image:"grinder-machine-clean.png",
-  price:2400,
-  originalPrice:3000,
-  discount:20,
-  description:
-    "Bosch angle grinder suitable for grinding, cutting and polishing work.",
-  specs:{
-    "Product Type":"Bosch Grinder Machine",
-    "Power":"850W",
-    "Disc Size":"4 Inch",
-    "Application":"Grinding, Cutting & Polishing",
-    "Suitable For":"Workshop, Construction & Repair Work"
-  }
-},
-
-"HitMan Grinder":{
-  name:"HitMan Professional Power Tool",
-  brand:"HitMan",
-  category:"Grinder",
-  model:"To be updated",
-  image:"hitman-grinder.png",
-  price:1200,
-  originalPrice:1500,
-  discount:20,
-  description:
-    "Professional power tool from HitMan suitable for workshop and general applications.",
-  specs:{
-    "Brand":"HitMan",
-    "Type":"Power Tool",
-    "Rated Voltage":"220V",
-    "Frequency":"50Hz",
-    "Input Power":"500W",
-    "No-load Speed":"0–10000 rpm"
-  }
-},
-/* ================= CUTTERS ================= */
-
-"Bosch GCO 2000":{
-  name:"Bosch GCO 2000 Metal Cut-Off Saw",
-  brand:"Bosch",
-  category:"Cutter",
-  model:"GCO 2000",
-  image:"metal cutt off saw.png",
-  price:11,499,
-  specs:{
-    "Brand":"Bosch",
-    "Model":"GCO 2000",
-    "Type":"Metal Cut-Off Saw",
-    "Power":"2000W",
-    "Application":"Metal Cutting"
-  },
-  description:"Professional metal cut-off saw from Bosch."
-},
-
-"Power Touch PTCM4SB":{
-  name:"Power Touch PTCM4SB Marble Cutter",
-  brand:"Power Touch",
-  category:"Cutter",
-  model:"PTCM4SB",
-  image:"power-touch-ptcm4sb.png",
-  price:2499,
-  specs:{
-    "Brand":"Power Touch",
-    "Model":"PTCM4SB",
-    "Type":"Marble Cutter",
-    "Motor":"100% Copper Motor",
-    "Application":"Marble Cutting"
-  },
-  description:"Professional marble cutter suitable for marble and construction cutting."
-},
-
-"Mark Pro MK-4SA":{
-  name:"I Mark Pro MK-4SA Marble Cutter",
-  brand:"I Mark Pro",
-  category:"Cutter",
-  model:"MK-4SA",
-  image:"mark-pro-mk4sa.png",
-  price:1999,
-  specs:{
-    "Brand":"Mark Pro",
-    "Model":"MK-4SA",
-    "Type":"Marble Cutter",
-    "Power":"1600W",
-    "Blade":"110mm"
-  },
-  description:"Professional marble cutter suitable for marble and construction materials."
-},
-
-"METRO 11001":{
-  name:"METRO 11001 Marble Cutter",
-  brand:"METRO",
-  category:"Cutter",
-  model:"11001",
-  image:"metro-11001.png",
-  price:1799,
-  specs:{
-    "Brand":"METRO",
-    "Model":"11001",
-    "Type":"Marble Cutter",
-    "Application":"Marble & Construction Cutting"
-  },
-  description:"Professional marble cutter suitable for marble and construction cutting."
-},
-
-"Tanger TG-CM4SA":{
-  name:"Tanger TG-CM4SA Marble Cutter",
-  brand:"Tanger",
-  category:"Cutter",
-  model:"TG-CM4SA",
-  image:"tanger-tg-cm4sa.png",
-  price:1899,
-  specs:{
-    "Brand":"Tanger",
-    "Model":"TG-CM4SA",
-    "Type":"Marble Cutter",
-    "Power":"1050W"
-  },
-  description:"Professional marble cutter suitable for cutting applications."
-},
-
-"METRO ME-11013":{
-  name:"METRO ME-11013 Marble Cutter",
-  brand:"METRO",
-  category:"Cutter",
-  model:"ME-11013",
-  image:"metro-me-11013.png",
-  price:2799,
-  specs:{
-    "Brand":"METRO",
-    "Model":"ME-11013",
-    "Type":"Marble Cutter",
-    "Power":"2000W",
-    "Speed":"11000 rpm",
-    "Voltage":"220V",
-    "Frequency":"50Hz"
-  },
-  description:"High-power marble cutter suitable for heavy cutting applications."
-},
-
-"Seven Star ST-110SB":{
-  name:"Seven Star ST-110SB Marble Cutter",
-  brand:"Seven Star",
-  category:"Cutter",
-  model:"ST-110SB",
-  image:"seven-star-st110sb.png",
-  price:2699,
-  specs:{
-    "Brand":"Seven Star",
-    "Model":"ST-110SB",
-    "Type":"Marble Cutter",
-    "Power":"1350W"
-  },
-  description:"Professional marble cutter suitable for construction cutting work."
-},
-
-"Morris M-4SB":{
-  name:"Morris M-4SB Marble Cutter",
-  brand:"Morris",
-  category:"Cutter",
-  model:"M-4SB",
-  image:"morris-m4sb.png",
-  price:2499,
-  specs:{
-    "Brand":"Morris",
-    "Model":"M-4SB",
-    "Type":"Marble Cutter",
-    "Power":"1300W"
-  },
-  description:"Professional marble cutter suitable for cutting applications."
-},
-
-"Auto Power Pro AP1112":{
-  name:"Auto Power Pro AP1112 Marble Cutter",
-  brand:"Auto Power Pro",
-  category:"Cutter",
-  model:"AP1112",
-  image:"auto-power-pro-ap1112.png",
-  price:1799,
-  specs:{
-    "Brand":"Auto Power Pro",
-    "Model":"AP1112",
-    "Type":"Marble Cutter",
-    "Motor":"100% Copper",
-    "Application":"Marble Cutting"
-  },
-  description:"Marble cutter from Auto Power Pro with copper motor."
-},
-
-"METRO 11005":{
-  name:"METRO 11005 Marble Cutter",
-  brand:"METRO",
-  category:"Cutter",
-  model:"11005",
-  image:"metro-11005.png",
-  price:2999,
-  specs:{
-    "Brand":"METRO",
-    "Model":"11005",
-    "Type":"Marble Cutter",
-    "Application":"Marble & Construction Cutting"
-  },
-  description:"Professional marble cutter suitable for construction and marble cutting."
-},
-
-"METRO CM4SA":{
-  name:"METRO CM4SA Marble Cutter",
-  brand:"METRO",
-  category:"Cutter",
-  model:"CM4SA",
-  image:"metro-cm4sa.png",
-  price:1899,
-  specs:{
-    "Brand":"METRO",
-    "Model":"CM4SA",
-    "Type":"Marble Cutter",
-    "Application":"Marble Cutting"
-  },
-  description:"Professional marble cutter suitable for general cutting applications."
-},
-
-"Hitman CM4SA":{
-  name:"Hitman CM4SA Marble Cutter",
-  brand:"Hitman",
-  category:"Cutter",
-  model:"CM4SA",
-  image:"hitman-cm4sa.png",
-  price:1799,
-  specs:{
-    "Brand":"Hitman",
-    "Model":"CM4SA",
-    "Type":"Marble Cutter",
-    "Application":"Marble Cutting"
-  },
-  description:"Professional marble cutter suitable for general cutting applications."
-},
-
-/* ================= HAMMERS ================= */
-
-"Electric Hammer Machine":{
-  name:"Electric Hammer Machine",
-  brand:"Nova Power Tools",
-  category:"Hammer Machine",
-  model:"Electric Hammer",
-  image:"",
-  price:2499,
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Electric Hammer Machine",
-    "Application":"Drilling & Hammering",
-    "Voltage":"220V"
-  },
-  description:"Electric hammer machine suitable for drilling, hammering and construction work."
-},
-
-"METRO Rotary Hammer 20MM":{
-  name:"METRO 20MM Rotary Hammer",
-  brand:"METRO",
-  category:"Hammer Machine",
-  model:"20MM Rotary Hammer",
-  image:"metro_rotary_hammer.jpg",
-  price:null,
-  specs:{
-    "Brand":"METRO",
-    "Type":"Rotary Hammer",
-    "Drill Capacity":"20mm",
-    "Power":"800W",
-    "Voltage":"220V",
-    "Frequency":"50/60Hz",
-    "No-load Speed":"0–850 rpm",
-    "Impact Rate":"0–3900/min"
-  },
-  description:"Professional rotary hammer suitable for drilling and hammering work."
-},
-
-"Yato PT-RH26":{
-  name:"Professional Rotary Hammer PT-RH26",
-  brand:"Yato",
-  category:"Hammer Machine",
-  model:"PT-RH26",
-  image:"",
-  price:null,
-  specs:{
-    "Model":"PT-RH26",
-    "Type":"Rotary Hammer",
-    "Power":"2000W",
-    "Voltage":"220V"
-  },
-  description:"Professional rotary hammer suitable for heavy drilling."
-},
-
-"METRO ME-11042RH20":{
-  name:"METRO ME-11042RH20 Rotary Hammer",
-  brand:"METRO",
-  category:"Hammer Machine",
-  model:"ME-11042RH20",
-  image:"",
-  price:null,
-  specs:{
-    "Brand":"METRO",
-    "Model":"ME-11042RH20",
-    "Type":"Rotary Hammer",
-    "Power":"800W",
-    "Voltage":"220V",
-    "Speed":"0–850 rpm"
-  },
-  description:"Variable-speed rotary hammer suitable for drilling and hammering."
-},
-
-"Impact Pro Rotary Hammer":{
-  name:"Impact Pro Rotary Hammer",
-  brand:"Impact Pro",
-  category:"Hammer Machine",
-  model:"Rotary Hammer",
-  image:"",
-  price:null,
-  specs:{
-    "Brand":"Impact Pro",
-    "Type":"Rotary Hammer",
-    "Specifications":"To be updated"
-  },
-  description:"Professional rotary hammer for drilling and hammering."
-},
-
-/* ================= JIG SAW ================= */
-
-"Auto Power Pro APP1170":{
-  name:"Auto Power Pro APP1170 Jig Saw",
-  brand:"Auto Power Pro",
-  category:"Jig Saw",
-  model:"APP1170",
-  image:"auto_power_pro_jigsaw.jpg",
-  price:2499,
-  specs:{
-    "Brand":"Auto Power Pro",
-    "Model":"APP1170",
-    "Type":"Jig Saw",
-    "Voltage":"230V",
-    "Input Power":"750W",
-    "Speed":"3000 rpm",
-    "Cutting Capacity":"70mm"
-  },
-  description:"Electric jig saw suitable for cutting wood and similar materials."
-},
-
-/* ================= MIXING DRILL ================= */
-
-"METRO M-EM16B":{
-  name:"METRO M-EM16B Mixing Drill",
-  brand:"METRO",
-  category:"Mixing Drill",
-  model:"M-EM16B",
-  image:"",
-  price:null,
-  specs:{
-    "Brand":"METRO",
-    "Model":"M-EM16B",
-    "Type":"Mixing Drill",
-    "Input Power":"1050W",
-    "No-load Speed":"0–850 rpm",
-    "Chuck Size":"16mm",
-    "Voltage":"220V"
-  },
-  description:"Professional mixing drill suitable for mixing construction materials."
-},
-
-/* ================= CHAIN SAW ================= */
-
-"METRO M-3106":{
-  name:"METRO M-3106 Gasoline Chain Saw",
-  brand:"METRO",
-  category:"Gasoline Chain Saw",
-  model:"M-3106",
-  image:"chain saw.png",
-  price:null,
-  specs:{
-    "Brand":"METRO",
-    "Model":"M-3106",
-    "Type":"Gasoline Chain Saw",
-    "Engine":"2 Stroke",
-    "Application":"Garden & Wood Cutting"
-  },
-  description:"Professional gasoline chain saw designed for garden and wood cutting."
-},
-
-/* ================= BLOWER ================= */
-
-"METRO Blower":{
-  name:"METRO Electric Blower",
-  brand:"METRO",
-  category:"Blower",
-  model:"To be updated",
-  image:"metro_blower.jpg",
-  price:1199,
-  specs:{
-    "Brand":"METRO",
-    "Type":"Electric Blower",
-    "Power":"To be updated",
-    "Speed":"To be updated"
-  },
-  description:"Electric blower suitable for cleaning dust, debris and workshop areas."
-},
-
-/* ================= GLASS SUCKER ================= */
-
-"METRO Two Claw Glass Sucker":{
-  name:"METRO Two Claw Glass Sucker",
-  brand:"METRO Pro",
-  category:"Glass Sucker",
-  model:"Two Claw",
-  image:"glass sucker.png",
-  price:null,
-  specs:{
-    "Brand":"METRO Pro",
-    "Type":"Two Claw Glass Sucker",
-    "Application":"Glass Handling",
-    "Design":"Two Claw",
-    "Use":"Industrial / Professional"
-  },
-  description:"Two-claw industrial glass sucker designed for smooth glass and flat surfaces."
-},
-
-/* ================= OTHER PRODUCTS ================= */
-
-"Hitman planner Cutter Machine":{
-  name:"Hitman planner Machine",
-  brand:"Nova Power Tools",
-  category:"Cutter",
-  model:"Hitman planner",
-  image:"hitman_planer.jpg",
-  price:3199,
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Hitman planner Machine",
-    "Application":"Cutting",
-    "Voltage":"220V"
-  },
-  description:"Hitman planner machine suitable for workshop and construction cutting."
-},
-
-"Welding Machine":{
-  name:"Welding Machine",
-  brand:"Nova Power Tools",
-  category:"Welding",
-  model:"Welding Machine",
-  image:"",
-  price:3499,
-  specs:{
-    "Brand":"Nova Power Tools",
-    "Type":"Welding Machine",
-    "Application":"Welding & Fabrication",
-    "Voltage":"220V"
-  },
-  description:"Electric welding machine suitable for general welding and fabrication work."
-},
-
-"METRO ME-11071ET":{
-  name:"METRO ME-11071ET Electric Trimmer",
-  brand:"METRO",
-  category:"Electric Trimmer",
-  model:"ME-11071ET",
-  image:"",
-  price:2499,
-  specs:{
-    "Brand":"METRO",
-    "Model":"ME-11071ET",
-    "Type":"Electric Trimmer",
-    "Application":"Trimming & Cutting"
-  },
-  description:"METRO electric trimmer suitable for trimming and cutting applications."
-}
 
 };
 
 
-/* =====================================================
-   URL PRODUCT NAME
-===================================================== */
+/* =========================================================
+   LOAD PRODUCT
+========================================================= */
 
-const params = new URLSearchParams(window.location.search);
+function loadProduct(){
 
-const requestedProduct = params.get("product");
+  const params=
+    new URLSearchParams(window.location.search);
 
+  const requestedProduct=
+    params.get("product");
 
-/* =====================================================
-   ALIASES
-===================================================== */
-
-const aliases = {
-
-  "Mark Pro MK-4SA":"Mark Pro MK-4SA",
-  "Marknhi MK-4SA":"Mark Pro MK-4SA",
-
-  "Auto Power AP1112":"Auto Power Pro AP1112",
-
-  "Auto Power APP1170":"Auto Power Pro APP1170",
-
-  "METRO 20MM Rotary Hammer":"METRO Rotary Hammer 20MM",
-
-  "METRO Rotary Hammer":"METRO Rotary Hammer 20MM",
-
-  "METRO M-3106 Gasoline Chain Saw":"METRO M-3106",
-
-  "Electric Hammer":"Electric Hammer Machine",
-
-  "Bosch Grinder":"Bosch Grinder Machine"
-
-};
-
-const productKey =
-  aliases[requestedProduct] || requestedProduct;
+  const container=
+    document.getElementById("productContainer");
 
 
-/* =====================================================
-   PRICE CALCULATION
-   FINAL PRICE = PRICE SET ABOVE
-   OLD PRICE IS ALWAYS HIGHER
-===================================================== */
+  if(!requestedProduct){
 
-function getOldPrice(price){
-
-  if(!price){
-    return null;
-  }
-
-  return Math.ceil(price / 0.80);
-}
-
-
-/* =====================================================
-   SHOW PRODUCT
-===================================================== */
-
-function showProduct(){
-
-  const area =
-    document.getElementById("productArea");
-
-  if(!productKey || !products[productKey]){
-
-    area.innerHTML = `
-      <div class="error">
-
-        <h2>Product Not Found</h2>
-
-        <p>
-          Ye product product-details system mein
-          available nahi hai.
-        </p>
-
-        <button onclick="window.location.href='index.html'">
-          ← Back to Shop
-        </button>
-
-      </div>
-    `;
+    showError(
+      "No product selected",
+      "Please open a product from the Nova Power Tools product list."
+    );
 
     return;
   }
 
 
-  const p = products[productKey];
+  const product=
+    products[requestedProduct];
 
 
-  /* IMAGE */
+  if(!product){
 
-  let imageHTML = "";
+    showError(
+      "Product not found",
+      "The product \"" +
+      requestedProduct +
+      "\" is not available in the product database."
+    );
 
-  if(p.image){
-
-    imageHTML = `
-      <img
-        src="${p.image}"
-        alt="${p.name}"
-        onerror="
-          this.style.display='none';
-          this.nextElementSibling.style.display='block';
-        "
-      >
-
-      <div
-        class="product-placeholder"
-        style="display:none"
-      >
-        🛠️
-      </div>
-    `;
-
-  }else{
-
-    imageHTML = `
-      <div class="product-placeholder">
-        🛠️
-      </div>
-    `;
-
+    return;
   }
 
 
-  /* SPECIFICATIONS */
+  renderProduct(product);
 
-  let specifications = "";
-
-  for(const key in p.specs){
-
-    specifications += `
-      <tr>
-        <td>${key}</td>
-        <td>${p.specs[key]}</td>
-      </tr>
-    `;
-
-  }
+}
 
 
-  /* PRICE */
+/* =========================================================
+   RENDER PRODUCT
+========================================================= */
 
-  let priceHTML = "";
+function renderProduct(product){
 
-  if(p.price){
-
-    const oldPrice =
-      getOldPrice(p.price);
-
-    priceHTML = `
-      <div class="price">
-        ₹${p.price.toLocaleString("en-IN")}
-      </div>
-
-      <div class="old-price">
-        ₹${oldPrice.toLocaleString("en-IN")}
-      </div>
-
-      <div class="discount">
-        20% OFF
-      </div>
-    `;
-
-  }else{
-
-    priceHTML = `
-      <div class="price">
-        Price to be updated
-      </div>
-
-      <div class="price-note">
-        💰 Final price will be added later.
-      </div>
-    `;
-
-  }
+  const container=
+    document.getElementById("productContainer");
 
 
-  /* PAGE */
+  let specsHTML="";
 
-  area.innerHTML = `
+
+  Object.entries(product.specs || {})
+    .forEach(([key,value])=>{
+
+      specsHTML += `
+        <tr>
+          <td>${escapeHTML(key)}</td>
+          <td>${escapeHTML(value)}</td>
+        </tr>
+      `;
+
+    });
+
+
+  container.innerHTML=`
 
     <div class="product-box">
 
+
       <div class="product-image">
-        ${imageHTML}
+
+        <img
+          src="${escapeAttribute(product.image)}"
+          alt="${escapeAttribute(product.name)}"
+          onerror="imageError(this)"
+        >
+
       </div>
 
 
       <div class="product-info">
 
         <h1>
-          ${p.name}
+          ${escapeHTML(product.name)}
         </h1>
 
+
         <div class="brand">
-          ${p.brand}
+          ${escapeHTML(product.brand)}
         </div>
+
 
         <div class="rating">
           ⭐⭐⭐⭐⭐
         </div>
 
-        ${priceHTML}
+
+        <div class="price">
+          ₹${Number(product.price).toLocaleString("en-IN")}
+        </div>
+
+
+        <div class="old-price">
+          ₹${Number(product.oldPrice).toLocaleString("en-IN")}
+        </div>
+
+
+        <div class="discount">
+          ${escapeHTML(product.discount)}
+        </div>
 
 
         <div class="delivery">
 
-          🚚 <b>Delivery:</b>
+          🚚 <strong>Delivery:</strong>
           Usually delivered within 1 day
-
           <br>
 
-          📍 Delivery available in
-          Prayagraj and Banaras
-
+          📍 Delivery available in Prayagraj and Banaras
           <br>
 
-          🔄 Replacement available for
-          eligible products
+          🔄 Replacement available for eligible products
 
         </div>
 
 
-        <h2 class="about-title">
-          About this product
-        </h2>
+        <div class="about">
 
-        <p class="description">
-          ${p.description}
-        </p>
+          <h2>
+            About this product
+          </h2>
+
+          <p>
+            ${escapeHTML(product.description)}
+          </p>
+
+        </div>
 
 
-        <h2 class="spec-title">
-          Specifications
-        </h2>
+        <div class="specifications">
 
-        <table class="spec-table">
-          ${specifications}
-        </table>
+          <h2>
+            Specifications
+          </h2>
+
+          <table class="spec-table">
+
+            ${specsHTML}
+
+          </table>
+
+        </div>
 
 
         <div class="buttons">
 
           <button
             class="cart-btn"
-            onclick="addToCart()"
+            onclick="addToCart(
+              '${escapeJS(product.name)}',
+              ${Number(product.price)}
+            )"
           >
-            🛒 Add to Cart
+            Add to Cart
           </button>
+
 
           <button
             class="buy-btn"
-            onclick="buyNow()"
+            onclick="buyNow(
+              '${escapeJS(product.name)}'
+            )"
           >
-            ⚡ Buy Now
+            Buy Now
           </button>
 
         </div>
 
-
-        <button
-          class="back-btn"
-          onclick="window.location.href='index.html'"
-        >
-          ← Continue Shopping
-        </button>
 
       </div>
 
@@ -1463,91 +910,182 @@ function showProduct(){
 }
 
 
-/* =====================================================
-   ADD TO CART
-===================================================== */
+/* =========================================================
+   CART
+========================================================= */
 
-function addToCart(){
+function getCart(){
 
-  const p = products[productKey];
+  try{
 
-  if(!p){
-    return;
-  }
-
-  let cart =
-    JSON.parse(
+    return JSON.parse(
       localStorage.getItem("novaCart")
     ) || [];
 
+  }catch(error){
 
-  let existing =
-    cart.find(function(item){
-
-      return item.name === p.name;
-
-    });
-
-
-  if(existing){
-
-    existing.quantity += 1;
-
-  }else{
-
-    cart.push({
-
-      name:p.name,
-
-      price:p.price || 0,
-
-      icon:"🛠️",
-
-      quantity:1
-
-    });
+    return [];
 
   }
 
+}
+
+
+function saveCart(cart){
 
   localStorage.setItem(
     "novaCart",
     JSON.stringify(cart)
   );
 
+}
+
+
+function addToCart(name,price){
+
+  const cart=
+    getCart();
+
+
+  const existing=
+    cart.find(item=>item.name===name);
+
+
+  if(existing){
+
+    existing.quantity=
+      (existing.quantity || 1)+1;
+
+  }else{
+
+    cart.push({
+      name:name,
+      price:Number(price),
+      quantity:1
+    });
+
+  }
+
+
+  saveCart(cart);
+
 
   alert(
-    p.name +
-    " cart mein add ho gaya! 🛒"
+    name +
+    " added to cart."
   );
 
 }
 
 
-/* =====================================================
-   BUY NOW
-===================================================== */
+function buyNow(name){
 
-function buyNow(){
-
-  const p = products[productKey];
-
-  if(!p){
-    return;
-  }
-
-  window.location.href =
-    "checkout.html?product=" +
-    encodeURIComponent(p.name);
+  window.location.href=
+    "cart.html";
 
 }
 
 
-/* =====================================================
-   START
-===================================================== */
+/* =========================================================
+   ERROR
+========================================================= */
 
-showProduct();
+function showError(title,message){
+
+  document.getElementById(
+    "productContainer"
+  ).innerHTML=`
+
+    <div class="error">
+
+      <h1>
+        ${escapeHTML(title)}
+      </h1>
+
+      <p>
+        ${escapeHTML(message)}
+      </p>
+
+      <a href="index.html">
+        Back to Products
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   IMAGE ERROR
+========================================================= */
+
+function imageError(img){
+
+  img.style.display="none";
+
+  const box=
+    img.parentElement;
+
+  box.innerHTML=`
+    <div style="
+      text-align:center;
+      color:#64748b;
+      font-weight:bold;
+      padding:20px;
+    ">
+      Product image not found.<br>
+      Please check the image filename in GitHub.
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   SECURITY / TEXT HELPERS
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+  return escapeHTML(value);
+
+}
+
+
+function escapeJS(value){
+
+  return String(value)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,'\\"')
+    .replace(/\n/g,"\\n")
+    .replace(/\r/g,"\\r");
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  loadProduct
+);
 
 </script>
 
