@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,244 +8,179 @@
 <title>Nova Power Tools | Power Tools</title>
 
 <style>
-
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#eaeded;
-  color:#172033;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f6fb;
+  color:#111827;
 }
 
-/* HEADER */
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-header{
-  background:#131921;
+.header{
+  background:#111827;
   color:white;
-  padding:12px 4%;
-  display:flex;
-  align-items:center;
-  gap:25px;
   position:sticky;
   top:0;
   z-index:1000;
+  box-shadow:0 3px 15px rgba(0,0,0,.18);
+}
+
+.header-inner{
+  max-width:1250px;
+  margin:auto;
+  min-height:68px;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  gap:20px;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:bold;
+  font-size:23px;
+  font-weight:800;
   white-space:nowrap;
 }
 
 .logo span{
-  color:#ffb000;
+  color:#ffb400;
 }
 
-.search-area{
+.search{
   flex:1;
   display:flex;
-  max-width:750px;
+  max-width:600px;
+  margin:auto;
 }
 
-.search-area input{
-  flex:1;
-  padding:13px;
-  border:none;
+.search input{
+  width:100%;
+  padding:12px 15px;
+  border:0;
   outline:none;
-  font-size:16px;
-  border-radius:5px 0 0 5px;
+  border-radius:8px 0 0 8px;
+  font-size:15px;
 }
 
-.search-area button{
-  width:55px;
-  border:none;
-  background:#ffb000;
-  font-size:20px;
+.search button{
+  border:0;
+  padding:0 18px;
+  background:#ffb400;
   cursor:pointer;
-  border-radius:0 5px 5px 0;
+  border-radius:0 8px 8px 0;
+  font-weight:bold;
 }
 
 .header-links{
   display:flex;
-  gap:20px;
-  align-items:center;
-}
-
-.header-links a{
-  color:white;
-  text-decoration:none;
+  gap:14px;
   font-size:14px;
-}
-
-.cart{
-  font-size:27px;
-  cursor:pointer;
-}
-
-/* CATEGORY BAR */
-
-.category-bar{
-  background:#232f3e;
-  color:white;
-  padding:12px 4%;
-  display:flex;
-  gap:25px;
-  overflow-x:auto;
-}
-
-.category-bar button{
-  background:none;
-  border:none;
-  color:white;
   white-space:nowrap;
-  font-size:15px;
-  cursor:pointer;
 }
-
-.category-bar button:hover{
-  color:#ffb000;
-}
-
-/* HERO */
 
 .hero{
-  min-height:330px;
-  background:linear-gradient(135deg,#172554,#2563eb,#7c3aed);
+  background:linear-gradient(135deg,#0f172a,#1d4ed8);
   color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:50px 20px;
+  padding:55px 20px;
 }
 
-.hero-content{
-  max-width:850px;
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
 }
 
 .hero h1{
-  font-size:48px;
-  margin-bottom:15px;
-}
-
-.hero h1 span{
-  color:#ffd166;
+  font-size:42px;
+  margin-bottom:12px;
 }
 
 .hero p{
-  font-size:19px;
-  margin-bottom:25px;
+  font-size:18px;
+  opacity:.92;
+  margin-bottom:24px;
 }
 
-.shop-btn{
+.hero-btn{
   display:inline-block;
-  padding:14px 28px;
-  background:#ffb000;
-  color:#111;
-  text-decoration:none;
-  border-radius:7px;
+  padding:13px 22px;
+  background:#ffb400;
+  color:#111827;
+  border-radius:8px;
   font-weight:bold;
 }
 
-/* SECTIONS */
-
 .section{
-  padding:35px 4%;
+  max-width:1250px;
+  margin:35px auto;
+  padding:0 18px;
 }
 
 .section-title{
   font-size:27px;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
-
-/* CATEGORIES */
 
 .categories{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:12px;
 }
 
-.category-card{
+.category{
   background:white;
-  padding:25px 15px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:18px 10px;
   text-align:center;
-  border-radius:10px;
   cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  border:2px solid transparent;
-  transition:.25s;
-  user-select:none;
+  font-weight:bold;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
-.category-card:hover{
-  transform:translateY(-5px);
-  border-color:#ffb000;
-}
-
-.category-card.active{
+.category:hover{
   border-color:#2563eb;
-  background:#eff6ff;
+  transform:translateY(-2px);
 }
-
-.category-icon{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.category-card h3{
-  font-size:16px;
-}
-
-/* RESULT */
-
-.category-result{
-  display:none;
-  background:white;
-  margin:0 4%;
-  padding:15px 20px;
-  border-left:5px solid #ffb000;
-  border-radius:7px;
-}
-
-/* PRODUCTS */
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
 }
 
 .product{
   background:white;
-  padding:18px;
-  border-radius:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  transition:.25s;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:10px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+  transition:.2s;
 }
 
 .product:hover{
   transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
 .product-image{
-  height:190px;
+  width:100%;
+  height:155px;
+  min-height:155px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f3f4f6;
-  border-radius:8px;
-  font-size:75px;
-  margin-bottom:15px;
   overflow:hidden;
+  border-radius:9px;
+  background:#f8fafc;
 }
 
 .product-image a{
@@ -253,2062 +189,268 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
-  color:inherit;
 }
 
 .product-image img{
   width:100%;
   height:100%;
   object-fit:contain;
+  padding:7px;
+  display:block;
 }
 
 .product h3{
-  font-size:17px;
-  margin-bottom:8px;
-}
-
-.product-link{
-  color:#172033;
-  text-decoration:none;
-}
-
-.product-link:hover{
-  color:#2563eb;
+  font-size:15px;
+  line-height:1.35;
+  margin:11px 3px 6px;
+  min-height:40px;
 }
 
 .rating{
-  color:#f59e0b;
-  margin-bottom:8px;
+  color:#fbbf24;
+  font-size:14px;
+  margin:4px 3px;
 }
 
 .price{
-  font-size:23px;
-  font-weight:bold;
-  margin-bottom:5px;
+  font-size:20px;
+  font-weight:800;
+  margin:5px 3px;
 }
 
 .old-price{
-  color:#667085;
+  color:#777;
   text-decoration:line-through;
-  font-size:14px;
+  font-size:13px;
+  margin:2px 3px;
 }
 
 .discount{
   color:#15803d;
-  font-size:14px;
-  margin-bottom:15px;
+  background:#dcfce7;
+  display:inline-block;
+  padding:3px 7px;
+  border-radius:5px;
+  font-size:12px;
+  font-weight:bold;
+  margin:3px;
 }
 
 .product-buttons{
   display:flex;
-  gap:8px;
+  gap:6px;
+  margin-top:9px;
 }
 
 .product-buttons button{
   flex:1;
-  padding:10px 5px;
-  border:none;
-  border-radius:6px;
+  border:0;
+  padding:9px 5px;
+  border-radius:7px;
   cursor:pointer;
   font-weight:bold;
+  font-size:12px;
 }
 
 .add-cart{
-  background:#ffd814;
+  background:#ffb400;
+  color:#111;
 }
 
 .buy{
-  background:#ff9900;
-}
-
-/* ONLINE TOOLS */
-
-.tools-section{
-  background:#f5f7fb;
-}
-
-.tools{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:18px;
-}
-
-.tool{
-  background:white;
-  padding:22px;
-  border-radius:10px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.tool-icon{
-  font-size:35px;
-  margin-bottom:12px;
-}
-
-.tool h3{
-  margin-bottom:8px;
-}
-
-.tool p{
-  color:#667085;
-  line-height:1.5;
-  margin-bottom:15px;
-}
-
-.tool button{
   background:#2563eb;
   color:white;
-  border:none;
-  padding:10px 17px;
-  border-radius:6px;
-  cursor:pointer;
 }
 
-/* ABOUT */
-
-.about{
-  background:white;
+.no-results{
+  display:none;
+  padding:30px;
   text-align:center;
+  background:white;
+  border-radius:10px;
 }
 
-.about p{
-  max-width:750px;
+.footer{
+  margin-top:50px;
+  background:#111827;
+  color:white;
+  padding:35px 20px;
+}
+
+.footer-inner{
+  max-width:1200px;
   margin:auto;
-  color:#667085;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.footer h3{
+  margin-bottom:10px;
+}
+
+.footer p{
+  color:#cbd5e1;
   line-height:1.7;
 }
 
-/* FOOTER */
-
-footer{
-  background:#131921;
-  color:white;
-  padding:40px 5%;
+@media(max-width:1050px){
+  .products{
+    grid-template-columns:repeat(4,1fr);
+  }
 }
 
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:30px;
-}
-
-footer h3{
-  margin-bottom:15px;
-}
-
-footer p{
-  color:#ddd;
-  line-height:1.8;
-}
-
-.copyright{
-  text-align:center;
-  border-top:1px solid #374151;
-  margin-top:30px;
-  padding-top:20px;
-}
-
-/* CART MESSAGE */
-
-#cartMessage{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#16a34a;
-  color:white;
-  padding:14px 20px;
-  border-radius:8px;
-  display:none;
-  z-index:2000;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  header{
+@media(max-width:800px){
+  .header-inner{
     flex-wrap:wrap;
-    gap:10px;
   }
 
-  .logo{
-    width:100%;
-    text-align:center;
-  }
-
-  .search-area{
-    width:100%;
-    max-width:none;
+  .search{
+    order:3;
+    flex-basis:100%;
   }
 
   .header-links{
-    display:none;
+    margin-left:auto;
   }
 
   .hero h1{
-    font-size:34px;
+    font-size:32px;
   }
 
   .products{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
+}
 
-  .product-buttons{
-    flex-direction:column;
+@media(max-width:600px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
 
   .product-image{
-    height:150px;
+    height:125px;
+    min-height:125px;
   }
 
-}
-
-@media(max-width:450px){
-
-  .products{
-    grid-template-columns:1fr;
+  .product h3{
+    font-size:13px;
   }
 
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-  /* =====================================================
-   NOVA POWER TOOLS - PROFESSIONAL PRODUCT DESIGN
-===================================================== */
-
-/* PRODUCT GRID */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
-  padding:10px 0;
-}
-
-/* ALL PRODUCT CARDS */
-.product,
-.product-card{
-  background:linear-gradient(145deg,#ffffff,#f3f6fa);
-  border:1px solid #dfe5ec;
-  border-radius:16px;
-  padding:14px;
-  overflow:hidden;
-  box-shadow:0 5px 18px rgba(15,23,42,.10);
-  transition:.25s ease;
-  position:relative;
-}
-
-.product:hover,
-.product-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(15,23,42,.18);
-  border-color:#2563eb;
-}
-
-/* PRODUCT IMAGE AREA */
-.product .product-image,
-.product-card .product-image{
-  width:100%;
-  height:220px;
-  background:
-    radial-gradient(circle at center,#ffffff 0%,#eef3f8 100%);
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  margin-bottom:12px;
-}
-
-/* IMAGE */
-.product .product-image img,
-.product-card .product-image img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:12px;
-  transition:transform .3s ease;
-}
-
-.product:hover .product-image img,
-.product-card:hover .product-image img{
-  transform:scale(1.06);
-}
-
-/* PRODUCT NAME */
-.product h3,
-.product-card h3{
-  font-size:18px;
-  margin:10px 0;
-  color:#172033;
-  line-height:1.35;
-}
-
-/* PRODUCT LINK */
-.product-link{
-  color:#172033;
-  text-decoration:none;
-  transition:.2s;
-}
-
-.product-link:hover{
-  color:#2563eb;
-}
-
-/* RATING */
-.product .rating,
-.product-card .rating{
-  color:#f59e0b;
-  font-size:15px;
-  margin:7px 0;
-}
-
-/* PRICE */
-.product .price,
-.product-card .price{
-  font-size:24px;
-  font-weight:800;
-  color:#111827;
-  margin:7px 0;
-}
-
-/* OLD PRICE */
-.product .old-price,
-.product-card .old-price{
-  color:#8a94a6;
-  text-decoration:line-through;
-  font-size:14px;
-}
-
-/* DISCOUNT */
-.product .discount,
-.product-card .discount{
-  display:inline-block;
-  background:#dcfce7;
-  color:#15803d;
-  padding:4px 9px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-  margin:5px 0;
-}
-
-/* BUTTON AREA */
-.product-buttons{
-  display:flex;
-  gap:8px;
-  margin-top:14px;
-}
-
-/* BUTTONS */
-.product-buttons button{
-  flex:1;
-  padding:11px 8px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:.2s;
-}
-
-/* ADD CART */
-.product-buttons .add-cart{
-  background:#ffd814;
-  color:#111827;
-}
-
-.product-buttons .add-cart:hover{
-  background:#f7c900;
-  transform:translateY(-2px);
-}
-
-/* BUY */
-.product-buttons .buy{
-  background:#ff9900;
-  color:#111827;
-}
-
-.product-buttons .buy:hover{
-  background:#e88900;
-  transform:translateY(-2px);
-}
-
-
-/* =====================================================
-   PRODUCT DETAILS PAGE
-===================================================== */
-
-.product-box{
-  background:linear-gradient(145deg,#ffffff,#f3f6fa);
-  border:1px solid #dfe5ec;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 10px 35px rgba(15,23,42,.12);
-}
-
-/* IMAGE SIDE */
-.product-box .product-image{
-  background:
-    radial-gradient(circle at center,#ffffff 0%,#e9eef5 100%);
-  border:1px solid #e0e6ee;
-  border-radius:14px;
-  box-shadow:inset 0 0 25px rgba(37,99,235,.05);
-}
-
-/* PRODUCT IMAGE */
-.product-box .product-image img{
-  padding:20px;
-  transition:transform .3s ease;
-}
-
-.product-box .product-image:hover img{
-  transform:scale(1.05);
-}
-
-/* DETAILS SIDE */
-.product-info h1{
-  color:#172033;
-  font-weight:800;
-}
-
-.product-info .brand{
-  background:#eff6ff;
-  color:#2563eb;
-  display:inline-block;
-  padding:4px 9px;
-  border-radius:5px;
-}
-
-/* DELIVERY BOX */
-.delivery{
-  background:linear-gradient(135deg,#eff6ff,#f8fafc);
-  border-left:4px solid #2563eb;
-  border-radius:8px;
-}
-
-/* SPECIFICATION TABLE */
-.spec-table{
-  overflow:hidden;
-  border-radius:8px;
-}
-
-.spec-table td{
-  border-color:#e2e8f0;
-}
-
-.spec-table td:first-child{
-  background:#f1f5f9;
-  color:#334155;
-}
-
-/* DETAILS BUTTONS */
-.cart-btn{
-  background:#ffd814 !important;
-}
-
-.buy-btn{
-  background:#ff9900 !important;
-}
-
-.back-btn{
-  background:linear-gradient(135deg,#2563eb,#1d4ed8) !important;
-}
-
-
-/* MOBILE */
-@media(max-width:700px){
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .product,
-  .product-card{
-    padding:9px;
-    border-radius:12px;
-  }
-
-  .product .product-image,
-  .product-card .product-image{
-    height:150px;
-  }
-
-  .product h3,
-  .product-card h3{
-    font-size:15px;
-  }
-
-  .product .price,
-  .product-card .price{
-    font-size:19px;
+  .price{
+    font-size:17px;
   }
 
   .product-buttons{
     flex-direction:column;
   }
 
-}
-/* =====================================================
-   NOVA POWER TOOLS - BRAND COLOR THEME
-   Dark Navy + Electric Blue + Yellow
-===================================================== */
-
-/* MAIN WEBSITE BACKGROUND */
-body{
-  background:
-    radial-gradient(circle at 20% 10%, rgba(37,99,235,.18), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(255,176,0,.12), transparent 28%),
-    linear-gradient(135deg,#0b1220 0%,#111827 45%,#172033 100%);
-  color:#ffffff;
-}
-
-/* PRODUCT SECTION */
-.products-section,
-.products-container{
-  background:transparent !important;
-}
-
-/* PRODUCT CARDS */
-.product,
-.product-card{
-  background:linear-gradient(
-    145deg,
-    #172033 0%,
-    #1e293b 55%,
-    #111827 100%
-  ) !important;
-
-  border:1px solid rgba(255,255,255,.12) !important;
-  border-radius:16px;
-  box-shadow:
-    0 8px 25px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.05);
-
-  color:white;
-  transition:all .3s ease;
-}
-
-/* CARD HOVER */
-.product:hover,
-.product-card:hover{
-  transform:translateY(-7px);
-  border-color:#2563eb !important;
-
-  box-shadow:
-    0 15px 35px rgba(37,99,235,.28),
-    0 5px 15px rgba(0,0,0,.4);
-}
-
-/* PRODUCT IMAGE BACKGROUND */
-.product .product-image,
-.product-card .product-image{
-  background:
-    linear-gradient(
-      145deg,
-      #f8fafc,
-      #e2e8f0
-    ) !important;
-
-  border-radius:12px;
-  border:2px solid rgba(255,176,0,.25);
-}
-
-/* PRODUCT NAME */
-.product h3,
-.product-card h3{
-  color:#ffffff !important;
-}
-
-/* PRODUCT LINK */
-.product-link{
-  color:#ffffff !important;
-}
-
-.product-link:hover{
-  color:#ffb000 !important;
-}
-
-/* RATING */
-.product .rating,
-.product-card .rating{
-  color:#ffb000 !important;
-}
-
-/* PRICE */
-.product .price,
-.product-card .price{
-  color:#ffb000 !important;
-  font-weight:800;
-}
-
-/* OLD PRICE */
-.product .old-price,
-.product-card .old-price{
-  color:#94a3b8 !important;
-}
-
-/* DISCOUNT */
-.product .discount,
-.product-card .discount{
-  background:#14532d !important;
-  color:#86efac !important;
-  border:1px solid #22c55e;
-}
-
-/* BUTTON AREA */
-.product-buttons button{
-  border-radius:8px;
-  font-weight:bold;
-}
-
-/* ADD TO CART */
-.product-buttons .add-cart{
-  background:#ffb000 !important;
-  color:#111827 !important;
-}
-
-.product-buttons .add-cart:hover{
-  background:#ffc233 !important;
-}
-
-/* BUY NOW */
-.product-buttons .buy{
-  background:#2563eb !important;
-  color:white !important;
-}
-
-.product-buttons .buy:hover{
-  background:#3b82f6 !important;
-}
-
-
-/* =====================================================
-   PRODUCT DETAILS PAGE
-===================================================== */
-
-.container{
-  background:transparent !important;
-}
-
-/* MAIN DETAILS BOX */
-.product-box{
-  background:
-    linear-gradient(
-      145deg,
-      #172033,
-      #1e293b
-    ) !important;
-
-  border:1px solid rgba(255,255,255,.12) !important;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.4),
-    inset 0 1px 0 rgba(255,255,255,.05);
-
-  color:white;
-}
-
-/* PRODUCT DETAILS IMAGE */
-.product-box .product-image{
-  background:
-    linear-gradient(
-      145deg,
-      #f8fafc,
-      #dbe4ee
-    ) !important;
-
-  border:2px solid rgba(255,176,0,.3);
-}
-
-/* DETAILS TITLE */
-.product-info h1{
-  color:white !important;
-}
-
-/* BRAND */
-.product-info .brand{
-  background:#172554 !important;
-  color:#60a5fa !important;
-  border:1px solid #2563eb;
-}
-
-/* RATING */
-.product-info .rating{
-  color:#ffb000 !important;
-}
-
-/* PRICE */
-.product-info .price{
-  color:#ffb000 !important;
-}
-
-/* PRICE NOTE */
-.price-note{
-  color:#cbd5e1 !important;
-}
-
-/* DELIVERY */
-.delivery{
-  background:
-    linear-gradient(
-      135deg,
-      #172554,
-      #1e293b
-    ) !important;
-
-  border-left:4px solid #2563eb;
-  color:#e2e8f0;
-}
-
-/* ABOUT */
-.about-title,
-.spec-title{
-  color:#ffffff !important;
-}
-
-/* DESCRIPTION */
-.description{
-  color:#cbd5e1 !important;
-}
-
-/* SPEC TABLE */
-.spec-table{
-  border-color:#334155;
-}
-
-.spec-table td{
-  border-color:#334155 !important;
-  color:#e2e8f0;
-}
-
-.spec-table td:first-child{
-  background:#111827 !important;
-  color:#ffb000 !important;
-}
-
-/* ADD CART */
-.cart-btn{
-  background:#ffb000 !important;
-  color:#111827 !important;
-}
-
-.cart-btn:hover{
-  background:#ffc233 !important;
-}
-
-/* BUY NOW */
-.buy-btn{
-  background:#2563eb !important;
-  color:white !important;
-}
-
-.buy-btn:hover{
-  background:#3b82f6 !important;
-}
-
-/* CONTINUE SHOPPING */
-.back-btn{
-  background:linear-gradient(
-    135deg,
-    #2563eb,
-    #1d4ed8
-  ) !important;
-
-  color:white !important;
-}
-
-
-/* =====================================================
-   SECTION HEADINGS
-===================================================== */
-
-section h2,
-.products-title,
-.section-title{
-  color:#ffffff !important;
-}
-
-section h2::after,
-.section-title::after{
-  background:#ffb000 !important;
-}
-
-
-/* =====================================================
-   SEARCH AREA
-===================================================== */
-
-.search-area input{
-  background:#1e293b !important;
-  color:white !important;
-  border:1px solid #475569 !important;
-}
-
-.search-area input::placeholder{
-  color:#94a3b8 !important;
-}
-
-
-/* =====================================================
-   CATEGORY BAR
-===================================================== */
-
-.category-bar{
-  background:#111827 !important;
-  border-top:1px solid #263244;
-  border-bottom:1px solid #263244;
-}
-
-.category-bar a{
-  color:#e2e8f0 !important;
-}
-
-.category-bar a:hover{
-  color:#ffb000 !important;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-  background:#070b12 !important;
-  border-top:2px solid #2563eb;
-}
-
-footer h3{
-  color:#ffb000 !important;
-}
-
-footer p,
-footer a{
-  color:#cbd5e1 !important;
-}
-
-footer a:hover{
-  color:#ffb000 !important;
-}
-
-
-/* MOBILE */
-@media(max-width:700px){
-
-  body{
-    background:
-      linear-gradient(
-        160deg,
-        #0b1220,
-        #172033
-      );
+  .footer-inner{
+    grid-template-columns:1fr;
   }
-
-  .product,
-  .product-card{
-    border-radius:13px;
-  }
-
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
 
-<header>
+    <a href="index.html" class="logo">
+      ⚡ Nova <span>Power Tools</span>
+    </a>
 
-  <div class="logo">
-    ⚡ Nova <span>Power Tools</span>
-  </div>
+    <div class="search">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search power tools..."
+        oninput="searchProducts()"
+      >
+      <button onclick="searchProducts()">Search</button>
+    </div>
 
-  <div class="search-area">
-
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="Search Power Tools..."
-      onkeyup="searchProducts()"
-    >
-
-    <button onclick="searchProducts()">🔍</button>
-
-  </div>
-
-  <div class="header-links">
-
-    <a href="account.html">👤 Account</a>
-
-    <a href="orders.html">📦 Orders</a>
-
-    <div
-      class="cart"
-      onclick="window.location.href='cart.html'"
-    >
-      🛒
+    <div class="header-links">
+      <a href="orders.html">Orders</a>
+      <a href="cart.html">🛒 Cart</a>
     </div>
 
   </div>
-
 </header>
 
 
-<!-- CATEGORY BAR -->
-
-<nav class="category-bar">
-
-  <button onclick="showAllProducts()">☰ All</button>
-
-  <button onclick="filterCategory('Drill')">Drill Machines</button>
-
-  <button onclick="filterCategory('Grinder')">Grinders</button>
-
-  <button onclick="filterCategory('Hammer')">Hammer Machines</button>
-
-  <button onclick="filterCategory('Cutter')">Cutters</button>
-
-  <button onclick="filterCategory('Blower')">Blowers</button>
-
-  <button onclick="filterCategory('Welding')">Welding</button>
-
-  <button onclick="filterCategory('Jig Saw')">Jig Saw</button>
-
-  <button onclick="filterCategory('Mixing Drill')">Mixing Drill</button>
-
-  <button onclick="filterCategory('Demolition Hammer')">
-    Demolition Hammer
-  </button>
-
-  <button onclick="filterCategory('Gasoline Chain Saw')">
-    Gasoline Chain Saw
-  </button>
-
-  <button onclick="filterCategory('Metal Cut Off Saw')">
-    Metal Cut Off Saw
-  </button>
-
-  <button onclick="filterCategory('Electric Trimmer')">
-    Electric Trimmer
-  </button>
-
-</nav>
-
-
-<!-- HERO -->
-
 <section class="hero">
+  <div class="hero-inner">
 
-  <div class="hero-content">
-
-    <h1>
-      Powerful Tools for
-      <span>Powerful Work</span>
-    </h1>
+    <h1>Power Tools You Can Trust</h1>
 
     <p>
-      Quality power tools, accessories and useful online tools —
-      all in one place.
+      Quality Power Tools • Genuine Parts • Fast Delivery
     </p>
 
-    <a href="#categories" class="shop-btn">
-      🛒 Shop by Category
+    <a href="#products" class="hero-btn">
+      Shop Now
     </a>
 
   </div>
-
 </section>
 
 
-<!-- CATEGORIES -->
-
-<section class="section" id="categories">
+<section class="section">
 
   <h2 class="section-title">
-    🛠️ Shop by Category
+    Categories
   </h2>
 
   <div class="categories">
 
-    <div class="category-card" onclick="filterCategory('Drill')">
-      <div class="category-icon">🔩</div>
-      <h3>Drill Machines</h3>
-    </div>
+    <div class="category" onclick="filterCategory('all')">⚡ All</div>
 
-    <div class="category-card" onclick="filterCategory('Hammer')">
-      <div class="category-icon">🔨</div>
-      <h3>Hammer Machines</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Drill')">🔩 Drill</div>
 
-    <div class="category-card" onclick="filterCategory('Grinder')">
-      <div class="category-icon">⚙️</div>
-      <h3>Grinders</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Grinder')">⚙️ Grinder</div>
 
-    <div class="category-card" onclick="filterCategory('Cutter')">
-      <div class="category-icon">✂️</div>
-      <h3>Cutter Machines</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Cutter')">✂️ Cutter</div>
 
-    <div class="category-card" onclick="filterCategory('Blower')">
-      <div class="category-icon">💨</div>
-      <h3>Blowers</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Planner')">🪚 Planner</div>
 
-    <div class="category-card" onclick="filterCategory('Welding')">
-      <div class="category-icon">🔥</div>
-      <h3>Welding Machines</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Hammer')">🔨 Hammer</div>
 
-    <div class="category-card" onclick="filterCategory('Jig Saw')">
-      <div class="category-icon">🪚</div>
-      <h3>Jig Saw</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Blower')">💨 Blower</div>
 
-    <div class="category-card" onclick="filterCategory('Mixing Drill')">
-      <div class="category-icon">🔩</div>
-      <h3>Mixing Drill</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Welder')">🔥 Welding</div>
 
-    <div class="category-card" onclick="filterCategory('Demolition Hammer')">
-      <div class="category-icon">🛠️</div>
-      <h3>Demolition Hammer</h3>
-    </div>
-
-    <div class="category-card" onclick="filterCategory('Gasoline Chain Saw')">
-      <div class="category-icon">⛓️</div>
-      <h3>Gasoline Chain Saw</h3>
-    </div>
-
-    <div class="category-card" onclick="filterCategory('Metal Cut Off Saw')">
-      <div class="category-icon">⚙️</div>
-      <h3>Metal Cut Off Saw</h3>
-    </div>
-
-    <div class="category-card" onclick="filterCategory('Electric Trimmer')">
-      <div class="category-icon">🌿</div>
-      <h3>Electric Trimmer</h3>
-    </div>
-
-    <div class="category-card" onclick="filterCategory('Parts')">
-      <div class="category-icon"><img src="spare parts.png" alt="Spare Parts"></div>
-      <h3>Parts & Accessories</h3>
-    </div>
+    <div class="category" onclick="filterCategory('Accessory')">🧰 Parts</div>
 
   </div>
 
 </section>
 
 
-<!-- RESULT -->
-
-<div class="category-result" id="categoryResult">
-
-  Showing products in:
-  <strong id="selectedCategory"></strong>
-
-</div>
-
-
-<!-- PRODUCTS -->
-
 <section class="section" id="products">
 
   <h2 class="section-title">
-    🔥 Featured Power Tools
+    Featured Products
   </h2>
 
-  <div class="products" id="productList">
+  <div class="products" id="productGrid">
 
 
-  <!-- 1 DRILL -->
+    <!-- ================= DRILLS ================= -->
 
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=AARK%20AK-10C">
-      <img src="aark-ak-10c.png" alt="AARK AK-10C">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=AARK%20AK-10C" class="product-link">
-      AARK AK-10C
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,200</div>
-  <div class="old-price">₹1,500</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('AARK AK-10C',1200)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('AARK AK-10C')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 2 DRILL -->
-
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Matrix%20MTX-DU10">
-      <img src="matrix-mtx-du10.png" alt="Matrix MTX-DU10">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Matrix%20MTX-DU10" class="product-link">
-      Matrix MTX-DU10
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,100</div>
-  <div class="old-price">₹2,625</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Matrix MTX-DU10',2100)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Matrix MTX-DU10')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 3 DRILL -->
-
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%20MID13C">
-      <img src="metro-mid13c.png" alt="METRO MID13C">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%20MID13C" class="product-link">
-      METRO MID13C
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,500</div>
-  <div class="old-price">₹1,875</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('METRO MID13C',1500)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('METRO MID13C')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 4 DRILL -->
-
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Auto%20Power%20Pro%20APP1112">
-      <img src="auto-power-pro-app1112.png" alt="Auto Power Pro APP1112">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Auto%20Power%20Pro%20APP1112" class="product-link">
-      Auto Power Pro APP1112
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,600</div>
-  <div class="old-price">₹2,000</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Auto Power Pro APP1112',1600)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Auto Power Pro APP1112')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 5 DRILL -->
-
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=VIVO%20Drill">
-      <img src="vivo-drill.png" alt="VIVO Drill">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=VIVO%20Drill" class="product-link">
-      VIVO Drill
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,400</div>
-  <div class="old-price">₹1,750</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('VIVO Drill',1400)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('VIVO Drill')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 6 DRILL -->
-
-<div class="product" data-category="Drill">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Bosch%20350W%20Drill">
-      <img src="bosch-professional-350w-drill.png" alt="Bosch Professional 350W Drill">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Bosch%20350W%20Drill" class="product-link">
-      Bosch Professional 350W Drill
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,500</div>
-  <div class="old-price">₹3,125</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Bosch 350W Drill',2500)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Bosch 350W Drill')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-    <!-- 6 GRINDER -->
-<!-- ================= GRINDERS ================= -->
-
-<!-- 1. Bosch GRINDER -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Bosch%20Grinder%20Machine">
-      <img src="grinder-machine-clean.png"
-           alt="Bosch Grinder Machine">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Bosch%20Grinder%20Machine"
-       class="product-link">
-      Bosch Grinder Machine
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,399</div>
-  <div class="old-price">₹2,999</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Bosch Grinder Machine',2399)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Bosch Grinder Machine')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 2. SILVERBLAZE -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Silverblaze%20AG-G15SA2">
-      <img src="silverblaze-ag-g15sa2.png.png"
-           alt="Silverblaze AG-G15SA2 Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Silverblaze%20AG-G15SA2"
-       class="product-link">
-      Silverblaze AG-G15SA2 Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,499</div>
-  <div class="old-price">₹3,124</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Silverblaze AG-G15SA2',2499)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Silverblaze AG-G15SA2')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 3. METRO ME-1107AG -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%20ME-1107AG">
-      <img src="metro-me-1107ag.png"
-           alt="METRO ME-1107AG Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%20ME-1107AG"
-       class="product-link">
-      METRO ME-1107AG Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,999</div>
-  <div class="old-price">₹2,499</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('METRO ME-1107AG',1999)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('METRO ME-1107AG')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 4. CROWN -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Crown%20CT13570-100">
-      <img src="crown-ct13570-100.png"
-           alt="CROWN CT13570-100 Professional Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Crown%20CT13570-100"
-       class="product-link">
-      CROWN CT13570-100 Professional Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹3,199</div>
-  <div class="old-price">₹3,999</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Crown CT13570-100',3199)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Crown CT13570-100')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 5. DONGCHENG -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=DongCheng%20DSM08-100">
-      <img src="dongcheng-dsm08-100.png"
-           alt="DongCheng DSM08-100 Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=DongCheng%20DSM08-100"
-       class="product-link">
-      DongCheng DSM08-100 Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,499</div>
-  <div class="old-price">₹3,124</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('DongCheng DSM08-100',2499)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('DongCheng DSM08-100')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 6. ELEPHANT -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Elephant%20ECO%20DW801">
-      <img src="elephant-eco-dw801.png"
-           alt="Elephant ECO DW801 Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Elephant%20ECO%20DW801"
-       class="product-link">
-      Elephant ECO DW801 Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,099</div>
-  <div class="old-price">₹2,624</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Elephant ECO DW801',2099)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Elephant ECO DW801')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 7. M&T -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=M%26T%20Angle%20Grinder">
-      <img src="mt-angle-grinder.png"
-           alt="M&T Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=M%26T%20Angle%20Grinder"
-       class="product-link">
-      M&T Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,299</div>
-  <div class="old-price">₹1,624</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('M&T Angle Grinder',1299)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('M&T Angle Grinder')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 8. CAMRON -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Camron%20Pro%20Grinder">
-      <img src="camron-pro-grinder.png"
-           alt="Camron Pro Angle Grinder">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Camron%20Pro%20Grinder"
-       class="product-link">
-      Camron Pro Angle Grinder
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,699</div>
-  <div class="old-price">₹3,374</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('Camron Pro Grinder',2699)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('Camron Pro Grinder')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 9. HITMAN -->
-
-<div class="product" data-category="Grinder">
-
-  <div class="product-image">
-    <a href="product-details.html?product=HitMan%20Grinder">
-      <img src="hitman-grinder.png"
-           alt="HitMan Professional Power Tool">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=HitMan%20Grinder"
-       class="product-link">
-      HitMan Professional Power Tool
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,199</div>
-  <div class="old-price">₹1,499</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart"
-      onclick="addToCart('HitMan Grinder',1199)">
-      Add to Cart
-    </button>
-
-    <button class="buy"
-      onclick="buyNow('HitMan Grinder')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-```
-
-
-    <!-- 7 HAMMER -->
-
-    <div class="product" data-category="Hammer">
+    <div class="product" data-category="Drill" data-name="AARK AK-10C">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=Electric%20Hammer%20Machine">
-          🔨
+        <a href="product-details.html?product=AARK%20AK-10C">
+          <img src="aark-ak10c.jpg" alt="AARK AK-10C">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=Electric%20Hammer%20Machine"
-          class="product-link"
-        >
-          Electric Hammer Machine
-        </a>
-      </h3>
-
-      <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹2,499</div>
-      <div class="old-price">₹3,199</div>
-      <div class="discount">22% off</div>
-
-      <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('Electric Hammer Machine',2499)"
-        >
-          Add to Cart
-        </button>
-
-        <button
-          class="buy"
-          onclick="buyNow('Electric Hammer Machine')"
-        >
-          Buy Now
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- 8 CUTTER -->
-<!-- ================= CUTTER PRODUCTS ================= -->
-
-<!-- 1. POWER TOUCH -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Power%20Touch%20PTCM4SB">
-      <img src="power-touch-ptcm4sb.png" alt="Power Touch PTCM4SB">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Power%20Touch%20PTCM4SB" class="product-link">
-      Power Touch PTCM4SB
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,499</div>
-  <div class="old-price">₹3,124</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Power Touch PTCM4SB',2499)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Power Touch PTCM4SB')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 2. MARK PRO -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Mark%20Pro%20MK-4SA">
-      <img src="mark-pro-mk4sa.png" alt="Mark Pro MK-4SA">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Mark%20Pro%20MK-4SA" class="product-link">
-      I Mark Pro MK-4SA
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,999</div>
-  <div class="old-price">₹2,499</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Mark Pro MK-4SA',1999)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Mark Pro MK-4SA')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-<!-- 3. METRO 11001 -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%2011001">
-      <img src="metro-11001.png" alt="METRO 11001">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%2011001" class="product-link">
-      METRO 11001
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,799</div>
-  <div class="old-price">₹2,249</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('METRO 11001',1799)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('METRO 11001')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-<!-- 4. TANGER -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Tanger%20TG-CM4SA">
-      <img src="tanger-tg-cm4sa.png" alt="Tanger TG-CM4SA">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Tanger%20TG-CM4SA" class="product-link">
-      Tanger TG-CM4SA
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,899</div>
-  <div class="old-price">₹2,374</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Tanger TG-CM4SA',1899)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Tanger TG-CM4SA')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 5. METRO ME-11013 -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%20ME-11013">
-      <img src="metro-me-11013.png" alt="METRO ME-11013">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%20ME-11013" class="product-link">
-      METRO ME-11013
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,799</div>
-  <div class="old-price">₹3,499</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('METRO ME-11013',2799)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('METRO ME-11013')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 6. SEVEN STAR -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Seven%20Star%20ST-110SB">
-      <img src="seven-star-st110sb.png" alt="Seven Star ST-110SB">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Seven%20Star%20ST-110SB" class="product-link">
-      Seven Star ST-110SB
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,699</div>
-  <div class="old-price">₹3,374</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Seven Star ST-110SB',2699)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Seven Star ST-110SB')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 7. MORRIS -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Morris%20M-4SB">
-      <img src="morris-m4sb.png" alt="Morris M-4SB">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Morris%20M-4SB" class="product-link">
-      Morris M-4SB
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,499</div>
-  <div class="old-price">₹3,124</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Morris M-4SB',2499)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Morris M-4SB')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 8. AUTO POWER PRO -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=Auto%20Power%20Pro%20AP1112">
-      <img src="auto-power-pro-ap1112.png" alt="Auto Power Pro AP1112">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=Auto%20Power%20Pro%20AP1112" class="product-link">
-      Auto Power Pro AP1112
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,799</div>
-  <div class="old-price">₹2,249</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('Auto Power Pro AP1112',1799)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('Auto Power Pro AP1112')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 9. METRO 11005 -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%2011005">
-      <img src="metro-11005.png" alt="METRO 11005">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%2011005" class="product-link">
-      METRO 11005
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹2,999</div>
-  <div class="old-price">₹3,749</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('METRO 11005',2999)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('METRO 11005')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 10. METRO CM4SA -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=METRO%20CM4SA">
-      <img src="metro-cm4sa.png" alt="METRO CM4SA">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=METRO%20CM4SA" class="product-link">
-      METRO CM4SA
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,899</div>
-  <div class="old-price">₹2,374</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('METRO CM4SA',1899)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('METRO CM4SA')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-
-
-<!-- 11. HITMAN CM4SA -->
-<div class="product" data-category="Cutter">
-
-  <div class="product-image">
-    <a href="product-details.html?product=HITMAN%20CM4SA">
-      <img src="hitman-cm4sa.png" alt="HITMAN CM4SA">
-    </a>
-  </div>
-
-  <h3>
-    <a href="product-details.html?product=HITMAN%20CM4SA" class="product-link">
-      HITMAN CM4SA
-    </a>
-  </h3>
-
-  <div class="rating">⭐⭐⭐⭐⭐</div>
-  <div class="price">₹1,799</div>
-  <div class="old-price">₹2,249</div>
-  <div class="discount">20% off</div>
-
-  <div class="product-buttons">
-    <button class="add-cart" onclick="addToCart('HITMAN CM4SA',1799)">
-      Add to Cart
-    </button>
-
-    <button class="buy" onclick="buyNow('HITMAN CM4SA')">
-      Buy Now
-    </button>
-  </div>
-
-</div>
-    <!-- 9 BLOWER -->
-
-    <div class="product" data-category="Blower">
-
-      <div class="product-image">
-
-        <a href="product-details.html?product=METRO%20Blower">
-          <img src="metro_blower.jpg" alt="Metro Blower">
-        </a>
-
-      </div>
-
-      <h3>
-        <a
-          href="product-details.html?product=METRO%20Blower"
-          class="product-link"
-        >
-          METRO Blower
+        <a href="product-details.html?product=AARK%20AK-10C">
+          AARK AK-10C
         </a>
       </h3>
 
@@ -2318,713 +460,767 @@ footer a:hover{
       <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('METRO Blower',1200)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('AARK AK-10C',1200)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('METRO Blower')"
-        >
+        <button class="buy"
+          onclick="buyNow('AARK AK-10C')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 10 WELDING -->
-
-    <div class="product" data-category="Welding">
+    <div class="product" data-category="Drill" data-name="Matrix MTX-DU10">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=Welding%20Machine">
-          🔥
+        <a href="product-details.html?product=Matrix%20MTX-DU10">
+          <img src="matrix-mtx-du10.jpg" alt="Matrix MTX-DU10">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=Welding%20Machine"
-          class="product-link"
-        >
-          Welding Machine
+        <a href="product-details.html?product=Matrix%20MTX-DU10">
+          Matrix MTX-DU10
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹3,499</div>
-      <div class="old-price">₹4,499</div>
-      <div class="discount">22% off</div>
+      <div class="price">₹2,100</div>
+      <div class="old-price">₹2,625</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('Welding Machine',3499)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('Matrix MTX-DU10',2100)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('Welding Machine')"
-        >
+        <button class="buy"
+          onclick="buyNow('Matrix MTX-DU10')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 11 JIG SAW -->
-
-    <div class="product" data-category="Jig Saw">
+    <div class="product" data-category="Drill" data-name="METRO MID13C">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=Auto%20Power%20Pro%20APP1170">
-          <img src="glass sucker.png" alt="Glass Sucker">
+        <a href="product-details.html?product=METRO%20MID13C">
+          <img src="metro-mid13c.jpg" alt="METRO MID13C">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=Auto%20Power%20Pro%20APP1170"
-          class="product-link"
-        >
-          Auto Power Pro APP1170
+        <a href="product-details.html?product=METRO%20MID13C">
+          METRO MID13C
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹2,299</div>
-      <div class="discount">New</div>
+      <div class="price">₹1,500</div>
+      <div class="old-price">₹1,875</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('Auto Power Pro APP1170',2299)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('METRO MID13C',1500)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('Auto Power Pro APP1170')"
-        >
+        <button class="buy"
+          onclick="buyNow('METRO MID13C')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 12 MIXING DRILL -->
-
-    <div class="product" data-category="Mixing Drill">
+    <div class="product" data-category="Drill" data-name="Auto Power Pro APP1112">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=METRO%20M-EM16B">
-          <img src="mixing_drill_metro.jpg" alt="Mixing Drill Metro">
+        <a href="product-details.html?product=Auto%20Power%20Pro%20APP1112">
+          <img src="auto-power-drill.jpg" alt="Auto Power Pro APP1112">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=METRO%20M-EM16B"
-          class="product-link"
-        >
-          METRO M-EM16B
+        <a href="product-details.html?product=Auto%20Power%20Pro%20APP1112">
+          Auto Power Pro APP1112
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹2,799</div>
-      <div class="discount">New</div>
+      <div class="price">₹1,600</div>
+      <div class="old-price">₹2,000</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('METRO M-EM16B',2799)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('Auto Power Pro APP1112',1600)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('METRO M-EM16B')"
-        >
+        <button class="buy"
+          onclick="buyNow('Auto Power Pro APP1112')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 13 DEMOLITION HAMMER -->
-
-    <div class="product" data-category="Demolition Hammer">
+    <div class="product" data-category="Drill" data-name="VIVO Drill">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=METRO%2020MM%20Rotary%20Hammer">
-          <img src="demolition_hammer_force_master.jpg" alt="Demolition Hammer Force Master">
+        <a href="product-details.html?product=VIVO%20Drill">
+          <img src="vivo-drill.jpg" alt="VIVO Drill">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=METRO%2020MM%20Rotary%20Hammer"
-          class="product-link"
-        >
-          METRO 20MM Rotary Hammer
+        <a href="product-details.html?product=VIVO%20Drill">
+          VIVO Drill
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹4,999</div>
-      <div class="discount">New</div>
+      <div class="price">₹1,400</div>
+      <div class="old-price">₹1,750</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('METRO 20MM Rotary Hammer',4999)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('VIVO Drill',1400)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('METRO 20MM Rotary Hammer')"
-        >
+        <button class="buy"
+          onclick="buyNow('VIVO Drill')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 14 CHAIN SAW -->
-
-    <div class="product" data-category="Gasoline Chain Saw">
+    <div class="product" data-category="Drill" data-name="Bosch 350W Drill">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=METRO%20M-3106">
-          <img src="chain saw.png" alt="Chain Saw">
+        <a href="product-details.html?product=Bosch%20350W%20Drill">
+          <img src="bosch-drill.jpg" alt="Bosch Professional 350W Drill">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=METRO%20M-3106"
-          class="product-link"
-        >
-          METRO M-3106 Gasoline Chain Saw
+        <a href="product-details.html?product=Bosch%20350W%20Drill">
+          Bosch Professional 350W Drill
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹7,499</div>
-      <div class="discount">New</div>
+      <div class="price">₹2,500</div>
+      <div class="old-price">₹3,125</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('METRO M-3106',7499)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('Bosch 350W Drill',2500)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('METRO M-3106')"
-        >
+        <button class="buy"
+          onclick="buyNow('Bosch 350W Drill')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 15 METAL CUT OFF -->
+    <!-- ================= GRINDERS ================= -->
 
-    <div class="product" data-category="Metal Cut Off Saw">
+    <div class="product" data-category="Grinder" data-name="Heavy Duty Grinder Machine">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=BOSCH%20GCO%202000">
-          <img src="metal cutt off saw.png" alt="Metal Cut Off Saw">
+        <a href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine">
+          <img src="grinder-machine-clean.png"
+               alt="Heavy Duty Grinder Machine">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=BOSCH%20GCO%202000"
-          class="product-link"
-        >
-          BOSCH GCO 2000
+        <a href="product-details.html?product=Heavy%20Duty%20Grinder%20Machine">
+          Heavy Duty Grinder Machine
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">₹8,999</div>
-      <div class="discount">New</div>
+      <div class="price">₹2,399</div>
+      <div class="old-price">₹2,999</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('BOSCH GCO 2000',8999)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('Heavy Duty Grinder Machine',2399)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('BOSCH GCO 2000')"
-        >
+        <button class="buy"
+          onclick="buyNow('Heavy Duty Grinder Machine')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
 
-    <!-- 16 TRIMMER -->
-
-    <div class="product" data-category="Electric Trimmer">
+    <div class="product" data-category="Grinder" data-name="Silverblaze AG-G15SA2">
 
       <div class="product-image">
-
-        <a href="product-details.html?product=METRO%20ME-11071ET">
-          🌿
+        <a href="product-details.html?product=Silverblaze%20AG-G15SA2">
+          <img src="silverblaze-ag-g15sa2.png"
+               alt="Silverblaze AG-G15SA2">
         </a>
-
       </div>
 
       <h3>
-        <a
-          href="product-details.html?product=METRO%20ME-11071ET"
-          class="product-link"
-        >
-          METRO ME-11071ET
+        <a href="product-details.html?product=Silverblaze%20AG-G15SA2">
+          Silverblaze AG-G15SA2 Angle Grinder
         </a>
       </h3>
 
       <div class="rating">⭐⭐⭐⭐⭐</div>
       <div class="price">₹2,499</div>
-      <div class="discount">New</div>
+      <div class="old-price">₹3,125</div>
+      <div class="discount">20% off</div>
 
       <div class="product-buttons">
-
-        <button
-          class="add-cart"
-          onclick="addToCart('METRO ME-11071ET',2499)"
-        >
+        <button class="add-cart"
+          onclick="addToCart('Silverblaze AG-G15SA2',2499)">
           Add to Cart
         </button>
 
-        <button
-          class="buy"
-          onclick="buyNow('METRO ME-11071ET')"
-        >
+        <button class="buy"
+          onclick="buyNow('Silverblaze AG-G15SA2')">
           Buy Now
         </button>
-
       </div>
 
     </div>
 
+
+    <div class="product" data-category="Grinder" data-name="METRO ME-1107AG">
+
+      <div class="product-image">
+        <a href="product-details.html?product=METRO%20ME-1107AG">
+          <img src="metro-me-1107ag.png"
+               alt="METRO ME-1107AG">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=METRO%20ME-1107AG">
+          METRO ME-1107AG Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹1,999</div>
+      <div class="old-price">₹2,499</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('METRO ME-1107AG',1999)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('METRO ME-1107AG')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="Crown CT13570-100">
+
+      <div class="product-image">
+        <a href="product-details.html?product=Crown%20CT13570-100">
+          <img src="crown-ct13570-100.png"
+               alt="CROWN CT13570-100">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=Crown%20CT13570-100">
+          CROWN CT13570-100 Professional Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹3,199</div>
+      <div class="old-price">₹3,999</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('Crown CT13570-100',3199)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('Crown CT13570-100')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="DongCheng DSM08-100">
+
+      <div class="product-image">
+        <a href="product-details.html?product=DongCheng%20DSM08-100">
+          <img src="dongcheng-dsm08-100.png"
+               alt="DongCheng DSM08-100">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=DongCheng%20DSM08-100">
+          DongCheng DSM08-100 Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹2,499</div>
+      <div class="old-price">₹3,124</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('DongCheng DSM08-100',2499)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('DongCheng DSM08-100')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="Elephant ECO DW801">
+
+      <div class="product-image">
+        <a href="product-details.html?product=Elephant%20ECO%20DW801">
+          <img src="elephant-eco-dw801.png"
+               alt="Elephant ECO DW801">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=Elephant%20ECO%20DW801">
+          Elephant ECO DW801 Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹2,099</div>
+      <div class="old-price">₹2,624</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('Elephant ECO DW801',2099)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('Elephant ECO DW801')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="M&T Angle Grinder">
+
+      <div class="product-image">
+        <a href="product-details.html?product=M%26T%20Angle%20Grinder">
+          <img src="mt-angle-grinder.png"
+               alt="M&T Angle Grinder">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=M%26T%20Angle%20Grinder">
+          M&T Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹1,299</div>
+      <div class="old-price">₹1,624</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('M&T Angle Grinder',1299)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('M&T Angle Grinder')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="Camron Pro Grinder">
+
+      <div class="product-image">
+        <a href="product-details.html?product=Camron%20Pro%20Grinder">
+          <img src="camron-pro-grinder.png"
+               alt="Camron Pro Grinder">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=Camron%20Pro%20Grinder">
+          Camron Pro Angle Grinder
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹2,699</div>
+      <div class="old-price">₹3,374</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('Camron Pro Grinder',2699)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('Camron Pro Grinder')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="product" data-category="Grinder" data-name="HitMan Grinder">
+
+      <div class="product-image">
+        <a href="product-details.html?product=HitMan%20Grinder">
+          <img src="hitman-grinder.png"
+               alt="HitMan Grinder">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=HitMan%20Grinder">
+          HitMan Professional Power Tool
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹1,199</div>
+      <div class="old-price">₹1,499</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('HitMan Grinder',1199)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('HitMan Grinder')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- ================= PLANNER ================= -->
+
+    <div class="product" data-category="Planner" data-name="HitMan Planer">
+
+      <div class="product-image">
+        <a href="product-details.html?product=HitMan%20Planer">
+          <img src="03_planner.jpg" alt="HitMan Planer">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=HitMan%20Planer">
+          HitMan Planer
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹1,999</div>
+      <div class="old-price">₹2,499</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('HitMan Planer',1999)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('HitMan Planer')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- ================= GLASS SUCKER ================= -->
+
+    <div class="product" data-category="Accessory" data-name="Two Claw Glass Sucker">
+
+      <div class="product-image">
+        <a href="product-details.html?product=Two%20Claw%20Glass%20Sucker">
+          <img src="glass sucker.png" alt="Two Claw Glass Sucker">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=Two%20Claw%20Glass%20Sucker">
+          Two Claw Glass Sucker
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹699</div>
+      <div class="discount">28% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('Two Claw Glass Sucker',499)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('Two Claw Glass Sucker')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- ================= CHAIN SAW ================= -->
+
+    <div class="product" data-category="Accessory" data-name="Chain Saw">
+
+      <div class="product-image">
+        <a href="product-details.html?product=Chain%20Saw">
+          <img src="chain saw.png" alt="Chain Saw">
+        </a>
+      </div>
+
+      <h3>
+        <a href="product-details.html?product=Chain%20Saw">
+          Chain Saw
+        </a>
+      </h3>
+
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <div class="price">₹2,999</div>
+      <div class="old-price">₹3,749</div>
+      <div class="discount">20% off</div>
+
+      <div class="product-buttons">
+        <button class="add-cart"
+          onclick="addToCart('Chain Saw',2999)">
+          Add to Cart
+        </button>
+
+        <button class="buy"
+          onclick="buyNow('Chain Saw')">
+          Buy Now
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div id="noResults" class="no-results">
+    No product found.
   </div>
 
 </section>
 
 
-<!-- ONLINE TOOLS -->
+<footer class="footer">
 
-<section class="section tools-section">
-
-  <h2 class="section-title">
-    🛠️ Free Online Tools
-  </h2>
-
-  <div class="tools">
-
-    <div class="tool">
-      <div class="tool-icon">🔢</div>
-      <h3>Word Counter</h3>
-      <p>Count words and characters quickly.</p>
-      <button onclick="location.href='word-counter.html'">
-        Open Tool
-      </button>
-    </div>
-
-    <div class="tool">
-      <div class="tool-icon">🔐</div>
-      <h3>Password Generator</h3>
-      <p>Create strong and secure passwords.</p>
-      <button onclick="location.href='password-generator.html'">
-        Open Tool
-      </button>
-    </div>
-
-    <div class="tool">
-      <div class="tool-icon">📱</div>
-      <h3>QR Code Generator</h3>
-      <p>Create QR codes from text or links.</p>
-      <button onclick="location.href='qr-generator.html'">
-        Open Tool
-      </button>
-    </div>
-
-    <div class="tool">
-      <div class="tool-icon">🔗</div>
-      <h3>URL Encoder</h3>
-      <p>Encode and decode URLs instantly.</p>
-      <button onclick="location.href='url-encoder.html'">
-        Open Tool
-      </button>
-    </div>
-
-    <div class="tool">
-      <div class="tool-icon">🔄</div>
-      <h3>Unit Converter</h3>
-      <p>Convert common units quickly.</p>
-      <button onclick="location.href='unit-converter.html'">
-        Open Tool
-      </button>
-    </div>
-
-    <div class="tool">
-      <div class="tool-icon">📝</div>
-      <h3>Text Formatter</h3>
-      <p>Format and transform your text.</p>
-      <button onclick="location.href='text-formatter.html'">
-        Open Tool
-      </button>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="section about">
-
-  <h2 class="section-title">
-    About Nova Power Tools
-  </h2>
-
-  <p>
-    Nova Power Tools provides quality power tools,
-    accessories and useful free online tools in one
-    convenient place.
-  </p>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-grid">
+  <div class="footer-inner">
 
     <div>
-      <h3>Nova Power Tools</h3>
-      <p>Quality tools for professional work.</p>
+      <h3>⚡ Nova Power Tools</h3>
+      <p>
+        Quality power tools and genuine spare parts.
+      </p>
     </div>
 
     <div>
-      <h3>Shop</h3>
-      <p>Drill Machines</p>
-      <p>Grinders</p>
-      <p>Hammer Machines</p>
-      <p>Welding Machines</p>
+      <h3>Customer Support</h3>
+      <p>
+        WhatsApp: 7355521660<br>
+        Phone: 7355521660<br>
+        Email: safiyanvaseem436@gmail.com
+      </p>
     </div>
 
     <div>
-      <h3>Online Tools</h3>
-      <p>Word Counter</p>
-      <p>QR Generator</p>
-      <p>Password Generator</p>
+      <h3>Delivery</h3>
+      <p>
+        Prayagraj and Banaras/Varanasi selected areas.<br>
+        Normal delivery: approximately 1 day.
+      </p>
     </div>
-
-    <div>
-      <h3>Help</h3>
-      <p>Contact Us</p>
-      <p>Delivery Information</p>
-      <p>Returns & Replacement</p>
-    </div>
-
-  </div>
-
-  <div class="copyright">
-
-    <p>© 2026 Nova Power Tools</p>
-    <p>Free • Fast • Simple</p>
 
   </div>
 
 </footer>
 
 
-<!-- CART MESSAGE -->
-
-<div id="cartMessage">
-  Added to cart! 🛒
-</div>
-
-
 <script>
 
-/* SEARCH */
+function getCart(){
+  try{
+    return JSON.parse(localStorage.getItem("novaCart")) || [];
+  }catch(e){
+    return [];
+  }
+}
+
+function saveCart(cart){
+  localStorage.setItem("novaCart",JSON.stringify(cart));
+}
+
+function addToCart(name,price){
+
+  const cart=getCart();
+
+  const existing=cart.find(item=>item.name===name);
+
+  if(existing){
+    existing.quantity=(existing.quantity || 1)+1;
+  }else{
+    cart.push({
+      name:name,
+      price:Number(price),
+      quantity:1
+    });
+  }
+
+  saveCart(cart);
+
+  alert(name + " added to cart.");
+}
+
+function buyNow(name){
+
+  window.location.href =
+    "product-details.html?product=" +
+    encodeURIComponent(name);
+}
 
 function searchProducts(){
 
-  let input =
-    document
-      .getElementById("searchBox")
-      .value
-      .toLowerCase()
-      .trim();
+  const input=
+    document.getElementById("searchInput").value
+    .trim()
+    .toLowerCase();
 
-  let products =
+  const products=
     document.querySelectorAll(".product");
-
-  products.forEach(function(product){
-
-    let text =
-      product.innerText.toLowerCase();
-
-    if(text.includes(input)){
-      product.style.display="";
-    }else{
-      product.style.display="none";
-    }
-
-  });
-
-}
-
-
-/* CATEGORY FILTER */
-
-function filterCategory(category){
-
-  let products =
-    document.querySelectorAll(".product");
-
-  let cards =
-    document.querySelectorAll(".category-card");
-
-  let result =
-    document.getElementById("categoryResult");
-
-  let selected =
-    document.getElementById("selectedCategory");
-
-
-  cards.forEach(function(card){
-    card.classList.remove("active");
-  });
-
 
   let found=0;
 
+  products.forEach(product=>{
 
-  products.forEach(function(product){
+    const name=
+      (product.dataset.name || "").toLowerCase();
 
-    if(product.dataset.category===category){
+    const category=
+      (product.dataset.category || "").toLowerCase();
 
-      product.style.display="";
-      found++;
+    const match=
+      !input ||
+      name.includes(input) ||
+      category.includes(input);
 
-    }else{
+    product.style.display=
+      match ? "" : "none";
 
-      product.style.display="none";
-
-    }
+    if(match) found++;
 
   });
 
+  document.getElementById("noResults").style.display=
+    found ? "none" : "block";
+}
 
-  selected.innerText =
-    category +
-    " (" +
-    found +
-    " product" +
-    (found===1 ? "" : "s") +
-    ")";
+function filterCategory(category){
 
+  const products=
+    document.querySelectorAll(".product");
 
-  result.style.display="block";
+  let found=0;
 
+  products.forEach(product=>{
+
+    const match=
+      category==="all" ||
+      product.dataset.category===category;
+
+    product.style.display=
+      match ? "" : "none";
+
+    if(match) found++;
+
+  });
+
+  document.getElementById("noResults").style.display=
+    found ? "none" : "block";
 
   document
     .getElementById("products")
     .scrollIntoView({
       behavior:"smooth"
     });
-
 }
-
-
-/* SHOW ALL */
-
-function showAllProducts(){
-
-  document
-    .querySelectorAll(".product")
-    .forEach(function(product){
-
-      product.style.display="";
-
-    });
-
-
-  document
-    .getElementById("categoryResult")
-    .style.display="none";
-
-}
-
-
-/* ADD TO CART */
-
-function addToCart(productName,price){
-
-  let cart =
-    JSON.parse(
-      localStorage.getItem("novaCart")
-    ) || [];
-
-
-  let existing =
-    cart.find(function(item){
-
-      return item.name===productName;
-
-    });
-
-
-  if(existing){
-
-    existing.quantity += 1;
-
-  }else{
-
-    cart.push({
-
-      name:productName,
-      price:price,
-      icon:"🛠️",
-      quantity:1
-
-    });
-
-  }
-
-
-  localStorage.setItem(
-    "novaCart",
-    JSON.stringify(cart)
-  );
-
-
-  let message =
-    document.getElementById("cartMessage");
-
-
-  message.innerText =
-    productName +
-    " added to cart! 🛒";
-
-
-  message.style.display="block";
-
-
-  setTimeout(function(){
-
-    message.style.display="none";
-
-  },2000);
-
-}
-
-
-/* BUY NOW */
-
-function buyNow(productName){
-
-  window.location.href =
-    "checkout.html?product=" +
-    encodeURIComponent(productName);
-
-}
-  /* =========================
-   MAKE ALL PRODUCTS CLICKABLE
-========================= */
-
-document.querySelectorAll(".product").forEach(function(product){
-
-  product.style.cursor = "pointer";
-
-  product.addEventListener("click", function(event){
-
-    /* Buttons par card click nahi chalega */
-    if(
-      event.target.closest("button") ||
-      event.target.closest("a")
-    ){
-      return;
-    }
-
-    let nameElement = product.querySelector("h3");
-
-    if(!nameElement){
-      return;
-    }
-
-    let productName =
-      nameElement.innerText.trim();
-
-    window.location.href =
-      "product-details.html?product=" +
-      encodeURIComponent(productName);
-
-  });
-
-});
 
 </script>
 
 </body>
 </html>
+```
