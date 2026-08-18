@@ -206,14 +206,72 @@ header{
 .category-card h3{
   font-size:16px;
 }
-.category-card img {
-  width: 50px !important;
-  height: 50px !important;
-  max-width: 50px !important;
-  max-height: 50px !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 auto 10px !important;
+/* ================= SHOP BY CATEGORY FIX ================= */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:10px;
+  align-items:stretch;
+}
+
+.category-card{
+  box-sizing:border-box;
+  background:white;
+  padding:12px 8px;
+  text-align:center;
+  border-radius:10px;
+  cursor:pointer;
+  border:2px solid #dbe3f0;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  min-height:145px;
+  height:145px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.category-card:hover{
+  transform:translateY(-3px);
+  border-color:#ffb000;
+}
+
+.category-card.active{
+  border-color:#2563eb;
+  background:#eff6ff;
+}
+
+/* CATEGORY IMAGE */
+
+.category-card img{
+  width:90px !important;
+  height:90px !important;
+  max-width:90px !important;
+  max-height:90px !important;
+  object-fit:contain !important;
+  display:block !important;
+  margin:0 auto 6px !important;
+}
+
+/* Agar category-icon class bhi lagi ho */
+
+.category-icon{
+  width:90px !important;
+  height:90px !important;
+  max-width:90px !important;
+  max-height:90px !important;
+  object-fit:contain !important;
+  display:block !important;
+  margin:0 auto 6px !important;
+  font-size:initial !important;
+}
+
+.category-card h3{
+  font-size:14px;
+  margin:3px 0 0;
+  line-height:1.2;
 }
 /* RESULT */
 
