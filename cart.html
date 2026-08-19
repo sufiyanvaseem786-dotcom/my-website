@@ -321,9 +321,13 @@ function displayCart(){
 
       <div class="cart-item">
 
-        <div class="item-image">
-          ${item.icon}
-        </div>
+       <div class="cart-image">
+  ${
+    item.image
+      ? `<img src="${item.image}" alt="${item.name}">`
+      : `<span>${item.icon || "🛠️"}</span>`
+  }
+</div>
 
         <div class="item-info">
 
