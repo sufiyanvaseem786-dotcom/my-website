@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -434,9 +433,30 @@ onAuthStateChanged(auth,function(user){
 });
 
 
-let cart =
-  JSON.parse(localStorage.getItem("novaCart")) || [];
+let cart = [];
 
+const buyNowData =
+  JSON.parse(
+    localStorage.getItem("novaBuyNow")
+  );
+
+if(buyNowData && buyNowData.name){
+
+  cart = [{
+    name: buyNowData.name,
+    price: 0,
+    quantity: buyNowData.quantity || 1,
+    icon: "🛠️"
+  }];
+
+}else{
+
+  cart =
+    JSON.parse(
+      localStorage.getItem("novaCart")
+    ) || [];
+
+}
 
 function showOrder(){
 
