@@ -765,8 +765,19 @@ function displayCart(){
           </button>
 
         </div>
+        function openProduct(index){
 
+  const item = cart[index];
 
+  if(!item || !item.name){
+    return;
+  }
+
+  window.location.href =
+    "product-details.html?product=" +
+    encodeURIComponent(item.name);
+
+}
         <!-- ITEM TOTAL -->
 
         <div class="item-total">
