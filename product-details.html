@@ -1536,19 +1536,70 @@ const params =
   new URLSearchParams(
     window.location.search
   );
+const params = new URLSearchParams(
+  window.location.search
+);
 
 const productKey =
   params.get("product");
 
+let p = null;
 
-/* =====================================================
-   GET PRODUCT
-===================================================== */
+/* Pehle direct key se product check */
+if (products[productKey]) {
 
-const p =
-  products[productKey];
+  p = products[productKey];
 
+}
 
+/* Agar direct key nahi mili,
+   to product ke name se search karo */
+else if (productKey) {
+
+  const searchName =
+    decodeURIComponent(productKey)
+      .trim()
+      .toLowerCase();
+
+  const productKeys =
+    Object.keys(products);
+
+  for(let i = 0; i < productKeys.length; i++){
+
+    const key =
+      productKeys[i];
+
+    const item =
+      products[key];
+
+    if(!item){
+      continue;
+    }
+
+    const itemName =
+      String(item.name || "")
+        .trim()
+        .toLowerCase();
+
+    const keyName =
+      String(key)
+        .trim()
+        .toLowerCase();
+
+    if(
+      itemName === searchName ||
+      keyName === searchName
+    ){
+
+      p = item;
+
+      break;
+
+    }
+
+  }
+
+}
 /* =====================================================
    PRICE / DISCOUNT
 ===================================================== */
