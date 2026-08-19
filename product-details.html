@@ -762,14 +762,772 @@ header{
    ...all products...
 
    };
-
-   hai, to usko DELETE MAT KARNA.
-
-   Neeche ka code usi existing products object ko use
-   karega.
+/* =====================================================
+   NOVA POWER TOOLS
+   PRODUCT DATABASE
 ===================================================== */
 
+const products = {
+/* ================= DRILLS ================= */
 
+"AARK AK-10C":{
+  name:"AARK AK-10C 600W Electric Drill",
+  brand:"AARK",
+  category:"Drill Machine",
+  model:"AK-10C",
+  image:"aark-ak-10c.png",
+  price:1200,
+  oldPrice:1500,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"AARK",
+    "Model":"AK-10C",
+    "Type":"Electric Drill",
+    "Power":"600W",
+    "Chuck":"10mm",
+    "Voltage":"220V",
+    "Use":"General drilling work"
+  },
+
+  description:"AARK AK-10C 600W electric drill suitable for general drilling work."
+},
+
+
+"Matrix MTX-DU10":{
+  name:"Matrix MTX-DU10 Electric Drill",
+  brand:"Matrix",
+  category:"Drill Machine",
+  model:"MTX-DU10",
+  image:"matrix-mtx-du10.png",
+  price:2100,
+  oldPrice:2625,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"Matrix",
+    "Model":"MTX-DU10",
+    "Type":"Electric Drill",
+    "Drilling Capacity":"10mm",
+    "Rated Voltage":"220/230V",
+    "Frequency":"50/60Hz",
+    "Power":"800W",
+    "No-load Speed":"2800 rpm"
+  },
+
+  description:"Matrix MTX-DU10 electric drill suitable for drilling applications and general workshop use."
+},
+
+
+"METRO MID13C":{
+  name:"METRO MID13C Impact Drill",
+  brand:"METRO",
+  category:"Drill Machine",
+  model:"MID13C",
+  image:"metro-mid13c.png",
+  price:1500,
+  oldPrice:1875,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"METRO",
+    "Model":"MID13C",
+    "Type":"Impact Drill",
+    "Power":"550W",
+    "Voltage":"220V",
+    "Frequency":"50/60Hz",
+    "No-load Speed":"0–2800 rpm",
+    "Chuck Diameter":"13mm"
+  },
+
+  description:"METRO MID13C professional impact drill with a 13mm chuck, suitable for drilling applications."
+},
+
+
+"Auto Power Pro APP1112":{
+  name:"Auto Power Pro APP1112 Electric Drill",
+  brand:"Auto Power Pro",
+  category:"Drill Machine",
+  model:"APP1112",
+  image:"auto-power-pro-app1112.png",
+  price:1600,
+  oldPrice:2000,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"Auto Power Pro",
+    "Model":"APP1112",
+    "Type":"Electric Drill",
+    "Voltage":"220V",
+    "Frequency":"50Hz"
+  },
+
+  description:"Auto Power Pro APP1112 electric drill suitable for general drilling work."
+},
+
+
+"VIVO Drill":{
+  name:"VIVO Electric Drill",
+  brand:"VIVO",
+  category:"Drill Machine",
+  model:"VIVO Drill",
+  image:"vivo-drill.png",
+  price:1400,
+  oldPrice:1750,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"VIVO",
+    "Type":"Electric Drill",
+    "Voltage":"To be updated",
+    "Power":"To be updated",
+    "Chuck":"To be updated"
+  },
+
+  description:"VIVO electric drill suitable for general drilling work."
+},
+
+
+"Bosch 350W Drill":{
+  name:"Bosch Professional Electric Drill 350W",
+  brand:"Bosch",
+  category:"Drill Machine",
+  model:"Professional 350W",
+  image:"bosch-professional-350w-drill.png",
+  price:2500,
+  oldPrice:3125,
+  discount:"20% OFF",
+
+  specs:{
+    "Brand":"Bosch",
+    "Model":"Professional 350W",
+    "Type":"Professional Electric Drill",
+    "Power":"350W"
+  },
+
+  description:"Bosch Professional 350W electric drill suitable for drilling work."
+},
+/* ================= GRINDERS ================= */
+
+"Silverblaze AG-G15SA2":{
+  name:"Silverblaze AG-G15SA2 Angle Grinder",
+  brand:"Silverblaze",
+  category:"Grinder",
+  model:"AG-G15SA2",
+  image:"silverblaze-ag-g15sa2.png.png",
+  price:2500,
+  originalPrice:3125,
+  discount:20,
+  description:
+    "125mm angle grinder suitable for grinding and cutting applications.",
+  specs:{
+    "Brand":"Silverblaze",
+    "Model":"AG-G15SA2",
+    "Type":"Angle Grinder",
+    "Disc Size":"125mm",
+    "Application":"Grinding & Cutting"
+  }
+},
+
+"METRO ME-1107AG":{
+  name:"METRO Angle Grinder 1000W",
+  brand:"METRO",
+  category:"Grinder",
+  model:"ME-1107AG",
+  image:"metro-me-1107ag.png",
+  price:2000,
+  originalPrice:2500,
+  discount:20,
+  description:
+    "Professional angle grinder with 1000W power and 11000 rpm speed.",
+  specs:{
+    "Brand":"METRO",
+    "Model":"ME-1107AG",
+    "Type":"Angle Grinder",
+    "Power":"1000W",
+    "Speed":"11000 rpm",
+    "Voltage":"220V",
+    "Frequency":"50Hz"
+  }
+},
+
+"Crown CT13570-100":{
+  name:"CROWN CT13570-100 Professional Angle Grinder",
+  brand:"CROWN",
+  category:"Grinder",
+  model:"CT13570-100",
+  image:"crown-ct13570-100.png",
+  price:3200,
+  originalPrice:4000,
+  discount:20,
+  description:
+    "Professional angle grinder suitable for grinding and cutting applications.",
+  specs:{
+    "Brand":"CROWN",
+    "Model":"CT13570-100",
+    "Type":"Angle Grinder",
+    "Power":"900W",
+    "Disc Size":"100mm"
+  }
+},
+
+"DongCheng DSM08-100":{
+  name:"DongCheng DSM08-100 Angle Grinder",
+  brand:"DongCheng",
+  category:"Grinder",
+  model:"DSM08-100",
+  image:"dongcheng-dsm08-100.png",
+  price:2500,
+  originalPrice:3125,
+  discount:20,
+  description:
+    "Compact professional angle grinder with 800W rated input and 13000 rpm rated speed.",
+  specs:{
+    "Brand":"DongCheng",
+    "Model":"DSM08-100",
+    "Type":"Angle Grinder",
+    "Power":"800W",
+    "Speed":"13000/min",
+    "Max Wheel Diameter":"100mm",
+    "Machine Weight":"1.6kg"
+  }
+},
+
+"Elephant ECO DW801":{
+  name:"Elephant ECO DW801 Angle Grinder",
+  brand:"Elephant ECO",
+  category:"Grinder",
+  model:"DW801",
+  image:"elephant-eco-dw801.png",
+  price:2100,
+  originalPrice:2625,
+  discount:20,
+  description:
+    "Professional angle grinder suitable for general grinding and cutting applications.",
+  specs:{
+    "Brand":"Elephant ECO",
+    "Model":"DW801",
+    "Type":"Angle Grinder",
+    "Application":"Grinding & Cutting"
+  }
+},
+
+"M&T Angle Grinder":{
+  name:"M&T Angle Grinder",
+  brand:"M&T",
+  category:"Grinder",
+  model:"MT-801",
+  image:"mt-angle-grinder.png",
+  price:1300,
+  originalPrice:1625,
+  discount:20,
+  description:
+    "Professional angle grinder from M&T suitable for workshop and general grinding applications.",
+  specs:{
+    "Brand":"M&T",
+    "Type":"Angle Grinder",
+    "Power":"1100W",
+    "Application":"Grinding & Cutting"
+  }
+},
+
+"Camron Pro Grinder":{
+  name:"Camron Pro Angle Grinder",
+  brand:"Camron Pro",
+  category:"Grinder",
+  model:"CPDS-AG-100A",
+  image:"camron-pro-grinder.png",
+  price:2700,
+  originalPrice:3375,
+  discount:20,
+  description:
+    "Bosch angle grinder from Camron Pro Dragon Series.",
+  specs:{
+    "Brand":"Camron Pro",
+    "Series":"Dragon Series",
+    "Model":"CPDS-AG-100A",
+    "Type":"Bosch Angle Grinder",
+    "Application":"Grinding & Cutting"
+  }
+},
+
+"Bosch Grinder Machine":{
+  name:"Bosch Grinder Machine",
+  brand:"Nova / Assorted",
+  category:"Grinder",
+  model:"Bosch",
+  image:"grinder-machine-clean.png",
+  price:2400,
+  originalPrice:3000,
+  discount:20,
+  description:
+    "Bosch angle grinder suitable for grinding, cutting and polishing work.",
+  specs:{
+    "Product Type":"Bosch Grinder Machine",
+    "Power":"850W",
+    "Disc Size":"4 Inch",
+    "Application":"Grinding, Cutting & Polishing",
+    "Suitable For":"Workshop, Construction & Repair Work"
+  }
+},
+
+"HitMan Grinder":{
+  name:"HitMan Professional Power Tool",
+  brand:"HitMan",
+  category:"Grinder",
+  model:"To be updated",
+  image:"hitman-grinder.png",
+  price:1200,
+  originalPrice:1500,
+  discount:20,
+  description:
+    "Professional power tool from HitMan suitable for workshop and general applications.",
+  specs:{
+    "Brand":"HitMan",
+    "Type":"Power Tool",
+    "Rated Voltage":"220V",
+    "Frequency":"50Hz",
+    "Input Power":"500W",
+    "No-load Speed":"0–10000 rpm"
+  }
+},
+/* ================= CUTTERS ================= */
+
+"Bosch GCO 2000":{
+  name:"Bosch GCO 2000 Metal Cut-Off Saw",
+  brand:"Bosch",
+  category:"Cutter",
+  model:"GCO 2000",
+  image:"metal cutt off saw.png",
+  price:11499,
+  specs:{
+    "Brand":"Bosch",
+    "Model":"GCO 2000",
+    "Type":"Metal Cut-Off Saw",
+    "Power":"2000W",
+    "Application":"Metal Cutting"
+  },
+  description:"Professional metal cut-off saw from Bosch."
+},
+
+"Power Touch PTCM4SB":{
+  name:"Power Touch PTCM4SB Marble Cutter",
+  brand:"Power Touch",
+  category:"Cutter",
+  model:"PTCM4SB",
+  image:"power-touch-ptcm4sb.png",
+  price:2499,
+  specs:{
+    "Brand":"Power Touch",
+    "Model":"PTCM4SB",
+    "Type":"Marble Cutter",
+    "Motor":"100% Copper Motor",
+    "Application":"Marble Cutting"
+  },
+  description:"Professional marble cutter suitable for marble and construction cutting."
+},
+
+"Mark Pro MK-4SA":{
+  name:"I Mark Pro MK-4SA Marble Cutter",
+  brand:"I Mark Pro",
+  category:"Cutter",
+  model:"MK-4SA",
+  image:"mark-pro-mk4sa.png",
+  price:1999,
+  specs:{
+    "Brand":"Mark Pro",
+    "Model":"MK-4SA",
+    "Type":"Marble Cutter",
+    "Power":"1600W",
+    "Blade":"110mm"
+  },
+  description:"Professional marble cutter suitable for marble and construction materials."
+},
+
+"METRO 11001":{
+  name:"METRO 11001 Marble Cutter",
+  brand:"METRO",
+  category:"Cutter",
+  model:"11001",
+  image:"metro-11001.png",
+  price:1799,
+  specs:{
+    "Brand":"METRO",
+    "Model":"11001",
+    "Type":"Marble Cutter",
+    "Application":"Marble & Construction Cutting"
+  },
+  description:"Professional marble cutter suitable for marble and construction cutting."
+},
+
+"Tanger TG-CM4SA":{
+  name:"Tanger TG-CM4SA Marble Cutter",
+  brand:"Tanger",
+  category:"Cutter",
+  model:"TG-CM4SA",
+  image:"tanger-tg-cm4sa.png",
+  price:1899,
+  specs:{
+    "Brand":"Tanger",
+    "Model":"TG-CM4SA",
+    "Type":"Marble Cutter",
+    "Power":"1050W"
+  },
+  description:"Professional marble cutter suitable for cutting applications."
+},
+
+"METRO ME-11013":{
+  name:"METRO ME-11013 Marble Cutter",
+  brand:"METRO",
+  category:"Cutter",
+  model:"ME-11013",
+  image:"metro-me-11013.png",
+  price:2799,
+  specs:{
+    "Brand":"METRO",
+    "Model":"ME-11013",
+    "Type":"Marble Cutter",
+    "Power":"2000W",
+    "Speed":"11000 rpm",
+    "Voltage":"220V",
+    "Frequency":"50Hz"
+  },
+  description:"High-power marble cutter suitable for heavy cutting applications."
+},
+
+"Seven Star ST-110SB":{
+  name:"Seven Star ST-110SB Marble Cutter",
+  brand:"Seven Star",
+  category:"Cutter",
+  model:"ST-110SB",
+  image:"seven-star-st110sb.png",
+  price:2699,
+  specs:{
+    "Brand":"Seven Star",
+    "Model":"ST-110SB",
+    "Type":"Marble Cutter",
+    "Power":"1350W"
+  },
+  description:"Professional marble cutter suitable for construction cutting work."
+},
+
+"Morris M-4SB":{
+  name:"Morris M-4SB Marble Cutter",
+  brand:"Morris",
+  category:"Cutter",
+  model:"M-4SB",
+  image:"morris-m4sb.png",
+  price:2499,
+  specs:{
+    "Brand":"Morris",
+    "Model":"M-4SB",
+    "Type":"Marble Cutter",
+    "Power":"1300W"
+  },
+  description:"Professional marble cutter suitable for cutting applications."
+},
+
+"Auto Power Pro AP1112":{
+  name:"Auto Power Pro AP1112 Marble Cutter",
+  brand:"Auto Power Pro",
+  category:"Cutter",
+  model:"AP1112",
+  image:"auto-power-pro-ap1112.png",
+  price:1799,
+  specs:{
+    "Brand":"Auto Power Pro",
+    "Model":"AP1112",
+    "Type":"Marble Cutter",
+    "Motor":"100% Copper",
+    "Application":"Marble Cutting"
+  },
+  description:"Marble cutter from Auto Power Pro with copper motor."
+},
+
+"METRO 11005":{
+  name:"METRO 11005 Marble Cutter",
+  brand:"METRO",
+  category:"Cutter",
+  model:"11005",
+  image:"metro-11005.png",
+  price:2999,
+  specs:{
+    "Brand":"METRO",
+    "Model":"11005",
+    "Type":"Marble Cutter",
+    "Application":"Marble & Construction Cutting"
+  },
+  description:"Professional marble cutter suitable for construction and marble cutting."
+},
+
+"METRO CM4SA":{
+  name:"METRO CM4SA Marble Cutter",
+  brand:"METRO",
+  category:"Cutter",
+  model:"CM4SA",
+  image:"metro-cm4sa.png",
+  price:1899,
+  specs:{
+    "Brand":"METRO",
+    "Model":"CM4SA",
+    "Type":"Marble Cutter",
+    "Application":"Marble Cutting"
+  },
+  description:"Professional marble cutter suitable for general cutting applications."
+},
+
+"Hitman CM4SA":{
+  name:"Hitman CM4SA Marble Cutter",
+  brand:"Hitman",
+  category:"Cutter",
+  model:"CM4SA",
+  image:"hitman-cm4sa.png",
+  price:1799,
+  specs:{
+    "Brand":"Hitman",
+    "Model":"CM4SA",
+    "Type":"Marble Cutter",
+    "Application":"Marble Cutting"
+  },
+  description:"Professional marble cutter suitable for general cutting applications."
+},
+
+/* ================= HAMMERS ================= */
+
+"Electric Hammer Machine":{
+  name:"Electric Hammer Machine",
+  brand:"Nova Power Tools",
+  category:"Hammer Machine",
+  model:"Electric Hammer",
+  image:"",
+  price:2499,
+  specs:{
+    "Brand":"Nova Power Tools",
+    "Type":"Electric Hammer Machine",
+    "Application":"Drilling & Hammering",
+    "Voltage":"220V"
+  },
+  description:"Electric hammer machine suitable for drilling, hammering and construction work."
+},
+
+"METRO Rotary Hammer 20MM":{
+  name:"METRO 20MM Rotary Hammer",
+  brand:"METRO",
+  category:"Hammer Machine",
+  model:"20MM Rotary Hammer",
+  image:"metro_rotary_hammer.jpg",
+  price:null,
+  specs:{
+    "Brand":"METRO",
+    "Type":"Rotary Hammer",
+    "Drill Capacity":"20mm",
+    "Power":"800W",
+    "Voltage":"220V",
+    "Frequency":"50/60Hz",
+    "No-load Speed":"0–850 rpm",
+    "Impact Rate":"0–3900/min"
+  },
+  description:"Professional rotary hammer suitable for drilling and hammering work."
+},
+
+"Yato PT-RH26":{
+  name:"Professional Rotary Hammer PT-RH26",
+  brand:"Yato",
+  category:"Hammer Machine",
+  model:"PT-RH26",
+  image:"",
+  price:null,
+  specs:{
+    "Model":"PT-RH26",
+    "Type":"Rotary Hammer",
+    "Power":"2000W",
+    "Voltage":"220V"
+  },
+  description:"Professional rotary hammer suitable for heavy drilling."
+},
+
+"METRO ME-11042RH20":{
+  name:"METRO ME-11042RH20 Rotary Hammer",
+  brand:"METRO",
+  category:"Hammer Machine",
+  model:"ME-11042RH20",
+  image:"",
+  price:null,
+  specs:{
+    "Brand":"METRO",
+    "Model":"ME-11042RH20",
+    "Type":"Rotary Hammer",
+    "Power":"800W",
+    "Voltage":"220V",
+    "Speed":"0–850 rpm"
+  },
+  description:"Variable-speed rotary hammer suitable for drilling and hammering."
+},
+
+"Impact Pro Rotary Hammer":{
+  name:"Impact Pro Rotary Hammer",
+  brand:"Impact Pro",
+  category:"Hammer Machine",
+  model:"Rotary Hammer",
+  image:"",
+  price:null,
+  specs:{
+    "Brand":"Impact Pro",
+    "Type":"Rotary Hammer",
+    "Specifications":"To be updated"
+  },
+  description:"Professional rotary hammer for drilling and hammering."
+},
+
+/* ================= JIG SAW ================= */
+
+"Auto Power Pro APP1170":{
+  name:"Auto Power Pro APP1170 Jig Saw",
+  brand:"Auto Power Pro",
+  category:"Jig Saw",
+  model:"APP1170",
+  image:"auto_power_pro_jigsaw.jpg",
+  price:2499,
+  specs:{
+    "Brand":"Auto Power Pro",
+    "Model":"APP1170",
+    "Type":"Jig Saw",
+    "Voltage":"230V",
+    "Input Power":"750W",
+    "Speed":"3000 rpm",
+    "Cutting Capacity":"70mm"
+  },
+  description:"Electric jig saw suitable for cutting wood and similar materials."
+},
+
+/* ================= MIXING DRILL ================= */
+
+"METRO M-EM16B":{
+  name:"METRO M-EM16B Mixing Drill",
+  brand:"METRO",
+  category:"Mixing Drill",
+  model:"M-EM16B",
+  image:"",
+  price:null,
+  specs:{
+    "Brand":"METRO",
+    "Model":"M-EM16B",
+    "Type":"Mixing Drill",
+    "Input Power":"1050W",
+    "No-load Speed":"0–850 rpm",
+    "Chuck Size":"16mm",
+    "Voltage":"220V"
+  },
+  description:"Professional mixing drill suitable for mixing construction materials."
+},
+
+/* ================= CHAIN SAW ================= */
+
+"METRO M-3106":{
+  name:"METRO M-3106 Gasoline Chain Saw",
+  brand:"METRO",
+  category:"Gasoline Chain Saw",
+  model:"M-3106",
+  image:"chain saw.png",
+  price:null,
+  specs:{
+    "Brand":"METRO",
+    "Model":"M-3106",
+    "Type":"Gasoline Chain Saw",
+    "Engine":"2 Stroke",
+    "Application":"Garden & Wood Cutting"
+  },
+  description:"Professional gasoline chain saw designed for garden and wood cutting."
+},
+
+/* ================= BLOWER ================= */
+
+"METRO Blower":{
+  name:"METRO Electric Blower",
+  brand:"METRO",
+  category:"Blower",
+  model:"To be updated",
+  image:"metro_blower.jpg",
+  price:1199,
+  specs:{
+    "Brand":"METRO",
+    "Type":"Electric Blower",
+    "Power":"To be updated",
+    "Speed":"To be updated"
+  },
+  description:"Electric blower suitable for cleaning dust, debris and workshop areas."
+},
+
+/* ================= GLASS SUCKER ================= */
+
+"METRO Two Claw Glass Sucker":{
+  name:"METRO Two Claw Glass Sucker",
+  brand:"METRO Pro",
+  category:"Glass Sucker",
+  model:"Two Claw",
+  image:"glass sucker.png",
+  price:null,
+  specs:{
+    "Brand":"METRO Pro",
+    "Type":"Two Claw Glass Sucker",
+    "Application":"Glass Handling",
+    "Design":"Two Claw",
+    "Use":"Industrial / Professional"
+  },
+  description:"Two-claw industrial glass sucker designed for smooth glass and flat surfaces."
+},
+
+/* ================= OTHER PRODUCTS ================= */
+
+"Hitman planner Cutter Machine":{
+  name:"Hitman planner Machine",
+  brand:"Nova Power Tools",
+  category:"Cutter",
+  model:"Hitman planner",
+  image:"hitman_planer.jpg",
+  price:3199,
+  specs:{
+    "Brand":"Nova Power Tools",
+    "Type":"Hitman planner Machine",
+    "Application":"Cutting",
+    "Voltage":"220V"
+  },
+  description:"Hitman planner machine suitable for workshop and construction cutting."
+},
+
+"Welding Machine":{
+  name:"Welding Machine",
+  brand:"Nova Power Tools",
+  category:"Welding",
+  model:"Welding Machine",
+  image:"",
+  price:3499,
+  specs:{
+    "Brand":"Nova Power Tools",
+    "Type":"Welding Machine",
+    "Application":"Welding & Fabrication",
+    "Voltage":"220V"
+  },
+  description:"Electric welding machine suitable for general welding and fabrication work."
+},
+
+"METRO ME-11071ET":{
+  name:"METRO ME-11071ET Electric Trimmer",
+  brand:"METRO",
+  category:"Electric Trimmer",
+  model:"ME-11071ET",
+  image:"",
+  price:2499,
+  specs:{
+    "Brand":"METRO",
+    "Model":"ME-11071ET",
+    "Type":"Electric Trimmer",
+    "Application":"Trimming & Cutting"
+  },
+  description:"METRO electric trimmer suitable for trimming and cutting applications."
+}
+
+};
 /* =====================================================
    PRODUCT KEY
 ===================================================== */
