@@ -499,7 +499,6 @@ const products = {
   description:"METRO MID13C professional impact drill with a 13mm chuck, suitable for drilling applications."
 },
 
-
 "Auto Power Pro APP1112":{
   name:"Auto Power Pro APP1112 Electric Drill",
   brand:"Auto Power Pro",
@@ -521,7 +520,6 @@ const products = {
   description:"Auto Power Pro APP1112 electric drill suitable for general drilling work."
 },
 
-
 "VIVO Drill":{
   name:"VIVO Electric Drill",
   brand:"VIVO",
@@ -542,7 +540,6 @@ const products = {
 
   description:"VIVO electric drill suitable for general drilling work."
 },
-
 
 "Bosch 350W Drill":{
   name:"Bosch Professional Electric Drill 350W",
@@ -1528,18 +1525,30 @@ function addToCart(){
    BUY NOW
 ===================================================== */
 
-function buyNow(){
+function buyNow(productName){
 
-  const p = products[productKey];
+  const buyNowProduct = products[productName];
 
-  if(!p){
+  if(!buyNowProduct){
+
+    alert("Product details nahi mili.");
+
     return;
+
   }
 
-  window.location.href =
-    "checkout.html?product=" +
-    encodeURIComponent(p.name);
+  localStorage.setItem(
+    "novaBuyNow",
+    JSON.stringify({
+      name: buyNowProduct.name || productName,
+      price: buyNowProduct.price || 0,
+      quantity: 1,
+      icon: "🛠️"
+    })
+  );
 
+  window.location.href =
+    "login.html?returnUrl=checkout.html";
 }
 
 
