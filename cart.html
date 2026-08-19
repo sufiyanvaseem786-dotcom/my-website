@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,108 +27,139 @@ header{
   background:#131921;
   color:white;
   min-height:65px;
-  padding:12px 5%;
+  padding:14px 5%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:800;
-  white-space:nowrap;
+  font-size:23px;
+  font-weight:bold;
 }
 
 .logo span{
   color:#ffb000;
 }
 
-.continue-shopping{
+header a{
   color:white;
   text-decoration:none;
-  font-size:16px;
   padding:10px 14px;
   border-radius:6px;
 }
 
-.continue-shopping:hover{
+header a:hover{
   background:#263242;
 }
 
-/* ================= PAGE ================= */
+
+/* ================= CONTAINER ================= */
 
 .container{
-  max-width:1200px;
+  max-width:1150px;
   margin:30px auto;
   padding:0 20px;
 }
 
-.page-title{
-  font-size:32px;
+h1{
   margin-bottom:25px;
+  font-size:30px;
 }
 
-/* ================= CART LAYOUT ================= */
+
+/* ================= LAYOUT ================= */
 
 .cart-layout{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 330px;
+  grid-template-columns:minmax(0,1fr) 320px;
   gap:22px;
-  align-items:start;
 }
+
 
 /* ================= CART BOX ================= */
 
 .cart-box{
   background:white;
+  padding:25px;
   border-radius:8px;
-  padding:0 25px;
-  box-shadow:0 1px 3px rgba(0,0,0,.08);
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
-.cart-header{
-  padding:20px 0;
+.cart-title{
+  font-size:24px;
+  font-weight:bold;
+  padding-bottom:15px;
   border-bottom:1px solid #ddd;
-  font-size:14px;
-  color:#555;
 }
+
 
 /* ================= CART ITEM ================= */
 
 .cart-item{
+
   display:flex;
+
   gap:22px;
-  padding:25px 0;
+
+  padding:22px 0;
+
   border-bottom:1px solid #ddd;
-  min-height:180px;
+
+  align-items:flex-start;
+
+  cursor:pointer;
+
+  transition:.2s;
+
 }
 
-/* ================= PRODUCT IMAGE ================= */
+.cart-item:hover{
+  background:#fafafa;
+}
+
+
+/* ================= IMAGE ================= */
 
 .cart-image{
+
   width:150px;
   height:150px;
+
   flex-shrink:0;
+
   background:#f7f7f7;
+
   border-radius:8px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   overflow:hidden;
+
   border:1px solid #eee;
+
 }
 
 .cart-image img{
+
   width:100%;
   height:100%;
+
   object-fit:contain;
+
   display:block;
+
 }
 
 .cart-image .fallback-icon{
   font-size:55px;
 }
+
 
 /* ================= PRODUCT INFO ================= */
 
@@ -136,212 +168,257 @@ header{
   min-width:0;
 }
 
-.item-name{
+.item-info h3{
+
   font-size:20px;
-  font-weight:700;
-  line-height:1.35;
+
+  line-height:1.4;
+
   margin-bottom:8px;
+
   color:#172033;
+
 }
 
-.item-price{
-  font-size:21px;
-  font-weight:700;
-  color:#111;
-  margin-bottom:12px;
+.item-info h3:hover{
+  color:#2162a1;
 }
 
-.item-stock{
+.in-stock{
+
   color:#007600;
+
   font-size:14px;
-  margin-bottom:15px;
+
+  margin-bottom:12px;
+
 }
+
+.price{
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  color:#111;
+
+  margin-bottom:14px;
+
+}
+
 
 /* ================= QUANTITY ================= */
 
-.quantity-area{
+.quantity{
+
   display:flex;
+
   align-items:center;
-  gap:8px;
-  margin-bottom:12px;
+
+  gap:10px;
+
+  margin-bottom:10px;
+
 }
 
 .quantity-label{
   font-size:14px;
   font-weight:bold;
-  margin-right:4px;
 }
 
-.quantity-btn{
+.quantity button{
+
   width:34px;
   height:34px;
+
   border:1px solid #aaa;
-  background:#fff;
+
+  background:white;
+
   border-radius:5px;
+
   cursor:pointer;
+
   font-size:20px;
-  line-height:30px;
+
 }
 
-.quantity-btn:hover{
+.quantity button:hover{
+
   background:#f3f3f3;
+
 }
 
-.quantity-number{
-  min-width:35px;
+.quantity span{
+
+  min-width:30px;
+
   text-align:center;
+
   font-weight:bold;
+
 }
+
 
 /* ================= REMOVE ================= */
 
-.remove-btn{
+.remove{
+
   border:none;
+
   background:none;
-  color:#007185;
+
+  color:#c40000;
+
   cursor:pointer;
+
   font-size:14px;
-  padding:0;
+
+  padding:4px 0;
+
 }
 
-.remove-btn:hover{
-  color:#c7511f;
+.remove:hover{
   text-decoration:underline;
 }
 
-/* ================= ITEM TOTAL ================= */
-
-.item-total{
-  width:130px;
-  text-align:right;
-  flex-shrink:0;
-}
-
-.item-total-label{
-  font-size:13px;
-  color:#666;
-  margin-bottom:5px;
-}
-
-.item-total-price{
-  font-size:20px;
-  font-weight:bold;
-}
 
 /* ================= SUMMARY ================= */
 
 .summary{
+
   background:white;
+
+  padding:25px;
+
   border-radius:8px;
-  padding:22px;
-  box-shadow:0 1px 3px rgba(0,0,0,.08);
+
+  height:max-content;
+
   position:sticky;
+
   top:20px;
+
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+
 }
 
 .summary h2{
+
+  margin-bottom:20px;
+
   font-size:22px;
-  margin-bottom:22px;
+
 }
 
 .summary-row{
+
   display:flex;
+
   justify-content:space-between;
-  align-items:center;
+
   margin:15px 0;
-  font-size:16px;
+
+  color:#444;
+
 }
 
-.summary-row span:last-child{
-  font-weight:500;
-}
+.total{
 
-.free{
-  color:#007600;
-  font-weight:bold !important;
-}
-
-.summary-divider{
-  border:none;
-  border-top:1px solid #ddd;
-  margin:20px 0;
-}
-
-.summary-total{
-  display:flex;
-  justify-content:space-between;
   font-size:24px;
-  font-weight:bold;
-  margin-bottom:20px;
-}
 
-.checkout-btn{
-  width:100%;
-  padding:15px;
-  border:none;
-  border-radius:8px;
-  background:#ffb000;
+  font-weight:bold;
+
   color:#111;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-}
 
-.checkout-btn:hover{
-  background:#f3a600;
-}
-
-/* ================= SECURITY ================= */
-
-.secure-box{
-  margin-top:18px;
-  padding-top:18px;
   border-top:1px solid #ddd;
-  color:#555;
-  font-size:13px;
-  line-height:1.5;
-  text-align:center;
+
+  padding-top:18px;
+
+  margin-top:20px;
+
 }
 
-/* ================= EMPTY CART ================= */
+
+/* ================= CHECKOUT ================= */
+
+.checkout{
+
+  width:100%;
+
+  padding:15px;
+
+  border:none;
+
+  background:#ffb000;
+
+  border-radius:8px;
+
+  font-weight:bold;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  margin-top:20px;
+
+}
+
+.checkout:hover{
+
+  background:#e6a000;
+
+}
+
+
+/* ================= EMPTY ================= */
 
 .empty{
-  text-align:center;
-  padding:70px 20px;
-}
 
-.empty-icon{
-  font-size:70px;
-  margin-bottom:15px;
+  text-align:center;
+
+  padding:70px 10px;
+
+  color:#667085;
+
 }
 
 .empty h2{
-  font-size:25px;
+
   margin-bottom:10px;
+
 }
 
 .empty p{
-  color:#666;
-  margin-bottom:22px;
+
+  margin-bottom:20px;
+
 }
 
-.shop-btn{
+.shop{
+
   display:inline-block;
+
   background:#2563eb;
+
   color:white;
-  padding:13px 25px;
-  border-radius:7px;
+
+  padding:12px 20px;
+
   text-decoration:none;
-  font-weight:bold;
+
+  border-radius:7px;
+
 }
 
-.shop-btn:hover{
+.shop:hover{
   background:#1d4ed8;
 }
 
+
 /* ================= MOBILE ================= */
 
-@media(max-width:850px){
+@media(max-width:800px){
 
   .cart-layout{
     grid-template-columns:1fr;
@@ -353,78 +430,66 @@ header{
 
 }
 
-@media(max-width:650px){
+@media(max-width:600px){
 
   header{
-    padding:12px 18px;
-  }
 
-  .logo{
-    font-size:20px;
-  }
+    flex-direction:column;
 
-  .continue-shopping{
-    font-size:14px;
+    align-items:flex-start;
+
   }
 
   .container{
+
     padding:0 12px;
-    margin:20px auto;
+
+    margin-top:20px;
+
   }
 
-  .page-title{
-    font-size:27px;
+  h1{
+    font-size:25px;
   }
 
   .cart-box{
-    padding:0 15px;
+    padding:16px;
   }
 
   .cart-item{
+
     gap:14px;
-    padding:20px 0;
-    flex-wrap:wrap;
+
   }
 
   .cart-image{
-    width:110px;
-    height:110px;
+
+    width:100px;
+    height:100px;
+
   }
 
-  .item-info{
-    width:calc(100% - 125px);
+  .item-info h3{
+
+    font-size:16px;
+
   }
 
-  .item-name{
-    font-size:17px;
-  }
+  .price{
 
-  .item-price{
-    font-size:18px;
-  }
+    font-size:19px;
 
-  .item-total{
-    width:100%;
-    text-align:left;
-    padding-left:124px;
-  }
-
-  .item-total-label{
-    display:inline;
-    margin-right:5px;
-  }
-
-  .item-total-price{
-    display:inline;
-    font-size:18px;
   }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
@@ -434,10 +499,7 @@ header{
     ⚡ Nova <span>Power Tools</span>
   </div>
 
-  <a
-    href="index.html"
-    class="continue-shopping"
-  >
+  <a href="index.html">
     ← Continue Shopping
   </a>
 
@@ -448,22 +510,28 @@ header{
 
 <div class="container">
 
-  <h1 class="page-title">
+  <h1>
     🛒 Shopping Cart
   </h1>
 
 
   <div class="cart-layout">
 
-    <!-- ================= CART ITEMS ================= -->
 
-    <div
-      class="cart-box"
-      id="cartItems"
-    ></div>
+    <!-- ================= CART ================= -->
+
+    <div class="cart-box">
+
+      <div class="cart-title">
+        Your Cart
+      </div>
+
+      <div id="cartItems"></div>
+
+    </div>
 
 
-    <!-- ================= ORDER SUMMARY ================= -->
+    <!-- ================= SUMMARY ================= -->
 
     <div class="summary">
 
@@ -504,17 +572,14 @@ header{
           Delivery
         </span>
 
-        <span class="free">
+        <span>
           FREE
         </span>
 
       </div>
 
 
-      <hr class="summary-divider">
-
-
-      <div class="summary-total">
+      <div class="summary-row total">
 
         <span>
           Total
@@ -528,19 +593,14 @@ header{
 
 
       <button
-        class="checkout-btn"
+        class="checkout"
         onclick="checkout()"
       >
         Proceed to Checkout
       </button>
 
-
-      <div class="secure-box">
-        🔒 Secure checkout<br>
-        Nova Power Tools
-      </div>
-
     </div>
+
 
   </div>
 
@@ -548,6 +608,7 @@ header{
 
 
 <script>
+
 
 /* =====================================================
    LOAD CART
@@ -574,16 +635,42 @@ function saveCart(){
 
 
 /* =====================================================
+   OPEN PRODUCT DETAILS
+===================================================== */
+
+function openProduct(index){
+
+  const item =
+    cart[index];
+
+
+  if(!item || !item.name){
+
+    return;
+
+  }
+
+
+  window.location.href =
+    "product-details.html?product=" +
+    encodeURIComponent(item.name);
+
+}
+
+
+/* =====================================================
    DISPLAY CART
 ===================================================== */
 
 function displayCart(){
 
   const box =
-    document.getElementById("cartItems");
+    document.getElementById(
+      "cartItems"
+    );
 
 
-  /* ================= EMPTY CART ================= */
+  /* EMPTY CART */
 
   if(cart.length === 0){
 
@@ -591,12 +678,8 @@ function displayCart(){
 
       <div class="empty">
 
-        <div class="empty-icon">
-          🛒
-        </div>
-
         <h2>
-          Your cart is empty
+          Your cart is empty 🛒
         </h2>
 
         <p>
@@ -604,8 +687,8 @@ function displayCart(){
         </p>
 
         <a
+          class="shop"
           href="index.html"
-          class="shop-btn"
         >
           Start Shopping
         </a>
@@ -614,6 +697,7 @@ function displayCart(){
 
     `;
 
+
     updateSummary();
 
     return;
@@ -621,53 +705,25 @@ function displayCart(){
   }
 
 
-  /* ================= CART HEADER ================= */
-
-  box.innerHTML = `
-
-    <div class="cart-header">
-      Your selected products
-    </div>
-
-  `;
+  box.innerHTML = "";
 
 
-  /* ================= PRODUCTS ================= */
+  /* CART PRODUCTS */
 
-  cart.forEach(function(item,index){
-
-    const price =
-      Number(item.price) || 0;
-
-    const quantity =
-      Number(item.quantity) || 1;
-
-    const itemTotal =
-      price * quantity;
+  cart.forEach(
+    function(item,index){
 
 
-    /*
-      IMPORTANT:
+      const imageHTML =
+        item.image
 
-      New products ke cart data mein
-      image automatically stored hoti hai.
+          ?
 
-      Agar image available hai:
-      actual product image show hogi.
-
-      Agar image nahi hai:
-      fallback icon show hoga.
-    */
-
-    let imageHTML = "";
-
-    if(item.image){
-
-      imageHTML = `
+        `
 
         <img
           src="${item.image}"
-          alt="${escapeHTML(item.name)}"
+          alt="${item.name}"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
         >
 
@@ -678,126 +734,108 @@ function displayCart(){
           ${item.icon || "🛠️"}
         </span>
 
-      `;
+        `
 
-    }else{
+          :
 
-      imageHTML = `
+        `
 
         <span class="fallback-icon">
           ${item.icon || "🛠️"}
         </span>
 
+        `;
+
+
+      box.innerHTML += `
+
+        <div
+          class="cart-item"
+          onclick="openProduct(${index})"
+        >
+
+
+          <!-- PRODUCT IMAGE -->
+
+          <div class="cart-image">
+
+            ${imageHTML}
+
+          </div>
+
+
+          <!-- PRODUCT INFORMATION -->
+
+          <div class="item-info">
+
+
+            <h3>
+              ${item.name}
+            </h3>
+
+
+            <div class="in-stock">
+              In Stock
+            </div>
+
+
+            <div class="price">
+              ₹${Number(item.price || 0).toLocaleString("en-IN")}
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div
+              class="quantity"
+              onclick="event.stopPropagation()"
+            >
+
+              <span class="quantity-label">
+                Quantity:
+              </span>
+
+
+              <button
+                onclick="event.stopPropagation(); changeQuantity(${index},-1)"
+              >
+                −
+              </button>
+
+
+              <span>
+                ${item.quantity}
+              </span>
+
+
+              <button
+                onclick="event.stopPropagation(); changeQuantity(${index},1)"
+              >
+                +
+              </button>
+
+            </div>
+
+
+            <!-- REMOVE -->
+
+            <button
+              class="remove"
+              onclick="event.stopPropagation(); removeItem(${index})"
+            >
+              Remove
+            </button>
+
+
+          </div>
+
+
+        </div>
+
       `;
 
     }
-
-
-    box.innerHTML += `
-
-      <div class="cart-item">
-
-
-        <!-- PRODUCT IMAGE -->
-
-        <div class="cart-image">
-
-          ${imageHTML}
-
-        </div>
-
-
-        <!-- PRODUCT INFORMATION -->
-
-        <div class="item-info">
-
-          <div class="item-name">
-            ${escapeHTML(item.name)}
-          </div>
-
-
-          <div class="item-price">
-            ₹${price.toLocaleString("en-IN")}
-          </div>
-
-
-          <div class="item-stock">
-            In Stock
-          </div>
-
-
-          <!-- QUANTITY -->
-
-          <div class="quantity-area">
-
-            <span class="quantity-label">
-              Quantity:
-            </span>
-
-            <button
-              class="quantity-btn"
-              onclick="changeQuantity(${index},-1)"
-            >
-              −
-            </button>
-
-            <span class="quantity-number">
-              ${quantity}
-            </span>
-
-            <button
-              class="quantity-btn"
-              onclick="changeQuantity(${index},1)"
-            >
-              +
-            </button>
-
-          </div>
-
-
-          <!-- REMOVE -->
-
-          <button
-            class="remove-btn"
-            onclick="removeItem(${index})"
-          >
-            Remove
-          </button>
-
-        </div>
-        function openProduct(index){
-
-  const item = cart[index];
-
-  if(!item || !item.name){
-    return;
-  }
-
-  window.location.href =
-    "product-details.html?product=" +
-    encodeURIComponent(item.name);
-
-}
-        <!-- ITEM TOTAL -->
-
-        <div class="item-total">
-
-          <div class="item-total-label">
-            Item Total:
-          </div>
-
-          <div class="item-total-price">
-            ₹${itemTotal.toLocaleString("en-IN")}
-          </div>
-
-        </div>
-
-
-      </div>
-
-    `;
-
-  });
+  );
 
 
   updateSummary();
@@ -809,7 +847,10 @@ function displayCart(){
    CHANGE QUANTITY
 ===================================================== */
 
-function changeQuantity(index,change){
+function changeQuantity(
+  index,
+  change
+){
 
   if(!cart[index]){
     return;
@@ -817,13 +858,18 @@ function changeQuantity(index,change){
 
 
   cart[index].quantity =
-    (Number(cart[index].quantity) || 1)
+    Number(cart[index].quantity || 1)
     + change;
 
 
-  if(cart[index].quantity <= 0){
+  if(
+    cart[index].quantity <= 0
+  ){
 
-    cart.splice(index,1);
+    cart.splice(
+      index,
+      1
+    );
 
   }
 
@@ -836,7 +882,7 @@ function changeQuantity(index,change){
 
 
 /* =====================================================
-   REMOVE ITEM
+   REMOVE PRODUCT
 ===================================================== */
 
 function removeItem(index){
@@ -846,7 +892,11 @@ function removeItem(index){
   }
 
 
-  cart.splice(index,1);
+  cart.splice(
+    index,
+    1
+  );
+
 
   saveCart();
 
@@ -856,7 +906,7 @@ function removeItem(index){
 
 
 /* =====================================================
-   UPDATE ORDER SUMMARY
+   UPDATE SUMMARY
 ===================================================== */
 
 function updateSummary(){
@@ -866,21 +916,23 @@ function updateSummary(){
   let total = 0;
 
 
-  cart.forEach(function(item){
+  cart.forEach(
+    function(item){
 
-    const quantity =
-      Number(item.quantity) || 1;
+      const quantity =
+        Number(item.quantity) || 0;
 
-    const price =
-      Number(item.price) || 0;
+      const price =
+        Number(item.price) || 0;
 
 
-    count += quantity;
+      count += quantity;
 
-    total +=
-      price * quantity;
+      total +=
+        price * quantity;
 
-  });
+    }
+  );
 
 
   document
@@ -920,29 +972,8 @@ function checkout(){
   }
 
 
-  /*
-    Checkout page ko cart ke products
-    localStorage se mil jayenge.
-  */
-
   window.location.href =
     "checkout.html";
-
-}
-
-
-/* =====================================================
-   HTML ESCAPE
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
 
 }
 
@@ -954,6 +985,7 @@ function escapeHTML(value){
 displayCart();
 
 </script>
+
 
 </body>
 </html>
