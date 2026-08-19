@@ -7,6 +7,7 @@
 <title>Shopping Cart - Nova Power Tools</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -14,198 +15,107 @@
 }
 
 body{
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:#eaeded;
   color:#172033;
 }
 
+/* ================= HEADER ================= */
+
 header{
   background:#131921;
   color:white;
-  padding:15px 5%;
+  min-height:65px;
+  padding:12px 5%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .logo{
-  font-size:23px;
-  font-weight:bold;
+  font-size:24px;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 .logo span{
   color:#ffb000;
 }
 
-header a{
+.continue-shopping{
   color:white;
   text-decoration:none;
+  font-size:16px;
+  padding:10px 14px;
+  border-radius:6px;
 }
 
+.continue-shopping:hover{
+  background:#263242;
+}
+
+/* ================= PAGE ================= */
+
 .container{
-  max-width:1100px;
+  max-width:1200px;
   margin:30px auto;
   padding:0 20px;
 }
 
-h1{
+.page-title{
+  font-size:32px;
   margin-bottom:25px;
 }
 
+/* ================= CART LAYOUT ================= */
+
 .cart-layout{
   display:grid;
-  grid-template-columns:1fr 320px;
-  gap:20px;
+  grid-template-columns:minmax(0,1fr) 330px;
+  gap:22px;
+  align-items:start;
 }
 
-.cart-box,
-.summary{
+/* ================= CART BOX ================= */
+
+.cart-box{
   background:white;
-  padding:25px;
   border-radius:8px;
+  padding:0 25px;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
 }
+
+.cart-header{
+  padding:20px 0;
+  border-bottom:1px solid #ddd;
+  font-size:14px;
+  color:#555;
+}
+
+/* ================= CART ITEM ================= */
 
 .cart-item{
   display:flex;
-  gap:20px;
-  padding:20px 0;
+  gap:22px;
+  padding:25px 0;
   border-bottom:1px solid #ddd;
-  align-items:center;
+  min-height:180px;
 }
 
-.item-image{
-  width:100px;
-  height:100px;
-  background:#f3f4f6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:8px;
-  overflow:hidden;
+/* ================= PRODUCT IMAGE ================= */
+
+.cart-image{
+  width:150px;
+  height:150px;
   flex-shrink:0;
-}
-
-.item-image img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-
-.item-info{
-  flex:1;
-}
-
-.item-info h3{
-  margin-bottom:8px;
-}
-
-.price{
-  font-size:20px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.quantity button{
-  width:32px;
-  height:32px;
-  border:1px solid #bbb;
-  background:white;
-  border-radius:5px;
-  cursor:pointer;
-  font-size:18px;
-}
-
-.remove{
-  margin-top:10px;
-  border:none;
-  background:none;
-  color:#c00;
-  cursor:pointer;
-}
-
-.summary h2{
-  margin-bottom:20px;
-}
-
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  margin:15px 0;
-}
-
-.total{
-  font-size:24px;
-  font-weight:bold;
-  border-top:1px solid #ddd;
-  padding-top:18px;
-}
-
-.checkout{
-  width:100%;
-  padding:14px;
-  border:none;
-  background:#ffb000;
-  border-radius:7px;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
-  margin-top:20px;
-}
-
-.empty{
-  text-align:center;
-  padding:50px 10px;
-  color:#667085;
-}
-
-.shop{
-  display:inline-block;
-  margin-top:20px;
-  background:#2563eb;
-  color:white;
-  padding:12px 20px;
-  text-decoration:none;
-  border-radius:7px;
-}
-
-@media(max-width:700px){
-
-  .cart-layout{
-    grid-template-columns:1fr;
-  }
-
-  .cart-item{
-    align-items:flex-start;
-  }
-
-  .item-image{
-    width:75px;
-    height:75px;
-    font-size:35px;
-  }
-
-  header{
-    flex-direction:column;
-    gap:12px;
-  }
-}
-  .cart-image{
-  width:100px;
-  height:100px;
-  background:#f5f5f5;
+  background:#f7f7f7;
   border-radius:8px;
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  flex-shrink:0;
+  border:1px solid #eee;
 }
 
 .cart-image img{
@@ -214,10 +124,309 @@ h1{
   object-fit:contain;
   display:block;
 }
+
+.cart-image .fallback-icon{
+  font-size:55px;
+}
+
+/* ================= PRODUCT INFO ================= */
+
+.item-info{
+  flex:1;
+  min-width:0;
+}
+
+.item-name{
+  font-size:20px;
+  font-weight:700;
+  line-height:1.35;
+  margin-bottom:8px;
+  color:#172033;
+}
+
+.item-price{
+  font-size:21px;
+  font-weight:700;
+  color:#111;
+  margin-bottom:12px;
+}
+
+.item-stock{
+  color:#007600;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+/* ================= QUANTITY ================= */
+
+.quantity-area{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.quantity-label{
+  font-size:14px;
+  font-weight:bold;
+  margin-right:4px;
+}
+
+.quantity-btn{
+  width:34px;
+  height:34px;
+  border:1px solid #aaa;
+  background:#fff;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:20px;
+  line-height:30px;
+}
+
+.quantity-btn:hover{
+  background:#f3f3f3;
+}
+
+.quantity-number{
+  min-width:35px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* ================= REMOVE ================= */
+
+.remove-btn{
+  border:none;
+  background:none;
+  color:#007185;
+  cursor:pointer;
+  font-size:14px;
+  padding:0;
+}
+
+.remove-btn:hover{
+  color:#c7511f;
+  text-decoration:underline;
+}
+
+/* ================= ITEM TOTAL ================= */
+
+.item-total{
+  width:130px;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.item-total-label{
+  font-size:13px;
+  color:#666;
+  margin-bottom:5px;
+}
+
+.item-total-price{
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+  background:white;
+  border-radius:8px;
+  padding:22px;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+  position:sticky;
+  top:20px;
+}
+
+.summary h2{
+  font-size:22px;
+  margin-bottom:22px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:15px 0;
+  font-size:16px;
+}
+
+.summary-row span:last-child{
+  font-weight:500;
+}
+
+.free{
+  color:#007600;
+  font-weight:bold !important;
+}
+
+.summary-divider{
+  border:none;
+  border-top:1px solid #ddd;
+  margin:20px 0;
+}
+
+.summary-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.checkout-btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background:#ffb000;
+  color:#111;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.checkout-btn:hover{
+  background:#f3a600;
+}
+
+/* ================= SECURITY ================= */
+
+.secure-box{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #ddd;
+  color:#555;
+  font-size:13px;
+  line-height:1.5;
+  text-align:center;
+}
+
+/* ================= EMPTY CART ================= */
+
+.empty{
+  text-align:center;
+  padding:70px 20px;
+}
+
+.empty-icon{
+  font-size:70px;
+  margin-bottom:15px;
+}
+
+.empty h2{
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.empty p{
+  color:#666;
+  margin-bottom:22px;
+}
+
+.shop-btn{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:13px 25px;
+  border-radius:7px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.shop-btn:hover{
+  background:#1d4ed8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+  .cart-layout{
+    grid-template-columns:1fr;
+  }
+
+  .summary{
+    position:static;
+  }
+
+}
+
+@media(max-width:650px){
+
+  header{
+    padding:12px 18px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .continue-shopping{
+    font-size:14px;
+  }
+
+  .container{
+    padding:0 12px;
+    margin:20px auto;
+  }
+
+  .page-title{
+    font-size:27px;
+  }
+
+  .cart-box{
+    padding:0 15px;
+  }
+
+  .cart-item{
+    gap:14px;
+    padding:20px 0;
+    flex-wrap:wrap;
+  }
+
+  .cart-image{
+    width:110px;
+    height:110px;
+  }
+
+  .item-info{
+    width:calc(100% - 125px);
+  }
+
+  .item-name{
+    font-size:17px;
+  }
+
+  .item-price{
+    font-size:18px;
+  }
+
+  .item-total{
+    width:100%;
+    text-align:left;
+    padding-left:124px;
+  }
+
+  .item-total-label{
+    display:inline;
+    margin-right:5px;
+  }
+
+  .item-total-price{
+    display:inline;
+    font-size:18px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -225,47 +434,111 @@ h1{
     ⚡ Nova <span>Power Tools</span>
   </div>
 
-  <a href="index.html">
+  <a
+    href="index.html"
+    class="continue-shopping"
+  >
     ← Continue Shopping
   </a>
 
 </header>
 
+
+<!-- ================= MAIN ================= -->
+
 <div class="container">
 
-  <h1>🛒 Shopping Cart</h1>
+  <h1 class="page-title">
+    🛒 Shopping Cart
+  </h1>
+
 
   <div class="cart-layout">
 
-    <div class="cart-box" id="cartItems"></div>
+    <!-- ================= CART ITEMS ================= -->
+
+    <div
+      class="cart-box"
+      id="cartItems"
+    ></div>
+
+
+    <!-- ================= ORDER SUMMARY ================= -->
 
     <div class="summary">
 
-      <h2>Order Summary</h2>
+      <h2>
+        Order Summary
+      </h2>
+
 
       <div class="summary-row">
-        <span>Items</span>
-        <span id="itemCount">0</span>
+
+        <span>
+          Items
+        </span>
+
+        <span id="itemCount">
+          0
+        </span>
+
       </div>
+
 
       <div class="summary-row">
-        <span>Subtotal</span>
-        <span>₹<span id="subtotal">0</span></span>
+
+        <span>
+          Subtotal
+        </span>
+
+        <span>
+          ₹<span id="subtotal">0</span>
+        </span>
+
       </div>
+
 
       <div class="summary-row">
-        <span>Delivery</span>
-        <span>FREE</span>
+
+        <span>
+          Delivery
+        </span>
+
+        <span class="free">
+          FREE
+        </span>
+
       </div>
 
-      <div class="summary-row total">
-        <span>Total</span>
-        <span>₹<span id="total">0</span></span>
+
+      <hr class="summary-divider">
+
+
+      <div class="summary-total">
+
+        <span>
+          Total
+        </span>
+
+        <span>
+          ₹<span id="total">0</span>
+        </span>
+
       </div>
 
-      <button class="checkout" onclick="checkout()">
+
+      <button
+        class="checkout-btn"
+        onclick="checkout()"
+      >
         Proceed to Checkout
       </button>
+
+
+      <div class="secure-box">
+        🔒 Secure checkout<br>
+        Nova Power Tools
+      </div>
 
     </div>
 
@@ -273,11 +546,22 @@ h1{
 
 </div>
 
+
 <script>
 
-let cart =
-  JSON.parse(localStorage.getItem("novaCart")) || [];
+/* =====================================================
+   LOAD CART
+===================================================== */
 
+let cart =
+  JSON.parse(
+    localStorage.getItem("novaCart")
+  ) || [];
+
+
+/* =====================================================
+   SAVE CART
+===================================================== */
 
 function saveCart(){
 
@@ -289,79 +573,214 @@ function saveCart(){
 }
 
 
+/* =====================================================
+   DISPLAY CART
+===================================================== */
+
 function displayCart(){
 
   const box =
     document.getElementById("cartItems");
 
+
+  /* ================= EMPTY CART ================= */
+
   if(cart.length === 0){
 
     box.innerHTML = `
-      <div class="empty">
-        <h2>Your cart is empty 🛒</h2>
-        <p>Add some products to your cart.</p>
 
-        <a class="shop" href="index.html">
+      <div class="empty">
+
+        <div class="empty-icon">
+          🛒
+        </div>
+
+        <h2>
+          Your cart is empty
+        </h2>
+
+        <p>
+          Add some products to your cart.
+        </p>
+
+        <a
+          href="index.html"
+          class="shop-btn"
+        >
           Start Shopping
         </a>
+
       </div>
+
     `;
 
     updateSummary();
 
     return;
+
   }
 
 
-  box.innerHTML = "";
+  /* ================= CART HEADER ================= */
+
+  box.innerHTML = `
+
+    <div class="cart-header">
+      Your selected products
+    </div>
+
+  `;
+
+
+  /* ================= PRODUCTS ================= */
 
   cart.forEach(function(item,index){
+
+    const price =
+      Number(item.price) || 0;
+
+    const quantity =
+      Number(item.quantity) || 1;
+
+    const itemTotal =
+      price * quantity;
+
+
+    /*
+      IMPORTANT:
+
+      New products ke cart data mein
+      image automatically stored hoti hai.
+
+      Agar image available hai:
+      actual product image show hogi.
+
+      Agar image nahi hai:
+      fallback icon show hoga.
+    */
+
+    let imageHTML = "";
+
+    if(item.image){
+
+      imageHTML = `
+
+        <img
+          src="${item.image}"
+          alt="${escapeHTML(item.name)}"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        >
+
+        <span
+          class="fallback-icon"
+          style="display:none;"
+        >
+          ${item.icon || "🛠️"}
+        </span>
+
+      `;
+
+    }else{
+
+      imageHTML = `
+
+        <span class="fallback-icon">
+          ${item.icon || "🛠️"}
+        </span>
+
+      `;
+
+    }
+
 
     box.innerHTML += `
 
       <div class="cart-item">
 
-       <div class="cart-image">
-  ${
-    item.image
-      ? `<img src="${item.image}" alt="${item.name}">`
-      : `<span>${item.icon || "🛠️"}</span>`
-  }
-</div>
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="cart-image">
+
+          ${imageHTML}
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
 
         <div class="item-info">
 
-          <h3>${item.name}</h3>
-
-          <div class="price">
-            ₹${item.price}
+          <div class="item-name">
+            ${escapeHTML(item.name)}
           </div>
 
-          <div class="quantity">
 
-            <button onclick="changeQuantity(${index},-1)">
+          <div class="item-price">
+            ₹${price.toLocaleString("en-IN")}
+          </div>
+
+
+          <div class="item-stock">
+            In Stock
+          </div>
+
+
+          <!-- QUANTITY -->
+
+          <div class="quantity-area">
+
+            <span class="quantity-label">
+              Quantity:
+            </span>
+
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${index},-1)"
+            >
               −
             </button>
 
-            <span>
-              ${item.quantity}
+            <span class="quantity-number">
+              ${quantity}
             </span>
 
-            <button onclick="changeQuantity(${index},1)">
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${index},1)"
+            >
               +
             </button>
 
           </div>
 
+
+          <!-- REMOVE -->
+
           <button
-            class="remove"
-            onclick="removeItem(${index})">
-
+            class="remove-btn"
+            onclick="removeItem(${index})"
+          >
             Remove
-
           </button>
 
         </div>
+
+
+        <!-- ITEM TOTAL -->
+
+        <div class="item-total">
+
+          <div class="item-total-label">
+            Item Total:
+          </div>
+
+          <div class="item-total-price">
+            ₹${itemTotal.toLocaleString("en-IN")}
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -375,15 +794,28 @@ function displayCart(){
 }
 
 
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
 function changeQuantity(index,change){
 
-  cart[index].quantity += change;
+  if(!cart[index]){
+    return;
+  }
+
+
+  cart[index].quantity =
+    (Number(cart[index].quantity) || 1)
+    + change;
+
 
   if(cart[index].quantity <= 0){
 
     cart.splice(index,1);
 
   }
+
 
   saveCart();
 
@@ -392,7 +824,16 @@ function changeQuantity(index,change){
 }
 
 
+/* =====================================================
+   REMOVE ITEM
+===================================================== */
+
 function removeItem(index){
+
+  if(!cart[index]){
+    return;
+  }
+
 
   cart.splice(index,1);
 
@@ -403,47 +844,101 @@ function removeItem(index){
 }
 
 
+/* =====================================================
+   UPDATE ORDER SUMMARY
+===================================================== */
+
 function updateSummary(){
 
   let count = 0;
+
   let total = 0;
+
 
   cart.forEach(function(item){
 
-    count += item.quantity;
+    const quantity =
+      Number(item.quantity) || 1;
+
+    const price =
+      Number(item.price) || 0;
+
+
+    count += quantity;
 
     total +=
-      item.price * item.quantity;
+      price * quantity;
 
   });
 
 
-  document.getElementById("itemCount")
-    .innerText = count;
+  document
+    .getElementById("itemCount")
+    .innerText =
+    count;
 
-  document.getElementById("subtotal")
-    .innerText = total.toLocaleString("en-IN");
 
-  document.getElementById("total")
-    .innerText = total.toLocaleString("en-IN");
+  document
+    .getElementById("subtotal")
+    .innerText =
+    total.toLocaleString("en-IN");
+
+
+  document
+    .getElementById("total")
+    .innerText =
+    total.toLocaleString("en-IN");
 
 }
 
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
 
 function checkout(){
 
   if(cart.length === 0){
 
-    alert("Your cart is empty.");
+    alert(
+      "Your cart is empty."
+    );
 
     return;
 
   }
 
-  window.location.href = "checkout.html";
+
+  /*
+    Checkout page ko cart ke products
+    localStorage se mil jayenge.
+  */
+
+  window.location.href =
+    "checkout.html";
 
 }
 
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
 
 displayCart();
 
