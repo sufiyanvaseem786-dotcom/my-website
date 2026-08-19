@@ -1524,12 +1524,9 @@ function addToCart(){
 /* =====================================================
    BUY NOW
 ===================================================== */
+window.buyNow = function(){
 
-function buyNow(productName){
-
-  const buyNowProduct = products[productName];
-
-  if(!buyNowProduct){
+  if(!p){
 
     alert("Product details nahi mili.");
 
@@ -1537,21 +1534,29 @@ function buyNow(productName){
 
   }
 
+  const buyNowData = {
+
+    name: p.name,
+
+    price: Number(p.price) || 0,
+
+    quantity: 1,
+
+    icon: "🛠️",
+
+    image: p.image || ""
+
+  };
+
   localStorage.setItem(
     "novaBuyNow",
-    JSON.stringify({
-      name: buyNowProduct.name || productName,
-      price: buyNowProduct.price || 0,
-      quantity: 1,
-      icon: "🛠️"
-    })
+    JSON.stringify(buyNowData)
   );
 
   window.location.href =
     "login.html?returnUrl=checkout.html";
-}
 
-
+};
 /* =====================================================
    START
 ===================================================== */
