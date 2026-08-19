@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checkout - Nova Power Tools</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Place Your Order | Nova Power Tools</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -14,22 +21,24 @@
 }
 
 body{
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:#eaeded;
   color:#172033;
 }
 
+/* ================= HEADER ================= */
+
 header{
   background:#131921;
   color:white;
-  padding:15px 5%;
+  padding:15px 4%;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .logo{
-  font-size:23px;
+  font-size:24px;
   font-weight:bold;
 }
 
@@ -40,56 +49,79 @@ header{
 header a{
   color:white;
   text-decoration:none;
+  padding:9px 12px;
+  border-radius:5px;
 }
 
+header a:hover{
+  background:#263242;
+}
+
+/* ================= PAGE ================= */
+
 .container{
-  max-width:1000px;
-  margin:30px auto;
-  padding:0 20px;
+  max-width:1200px;
+  margin:25px auto;
+  padding:0 18px;
 }
 
 .checkout-grid{
   display:grid;
-  grid-template-columns:1fr 350px;
-  gap:20px;
+  grid-template-columns:1fr 380px;
+  gap:22px;
 }
+
+/* ================= BOX ================= */
 
 .box{
   background:white;
-  padding:25px;
   border-radius:8px;
+  padding:25px;
   margin-bottom:20px;
+  box-shadow:0 2px 7px rgba(0,0,0,.07);
 }
 
 .box h2{
   margin-bottom:20px;
 }
 
+/* ================= INPUT ================= */
+
 label{
   display:block;
+  font-weight:bold;
   margin-top:15px;
   margin-bottom:6px;
-  font-weight:bold;
 }
 
 input,
 textarea,
 select{
   width:100%;
-  padding:12px;
-  border:1px solid #bbb;
+  padding:13px;
+  border:1px solid #aaa;
   border-radius:6px;
   font-size:15px;
+  outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#ffb000;
+  box-shadow:0 0 0 2px rgba(255,176,0,.12);
 }
 
 textarea{
-  height:90px;
+  min-height:100px;
   resize:vertical;
 }
 
+/* ================= PAYMENT ================= */
+
 .payment{
   display:flex;
-  gap:10px;
+  gap:12px;
 }
 
 .payment label{
@@ -104,46 +136,100 @@ textarea{
   width:auto;
 }
 
-.order-item{
+/* ================= ORDER ================= */
+
+.order-product{
+  display:flex;
+  gap:14px;
+  padding-bottom:15px;
+  border-bottom:1px solid #ddd;
+}
+
+.order-image{
+  width:95px;
+  height:95px;
+  object-fit:contain;
+  border:1px solid #ddd;
+  border-radius:6px;
+  background:white;
+}
+
+.order-info{
+  flex:1;
+}
+
+.order-name{
+  font-size:16px;
+  font-weight:bold;
+  line-height:1.4;
+}
+
+.order-price{
+  margin-top:8px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.order-qty{
+  margin-top:6px;
+  color:#555;
+}
+
+/* ================= TOTAL ================= */
+
+.summary-row{
   display:flex;
   justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid #ddd;
+  margin-top:15px;
+  font-size:15px;
 }
 
 .total{
   display:flex;
   justify-content:space-between;
-  font-size:23px;
-  font-weight:bold;
   margin-top:20px;
+  padding-top:18px;
+  border-top:1px solid #ddd;
+  font-size:25px;
+  font-weight:bold;
 }
+
+/* ================= PLACE ORDER ================= */
 
 .place-order{
   width:100%;
   margin-top:25px;
-  padding:14px;
+  padding:15px;
   border:none;
-  border-radius:7px;
-  background:#ffb000;
+  border-radius:25px;
+  background:#ffd814;
+  color:#111;
   font-size:17px;
   font-weight:bold;
   cursor:pointer;
 }
 
+.place-order:hover{
+  background:#f7ca00;
+}
+
+/* ================= SUCCESS ================= */
+
 .success{
   display:none;
   background:#dcfce7;
   color:#166534;
-  padding:20px;
+  padding:22px;
   border-radius:8px;
   margin-top:20px;
   text-align:center;
 }
 
+/* ================= LOADING ================= */
+
 #pageLoading{
   text-align:center;
-  padding:60px 20px;
+  padding:80px 20px;
   font-size:20px;
   color:#667085;
 }
@@ -152,7 +238,9 @@ textarea{
   display:none;
 }
 
-@media(max-width:700px){
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
 
   .checkout-grid{
     grid-template-columns:1fr;
@@ -166,17 +254,23 @@ textarea{
   .payment{
     flex-direction:column;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
+
 
 <div id="pageLoading">
   🔐 Checking your login...
 </div>
 
+
 <div id="checkoutContent">
+
 
 <header>
 
@@ -190,21 +284,32 @@ textarea{
 
 </header>
 
+
 <div class="container">
 
-  <h1 style="margin-bottom:25px;">
-    Checkout
+  <h1 style="margin-bottom:22px;">
+    Place Your Order
   </h1>
+
 
   <div class="checkout-grid">
 
+
+    <!-- ================= LEFT ================= -->
+
     <div>
+
 
       <div class="box">
 
-        <h2>📍 Delivery Information</h2>
+        <h2>
+          📍 Delivery Information
+        </h2>
 
-        <label>Full Name</label>
+
+        <label>
+          Full Name
+        </label>
 
         <input
           type="text"
@@ -213,17 +318,23 @@ textarea{
           required
         >
 
-        <label>Mobile Number</label>
+
+        <label>
+          Mobile Number
+        </label>
 
         <input
           type="tel"
           id="phone"
-          placeholder="Enter mobile number"
+          placeholder="Enter 10 digit mobile number"
           maxlength="10"
           required
         >
 
-        <label>Email</label>
+
+        <label>
+          Email
+        </label>
 
         <input
           type="email"
@@ -231,7 +342,10 @@ textarea{
           placeholder="Enter email address"
         >
 
-        <label>Full Address</label>
+
+        <label>
+          Full Address
+        </label>
 
         <textarea
           id="address"
@@ -239,7 +353,10 @@ textarea{
           required
         ></textarea>
 
-        <label>City</label>
+
+        <label>
+          City
+        </label>
 
         <input
           type="text"
@@ -248,88 +365,148 @@ textarea{
           required
         >
 
-        <label>PIN Code</label>
+
+        <label>
+          PIN Code
+        </label>
 
         <input
-          type="number"
+          type="text"
           id="pincode"
           placeholder="Enter PIN code"
+          maxlength="6"
           required
         >
 
       </div>
 
+
+      <!-- PAYMENT -->
+
       <div class="box">
 
-        <h2>💳 Payment Method</h2>
+        <h2>
+          💳 Payment Method
+        </h2>
+
 
         <div class="payment">
 
           <label>
+
             <input
               type="radio"
               name="payment"
               value="COD"
               checked
             >
+
             💵 Cash on Delivery
+
           </label>
 
+
           <label>
+
             <input
               type="radio"
               name="payment"
               value="UPI"
             >
+
             📱 UPI Payment
+
           </label>
 
         </div>
 
       </div>
 
+
     </div>
+
+
+    <!-- ================= RIGHT ================= -->
 
     <div class="box">
 
-      <h2>📦 Your Order</h2>
+      <h2>
+        📦 Your Order
+      </h2>
+
 
       <div id="orderItems"></div>
 
-      <div class="total">
 
-        <span>Total</span>
+      <div class="summary-row">
 
         <span>
-          ₹<span id="total">0</span>
+          Items Total
+        </span>
+
+        <span id="itemsTotal">
+          ₹0
         </span>
 
       </div>
+
+
+      <div class="summary-row">
+
+        <span>
+          Delivery
+        </span>
+
+        <span>
+          Free
+        </span>
+
+      </div>
+
+
+      <div class="total">
+
+        <span>
+          Order Total
+        </span>
+
+        <span id="total">
+          ₹0
+        </span>
+
+      </div>
+
 
       <button
         class="place-order"
         onclick="placeOrder()"
       >
-        🛍️ Place Order
+        🛍️ Place Your Order
       </button>
+
 
       <div
         class="success"
         id="success"
       >
-        <h2>🎉 Order Placed!</h2>
 
-        <p>
+        <h2>
+          🎉 Order Placed!
+        </h2>
+
+        <p style="margin-top:10px;">
           Thank you for shopping with
           Nova Power Tools.
         </p>
 
-        <p style="margin-top:10px;">
+        <p style="margin-top:8px;">
           We will contact you shortly.
         </p>
+
       </div>
 
     </div>
+
 
   </div>
 
@@ -340,16 +517,24 @@ textarea{
 
 <script type="module">
 
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
 import {
   initializeApp
 }
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
 
 import {
   getAuth,
   onAuthStateChanged
 }
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -374,101 +559,135 @@ const firebaseConfig = {
 
   measurementId:
     "G-PF74PNJQ89"
+
 };
 
 
 const app =
   initializeApp(firebaseConfig);
 
+
 const auth =
   getAuth(app);
 
 
-/*
-  LOGIN CHECK
-*/
+/* =====================================================
+   BUY NOW FIRST
+===================================================== */
 
-onAuthStateChanged(auth,function(user){
-
-  if(!user){
-
-    /*
-      User login nahi hai.
-      Login page par bhejo aur
-      checkout par wapas aane ka
-      address save karo.
-    */
-
-    window.location.href =
-      "login.html?returnUrl=checkout.html";
-
-    return;
-  }
-
-
-  /*
-    User logged in hai.
-    Checkout dikhao.
-  */
-
-  document.getElementById("pageLoading")
-    .style.display = "none";
-
-  document.getElementById("checkoutContent")
-    .style.display = "block";
-
-
-  /*
-    Firebase account ka email
-    checkout email mein automatically.
-  */
-
-  if(user.email){
-
-    document.getElementById("email")
-      .value = user.email;
-
-  }
-
-});
-
-
-let cart = [];
-
-const buyNowData =
+const buyNowProduct =
   JSON.parse(
     localStorage.getItem("novaBuyNow")
   );
 
-if(buyNowData && buyNowData.name){
 
-  cart = [{
-    name: buyNowData.name,
-    price: 0,
-    quantity: buyNowData.quantity || 1,
-    icon: "🛠️"
-  }];
+/* =====================================================
+   CART
+===================================================== */
+
+const cart =
+  JSON.parse(
+    localStorage.getItem("novaCart")
+  ) || [];
+
+
+/* =====================================================
+   FINAL ORDER ITEMS
+===================================================== */
+
+let orderItems = [];
+
+
+if(
+  buyNowProduct &&
+  buyNowProduct.name
+){
+
+  /*
+    BUY NOW MODE
+
+    Cart ki zaroorat nahi.
+  */
+
+  orderItems = [
+    buyNowProduct
+  ];
 
 }else{
 
-  cart =
-    JSON.parse(
-      localStorage.getItem("novaCart")
-    ) || [];
+  /*
+    NORMAL CART MODE
+  */
+
+  orderItems = cart;
 
 }
 
+
+/* =====================================================
+   LOGIN CHECK
+===================================================== */
+
+onAuthStateChanged(
+  auth,
+  function(user){
+
+    if(!user){
+
+      window.location.href =
+        "login.html?returnUrl=checkout.html";
+
+      return;
+
+    }
+
+
+    document
+      .getElementById("pageLoading")
+      .style.display = "none";
+
+
+    document
+      .getElementById("checkoutContent")
+      .style.display = "block";
+
+
+    if(user.email){
+
+      document
+        .getElementById("email")
+        .value =
+        user.email;
+
+    }
+
+    showOrder();
+
+  }
+);
+
+
+/* =====================================================
+   SHOW ORDER
+===================================================== */
+
 function showOrder(){
 
-  let box =
-    document.getElementById("orderItems");
+  const box =
+    document.getElementById(
+      "orderItems"
+    );
 
-  let total = 0;
 
-  if(cart.length === 0){
+  if(orderItems.length === 0){
 
-    box.innerHTML =
-      "<p>Your cart is empty.</p>";
+    box.innerHTML = `
+
+      <p style="color:#b42318;">
+        Your order is empty.
+      </p>
+
+    `;
 
     return;
 
@@ -478,205 +697,332 @@ function showOrder(){
   box.innerHTML = "";
 
 
-  cart.forEach(function(item){
-
-    let itemTotal =
-      item.price * item.quantity;
-
-    total += itemTotal;
+  let total = 0;
 
 
-    box.innerHTML += `
+  orderItems.forEach(
+    function(item){
 
-      <div class="order-item">
-
-        <span>
-          ${item.icon}
-          ${item.name}
-          × ${item.quantity}
-        </span>
-
-        <span>
-          ₹${itemTotal.toLocaleString("en-IN")}
-        </span>
-
-      </div>
-
-    `;
-
-  });
+      const price =
+        Number(item.price) || 0;
 
 
-  document.getElementById("total")
+      const quantity =
+        Number(item.quantity) || 1;
+
+
+      const itemTotal =
+        price * quantity;
+
+
+      total += itemTotal;
+
+
+      box.innerHTML += `
+
+        <div class="order-product">
+
+          <img
+            class="order-image"
+            src="${item.image || ""}"
+            alt="${item.name}"
+            onerror="this.style.display='none'"
+          >
+
+          <div class="order-info">
+
+            <div class="order-name">
+              ${item.name}
+            </div>
+
+            <div class="order-price">
+              ₹${price.toLocaleString("en-IN")}
+            </div>
+
+            <div class="order-qty">
+              Quantity: ${quantity}
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  document
+    .getElementById("itemsTotal")
     .innerText =
+    "₹" +
+    total.toLocaleString("en-IN");
+
+
+  document
+    .getElementById("total")
+    .innerText =
+    "₹" +
     total.toLocaleString("en-IN");
 
 }
 
 
-window.placeOrder = function(){
+/* =====================================================
+   PLACE ORDER
+===================================================== */
 
-  let name =
-    document.getElementById("name")
-      .value.trim();
+window.placeOrder =
+  function(){
 
-  let phone =
-    document.getElementById("phone")
-      .value.trim();
-
-  let address =
-    document.getElementById("address")
-      .value.trim();
-
-  let city =
-    document.getElementById("city")
-      .value.trim();
-
-  let pincode =
-    document.getElementById("pincode")
-      .value.trim();
-
-  let email =
-    document.getElementById("email")
-      .value.trim();
+    const name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
 
 
-  if(!name || !phone || !address || !city || !pincode){
-
-    alert(
-      "Please fill all required details."
-    );
-
-    return;
-
-  }
+    const phone =
+      document
+        .getElementById("phone")
+        .value
+        .trim();
 
 
-  if(phone.length !== 10){
-
-    alert(
-      "Please enter a valid 10 digit mobile number."
-    );
-
-    return;
-
-  }
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
 
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-
-    return;
-
-  }
+    const address =
+      document
+        .getElementById("address")
+        .value
+        .trim();
 
 
-  let payment =
-    document.querySelector(
-      'input[name="payment"]:checked'
-    ).value;
+    const city =
+      document
+        .getElementById("city")
+        .value
+        .trim();
 
 
-  let total =
-    document.getElementById("total")
-      .innerText;
+    const pincode =
+      document
+        .getElementById("pincode")
+        .value
+        .trim();
 
 
-  let products = "";
-
-  cart.forEach(function(item){
-
-    products +=
-      item.name +
-      " × " +
-      item.quantity +
-      " = ₹" +
-      (item.price * item.quantity)
-        .toLocaleString("en-IN") +
-      "\n";
-
-  });
-
-
-  const orderData = {
-
-    name:name,
-
-    phone:phone,
-
-    email:email,
-
-    address:
-      address +
-      ", " +
-      city +
-      " - " +
-      pincode,
-
-    products:products,
-
-    total:total,
-
-    payment:payment
-
-  };
-
-
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbw1cUlqklcnweOY8vpxNJWOZNsunqgrB41xjbn_D2TN5w2pN9rurfgh55APTRLR5DVa/exec";
-
-
-  fetch(scriptURL,{
-
-    method:"POST",
-
-    body:JSON.stringify(orderData)
-
-  })
-
-  .then(function(response){
-
-    return response.json();
-
-  })
-
-  .then(function(result){
-
-    if(result.success){
-
-      document.getElementById("success")
-        .style.display = "block";
-
-      localStorage.removeItem("novaCart");
-
-    }else{
+    if(
+      !name ||
+      !phone ||
+      !address ||
+      !city ||
+      !pincode
+    ){
 
       alert(
-        "Order save nahi hua. Please try again."
+        "Please fill all required details."
       );
+
+      return;
 
     }
 
-  })
 
-  .catch(function(error){
+    if(!/^\d{10}$/.test(phone)){
 
-    console.error(error);
+      alert(
+        "Please enter a valid 10 digit mobile number."
+      );
 
-    alert(
-      "Connection error. Please try again."
+      return;
+
+    }
+
+
+    if(!/^\d{6}$/.test(pincode)){
+
+      alert(
+        "Please enter a valid 6 digit PIN code."
+      );
+
+      return;
+
+    }
+
+
+    if(orderItems.length === 0){
+
+      alert(
+        "Your order is empty."
+      );
+
+      return;
+
+    }
+
+
+    const payment =
+      document.querySelector(
+        'input[name="payment"]:checked'
+      ).value;
+
+
+    let total = 0;
+
+    let products = "";
+
+
+    orderItems.forEach(
+      function(item){
+
+        const price =
+          Number(item.price) || 0;
+
+
+        const quantity =
+          Number(item.quantity) || 1;
+
+
+        const itemTotal =
+          price * quantity;
+
+
+        total += itemTotal;
+
+
+        products +=
+          item.name +
+          " × " +
+          quantity +
+          " = ₹" +
+          itemTotal.toLocaleString("en-IN") +
+          "\n";
+
+      }
     );
 
-  });
 
-}
+    const orderData = {
+
+      name:
+        name,
+
+      phone:
+        phone,
+
+      email:
+        email,
+
+      address:
+        address +
+        ", " +
+        city +
+        " - " +
+        pincode,
+
+      products:
+        products,
+
+      total:
+        total.toLocaleString("en-IN"),
+
+      payment:
+        payment
+
+    };
 
 
-showOrder();
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbw1cUlqklcnweOY8vpxNJWOZNsunqgrB41xjbn_D2TN5w2pN9rurfgh55APTRLR5DVa/exec";
+
+
+    fetch(
+      scriptURL,
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify(orderData)
+
+      }
+    )
+
+    .then(
+      function(response){
+
+        return response.json();
+
+      }
+    )
+
+    .then(
+      function(result){
+
+        if(result.success){
+
+          document
+            .getElementById("success")
+            .style.display =
+            "block";
+
+
+          /*
+            Buy Now data clear
+          */
+
+          localStorage.removeItem(
+            "novaBuyNow"
+          );
+
+
+          /*
+            Cart bhi sirf tab clear
+            karo jab normal cart
+            se order hua ho.
+          */
+
+          if(!buyNowProduct){
+
+            localStorage.removeItem(
+              "novaCart"
+            );
+
+          }
+
+        }else{
+
+          alert(
+            "Order save nahi hua. Please try again."
+          );
+
+        }
+
+      }
+    )
+
+    .catch(
+      function(error){
+
+        console.error(error);
+
+        alert(
+          "Connection error. Please try again."
+        );
+
+      }
+    );
+
+  };
 
 </script>
 
 </body>
 </html>
-```
