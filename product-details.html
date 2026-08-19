@@ -761,7 +761,249 @@ header{
 
    ...all products...
 
-   };
+   };const params = new URLSearchParams(window.location.search);
+
+const productKey = params.get("product");
+
+let p = null;
+
+
+/* =========================================
+   PRODUCT FIND
+========================================= */
+
+if (productKey) {
+
+  const requested =
+    decodeURIComponent(productKey)
+      .trim()
+      .toLowerCase();
+
+  /* 1. Direct database key */
+  if (products[productKey]) {
+
+    p = products[productKey];
+
+  }
+
+  /* 2. Product key/name se search */
+  if (!p) {
+
+    const keys = Object.keys(products);
+
+    for (let i = 0; i < keys.length; i++) {
+
+      const key = keys[i];
+
+      const item = products[key];
+
+      if (!item) continue;
+
+      const itemName =
+        String(item.name || "")
+          .trim()
+          .toLowerCase();
+
+      const databaseKey =
+        String(key)
+          .trim()
+          .toLowerCase();
+
+      /*
+        Example:
+        URL:
+        Matrix MTX-DU10 Electric Drill
+
+        Database:
+        Matrix MTX-DU10
+      */
+
+      if (
+        itemName === requested ||
+        databaseKey === requested ||
+        requested.includes(databaseKey) ||
+        databaseKey.includes(requested)
+      ) {
+
+        p = item;
+
+        break;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+/* =========================================
+   LOAD PRODUCT
+========================================= */
+
+function loadProduct() {
+
+  const loading =
+    document.getElementById("loading");
+
+  const error =
+    document.getElementById("error");
+
+  const page =
+    document.getElementById("productPage");
+
+
+  if (!p) {
+
+    loading.style.display = "none";
+
+    page.style.display = "none";
+
+    error.style.display = "block";
+
+    return;
+
+  }
+
+
+  const price =
+    Number(p.price) || 0;
+
+
+  /* IMAGE */
+
+  document.getElementById("productImage").src =
+    p.image || "";
+
+  document.getElementById("productImage").alt =
+    p.name || "Product";
+
+
+  /* NAME */
+
+  document.getElementById("productName").innerText =
+    p.name || "";
+
+
+  /* BRAND */
+
+  document.getElementById("brand").innerText =
+    p.brand
+      ? "Brand: " + p.brand
+      : "";
+
+
+  /* CATEGORY */
+
+  document.getElementById("category").innerText =
+    p.category
+      ? "Category: " + p.category
+      : "";
+
+
+  document.getElementById("breadcrumbCategory").innerText =
+    p.category || "Product";
+
+
+  /* PRICE */
+
+  document.getElementById("price").innerText =
+    "₹" + price.toLocaleString("en-IN");
+
+  document.getElementById("buyPrice").innerText =
+    "₹" + price.toLocaleString("en-IN");
+
+
+  /* MRP */
+
+  const mrp =
+    Math.round(price / 0.80);
+
+  document.getElementById("mrp").innerText =
+    "₹" + mrp.toLocaleString("en-IN");
+
+
+  /* DISCOUNT */
+
+  const discount =
+    Math.round(((mrp - price) / mrp) * 100);
+
+  document.getElementById("discount").innerText =
+    discount + "% off";
+
+
+  /* DESCRIPTION */
+
+  document.getElementById("description").innerText =
+    p.description || "";
+
+
+  /* HIGHLIGHTS */
+
+  const highlights =
+    document.getElementById("highlights");
+
+  highlights.innerHTML = "";
+
+  if (p.specs) {
+
+    Object.keys(p.specs)
+      .slice(0, 6)
+      .forEach(function(key) {
+
+        highlights.innerHTML += `
+          <li>
+            <strong>${key}:</strong>
+            ${p.specs[key]}
+          </li>
+        `;
+
+      });
+
+  }
+
+
+  /* SPECIFICATIONS */
+
+  const specifications =
+    document.getElementById("specifications");
+
+  specifications.innerHTML = "";
+
+  if (p.specs) {
+
+    Object.keys(p.specs)
+      .forEach(function(key) {
+
+        specifications.innerHTML += `
+          <tr>
+            <td>${key}</td>
+            <td>${p.specs[key]}</td>
+          </tr>
+        `;
+
+      });
+
+  }
+
+
+  /* SHOW PRODUCT */
+
+  loading.style.display = "none";
+
+  error.style.display = "none";
+
+  page.style.display = "block";
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+loadProduct();
 /* =====================================================
    NOVA POWER TOOLS
    PRODUCT DATABASE
