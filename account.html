@@ -1,4 +1,4 @@
-```html
+#Account Page
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +8,7 @@
 <title>My Account - Nova Power Tools</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -15,10 +16,12 @@
 }
 
 body{
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:#eaeded;
   color:#172033;
 }
+
+/* ================= HEADER ================= */
 
 header{
   background:#131921;
@@ -27,6 +30,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:20px;
 }
 
 .logo{
@@ -41,7 +45,15 @@ header{
 header a{
   color:white;
   text-decoration:none;
+  padding:8px 12px;
+  border-radius:6px;
 }
+
+header a:hover{
+  background:#263242;
+}
+
+/* ================= CONTAINER ================= */
 
 .container{
   max-width:1000px;
@@ -53,13 +65,17 @@ h1{
   margin-bottom:25px;
 }
 
+/* ================= CARD ================= */
+
 .card{
   background:white;
   padding:25px;
   border-radius:10px;
   margin-bottom:20px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
+
+/* ================= PROFILE ================= */
 
 .profile{
   display:flex;
@@ -68,17 +84,18 @@ h1{
 }
 
 .avatar{
-  width:75px;
-  height:75px;
+  width:90px;
+  height:90px;
   border-radius:50%;
   background:#2563eb;
   color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:30px;
+  font-size:35px;
   overflow:hidden;
   flex-shrink:0;
+  border:3px solid #e5e7eb;
 }
 
 .avatar img{
@@ -87,14 +104,143 @@ h1{
   object-fit:cover;
 }
 
+.info{
+  flex:1;
+}
+
 .info h2{
   margin-bottom:8px;
 }
 
 .info p{
   color:#667085;
-  margin:5px 0;
+  margin:6px 0;
 }
+
+/* ================= BUTTONS ================= */
+
+.edit-btn,
+.save-btn,
+.cancel-btn,
+.logout{
+  padding:12px 20px;
+  border:none;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.edit-btn{
+  background:#ffb000;
+  color:#111;
+  margin-top:15px;
+}
+
+.edit-btn:hover{
+  background:#e9a000;
+}
+
+.save-btn{
+  background:#16a34a;
+  color:white;
+}
+
+.save-btn:hover{
+  background:#15803d;
+}
+
+.cancel-btn{
+  background:#e5e7eb;
+  color:#172033;
+  margin-left:8px;
+}
+
+.logout{
+  background:#dc2626;
+  color:white;
+  margin-top:20px;
+}
+
+.logout:hover{
+  background:#b91c1c;
+}
+
+/* ================= EDIT FORM ================= */
+
+.edit-form{
+  display:none;
+  margin-top:25px;
+  border-top:1px solid #ddd;
+  padding-top:25px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.form-group.full{
+  grid-column:1 / -1;
+}
+
+.form-group label{
+  font-weight:bold;
+  font-size:14px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #bbb;
+  border-radius:7px;
+  font-size:15px;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 2px rgba(37,99,235,.1);
+}
+
+.form-group textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.form-buttons{
+  margin-top:20px;
+}
+
+/* ================= ADDRESS DISPLAY ================= */
+
+.address-box{
+  margin-top:20px;
+  padding:18px;
+  background:#f8fafc;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+.address-box h3{
+  margin-bottom:10px;
+}
+
+.address-box p{
+  color:#555;
+  line-height:1.6;
+}
+
+/* ================= QUICK ACCESS ================= */
 
 .menu{
   display:grid;
@@ -109,7 +255,7 @@ h1{
   padding:20px;
   border-radius:8px;
   border:1px solid #ddd;
-  transition:0.2s;
+  transition:.2s;
 }
 
 .menu a:hover{
@@ -117,43 +263,73 @@ h1{
   transform:translateY(-2px);
 }
 
-.logout{
-  margin-top:20px;
-  padding:13px 22px;
-  border:none;
+/* ================= MESSAGE ================= */
+
+.message{
+  display:none;
+  padding:12px;
   border-radius:7px;
-  background:#dc2626;
-  color:white;
+  margin-top:15px;
   font-weight:bold;
-  cursor:pointer;
 }
+
+.success{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+/* ================= LOADING ================= */
 
 .loading{
   text-align:center;
-  padding:50px;
+  padding:60px;
   font-size:18px;
   color:#667085;
 }
 
-@media(max-width:600px){
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .container{
+    margin:20px auto;
+  }
+
+  .profile{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
 
   .menu{
     grid-template-columns:1fr;
   }
 
-  header{
-    flex-direction:column;
-    gap:10px;
-  }
-
-  .profile{
-    align-items:flex-start;
-  }
 }
+
 </style>
 </head>
 
 <body>
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -167,21 +343,40 @@ h1{
 
 </header>
 
+
+<!-- ================= LOADING ================= -->
+
 <div id="loading" class="loading">
   Checking your account...
 </div>
 
-<div id="accountPage" class="container" style="display:none;">
 
-  <h1>👤 My Account</h1>
+<!-- ================= ACCOUNT ================= -->
+
+<div
+  id="accountPage"
+  class="container"
+  style="display:none;"
+>
+
+  <h1>
+    👤 My Account
+  </h1>
+
+
+  <!-- ================= PROFILE CARD ================= -->
 
   <div class="card">
 
     <div class="profile">
 
-      <div class="avatar" id="avatar">
+      <div
+        class="avatar"
+        id="avatar"
+      >
         👤
       </div>
+
 
       <div class="info">
 
@@ -197,12 +392,226 @@ h1{
 
     </div>
 
-    <button class="logout" id="logoutBtn">
-      Logout
+
+    <button
+      class="edit-btn"
+      id="editBtn"
+    >
+      ✏️ Edit Profile
     </button>
+
+
+    <!-- ================= EDIT FORM ================= -->
+
+    <div
+      class="edit-form"
+      id="editForm"
+    >
+
+      <h2 style="margin-bottom:20px;">
+        Edit Your Profile
+      </h2>
+
+
+      <div class="form-grid">
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label for="nameInput">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter your name"
+          >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+          <label for="emailInput">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter email"
+            readonly
+          >
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+          <label for="phoneInput">
+            Mobile Number
+          </label>
+
+          <input
+            type="tel"
+            id="phoneInput"
+            placeholder="Enter mobile number"
+          >
+
+        </div>
+
+
+        <!-- PHOTO -->
+
+        <div class="form-group">
+
+          <label for="photoInput">
+            Profile Photo URL
+          </label>
+
+          <input
+            type="url"
+            id="photoInput"
+            placeholder="https://example.com/photo.jpg"
+          >
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="form-group full">
+
+          <label for="addressInput">
+            Delivery Address
+          </label>
+
+          <textarea
+            id="addressInput"
+            placeholder="House number, street, area..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="form-group">
+
+          <label for="cityInput">
+            City
+          </label>
+
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter city"
+          >
+
+        </div>
+
+
+        <!-- STATE -->
+
+        <div class="form-group">
+
+          <label for="stateInput">
+            State
+          </label>
+
+          <input
+            type="text"
+            id="stateInput"
+            placeholder="Enter state"
+          >
+
+        </div>
+
+
+        <!-- PIN -->
+
+        <div class="form-group">
+
+          <label for="pinInput">
+            PIN Code
+          </label>
+
+          <input
+            type="text"
+            id="pinInput"
+            maxlength="6"
+            placeholder="Enter PIN code"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="form-buttons"
+      >
+
+        <button
+          class="save-btn"
+          id="saveBtn"
+        >
+          💾 Save Changes
+        </button>
+
+        <button
+          class="cancel-btn"
+          id="cancelBtn"
+        >
+          Cancel
+        </button>
+
+      </div>
+
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+    </div>
 
   </div>
 
+
+  <!-- ================= ADDRESS ================= -->
+
+  <div class="card">
+
+    <h2>
+      🏠 Delivery Address
+    </h2>
+
+    <div
+      class="address-box"
+      id="addressDisplay"
+    >
+
+      <h3>
+        No address added
+      </h3>
+
+      <p>
+        Click "Edit Profile" to add your delivery address.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= QUICK ACCESS ================= -->
 
   <div class="card">
 
@@ -213,42 +622,76 @@ h1{
     <div class="menu">
 
       <a href="orders.html">
+
         📦<br>
-        <strong>My Orders</strong>
+
+        <strong>
+          My Orders
+        </strong>
+
         <br>
+
         View your orders
+
       </a>
 
+
       <a href="cart.html">
+
         🛒<br>
-        <strong>My Cart</strong>
+
+        <strong>
+          My Cart
+        </strong>
+
         <br>
+
         View items in cart
+
       </a>
 
     </div>
 
   </div>
 
+
+  <!-- ================= LOGOUT ================= -->
+
+  <button
+    class="logout"
+    id="logoutBtn"
+  >
+    Logout
+  </button>
+
 </div>
 
 
+<!-- ================= FIREBASE ================= -->
+
 <script type="module">
 
-import { initializeApp }
+import {
+  initializeApp
+}
 from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
 
 import {
   getAuth,
   onAuthStateChanged,
-  signOut
+  signOut,
+  updateProfile
 }
 from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
+/* ================= FIREBASE CONFIG ================= */
+
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
+  apiKey:
+    "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
 
   authDomain:
     "nova-power-tools.firebaseapp.com",
@@ -267,19 +710,30 @@ const firebaseConfig = {
 
   measurementId:
     "G-PF74PNJQ89"
+
 };
 
 
-const app = initializeApp(firebaseConfig);
+/* ================= INITIALIZE ================= */
 
-const auth = getAuth(app);
+const app =
+  initializeApp(firebaseConfig);
 
+
+const auth =
+  getAuth(app);
+
+
+/* ================= ELEMENTS ================= */
 
 const loading =
   document.getElementById("loading");
 
 const accountPage =
   document.getElementById("accountPage");
+
+const avatar =
+  document.getElementById("avatar");
 
 const userName =
   document.getElementById("userName");
@@ -290,76 +744,548 @@ const userEmail =
 const userPhone =
   document.getElementById("userPhone");
 
-const avatar =
-  document.getElementById("avatar");
+const editBtn =
+  document.getElementById("editBtn");
+
+const editForm =
+  document.getElementById("editForm");
+
+const cancelBtn =
+  document.getElementById("cancelBtn");
+
+const saveBtn =
+  document.getElementById("saveBtn");
+
+const message =
+  document.getElementById("message");
 
 
-onAuthStateChanged(auth, function(user){
+/* ================= FORM ELEMENTS ================= */
 
-  if(!user){
+const nameInput =
+  document.getElementById("nameInput");
 
-    window.location.href = "login.html";
+const emailInput =
+  document.getElementById("emailInput");
 
-    return;
-  }
+const phoneInput =
+  document.getElementById("phoneInput");
+
+const photoInput =
+  document.getElementById("photoInput");
+
+const addressInput =
+  document.getElementById("addressInput");
+
+const cityInput =
+  document.getElementById("cityInput");
+
+const stateInput =
+  document.getElementById("stateInput");
+
+const pinInput =
+  document.getElementById("pinInput");
+
+const addressDisplay =
+  document.getElementById("addressDisplay");
 
 
-  loading.style.display = "none";
+/* ================= CURRENT USER ================= */
 
-  accountPage.style.display = "block";
+let currentUser = null;
 
 
-  userName.textContent =
+/* ================= LOCAL PROFILE ================= */
+
+function getSavedProfile(){
+
+  return JSON.parse(
+    localStorage.getItem("novaUserProfile")
+  ) || {};
+
+}
+
+
+function saveLocalProfile(profile){
+
+  localStorage.setItem(
+    "novaUserProfile",
+    JSON.stringify(profile)
+  );
+
+}
+
+
+/* ================= SHOW MESSAGE ================= */
+
+function showMessage(text,type){
+
+  message.innerText = text;
+
+  message.className =
+    "message " + type;
+
+  message.style.display =
+    "block";
+
+
+  setTimeout(function(){
+
+    message.style.display =
+      "none";
+
+  },3000);
+
+}
+
+
+/* ================= DISPLAY PROFILE ================= */
+
+function displayProfile(user){
+
+  const saved =
+    getSavedProfile();
+
+
+  const name =
+    saved.name ||
     user.displayName ||
     "Nova Power Tools Customer";
 
 
-  userEmail.textContent =
+  const phone =
+    saved.phone ||
+    user.phoneNumber ||
+    "";
+
+
+  const photo =
+    saved.photo ||
+    user.photoURL ||
+    "";
+
+
+  userName.innerText =
+    name;
+
+
+  userEmail.innerText =
     user.email
       ? "📧 " + user.email
       : "";
 
 
-  userPhone.textContent =
-    user.phoneNumber
-      ? "📱 " + user.phoneNumber
+  userPhone.innerText =
+    phone
+      ? "📱 " + phone
       : "";
 
 
-  if(user.photoURL){
+  if(photo){
 
     avatar.innerHTML =
-      '<img src="' +
-      user.photoURL +
-      '" alt="Profile">';
+      `
+      <img
+        src="${photo}"
+        alt="Profile"
+        onerror="this.parentElement.innerHTML='👤';"
+      >
+      `;
+
+  }else{
+
+    avatar.innerHTML =
+      "👤";
 
   }
 
-});
+
+  /* ADDRESS */
+
+  const address =
+    saved.address || "";
 
 
-document
-  .getElementById("logoutBtn")
-  .addEventListener("click", async function(){
+  const city =
+    saved.city || "";
+
+
+  const state =
+    saved.state || "";
+
+
+  const pin =
+    saved.pin || "";
+
+
+  if(
+    address ||
+    city ||
+    state ||
+    pin
+  ){
+
+    addressDisplay.innerHTML = `
+
+      <h3>
+        📍 Saved Delivery Address
+      </h3>
+
+      <p>
+
+        ${address}
+
+        ${city ? "<br>" + city : ""}
+
+        ${state ? ", " + state : ""}
+
+        ${pin ? " - " + pin : ""}
+
+      </p>
+
+    `;
+
+  }else{
+
+    addressDisplay.innerHTML = `
+
+      <h3>
+        No address added
+      </h3>
+
+      <p>
+        Click "Edit Profile" to add your delivery address.
+      </p>
+
+    `;
+
+  }
+
+}
+
+
+/* ================= FILL FORM ================= */
+
+function fillForm(user){
+
+  const saved =
+    getSavedProfile();
+
+
+  nameInput.value =
+    saved.name ||
+    user.displayName ||
+    "";
+
+
+  emailInput.value =
+    user.email ||
+    "";
+
+
+  phoneInput.value =
+    saved.phone ||
+    user.phoneNumber ||
+    "";
+
+
+  photoInput.value =
+    saved.photo ||
+    user.photoURL ||
+    "";
+
+
+  addressInput.value =
+    saved.address ||
+    "";
+
+
+  cityInput.value =
+    saved.city ||
+    "";
+
+
+  stateInput.value =
+    saved.state ||
+    "";
+
+
+  pinInput.value =
+    saved.pin ||
+    "";
+
+}
+
+
+/* ================= OPEN EDIT ================= */
+
+editBtn.addEventListener(
+  "click",
+  function(){
+
+    fillForm(currentUser);
+
+    editForm.style.display =
+      "block";
+
+    editBtn.style.display =
+      "none";
+
+    window.scrollTo({
+
+      top:
+        editForm.offsetTop - 30,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+);
+
+
+/* ================= CANCEL ================= */
+
+cancelBtn.addEventListener(
+  "click",
+  function(){
+
+    editForm.style.display =
+      "none";
+
+    editBtn.style.display =
+      "inline-block";
+
+  }
+);
+
+
+/* ================= SAVE PROFILE ================= */
+
+saveBtn.addEventListener(
+  "click",
+  async function(){
+
+    if(!currentUser){
+      return;
+    }
+
+
+    const name =
+      nameInput.value.trim();
+
+
+    const phone =
+      phoneInput.value.trim();
+
+
+    const photo =
+      photoInput.value.trim();
+
+
+    const address =
+      addressInput.value.trim();
+
+
+    const city =
+      cityInput.value.trim();
+
+
+    const state =
+      stateInput.value.trim();
+
+
+    const pin =
+      pinInput.value.trim();
+
+
+    if(!name){
+
+      showMessage(
+        "Please enter your name.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      pin &&
+      !/^[0-9]{6}$/.test(pin)
+    ){
+
+      showMessage(
+        "PIN code 6 digits ka hona chahiye.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    saveBtn.disabled =
+      true;
+
+    saveBtn.innerText =
+      "Saving...";
+
 
     try{
 
-      await signOut(auth);
+      /* Firebase profile name/photo */
+
+      await updateProfile(
+        currentUser,
+        {
+          displayName:
+            name,
+
+          photoURL:
+            photo || null
+        }
+      );
+
+
+      /* Save extra information */
+
+      const profileData = {
+
+        name:
+          name,
+
+        phone:
+          phone,
+
+        photo:
+          photo,
+
+        address:
+          address,
+
+        city:
+          city,
+
+        state:
+          state,
+
+        pin:
+          pin
+
+      };
+
+
+      saveLocalProfile(
+        profileData
+      );
+
+
+      displayProfile(
+        currentUser
+      );
+
+
+      editForm.style.display =
+        "none";
+
+      editBtn.style.display =
+        "inline-block";
+
+
+      showMessage(
+        "Profile successfully updated! ✅",
+        "success"
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      showMessage(
+        "Profile update nahi ho paya. Please try again.",
+        "error"
+      );
+
+    }
+
+
+    saveBtn.disabled =
+      false;
+
+    saveBtn.innerText =
+      "💾 Save Changes";
+
+  }
+);
+
+
+/* ================= LOGOUT ================= */
+
+document
+  .getElementById("logoutBtn")
+  .addEventListener(
+    "click",
+    async function(){
+
+      try{
+
+        await signOut(auth);
+
+        window.location.href =
+          "login.html";
+
+      }catch(error){
+
+        console.error(error);
+
+        alert(
+          "Logout failed. Please try again."
+        );
+
+      }
+
+    }
+  );
+
+
+/* ================= AUTH CHECK ================= */
+
+onAuthStateChanged(
+  auth,
+  function(user){
+
+    if(!user){
 
       window.location.href =
         "login.html";
 
-    }catch(error){
-
-      alert(
-        "Logout failed. Please try again."
-      );
-
-      console.error(error);
+      return;
 
     }
 
-  });
+
+    currentUser =
+      user;
+
+
+    loading.style.display =
+      "none";
+
+
+    accountPage.style.display =
+      "block";
+
+
+    displayProfile(
+      user
+    );
+
+  }
+);
 
 </script>
 
