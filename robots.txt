@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sufiyanvaseem786-dotcom.github.io/my-website/sitemap.xml
