@@ -3278,23 +3278,86 @@ function addToCart(productName,price){
 }
 
 
-/* BUY NOW */
+/* ================= BUY NOW ================= */
 
 function buyNow(productName){
 
+  /* Product price find karo */
+  const productCard =
+    Array.from(
+      document.querySelectorAll(".product")
+    ).find(function(card){
+
+      const title =
+        card.querySelector("h3");
+
+      return title &&
+        title.innerText.trim() ===
+        productName.trim();
+
+    });
+
+
+  /* Price find karo */
+  let price = 0;
+
+  if(productCard){
+
+    const priceElement =
+      productCard.querySelector(".price");
+
+    if(priceElement){
+
+      price =
+        Number(
+          priceElement.innerText
+            .replace(/[₹,\s]/g,"")
+        ) || 0;
+
+    }
+
+  }
+
+
+  /* Buy Now data */
   const buyNowProduct = {
-    name: productName,
-    quantity: 1
+
+    name:
+      productName,
+
+    price:
+      price,
+
+    quantity:
+      1,
+
+    image:
+      productCard
+        ? (
+            productCard.querySelector("img")
+              ?.getAttribute("src")
+            || ""
+          )
+        : ""
+
   };
 
+
+  /* Save */
   localStorage.setItem(
     "novaBuyNow",
-    JSON.stringify(buyNowProduct)
+    JSON.stringify(
+      buyNowProduct
+    )
   );
 
+
+  /* Login / Signup page */
   window.location.href =
     "login.html?returnUrl=checkout.html";
+
 }
+
 /* ========================= MAKE ALL PRODUCTS CLICKABLE ========================= */
 
 document.querySelectorAll(".product").forEach(function(product){
