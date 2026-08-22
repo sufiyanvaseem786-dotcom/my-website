@@ -874,6 +874,32 @@ body{
         type="password"
         placeholder="Password"
       >
+       <!-- TERMS & PRIVACY -->
+<div
+  id="termsArea"
+  style="display:none; margin:8px 0 14px; font-size:12px; color:#b8c4d8; line-height:1.5;"
+>
+  <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+
+    <input
+      type="checkbox"
+      id="termsCheckbox"
+      style="margin-top:3px;"
+    >
+
+    <span>
+      I agree to the
+      <a href="terms.html" target="_blank" style="color:#ffb000;">
+        Terms & Conditions
+      </a>
+      and
+      <a href="privacy.html" target="_blank" style="color:#ffb000;">
+        Privacy Policy
+      </a>.
+    </span>
+
+  </label>
+</div>
 
 
       <button
@@ -1124,6 +1150,14 @@ window.showLogin = function(){
   document
     .getElementById("name")
     .style.display = "none";
+   
+   document
+  .getElementById("termsArea")
+  .style.display = "none";
+
+document
+  .getElementById("termsCheckbox")
+  .checked = false;
 
 
   document
@@ -1251,6 +1285,7 @@ window.emailLogin = async function(){
     return;
 
   }
+   if(isSignup){ const termsAccepted = document .getElementById("termsCheckbox") .checked; if(!termsAccepted){ showMessage( "Please accept the Terms & Conditions and Privacy Policy." ); return; } }
 
 
   if(isSignup && password.length < 6){
@@ -1534,6 +1569,7 @@ window.verifyOTP = async function(){
 ========================= */
 
 showSignup();
+   document .getElementById("termsArea") .style.display = "block";
 
 </script>
 
