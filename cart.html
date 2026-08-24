@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shopping Cart - Nova Power Tools</title>
+<title>Shopping Cart - S.A Power Tools</title>
 
 <style>
 
@@ -496,7 +496,7 @@ h1{
 <header>
 
   <div class="logo">
-    ⚡ Nova <span>Power Tools</span>
+    ⚡ S.A <span>Power Tools</span>
   </div>
 
   <a href="index.html">
@@ -616,7 +616,7 @@ h1{
 
 let cart =
   JSON.parse(
-    localStorage.getItem("novaCart")
+    localStorage.getItem("S.ACart")
   ) || [];
 
 
@@ -627,7 +627,7 @@ let cart =
 function saveCart(){
 
   localStorage.setItem(
-    "novaCart",
+    "S.ACart",
     JSON.stringify(cart)
   );
 
