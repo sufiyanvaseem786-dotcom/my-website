@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Account - Nova Power Tools</title>
+<title>My Account - S.A Power Tools</title>
 
 <style>
 
@@ -333,7 +333,7 @@ h1{
 <header>
 
   <div class="logo">
-    ⚡ Nova <span>Power Tools</span>
+    ⚡ S.A <span>Power Tools</span>
   </div>
 
   <a href="index.html">
@@ -693,13 +693,13 @@ const firebaseConfig = {
     "AIzaSyAGOZn1c-iWzH3g3OS_TTlh1uz1Ju5gmjw",
 
   authDomain:
-    "nova-power-tools.firebaseapp.com",
+    "S.A-power-tools.firebaseapp.com",
 
   projectId:
-    "nova-power-tools",
+    "S.A-power-tools",
 
   storageBucket:
-    "nova-power-tools.firebasestorage.app",
+    "S.A-power-tools.firebasestorage.app",
 
   messagingSenderId:
     "265235157417",
@@ -799,7 +799,7 @@ let currentUser = null;
 function getSavedProfile(){
 
   return JSON.parse(
-    localStorage.getItem("novaUserProfile")
+    localStorage.getItem("S.AUserProfile")
   ) || {};
 
 }
@@ -808,7 +808,7 @@ function getSavedProfile(){
 function saveLocalProfile(profile){
 
   localStorage.setItem(
-    "novaUserProfile",
+    "S.AUserProfile",
     JSON.stringify(profile)
   );
 
@@ -849,7 +849,7 @@ function displayProfile(user){
   const name =
     saved.name ||
     user.displayName ||
-    "Nova Power Tools Customer";
+    "S.A Power Tools Customer";
 
 
   const phone =
