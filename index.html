@@ -2313,7 +2313,7 @@ footer a:hover{
 <header>
 
   <div class="logo">
-    ⚡ Nova <span>Power Tools</span>
+    ⚡ U.V <span>Power Tools</span>
   </div>
 
   <div class="search-area">
@@ -4159,7 +4159,7 @@ function addToCart(productName,price){
 
   let cart =
     JSON.parse(
-      localStorage.getItem("novaCart")
+      localStorage.getItem("U.VCart")
     ) || [];
 
 
@@ -4190,7 +4190,7 @@ function addToCart(productName,price){
 
 
   localStorage.setItem(
-    "novaCart",
+    "U.VCart",
     JSON.stringify(cart)
   );
 
@@ -4283,7 +4283,7 @@ function buyNow(productName){
 
   /* Save */
   localStorage.setItem(
-    "novaBuyNow",
+    "U.VBuyNow",
     JSON.stringify(
       buyNowProduct
     )
