@@ -1,1 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Help Centre | S.A Power Tools</title>
+
+<meta name="description"
+content="S.A Power Tools Help Centre - Get help with orders, products, payments, delivery, accounts and replacements.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(0,120,255,.18),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(0,80,200,.16),transparent 30%),
+    linear-gradient(135deg,#02050a,#071a38 50%,#02050a);
+  color:white;
+}
+
+header{
+  padding:16px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:rgba(2,5,10,.92);
+  border-bottom:1px solid rgba(0,140,255,.3);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:9px 13px;
+  border-radius:8px;
+  font-size:14px;
+}
+
+nav a:hover{
+  background:rgba(0,120,255,.15);
+}
+
+.container{
+  max-width:1050px;
+  margin:45px auto;
+  padding:0 18px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.hero h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.hero h1 span{
+  color:#ffb000;
+}
+
+.hero p{
+  color:#aebbd0;
+  font-size:15px;
+}
+
+.search{
+  width:100%;
+  max-width:650px;
+  margin:25px auto 0;
+  display:block;
+  padding:15px 18px;
+  border-radius:12px;
+  border:1px solid rgba(0,140,255,.4);
+  background:rgba(0,0,0,.35);
+  color:white;
+  outline:none;
+  font-size:14px;
+}
+
+.search:focus{
+  border-color:#ffb000;
+  box-shadow:0 0 15px rgba(255,176,0,.12);
+}
+
+.help-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.help-card{
+  padding:24px;
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(7,26,56,.95),rgba(2,5,10,.95));
+  border:1px solid rgba(0,140,255,.22);
+  transition:.25s;
+}
+
+.help-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,140,255,.6);
+  box-shadow:0 12px 35px rgba(0,80,180,.2);
+}
+
+.help-icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.help-card h3{
+  margin-bottom:8px;
+}
+
+.help-card p{
+  color:#9eacc2;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.faq{
+  margin-top:35px;
+  padding:25px;
+  border-radius:16px;
+  background:rgba(4,12,25,.85);
+  border:1px solid rgba(0,140,255,.2);
+}
+
+.faq h2{
+  margin-bottom:18px;
+}
+
+details{
+  border-top:1px solid rgba(255,255,255,.09);
+  padding:15px 5px;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+details p{
+  color:#aab7ca;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.contact-box{
+  margin-top:30px;
+  padding:24px;
+  text-align:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#071a38,#02050a);
+  border:1px solid rgba(255,176,0,.3);
+}
+
+.contact-box h2{
+  margin-bottom:8px;
+}
+
+.contact-box p{
+  color:#aab7ca;
+  margin-bottom:15px;
+}
+
+.support-btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:9px;
+  background:#ffb000;
+  color:#111;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#718198;
+  font-size:13px;
+}
+
+footer a{
+  color:#9db1cb;
+  text-decoration:none;
+  margin:0 6px;
+}
+
+@media(max-width:750px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .help-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ S.A <span>Power Tools</span>
+  </div>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="cart.html">🛒 Cart</a>
+    <a href="account.html">👤 Account</a>
+  </nav>
+
+</header>
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>How can we <span>help?</span></h1>
+
+    <p>
+      Find help with your orders, products, payments, delivery and account.
+    </p>
+
+    <input
+      class="search"
+      id="helpSearch"
+      type="search"
+      placeholder="Search your question..."
+      oninput="searchHelp()"
+    >
+
+  </section>
+
+
+  <section class="help-grid" id="helpGrid">
+
+    <div class="help-card" data-search="order order machine product">
+      <div class="help-icon">📦</div>
+      <h3>Orders</h3>
+      <p>
+        Need help placing, confirming or checking an order?
+        Open your account or contact customer support.
+      </p>
+    </div>
+
+    <div class="help-card" data-search="product machine details price">
+      <div class="help-icon">🔧</div>
+      <h3>Products</h3>
+      <p>
+        Get help with product details, specifications, availability
+        and power-tool information.
+      </p>
+    </div>
+
+    <div class="help-card" data-search="payment upi cash payment">
+      <div class="help-icon">💳</div>
+      <h3>Payments</h3>
+      <p>
+        Get assistance with available payment methods and payment-related
+        problems during checkout.
+      </p>
+    </div>
+
+    <div class="help-card" data-search="delivery shipping location">
+      <div class="help-icon">🚚</div>
+      <h3>Delivery</h3>
+      <p>
+        Need help regarding delivery availability, timing or delivery
+        coordination? Contact our support team.
+      </p>
+    </div>
+
+    <div class="help-card" data-search="account login signup password">
+      <div class="help-icon">👤</div>
+      <h3>Account</h3>
+      <p>
+        Get help with Login, Sign Up and accessing your customer account.
+      </p>
+    </div>
+
+    <div class="help-card" data-search="replacement damaged wrong defective">
+      <div class="help-icon">🔄</div>
+      <h3>Replacement</h3>
+      <p>
+        If you received a damaged, defective or incorrect product,
+        contact us as soon as possible.
+      </p>
+    </div>
+
+  </section>
+
+
+  <section class="faq">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How can I place an order?</summary>
+      <p>
+        Open a product, select the required quantity and use the available
+        order option. You may need to log in or create an account before
+        completing checkout.
+      </p>
+    </details>
+
+    <details>
+      <summary>How can I check my order?</summary>
+      <p>
+        Open your Account section to view available order information.
+      </p>
+    </details>
+
+    <details>
+      <summary>What if I receive a wrong or damaged product?</summary>
+      <p>
+        Contact S.A Power Tools as soon as possible. Eligible cases may
+        be handled through the replacement policy.
+      </p>
+    </details>
+
+    <details>
+      <summary>How can I contact customer support?</summary>
+      <p>
+        Open the Customer Support page from the Settings menu or use the
+        support option provided on this website.
+      </p>
+    </details>
+
+  </section>
+
+
+  <section class="contact-box">
+
+    <h2>Still need help?</h2>
+
+    <p>
+      Our support team can help you with orders, products and website issues.
+    </p>
+
+    <a class="support-btn" href="support.html">
+      🎧 Contact Support
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+
+  © 2026 S.A Power Tools
+
+  <br><br>
+
+  <a href="index.html">Home</a>
+  <a href="terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="support.html">Support</a>
+
+</footer>
+
+<script>
+
+function searchHelp(){
+
+  const query =
+    document
+      .getElementById("helpSearch")
+      .value
+      .toLowerCase()
+      .trim();
+
+  document
+    .querySelectorAll(".help-card")
+    .forEach(function(card){
+
+      const text =
+        card
+          .getAttribute("data-search")
+          .toLowerCase();
+
+      card.style.display =
+        text.includes(query)
+          ? ""
+          : "none";
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
