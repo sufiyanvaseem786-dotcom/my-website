@@ -1504,6 +1504,88 @@ footer p{
   }
 
 }
+  <!-- =========================
+     SETTINGS BUTTON
+========================= -->
+
+<button class="settings-fab" onclick="toggleSettings()">
+  ⚙️
+</button>
+
+<!-- =========================
+     SETTINGS PANEL
+========================= -->
+
+<div class="settings-overlay" id="settingsOverlay" onclick="closeSettings(event)">
+  
+  <div class="settings-panel">
+
+    <div class="settings-header">
+      <div>
+        <h2>⚙️ Settings</h2>
+        <p>Customize your Nova Power Tools experience</p>
+      </div>
+
+      <button class="settings-close" onclick="toggleSettings()">×</button>
+    </div>
+
+    <div class="settings-option" onclick="openHelp()">
+      <div class="settings-icon">🆘</div>
+      <div>
+        <strong>Help Centre</strong>
+        <span>Find answers and help</span>
+      </div>
+      <b>›</b>
+    </div>
+
+    <div class="settings-option" onclick="openSupport()">
+      <div class="settings-icon">🎧</div>
+      <div>
+        <strong>Customer Support</strong>
+        <span>Contact our support team</span>
+      </div>
+      <b>›</b>
+    </div>
+
+    <div class="settings-option language-option">
+      <div class="settings-icon">🌐</div>
+
+      <div class="language-content">
+        <strong>Language</strong>
+        <span>Choose your language</span>
+
+        <div class="language-buttons">
+          <button onclick="changeLanguage('en')">
+            English
+          </button>
+
+          <button onclick="changeLanguage('hi')">
+            हिन्दी
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-option" onclick="window.location.href='privacy.html'">
+      <div class="settings-icon">🔒</div>
+      <div>
+        <strong>Privacy Policy</strong>
+        <span>How we protect your information</span>
+      </div>
+      <b>›</b>
+    </div>
+
+    <div class="settings-option" onclick="window.location.href='terms.html'">
+      <div class="settings-icon">📜</div>
+      <div>
+        <strong>Terms & Conditions</strong>
+        <span>Website terms and policies</span>
+      </div>
+      <b>›</b>
+    </div>
+
+  </div>
+</div>
 /* =====================================================
    S.A Power Tools - BRAND COLOR THEME
    Dark Navy + Electric Blue + Yellow
@@ -2327,6 +2409,285 @@ footer a:hover{
 
 .hero button{
   padding:11px 24px !important;
+}
+
+  /* =========================
+   SETTINGS BUTTON
+========================= */
+
+.settings-fab{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:52px;
+  height:52px;
+
+  border:1px solid rgba(0,140,255,.5);
+  border-radius:50%;
+
+  background:
+    linear-gradient(145deg,#071a38,#02050a);
+
+  color:white;
+  font-size:22px;
+
+  cursor:pointer;
+  z-index:9998;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.45),
+    0 0 18px rgba(0,120,255,.25);
+
+  transition:.25s;
+}
+
+.settings-fab:hover{
+  transform:rotate(45deg) scale(1.08);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.55),
+    0 0 25px rgba(0,140,255,.45);
+}
+
+
+/* =========================
+   SETTINGS OVERLAY
+========================= */
+
+.settings-overlay{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(5px);
+
+  display:none;
+  align-items:flex-end;
+  justify-content:flex-end;
+
+  z-index:9999;
+}
+
+.settings-overlay.active{
+  display:flex;
+}
+
+
+/* =========================
+   SETTINGS PANEL
+========================= */
+
+.settings-panel{
+  width:390px;
+  max-width:95%;
+
+  margin:20px;
+
+  padding:22px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #071a38,
+      #02050a
+    );
+
+  border:1px solid rgba(0,140,255,.35);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.7),
+    0 0 35px rgba(0,110,255,.15);
+
+  color:white;
+
+  animation:settingsOpen .3s ease;
+}
+
+@keyframes settingsOpen{
+
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.96);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.settings-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  padding-bottom:18px;
+  margin-bottom:10px;
+
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.settings-header h2{
+  margin:0;
+  font-size:23px;
+}
+
+.settings-header p{
+  margin:5px 0 0;
+  color:#9eacc2;
+  font-size:12px;
+}
+
+.settings-close{
+  border:0;
+  background:rgba(255,255,255,.08);
+
+  color:white;
+
+  width:34px;
+  height:34px;
+
+  border-radius:50%;
+
+  font-size:24px;
+  cursor:pointer;
+}
+
+
+/* =========================
+   OPTION
+========================= */
+
+.settings-option{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:15px 10px;
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.settings-option:hover{
+  background:rgba(0,120,255,.08);
+  border-radius:10px;
+}
+
+.settings-icon{
+  width:40px;
+  height:40px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+
+  background:rgba(0,120,255,.12);
+
+  font-size:20px;
+}
+
+.settings-option div:nth-child(2){
+  flex:1;
+}
+
+.settings-option strong{
+  display:block;
+  font-size:14px;
+}
+
+.settings-option span{
+  display:block;
+  margin-top:3px;
+
+  color:#8998ae;
+  font-size:11px;
+}
+
+.settings-option b{
+  color:#6f819b;
+  font-size:22px;
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.language-content{
+  flex:1;
+}
+
+.language-buttons{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.language-buttons button{
+  border:1px solid rgba(0,140,255,.3);
+
+  background:#071a38;
+
+  color:white;
+
+  padding:7px 14px;
+
+  border-radius:7px;
+
+  cursor:pointer;
+
+  font-size:12px;
+}
+
+.language-buttons button:hover{
+  background:#0867c9;
+}
+
+.language-buttons button.active{
+  background:#ffb000;
+  color:#111;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .settings-fab{
+    width:48px;
+    height:48px;
+
+    right:15px;
+    bottom:15px;
+  }
+
+  .settings-panel{
+    width:100%;
+    max-width:none;
+
+    margin:0;
+
+    border-radius:20px 20px 0 0;
+
+    padding:20px;
+  }
+
 }
 </style>
 </head>
@@ -4063,6 +4424,75 @@ footer a:hover{
   Added to cart! 🛒
 </div>
 
+<script>
+
+/* =========================
+   SETTINGS
+========================= */
+
+function toggleSettings(){
+
+  const panel =
+    document.getElementById("settingsOverlay");
+
+  panel.classList.toggle("active");
+
+}
+
+
+function closeSettings(event){
+
+  if(event.target.id === "settingsOverlay"){
+    toggleSettings();
+  }
+
+}
+
+
+/* =========================
+   HELP CENTRE
+========================= */
+
+function openHelp(){
+
+  window.location.href = "help.html";
+
+}
+
+
+/* =========================
+   CUSTOMER SUPPORT
+========================= */
+
+function openSupport(){
+
+  window.location.href = "support.html";
+
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+function changeLanguage(language){
+
+  localStorage.setItem(
+    "novaLanguage",
+    language
+  );
+
+  if(language === "hi"){
+
+    alert("हिन्दी भाषा चुनी गई है।");
+
+  }else{
+
+    alert("English language selected.");
+
+  }
+
+}
 
 <script>
 
