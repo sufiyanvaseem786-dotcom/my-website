@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Support | S.A Power Tools</title>
+
+<meta
+  name="description"
+  content="Contact S.A Power Tools customer support for orders, products, delivery, payments and replacements."
+>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+
+  background:
+    radial-gradient(circle at 15% 20%,rgba(0,120,255,.18),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(0,80,200,.16),transparent 30%),
+    linear-gradient(135deg,#02050a,#071a38 50%,#02050a);
+
+  color:white;
+}
+
+header{
+  padding:16px 5%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+  background:rgba(2,5,10,.92);
+
+  border-bottom:1px solid rgba(0,140,255,.3);
+
+  position:sticky;
+  top:0;
+
+  z-index:10;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#ffb000;
+}
+
+nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+
+  padding:9px 13px;
+
+  border-radius:8px;
+
+  font-size:14px;
+}
+
+nav a:hover{
+  background:rgba(0,120,255,.15);
+}
+
+.container{
+  max-width:900px;
+
+  margin:45px auto;
+
+  padding:0 18px;
+}
+
+.hero{
+  text-align:center;
+
+  margin-bottom:30px;
+}
+
+.hero h1{
+  font-size:38px;
+
+  margin-bottom:10px;
+}
+
+.hero h1 span{
+  color:#ffb000;
+}
+
+.hero p{
+  color:#aebbd0;
+
+  font-size:15px;
+}
+
+
+/* SUPPORT OPTIONS */
+
+.support-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:18px;
+}
+
+.support-card{
+  padding:25px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7,26,56,.95),
+      rgba(2,5,10,.95)
+    );
+
+  border:1px solid rgba(0,140,255,.25);
+
+  transition:.25s;
+}
+
+.support-card:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(0,140,255,.65);
+
+  box-shadow:
+    0 12px 35px rgba(0,80,180,.22);
+}
+
+.support-icon{
+  font-size:32px;
+
+  margin-bottom:12px;
+}
+
+.support-card h3{
+  margin-bottom:8px;
+}
+
+.support-card p{
+  color:#9eacc2;
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  margin-bottom:18px;
+}
+
+.support-link{
+  display:inline-block;
+
+  padding:10px 16px;
+
+  border-radius:8px;
+
+  background:#ffb000;
+
+  color:#111;
+
+  text-decoration:none;
+
+  font-weight:bold;
+
+  font-size:13px;
+}
+
+
+/* CONTACT FORM */
+
+.form-box{
+  margin-top:25px;
+
+  padding:25px;
+
+  border-radius:16px;
+
+  background:rgba(4,12,25,.9);
+
+  border:1px solid rgba(0,140,255,.2);
+}
+
+.form-box h2{
+  margin-bottom:8px;
+}
+
+.form-box > p{
+  color:#9eacc2;
+
+  font-size:13px;
+
+  margin-bottom:20px;
+}
+
+.input,
+textarea{
+  width:100%;
+
+  padding:13px 14px;
+
+  margin-bottom:12px;
+
+  border-radius:9px;
+
+  border:1px solid rgba(255,255,255,.16);
+
+  background:rgba(0,0,0,.35);
+
+  color:white;
+
+  outline:none;
+
+  font-family:inherit;
+
+  font-size:14px;
+}
+
+.input:focus,
+textarea:focus{
+  border-color:#ffb000;
+
+  box-shadow:
+    0 0 0 2px rgba(255,176,0,.08);
+}
+
+textarea{
+  min-height:130px;
+
+  resize:vertical;
+}
+
+.submit-btn{
+  width:100%;
+
+  border:0;
+
+  border-radius:9px;
+
+  padding:14px;
+
+  background:#ffb000;
+
+  color:#111;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  font-size:14px;
+}
+
+.submit-btn:hover{
+  box-shadow:
+    0 8px 25px rgba(255,176,0,.22);
+
+  transform:translateY(-1px);
+}
+
+.message{
+  min-height:20px;
+
+  margin-top:12px;
+
+  text-align:center;
+
+  color:#ffcf55;
+
+  font-size:13px;
+}
+
+
+/* INFO */
+
+.info{
+  margin-top:25px;
+
+  padding:22px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071a38,
+      #02050a
+    );
+
+  border:1px solid rgba(255,176,0,.25);
+
+  text-align:center;
+}
+
+.info h2{
+  margin-bottom:8px;
+}
+
+.info p{
+  color:#aab7ca;
+
+  font-size:13px;
+
+  line-height:1.7;
+}
+
+footer{
+  text-align:center;
+
+  padding:30px 15px;
+
+  color:#718198;
+
+  font-size:13px;
+}
+
+footer a{
+  color:#9db1cb;
+
+  text-decoration:none;
+
+  margin:0 6px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  header{
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+  .support-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    ⚡ S.A <span>Power Tools</span>
+  </div>
+
+  <nav>
+
+    <a href="index.html">🏠 Home</a>
+
+    <a href="cart.html">🛒 Cart</a>
+
+    <a href="account.html">👤 Account</a>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Customer <span>Support</span></h1>
+
+    <p>
+      We are here to help you with your orders, products and website issues.
+    </p>
+
+  </section>
+
+
+  <section class="support-grid">
+
+
+    <div class="support-card">
+
+      <div class="support-icon">📦</div>
+
+      <h3>Order Support</h3>
+
+      <p>
+        Need help with an order, order confirmation or order status?
+        Our support team can assist you.
+      </p>
+
+      <a class="support-link" href="help.html">
+        Order Help
+      </a>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <div class="support-icon">🔧</div>
+
+      <h3>Product Support</h3>
+
+      <p>
+        Need information about a power tool, specifications or product
+        availability? Contact us for assistance.
+      </p>
+
+      <a class="support-link" href="help.html">
+        Product Help
+      </a>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <div class="support-icon">🚚</div>
+
+      <h3>Delivery Support</h3>
+
+      <p>
+        Need help regarding delivery or delivery coordination?
+        Our team can help with your query.
+      </p>
+
+      <a class="support-link" href="help.html">
+        Delivery Help
+      </a>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <div class="support-icon">🔄</div>
+
+      <h3>Replacement Support</h3>
+
+      <p>
+        Received a damaged, defective or incorrect product?
+        Contact us as soon as possible regarding replacement.
+      </p>
+
+      <a class="support-link" href="help.html">
+        Replacement Help
+      </a>
+
+    </div>
+
+
+  </section>
+
+
+  <section class="form-box">
+
+    <h2>Send us a message</h2>
+
+    <p>
+      Fill in the details below and our team will receive your request.
+    </p>
+
+
+    <form
+      onsubmit="sendSupportMessage(event)"
+    >
+
+      <input
+        class="input"
+        id="supportName"
+        type="text"
+        placeholder="Your Name"
+        required
+      >
+
+      <input
+        class="input"
+        id="supportEmail"
+        type="email"
+        placeholder="Email Address"
+        required
+      >
+
+      <input
+        class="input"
+        id="supportPhone"
+        type="tel"
+        placeholder="Mobile Number"
+      >
+
+      <textarea
+        id="supportMessage"
+        placeholder="How can we help you?"
+        required
+      ></textarea>
+
+      <button
+        class="submit-btn"
+        type="submit"
+      >
+        Send Support Request
+      </button>
+
+      <div
+        class="message"
+        id="supportResult"
+      ></div>
+
+    </form>
+
+  </section>
+
+
+  <section class="info">
+
+    <h2>Need immediate help?</h2>
+
+    <p>
+      For urgent order or delivery issues, please use the contact details
+      provided by S.A Power Tools on the website.
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  © 2026 S.A Power Tools
+
+  <br><br>
+
+  <a href="index.html">Home</a>
+
+  <a href="help.html">Help Centre</a>
+
+  <a href="terms.html">Terms</a>
+
+  <a href="privacy.html">Privacy</a>
+
+</footer>
+
+
+<script>
+
+function sendSupportMessage(event){
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("supportName").value.trim();
+
+  const email =
+    document.getElementById("supportEmail").value.trim();
+
+  const phone =
+    document.getElementById("supportPhone").value.trim();
+
+  const message =
+    document.getElementById("supportMessage").value.trim();
+
+
+  const subject =
+    encodeURIComponent(
+      "S.A Power Tools - Customer Support"
+    );
+
+  const body =
+    encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\nMobile: " + phone +
+      "\n\nMessage:\n" + message
+    );
+
+
+  window.location.href =
+    "mailto:sufiyanvaseem786@gmail.com?subject="
+    + subject
+    + "&body="
+    + body;
+
+}
+
+</script>
+
+</body>
+</html>
+```
