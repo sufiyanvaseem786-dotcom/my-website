@@ -1511,13 +1511,69 @@ footer p{
 
 /* MAIN WEBSITE BACKGROUND */
 body{
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+
   background:
-    radial-gradient(circle at 20% 10%, rgba(37,99,235,.18), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(255,176,0,.12), transparent 28%),
-    linear-gradient(135deg,#0b1220 0%,#111827 45%,#172033 100%);
-  color:#ffffff;
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0, 110, 255, 0.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(0, 70, 255, 0.20),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #000000 0%,
+      #020b1c 45%,
+      #001a3d 70%,
+      #000000 100%
+    );
+
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+  body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(0, 120, 255, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(0, 70, 255, 0.15),
+      transparent 25%
+    );
+
+  animation: blueBackgroundMove 10s ease-in-out infinite alternate;
 }
 
+@keyframes blueBackgroundMove {
+  0% {
+    transform: translate(-5%, -3%) scale(1);
+  }
+
+  50% {
+    transform: translate(5%, 4%) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-3%, 6%) scale(1.04);
+  }
+}
+  
 /* PRODUCT SECTION */
 .products-section,
 .products-container{
