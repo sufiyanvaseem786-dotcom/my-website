@@ -1509,69 +1509,229 @@ footer p{
    Dark Navy + Electric Blue + Yellow
 ===================================================== */
 
-/* MAIN WEBSITE BACKGROUND */
-body{
+/* =========================================
+   FULL WEBSITE PREMIUM BLACK BLUE BACKGROUND
+========================================= */
+
+html,
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(0, 100, 255, 0.20), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(0, 70, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0, 120, 255, 0.12), transparent 35%),
+        linear-gradient(135deg, #01030a 0%, #03132d 45%, #01040b 100%) !important;
 
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(0, 110, 255, 0.22),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(0, 70, 255, 0.20),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #000000 0%,
-      #020b1c 45%,
-      #001a3d 70%,
-      #000000 100%
-    );
-
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-  body::before {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  z-index: -1;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at 30% 40%,
-      rgba(0, 120, 255, 0.18),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(0, 70, 255, 0.15),
-      transparent 25%
-    );
-
-  animation: blueBackgroundMove 10s ease-in-out infinite alternate;
+    color: #ffffff !important;
+    min-height: 100%;
 }
 
-@keyframes blueBackgroundMove {
-  0% {
-    transform: translate(-5%, -3%) scale(1);
-  }
 
-  50% {
-    transform: translate(5%, 4%) scale(1.08);
-  }
+/* Main page background */
 
-  100% {
-    transform: translate(-3%, 6%) scale(1.04);
-  }
+main,
+section,
+.shop-section,
+.categories,
+.category-section,
+.products-section {
+    background: transparent !important;
+}
+
+
+/* =========================================
+   BLUE TECH GRID OVER WHOLE PAGE
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 130, 255, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 130, 255, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+    z-index: 0;
+
+    animation: pageGridMove 18s linear infinite;
+}
+
+
+@keyframes pageGridMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 45px 45px;
+    }
+}
+
+
+/* =========================================
+   MOVING BLUE LIGHT
+========================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    left: -200px;
+    top: 35%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 110, 255, 0.22),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation: blueLightMove 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes blueLightMove {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(350px, -100px) scale(1.25);
+    }
+
+    100% {
+        transform: translate(750px, 150px) scale(.9);
+    }
+
+}
+
+
+/* =========================================
+   CONTENT ABOVE EFFECTS
+========================================= */
+
+header,
+main,
+footer,
+.hero,
+.shop-section,
+.categories,
+.category-section,
+.products-section {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================
+   SHOP CATEGORY AREA
+========================================= */
+
+.shop-section,
+.categories,
+.category-section,
+.products-section {
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 100, 255, 0.10),
+            transparent 45%
+        ) !important;
+}
+
+
+/* =========================================
+   CATEGORY CARDS
+========================================= */
+
+.category-card,
+.category,
+.product-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5, 20, 45, 0.96),
+            rgba(1, 5, 14, 0.98)
+        ) !important;
+
+    border: 1px solid rgba(0, 130, 255, 0.30) !important;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(0, 80, 180, 0.04);
+
+    color: white !important;
+}
+
+
+/* =========================================
+   CATEGORY TEXT
+========================================= */
+
+.shop-section h2,
+.categories h2,
+.category-section h2,
+.products-section h2 {
+
+    color: white !important;
+
+    text-shadow:
+        0 0 15px rgba(0, 130, 255, 0.25);
+}
+
+
+/* =========================================
+   IMAGE BOXES
+========================================= */
+
+.category-card img,
+.category img,
+.product-card img {
+
+    background: #ffffff;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    body::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    body::before {
+        background-size: 35px 35px;
+    }
+
 }
   
 /* PRODUCT SECTION */
